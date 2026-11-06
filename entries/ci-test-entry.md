@@ -1,7 +1,7 @@
 ---
 title: CI test entry
-kind: lemma
-summary: A deliberately invalid entry, used to test CI.
+kind: note
+summary: A valid entry, used to test CI. Never merged.
 ---
 
-This cites [@nothing-here] without a location.
+Temporary text.
