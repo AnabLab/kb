@@ -1,0 +1,8 @@
+# Changes to CI, the validator and the contributor instructions need this owner's approval.
+/.github/           @adamtopaz
+/scripts/           @adamtopaz
+/package.json       @adamtopaz
+/package-lock.json  @adamtopaz
+/INSTRUCTIONS.md    @adamtopaz
+/AGENTS.md          @adamtopaz
+/CLAUDE.md          @adamtopaz
