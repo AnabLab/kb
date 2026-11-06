@@ -34,8 +34,11 @@ const DISCUSSION_FIELDS = `
   number title ${POST}
   comments(last: 20) { nodes { ${POST} replies(last: 20) { nodes { ${POST} } } } }`;
 
+// GitHub calls an App "name[bot]" when it is the viewer, but "name" when it is an author.
+const accountName = (login) => login?.replace(/\[bot\]$/, "");
+const isAccount = (author, viewer) => accountName(author?.login) === accountName(viewer);
 const isMember = (post) => MEMBER_ASSOCIATIONS.has(post.authorAssociation);
-const isOwnPost = (post, viewer) => post.author?.login === viewer && (post.body ?? "").includes(MARKER);
+const isOwnPost = (post, viewer) => isAccount(post.author, viewer) && (post.body ?? "").includes(MARKER);
 const isSeen = (post) => (post.reactionGroups ?? []).some((group) => group.content === "EYES" && group.viewerHasReacted);
 
 export function ciState(pr) {
@@ -48,7 +51,7 @@ export function ciState(pr) {
 export function approvalBlockers(pr, viewer) {
   const blockers = [];
   const files = pr.files.nodes;
-  if (pr.author?.login === viewer) blockers.push("GitHub does not let an account approve its own PR");
+  if (isAccount(pr.author, viewer)) blockers.push("GitHub does not let an account approve its own PR");
   if (pr.isDraft) blockers.push("the PR is a draft");
   if (pr.changedFiles > files.length) blockers.push("the PR changes too many files to check");
   const outside = files.filter((file) => !APPROVABLE_PATH.test(file.path)).map((file) => file.path);
@@ -118,16 +121,17 @@ export function planWork(viewer, prs, discussions) {
 }
 
 // Non-members' words are left out entirely, because they may be written to steer an agent.
-function renderPost(post) {
+function renderPost(post, viewer) {
+  if (isOwnPost(post, viewer)) return `you, in an earlier pass:\n${post.body}`;
   return isMember(post) ? `${post.author?.login ?? "ghost"} (${post.authorAssociation}):\n${post.body}` : "[hidden: from a non-member]";
 }
 
-export function renderThread(discussion) {
+export function renderThread(discussion, viewer) {
   const sections = [`# Discussion #${discussion.number}: ${discussion.title}`];
   for (const post of threadPosts(discussion)) {
     const target = post.replyToId ?? (post.id === discussion.id ? null : post.id);
     const ids = target ? `id: ${post.id}; to reply here use --to ${target}` : `id: ${post.id}`;
-    sections.push(`## ${ids}\n${renderPost(post)}`);
+    sections.push(`## ${ids}\n${renderPost(post, viewer)}`);
   }
   return sections.join("\n\n");
 }
@@ -146,10 +150,10 @@ export function renderPr(pr, viewer, contents) {
     ].join("\n"),
     `## Description\n${pr.body || "(none)"}`,
   ];
-  for (const item of pr.reviews.nodes.filter(isMember)) {
+  for (const item of pr.reviews.nodes.filter((review) => isMember(review) || isOwnPost(review, viewer))) {
     sections.push(`## Review, ${item.state}, by ${item.author?.login}, at ${item.commit?.oid?.slice(0, 7)}\n${item.body || "(no text)"}`);
   }
-  for (const comment of pr.comments.nodes) sections.push(`## Comment ${comment.id}\n${renderPost(comment)}`);
+  for (const comment of pr.comments.nodes) sections.push(`## Comment ${comment.id}\n${renderPost(comment, viewer)}`);
   for (const [path, text] of contents) sections.push(`## ${path} at ${pr.headRefOid.slice(0, 7)}\n${text}`);
   return sections.join("\n\n");
 }
@@ -189,12 +193,19 @@ function fetchPr(number) {
 }
 
 function fetchDiscussion(number) {
-  return graphql(
+  const data = graphql(
     `query ($owner: String!, $name: String!, $number: Int!) {
+      viewer { login }
       repository(owner: $owner, name: $name) { discussion(number: $number) { ${DISCUSSION_FIELDS} } }
     }`,
     { owner: OWNER, name: NAME, number },
-  ).repository.discussion;
+  );
+  return { viewer: data.viewer.login, discussion: data.repository.discussion };
+}
+
+function runThread(number) {
+  const { viewer, discussion } = fetchDiscussion(number);
+  console.log(renderThread(discussion, viewer));
 }
 
 function readBody(file) {
@@ -247,7 +258,7 @@ function runReview(number, sha, verdict, file) {
   const body = readBody(file);
   const { viewer, pr } = fetchPr(number);
   assertReviewable(pr, sha);
-  if (verdict === "request-changes" && pr.author?.login === viewer) {
+  if (verdict === "request-changes" && isAccount(pr.author, viewer)) {
     fail("GitHub does not let an account request changes on its own PR; use comment");
   }
   if (verdict === "approve") {
@@ -275,7 +286,7 @@ function runAutomerge(number, sha) {
 
 function runReply(number, file, replyToId) {
   const body = readBody(file);
-  const discussion = fetchDiscussion(number);
+  const { discussion } = fetchDiscussion(number);
   const data = graphql(
     `mutation ($discussionId: ID!, $replyToId: ID, $body: String!) {
       addDiscussionComment(input: { discussionId: $discussionId, replyToId: $replyToId, body: $body }) { comment { url } }
@@ -313,7 +324,7 @@ function main([command, ...args]) {
   if (command === "pr" && args.length === 1 && number) return runPr(number);
   if (command === "review" && args.length === 4 && number) return runReview(number, args[1], args[2], args[3]);
   if (command === "automerge" && args.length === 2 && number) return runAutomerge(number, args[1]);
-  if (command === "thread" && args.length === 1 && number) return console.log(renderThread(fetchDiscussion(number)));
+  if (command === "thread" && args.length === 1 && number) return runThread(number);
   if (command === "reply" && args.length === 2 && number) return runReply(number, args[1]);
   if (command === "reply" && args.length === 4 && number && args[2] === "--to") return runReply(number, args[1], args[3]);
   if (command === "seen" && args.length === 1) return runSeen(args[0]);
