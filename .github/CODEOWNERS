@@ -1,4 +1,4 @@
-# Changes to CI, the validator and the contributor instructions need this owner's approval.
+# Changes to CI, the validator, agent skills, the instructions and the licences need this owner's approval.
 /.github/           @adamtopaz
 /scripts/           @adamtopaz
 /package.json       @adamtopaz
@@ -6,3 +6,6 @@
 /INSTRUCTIONS.md    @adamtopaz
 /AGENTS.md          @adamtopaz
 /CLAUDE.md          @adamtopaz
+/.claude/           @adamtopaz
+/LICENSE            @adamtopaz
+/LICENSE-CODE       @adamtopaz
