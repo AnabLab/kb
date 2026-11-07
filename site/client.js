@@ -17,6 +17,8 @@ if (root) {
   let selected = null;
 
   const setClass = (element, name, on) => element.classList.toggle(name, on);
+  const normalize = (text) => text.normalize("NFD").replace(/\p{M}/gu, "").replace(/[-–—]/g, " ").toLowerCase();
+  const searchText = new Map(rows.map((row) => [row.dataset.id, normalize(row.dataset.search)]));
 
   // Emphasizes one node and its neighbours, or clears emphasis when given no node.
   function emphasize(id) {
@@ -49,18 +51,20 @@ if (root) {
   }
 
   function selectFromHash() {
-    const id = decodeURIComponent(location.hash.slice(1));
+    const id = location.hash.slice(1);
     if (id.startsWith("wanted-")) return;
     select(id, { updateHash: false });
   }
 
   // Filters scope the graph and the table together.
   function applyFilters() {
-    const query = search.value.trim().toLowerCase();
+    const words = normalize(search.value).split(/\s+/).filter(Boolean);
     const kindsOn = new Set([...root.querySelectorAll("[data-filter-kind]:checked")].map((input) => input.dataset.filterKind));
     const labelsOn = new Set([...root.querySelectorAll("[data-filter-label]:checked")].map((input) => input.dataset.filterLabel));
-    const searchText = new Map(rows.map((row) => [row.dataset.id, row.dataset.search]));
-    const matches = (id, kind) => kindsOn.has(kind) && (!query || (searchText.get(id) ?? id.replaceAll("-", " ")).includes(query));
+    const matches = (id, kind) => {
+      const text = searchText.get(id) ?? normalize(id);
+      return kindsOn.has(kind) && words.every((word) => text.includes(word));
+    };
 
     const visible = new Set();
     for (const node of nodes) {
@@ -76,7 +80,7 @@ if (root) {
       row.hidden = !matches(row.dataset.id, row.dataset.kind);
       if (!row.hidden) shownRows += 1;
     }
-    count.textContent = shownRows === rows.length ? `${rows.length} entries` : `Showing ${shownRows} of ${rows.length} entries`;
+    count.textContent = shownRows === rows.length ? `${rows.length} ${rows.length === 1 ? "entry" : "entries"}` : `Showing ${shownRows} of ${rows.length} entries`;
   }
 
   // Panning and zooming change the SVG's viewBox.
@@ -108,11 +112,13 @@ if (root) {
 
   let drag = null;
   svg.addEventListener("pointerdown", (event) => {
-    if (event.button === 0) drag = { start: toSvgPoint(event), view: { ...view }, moved: false, pointerId: event.pointerId };
+    if (event.button === 0) drag = { start: toSvgPoint(event), clientX: event.clientX, clientY: event.clientY, moved: false, pointerId: event.pointerId };
   });
   svg.addEventListener("pointermove", (event) => {
     if (!drag) return;
-    if (!drag.moved && Math.hypot(event.movementX, event.movementY) > 0) {
+    if (!drag.moved) {
+      // A little movement during a click isn't a drag.
+      if (Math.hypot(event.clientX - drag.clientX, event.clientY - drag.clientY) < 4) return;
       drag.moved = true;
       svg.setPointerCapture(drag.pointerId);
       svg.classList.add("is-dragging");

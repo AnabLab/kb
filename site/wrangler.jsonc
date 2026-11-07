@@ -2,10 +2,7 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "anablab-kb",
   "compatibility_date": "2026-11-01",
-  "routes": [
-    { "pattern": "anablab.org/kb", "zone_name": "anablab.org" },
-    { "pattern": "anablab.org/kb/*", "zone_name": "anablab.org" }
-  ],
+  "routes": [{ "pattern": "anablab.org/kb*", "zone_name": "anablab.org" }],
   "assets": {
     "directory": "dist",
     "not_found_handling": "404-page"

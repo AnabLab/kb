@@ -45,6 +45,7 @@
 
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 html { -webkit-text-size-adjust: 100%; }
 body { margin: 0; background: var(--page); color: var(--ink); font: 16px/1.5 var(--sans); }
 a { color: var(--link); text-underline-offset: 2px; }
@@ -216,6 +217,9 @@ td p { margin: 2px 0 0; color: var(--ink-2); font-size: 13px; max-width: 72ch; }
   .tile dd { font-size: 20px; }
   th, td { padding-inline: 10px; }
   .nowrap { white-space: normal; }
+}
+@media (scripting: none) {
+  .filters input[type="search"], .graph-controls, .graph-hint { display: none; }
 }
 @media (forced-colors: active) {
   .mark { fill: CanvasText; stroke: Canvas; }

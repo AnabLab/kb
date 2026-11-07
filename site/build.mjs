@@ -3,7 +3,7 @@
 // Usage: node build.mjs [--root <repo>] [--out <dir>]
 import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
-import { copyFileSync, cpSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { copyFileSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { forceCenter, forceCollide, forceLink, forceManyBody, forceSimulation, forceX, forceY } from "d3-force";
@@ -24,7 +24,7 @@ const LABEL_WORDS = {
   generalizes: ["Generalizes", "Generalized by"],
   addresses: ["Addresses", "Addressed by"],
   refutes: ["Refutes", "Refuted by"],
-  "analogous-to": ["Analogous to", "Analogous from"],
+  "analogous-to": ["Analogous to", "Analogous to this"],
   "motivated-by": ["Motivated by", "Motivated"],
 };
 // These relate ideas rather than assert logic, so the graph draws them dashed.
@@ -33,14 +33,16 @@ const SOFT_LABELS = new Set(["analogous-to", "motivated-by"]);
 const escapeHtml = (text) =>
   String(text).replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
 
-const renderMath = (tex, displayMode) => katex.renderToString(tex, { displayMode, throwOnError: false });
+const renderMath = (tex, displayMode) => katex.renderToString(tex, { displayMode, throwOnError: false, maxSize: 10 });
 
 // A readable approximation of LaTeX, for places that can't show rendered math.
-const GREEK = { alpha: "α", beta: "β", gamma: "γ", delta: "δ", ell: "ℓ", lambda: "λ", mu: "μ", nu: "ν", pi: "π", rho: "ρ", sigma: "σ", tau: "τ", phi: "φ", chi: "χ", Gamma: "Γ", Pi: "Π", Sigma: "Σ" };
+const SYMBOLS = { alpha: "α", beta: "β", gamma: "γ", delta: "δ", ell: "ℓ", lambda: "λ", mu: "μ", nu: "ν", pi: "π", rho: "ρ", sigma: "σ", tau: "τ", phi: "φ", chi: "χ", Gamma: "Γ", Pi: "Π", Sigma: "Σ", cong: "≅", simeq: "≃", to: "→", rightarrow: "→", in: "∈", subset: "⊂", le: "≤", leq: "≤", ge: "≥", geq: "≥", neq: "≠", times: "×", otimes: "⊗" };
 const plainText = (text) =>
   text
-    .replace(/\$\$?([^$]+)\$\$?/g, (_, tex) => tex.replace(/\\([a-zA-Z]+)\s*/g, (__, name) => GREEK[name] ?? "").replace(/[{}]/g, ""))
-    .replace(/[*`]/g, "");
+    .replace(/\$\$?([^$]+)\$\$?/g, (_, tex) => tex.replace(/\\([a-zA-Z]+)\s*/g, (__, name) => (Object.hasOwn(SYMBOLS, name) ? ` ${SYMBOLS[name]} ` : "")).replace(/[{}]/g, ""))
+    .replace(/[*`]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
 
 const TEX_ACCENTS = { "'": "\u0301", "`": "\u0300", "^": "\u0302", '"': "\u0308", "~": "\u0303", "=": "\u0304", ".": "\u0307" };
 const cleanBibText = (text) =>
@@ -56,8 +58,10 @@ function parseBib(text) {
   for (const [, type, key, rest] of text.matchAll(/@(\w+)\s*\{\s*([^,\s]+)\s*,([\s\S]*?)(?=\n\s*@\w+\s*\{|$)/g)) {
     if (["comment", "string", "preamble"].includes(type.toLowerCase())) continue;
     const fields = {};
-    for (const [, name, braced, quoted] of rest.matchAll(/(\w+)\s*=\s*(?:\{((?:[^{}]|\{[^{}]*\})*)\}|"([^"]*)")/g)) {
-      fields[name.toLowerCase()] = cleanBibText(braced ?? quoted);
+    for (const [, name, braced, quoted, bare] of rest.matchAll(/(\w+)\s*=\s*(?:\{((?:[^{}]|\{[^{}]*\})*)\}|"([^"]*)"|(\d+))/g)) {
+      const field = name.toLowerCase();
+      const value = braced ?? quoted ?? bare;
+      fields[field] = ["url", "doi"].includes(field) ? value.trim() : cleanBibText(value);
     }
     references.set(key, fields);
   }
@@ -85,6 +89,10 @@ function makeMarkdown(index, references) {
   const written = new Set(index.entries.map((entry) => entry.id));
   return new Marked({
     gfm: true,
+    // Marked leaves text after an unclosed raw tag unescaped, which would let an entry inject HTML.
+    walkTokens(token) {
+      if (token.type === "text") token.escaped = false;
+    },
     extensions: [
       {
         name: "mathBlock",
@@ -223,6 +231,9 @@ export function layoutGraph(index) {
   const xs = [...nodes.flatMap((node) => [node.x - node.r, node.x + node.r]), ...labelBoxes.flatMap((box) => [box.left, box.right])];
   const ys = [...nodes.flatMap((node) => [node.y - node.r - 6, node.y + node.r + 6]), ...labelBoxes.flatMap((box) => [box.top, box.bottom])];
   const viewBox = nodes.length === 0 ? [0, 0, 800, 400] : [Math.min(...xs) - padding, Math.min(...ys) - padding, Math.max(...xs) - Math.min(...xs) + 2 * padding, Math.max(...ys) - Math.min(...ys) + 2 * padding];
+  const [minWidth, minHeight] = [640, 440];
+  if (viewBox[2] < minWidth) [viewBox[0], viewBox[2]] = [viewBox[0] - (minWidth - viewBox[2]) / 2, minWidth];
+  if (viewBox[3] < minHeight) [viewBox[1], viewBox[3]] = [viewBox[1] - (minHeight - viewBox[3]) / 2, minHeight];
   return { nodes, edges, byId, viewBox: viewBox.map((value) => Number(value.toFixed(1))) };
 }
 
@@ -308,18 +319,20 @@ function statusNotes(entry, titleOf, inline) {
 }
 
 function relationGroups(entry, titleOf, inline, isWritten) {
-  const link = (id, note) => {
+  const link = (id, note, noteOwner) => {
+    // A note's citations are listed on the page of the entry that owns the note.
+    const noteHtml = note ? inline(note).replaceAll('href="#ref-', `href="${BASE}/${noteOwner}/#ref-`) : "";
     const name = isWritten(id) ? `<a href="${BASE}/${id}/">${inline(titleOf(id))}</a>` : `<a class="wanted-link" href="${BASE}/#wanted-${id}" title="Not written yet">${escapeHtml(wantedName(id))}</a>`;
-    return `<li>${name}${note ? `<span class="relation-note"> ${inline(note)}</span>` : ""}</li>`;
+    return `<li>${name}${noteHtml ? `<span class="relation-note"> ${noteHtml}</span>` : ""}</li>`;
   };
   const groups = [];
   for (const label of LABELS) {
     const outgoing = entry.edges.filter((edge) => edge.label === label);
-    if (outgoing.length > 0) groups.push(`<div><h3>${LABEL_WORDS[label][0]}</h3><ul>${outgoing.map((edge) => link(edge.to, edge.note)).join("")}</ul></div>`);
+    if (outgoing.length > 0) groups.push(`<div><h3>${LABEL_WORDS[label]?.[0] ?? label}</h3><ul>${outgoing.map((edge) => link(edge.to, edge.note, entry.id)).join("")}</ul></div>`);
   }
   for (const label of LABELS) {
     const incoming = entry.incoming.filter((edge) => edge.label === label);
-    if (incoming.length > 0) groups.push(`<div><h3>${LABEL_WORDS[label][1]}</h3><ul>${incoming.map((edge) => link(edge.from, edge.note)).join("")}</ul></div>`);
+    if (incoming.length > 0) groups.push(`<div><h3>${LABEL_WORDS[label]?.[1] ?? `${label} (incoming)`}</h3><ul>${incoming.map((edge) => link(edge.from, edge.note, edge.from)).join("")}</ul></div>`);
   }
   return groups.join("");
 }
@@ -335,9 +348,9 @@ function page({ title, description, body, bodyClass = "" }) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${escapeHtml(title)}</title>
 <meta name="description" content="${escapeHtml(description)}">
-<link rel="stylesheet" href="${BASE}/assets/katex/katex.min.css">
-<link rel="stylesheet" href="${BASE}/assets/style.css?v=${assetVersion("style.css")}">
-<link rel="icon" href="${BASE}/assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="${BASE}/_assets/katex/katex.min.css">
+<link rel="stylesheet" href="${BASE}/_assets/style.css?v=${assetVersion("style.css")}">
+<link rel="icon" href="${BASE}/_assets/icon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/json" href="${BASE}/index.json" title="The whole graph as JSON">
 </head>
 <body class="${bodyClass}">
@@ -368,13 +381,13 @@ function renderDashboard(index, graph, dates, inline, titleOf, isWritten) {
   ].join("");
 
   if (entries.length === 0) {
-    return `<main class="dashboard"><dl class="tiles">${tiles}</dl>
+    return `<main class="dashboard"><h1 class="visually-hidden">AnabLab knowledgebase</h1><dl class="tiles">${tiles}</dl>
 <section class="empty"><h2>The first entries are on their way</h2><p>This graph will fill in as reviewed entries reach the knowledgebase. To take part, tell your AI assistant to read <a href="${REPO_URL}/blob/main/INSTRUCTIONS.md">the instructions</a> and follow them.</p></section></main>`;
   }
 
   const item = (entry) => `<li><a href="${BASE}/${entry.id}/">${inline(entry.title)}</a><p>${inline(entry.summary)}</p></li>`;
   const byConnections = (a, b) => b.edges.length + b.incoming.length - (a.edges.length + a.incoming.length) || a.id.localeCompare(b.id);
-  const problems = entries.filter((entry) => entry.kind === "problem").sort(byConnections);
+  const problems = entries.filter((entry) => entry.kind === "problem" && entry.refutedBy.length === 0).sort(byConnections);
   const ideas = entries.filter((entry) => entry.kind === "idea" && entry.refutedBy.length === 0).sort(byConnections);
   const recent = entries.filter((entry) => dates.has(entry.id)).sort((a, b) => dates.get(b.id).localeCompare(dates.get(a.id)) || a.id.localeCompare(b.id));
   const listSection = (id, heading, items, renderItem, empty) => `<section class="list" id="${id}"><h2>${heading}</h2>${items.length > 0 ? `<ul>${items.slice(0, 8).map(renderItem).join("")}</ul>` : `<p class="muted">${empty}</p>`}</section>`;
@@ -403,6 +416,7 @@ function renderDashboard(index, graph, dates, inline, titleOf, isWritten) {
     .join("");
 
   return `<main class="dashboard" data-explorer>
+<h1 class="visually-hidden">AnabLab knowledgebase</h1>
 <dl class="tiles">${tiles}</dl>
 <section class="explorer">
 <form class="filters" role="search">
@@ -431,7 +445,7 @@ ${listSection("recent", "Recently updated", recent, (entry) => `<li><a href="${B
 <section class="list" id="wanted"><h2>Wanted entries</h2>${wanted.length > 0 ? `<ul>${wanted.map((want) => `<li id="wanted-${want.id}">${escapeHtml(wantedName(want.id))}<p>Referenced by ${want.referencedBy.map((id) => `<a href="${BASE}/${id}/">${inline(titleOf(id))}</a>`).join(", ")}</p></li>`).join("")}</ul>` : `<p class="muted">Nothing is waiting to be written.</p>`}</section>
 </div>
 ${templates}${wantedTemplates}
-<script src="${BASE}/assets/client.js?v=${assetVersion("client.js")}" defer></script>
+<script src="${BASE}/_assets/client.js?v=${assetVersion("client.js")}" defer></script>
 </main>`;
 }
 
@@ -466,9 +480,6 @@ const HEADERS = `${BASE}/*
 
 ${BASE}/index.json
   Access-Control-Allow-Origin: *
-
-${BASE}/assets/katex/*
-  Cache-Control: public, max-age=31536000, immutable
 `;
 
 const ICON = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#104281"/><path d="M9 22L16 9l7 13" fill="none" stroke="#cde2fb" stroke-width="2"/><circle cx="16" cy="9" r="3.5" fill="#fff"/><circle cx="9" cy="22" r="3.5" fill="#fff"/><circle cx="23" cy="22" r="3.5" fill="#fff"/></svg>`;
@@ -477,7 +488,8 @@ export function build({ root = resolve(SITE_DIR, ".."), out = join(SITE_DIR, "di
   const { entries: corpus, problems } = loadCorpus(root);
   if (problems.length > 0) throw new Error(`the corpus has problems:\n${problems.join("\n")}`);
   const index = buildIndex(corpus);
-  const references = parseBib(readFileSync(join(root, "references.bib"), "utf8"));
+  const bibliography = readFileSync(join(root, "references.bib"), "utf8");
+  const references = parseBib(bibliography);
   const dates = lastChanged(root);
   const markdown = makeMarkdown(index, references);
   const inline = (text) => markdown.parseInline(text);
@@ -489,17 +501,17 @@ export function build({ root = resolve(SITE_DIR, ".."), out = join(SITE_DIR, "di
   const dist = out;
   rmSync(dist, { recursive: true, force: true });
   out = join(dist, BASE);
-  mkdirSync(join(out, "assets/katex/fonts"), { recursive: true });
-  for (const file of ["style.css", "client.js"]) copyFileSync(join(SITE_DIR, file), join(out, "assets", file));
+  mkdirSync(join(out, "_assets/katex/fonts"), { recursive: true });
+  for (const file of ["style.css", "client.js"]) copyFileSync(join(SITE_DIR, file), join(out, "_assets", file));
   const katexDir = dirname(fileURLToPath(import.meta.resolve("katex/dist/katex.min.css")));
-  copyFileSync(join(katexDir, "katex.min.css"), join(out, "assets/katex/katex.min.css"));
-  copyFileSync(join(katexDir, "..", "LICENSE"), join(out, "assets/katex/LICENSE"));
+  copyFileSync(join(katexDir, "katex.min.css"), join(out, "_assets/katex/katex.min.css"));
+  copyFileSync(join(katexDir, "..", "LICENSE"), join(out, "_assets/katex/LICENSE"));
   for (const font of readdirSync(join(katexDir, "fonts")).filter((name) => name.endsWith(".woff2"))) {
-    copyFileSync(join(katexDir, "fonts", font), join(out, "assets/katex/fonts", font));
+    copyFileSync(join(katexDir, "fonts", font), join(out, "_assets/katex/fonts", font));
   }
-  writeFileSync(join(out, "assets/icon.svg"), ICON);
+  writeFileSync(join(out, "_assets/icon.svg"), ICON);
   writeFileSync(join(dist, "_headers"), HEADERS);
-  cpSync(join(root, "references.bib"), join(out, "references.bib"));
+  writeFileSync(join(out, "references.bib"), bibliography);
   writeFileSync(join(out, "index.json"), `${JSON.stringify(index, null, 2)}\n`);
 
   writeFileSync(

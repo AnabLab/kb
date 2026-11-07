@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { existsSync, lstatSync, mkdirSync, mkdtempSync, readFileSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { after, test } from "node:test";
@@ -35,7 +35,7 @@ test("each entry gets a page and raw Markdown, and everything sits under /kb", (
   assert.match(read("a-theorem/index.html"), /<h1>A title<\/h1>/);
   assert.match(read("index.html"), /href="\/kb\/a-theorem\/"/);
   assert.ok(!/(?:href|src)="\/(?!kb\/)/.test(read("index.html")), "every internal URL starts with /kb");
-  for (const file of ["kb/404.html", "kb/index.json", "kb/references.bib", "kb/assets/style.css", "kb/assets/client.js", "kb/assets/katex/katex.min.css", "_headers"]) assert.ok(existsSync(join(out, file)), file);
+  for (const file of ["kb/404.html", "kb/index.json", "kb/references.bib", "kb/_assets/style.css", "kb/_assets/client.js", "kb/_assets/katex/katex.min.css", "_headers"]) assert.ok(existsSync(join(out, file)), file);
   assert.match(readFileSync(join(out, "_headers"), "utf8"), /^\/kb\/\*/);
 });
 
@@ -109,6 +109,70 @@ test("raw HTML and unsafe links in entries are neutralized", () => {
   assert.ok(!page.includes("<img"));
   assert.ok(!page.includes("javascript:"));
   assert.ok(!page.includes("https://example.org/a.png"));
+});
+
+test("an unterminated raw tag can't inject HTML through any field", () => {
+  const payload = '<kbd><meta http-equiv=refresh content="0;url=//evil.example/" ';
+  const root = mkdtempSync(join(tmpdir(), "kb-site-"));
+  directories.push(root);
+  mkdirSync(join(root, "entries"));
+  writeFileSync(join(root, "references.bib"), `@article{a2020,\n  author = {A, B},\n  title = {T ${payload}},\n  year = {2020},\n}\n`);
+  writeFileSync(join(root, "entries/source.md"), `---\ntitle: 'T ${payload}'\nkind: note\nsummary: 'S ${payload}'\nedges:\n  - {to: target, label: uses, note: 'N ${payload}'}\n---\n\nBody ${payload}\n\nSee [@a2020, p. 1].\n`);
+  writeFileSync(join(root, "entries/target.md"), entry("note"));
+  build({ root, out: join(root, "dist") });
+  for (const page of ["index.html", "source/index.html", "target/index.html"]) {
+    const html = readFileSync(join(root, "dist/kb", page), "utf8");
+    assert.ok(!/<meta http-equiv/i.test(html), page);
+    assert.ok(!/<kbd/i.test(html), page);
+  }
+});
+
+test("the published bibliography is a regular file, and a linked one fails the build", () => {
+  const { out } = site({});
+  assert.ok(lstatSync(join(out, "kb/references.bib")).isFile());
+  const root = mkdtempSync(join(tmpdir(), "kb-site-"));
+  directories.push(root);
+  mkdirSync(join(root, "entries"));
+  writeFileSync(join(root, "secret"), "TOKEN=abc");
+  symlinkSync(join(root, "secret"), join(root, "references.bib"));
+  assert.throws(() => build({ root, out: join(root, "dist") }), /must be a regular file/);
+});
+
+test("citations in arrow notes link to the page that lists them", () => {
+  const { read } = site({ source: entry("note", "Text.", "edges:\n  - {to: target, label: uses, note: 'see [@uchida1976, p. 2]'}\n"), target: entry("note") });
+  assert.match(read("target/index.html"), /href="\/kb\/source\/#ref-uchida1976"/);
+  assert.match(read("index.html"), /href="\/kb\/source\/#ref-uchida1976"/);
+  assert.match(read("source/index.html"), /id="ref-uchida1976"/);
+  assert.ok(!read("index.html").includes('href="#ref-'));
+});
+
+test("an entry can use a name that the site's own files might", () => {
+  const { read } = site({ assets: entry("note"), index: entry("note"), references: entry("note") });
+  assert.match(read("assets/index.html"), /<h1>A title<\/h1>/);
+  assert.match(read("index/index.html"), /<h1>A title<\/h1>/);
+});
+
+test("a refuted problem is no longer listed as open", () => {
+  const { read } = site({ guess: entry("problem"), counterexample: entry("theorem", "Text.", "edges:\n  - {to: guess, label: refutes}\n") });
+  assert.ok(!read("index.html").match(/id="open-problems"[\s\S]*?<\/section>/)[0].includes('href="/kb/guess/"'));
+});
+
+test("the bibliography handles bare years and keeps URLs intact", () => {
+  const root = mkdtempSync(join(tmpdir(), "kb-site-"));
+  directories.push(root);
+  mkdirSync(join(root, "entries"));
+  writeFileSync(join(root, "references.bib"), "@article{a1977,\n  author = {Neukirch, J},\n  title = {T},\n  year = 1977,\n  pages = {1--2},\n  url = {https://example.org/a--b},\n}\n");
+  writeFileSync(join(root, "entries/a.md"), entry("note", "See [@a1977, p. 1]."));
+  build({ root, out: join(root, "dist") });
+  const page = readFileSync(join(root, "dist/kb/a/index.html"), "utf8");
+  assert.match(page, /\[Neukirch 1977, p\. 1\]/);
+  assert.match(page, /1–2/);
+  assert.match(page, /href="https:\/\/example\.org\/a--b"/);
+});
+
+test("very large math can't take over the page", () => {
+  const { read } = site({ a: entry("note", "$\\rule{9999em}{9999em}$") });
+  assert.ok(!/style="[^"]*9999/.test(read("a/index.html")), "the drawn size is capped");
 });
 
 test("an invalid corpus fails the build", () => {

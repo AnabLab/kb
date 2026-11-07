@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Validates the entries in this repo and answers questions about their graph.
 // Usage is documented in INSTRUCTIONS.md.
-import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { existsSync, lstatSync, readdirSync, readFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { parse as parseYaml } from "yaml";
@@ -177,8 +177,9 @@ export function loadCorpus(root) {
   const problems = [];
   const bibPath = join(root, "references.bib");
   let bibKeys = new Set();
-  if (existsSync(bibPath)) bibKeys = parseBibKeys(readFileSync(bibPath, "utf8"), problems);
-  else problems.push("references.bib: file is missing");
+  if (!existsSync(bibPath)) problems.push("references.bib: file is missing");
+  else if (!lstatSync(bibPath).isFile()) problems.push("references.bib: must be a regular file, not a link");
+  else bibKeys = parseBibKeys(readFileSync(bibPath, "utf8"), problems);
 
   const entries = new Map();
   const entriesDir = join(root, "entries");
