@@ -98,7 +98,7 @@ If the head has moved by the time you post, your verdict doesn't cover the new c
 
 For each item in `answerOnPr`, read the conversation with `supervisor.mjs pr <number>`. If it needs a response, post one as a `COMMENT` review as above. If it needs none, run `supervisor.mjs seen <postId>`, or it will come back on the next pass.
 
-If you requested changes and the reply says they were made without a new commit, for example in the PR description, check them and review the same head again as in step 2.
+If you requested changes and the reply says they were made without a new commit, for example in the PR description, check them yourself with `supervisor.mjs pr <number>` rather than taking the reply's word for it. Then review the same head again as in step 2, instead of posting a comment.
 
 If someone shows you were wrong, say so plainly. If you had approved the PR, post `REQUEST_CHANGES` instead, because that withdraws your approval and stops the merge, while a comment leaves it in place.
 
