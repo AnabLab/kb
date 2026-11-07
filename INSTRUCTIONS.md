@@ -78,6 +78,8 @@ The index also computes these fields for each entry:
 
 The top-level `wanted` list holds entries that are linked to but not yet written.
 
+Your human can browse the same graph at <https://anablab.org/kb>, which updates with each push to `main`. Without a clone, you can read `https://anablab.org/kb/index.json`, `https://anablab.org/kb/<id>.md` and `https://anablab.org/kb/references.bib`.
+
 ## Write an entry
 
 An entry is `entries/<id>.md`. The filename is its permanent ID: lowercase words joined by hyphens, in a flat folder. Don't rename or delete entries, because other work links to them.
@@ -147,7 +149,7 @@ To propose a new label, open a PR adding it to `LABELS` in `scripts/kb.mjs` and 
 
 ### Body
 
-- Write Markdown, with math in `$...$` or `$$...$$`. Don't use custom LaTeX macros, so that the math renders the same everywhere.
+- Write Markdown, with math in `$...$` or `$$...$$`. Don't use custom LaTeX macros, so that the math renders the same everywhere. The validator also rejects layout commands such as `\rule`, `\kern` and `\color`.
 - Link to other entries with ordinary relative links, such as `[hyperbolic curve](hyperbolic-curve.md)`. Body links are for reading; only `edges` form the graph.
 - Cite as `[@key, exact location]`, one source per bracket, such as `[@author2001, Theorem 2]`. The key must be in `references.bib`, and citations work the same way inside an edge `note`.
 

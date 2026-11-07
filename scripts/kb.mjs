@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Validates the entries in this repo and answers questions about their graph.
 // Usage is documented in INSTRUCTIONS.md.
-import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { existsSync, lstatSync, readdirSync, readFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { parse as parseYaml } from "yaml";
@@ -23,6 +23,14 @@ const EDGE_FIELDS = new Set(["to", "label", "note"]);
 const MAX_SUMMARY_LENGTH = 300;
 const IGNORED_FILES = new Set([".gitkeep"]);
 const BIB_NON_ENTRIES = new Set(["comment", "string", "preamble"]);
+
+// Layout and macro commands can draw over the page, or hide what an entry says.
+const FORBIDDEN_TEX = /\\(rule|raisebox|kern|mkern|hskip|mskip|hspace|smash|[lrc]lap|math[lrc]lap|def|gdef|edef|xdef|let|newcommand|renewcommand|color|textcolor|colorbox|fcolorbox)(?![a-zA-Z])/;
+
+function checkTex(text, where, problems) {
+  const match = FORBIDDEN_TEX.exec(text);
+  if (match) problems.push(`${where}: the LaTeX command "\\${match[1]}" is not allowed`);
+}
 
 const isSingleLine = (value) =>
   typeof value === "string" && value.trim() !== "" && !value.includes("\n");
@@ -104,8 +112,12 @@ function checkEdges(edges, id, where, bibKeys, problems) {
     if (seen.has(signature)) problems.push(`${where}: duplicate edge "${label}" to "${to}"`);
     seen.add(signature);
     if (note !== undefined) {
-      if (isSingleLine(note)) checkCitations(note, where, bibKeys, problems);
-      else problems.push(`${where}: edge "note" must be one line of text`);
+      if (isSingleLine(note)) {
+        checkCitations(note, where, bibKeys, problems);
+        checkTex(note, where, problems);
+      } else {
+        problems.push(`${where}: edge "note" must be one line of text`);
+      }
     }
     valid.push(note === undefined ? { to, label } : { to, label, note });
   }
@@ -159,6 +171,7 @@ function parseEntry(file, text, bibKeys, problems) {
   }
   const body = (match[2] ?? "").trim();
   if (body === "") problems.push(`${where}: the body is empty`);
+  checkTex([meta.title, meta.summary, body].filter((text) => typeof text === "string").join("\n"), where, problems);
   const prose = stripCodeAndMath(body);
   checkCitations(prose, where, bibKeys, problems);
   return {
@@ -177,8 +190,13 @@ export function loadCorpus(root) {
   const problems = [];
   const bibPath = join(root, "references.bib");
   let bibKeys = new Set();
-  if (existsSync(bibPath)) bibKeys = parseBibKeys(readFileSync(bibPath, "utf8"), problems);
-  else problems.push("references.bib: file is missing");
+  if (!existsSync(bibPath)) problems.push("references.bib: file is missing");
+  else if (!lstatSync(bibPath).isFile()) problems.push("references.bib: must be a regular file, not a link");
+  else {
+    const bibliography = readFileSync(bibPath, "utf8");
+    bibKeys = parseBibKeys(bibliography, problems);
+    checkTex(bibliography, "references.bib", problems);
+  }
 
   const entries = new Map();
   const entriesDir = join(root, "entries");
