@@ -1,0 +1,14 @@
+---
+title: Neukirch's local theory for Galois groups of number fields
+kind: theorem
+summary: The absolute Galois group of the field of algebraic $p$-adic numbers characterizes that field among all algebraic extensions of $\mathbb{Q}$. Decomposition groups are recognizable as the maximal closed subgroups that look like Galois groups of $p$-adic fields.
+tags: [number-fields, local-fields, galois-groups]
+---
+
+**Statement.** Let $\mathbb{Q}_p^a$ be the field of algebraic $p$-adic numbers. If $K$ is an algebraic extension of $\mathbb{Q}$ with $G_K \cong G_{\mathbb{Q}_p^a}$, then $K \cong \mathbb{Q}_p^a$ [@neukirch1977, Lemma 3].
+
+**Decomposition groups.** Let $\tilde F$ be a solvably closed Galois extension of a number field $F$. Sending a nonarchimedean prime of $\tilde F$ to its decomposition group gives a bijection onto the set of maximal closed subgroups of $\mathrm{Gal}(\tilde F/F)$ that are isomorphic to the absolute Galois group of a finite extension of some $\mathbb{Q}_p$ [@hoshi2019, Lemma 3.4].
+
+**Method.** Let $K$ be an algebraic extension of $\mathbb{Q}$ that is Henselian, with residue characteristic $p$. It contains a smallest Henselian subfield $K_0 \cong \mathbb{Q}_p^a$, and its local degree is $n(K) = [K : K_0]$. Put $\chi_l(G_K) = \sum_{q=0}^{2} (-1)^q \dim H^q(G_K, \mathbb{F}_l)$. If $l$ divides $n(K)$ only finitely often, then $\chi_l(G_K) = 0$ for $l \ne p$ and $\chi_p(G_K) = -n(K)$ [@neukirch1977, Lemma 1]. The proof of Lemma 3 first shows that $K$ is Henselian, using the injectivity of $H^2(G_K, \mathbb{F}_l) \to \prod_v H^2(G_{K_v}, \mathbb{F}_l)$ from [@neukirch1977, Lemma 2], and then reads off $p$ and $n(K)$ from these Euler characteristics.
+
+**Use.** This gives the weak form of the [Neukirch–Uchida theorem](neukirch-uchida-theorem.md) for normal number fields, via Chebotarev density [@neukirch1977, Lemma 4]. It has been described as a $p$-adic counterpart to the Artin–Schreier characterization of real closed fields [@koymanspagano2024, §1.1].
