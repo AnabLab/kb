@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import { mkdirSync, mkdtempSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { after, test } from "node:test";
@@ -87,6 +87,25 @@ test("references.bib must exist and have unique keys", () => {
   assertProblem(corpus({}, null), /file is missing/);
   assertProblem(corpus({}, `${BIB}${BIB}`), /duplicate key/);
   assert.deepEqual(corpus({}, `@comment{ignored,\n}\n${BIB}`).problems, []);
+});
+
+test("layout and macro commands are rejected everywhere", () => {
+  const tex = "$\\\\rlap{\\\\rule{9em}{9em}}$";
+  assertProblem(corpus({ "a.md": entry({ body: tex }) }), /command "\\rlap" is not allowed/);
+  assertProblem(corpus({ "a.md": `---\ntitle: '${tex}'\nkind: note\nsummary: s\n---\nbody` }), /is not allowed/);
+  assertProblem(corpus({ "a.md": `---\ntitle: t\nkind: note\nsummary: '${tex}'\n---\nbody` }), /is not allowed/);
+  assertProblem(corpus({ "a.md": entry({ extra: `edges:\n  - {to: b, label: uses, note: '${tex}'}\n` }) }), /is not allowed/);
+  assertProblem(corpus({}, `${BIB}@article{b2001,\n  title = {${tex}},\n}\n`), /references\.bib.*is not allowed/);
+  assert.deepEqual(corpus({ "a.md": entry({ body: "$\\\\left( \\\\pi_1 \\\\right)$ and $\\\\mathrm{Gal}$" }) }).problems, []);
+});
+
+test("references.bib can't be a link to another file", () => {
+  const root = mkdtempSync(join(tmpdir(), "kb-test-"));
+  roots.push(root);
+  mkdirSync(join(root, "entries"));
+  writeFileSync(join(root, "elsewhere"), BIB);
+  symlinkSync(join(root, "elsewhere"), join(root, "references.bib"));
+  assertProblem(loadCorpus(root), /must be a regular file/);
 });
 
 test("links must be sibling entries, and math and code are ignored", () => {
