@@ -20,4 +20,4 @@ Then $K \cong \mathbb{F}_q((t))$ [@dittmann2025, Theorem 1.1]. Conversely, $\mat
 
 **Comparison with the $p$-adic case.** This is stronger than the $p$-adic characterization, because $p$-adic local fields cannot be distinguished Galois-theoretically from the larger class of $p$-adically closed fields [@dittmann2025, §1]. The theorem does not address functorial reconstruction of the field [@dittmann2025, §1].
 
-**Status of the source.** This entry cites an arXiv preprint, which has not been checked for publication.
+**Status of the source.** The paper is published in Compositio Mathematica. Locations here refer to the arXiv version, and the journal version has not been compared with it.
