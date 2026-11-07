@@ -38,6 +38,15 @@ test("a member's PR needs review once CI passes", () => {
   assert.deepEqual(plan(ME, [pr({ isDraft: true })], []).review, []);
 });
 
+test("a PR from the lab's researcher App is reviewed, but not one from another App", () => {
+  const researcher = { authorAssociation: "NONE", author: { __typename: "Bot", login: "anablab-researcher" } };
+  assert.deepEqual(plan(ME, [pr(researcher)], []).review, [{ number: 7, title: "Add an entry", head: HEAD }]);
+  const otherApp = { authorAssociation: "NONE", author: { __typename: "Bot", login: "some-other-app" } };
+  assert.equal(plan(ME, [pr(otherApp)], []).ignored, 1);
+  const impostor = { authorAssociation: "NONE", author: { __typename: "User", login: "anablab-researcher" } };
+  assert.equal(plan(ME, [pr(impostor)], []).ignored, 1);
+});
+
 test("a non-member's PR is ignored", () => {
   const work = plan(ME, [pr(stranger)], []);
   assert.deepEqual(work.review, []);

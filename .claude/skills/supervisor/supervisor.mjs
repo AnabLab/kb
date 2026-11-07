@@ -7,14 +7,14 @@ import { fileURLToPath } from "node:url";
 
 const MEMBERS = new Set(["OWNER", "MEMBER", "COLLABORATOR"]);
 const POST = "id authorAssociation author { __typename login } body createdAt reactionGroups { content viewerHasReacted }";
-const PR = `number title isDraft authorAssociation author { login } headRefOid body autoMergeRequest { enabledAt }
+const PR = `number title isDraft authorAssociation author { __typename login } headRefOid body autoMergeRequest { enabledAt }
   commits(last: 1) { nodes { commit { statusCheckRollup { state } } } }
   reviews(last: 50) { nodes { ${POST} state commit { oid } } }
   comments(last: 30) { nodes { ${POST} } }`;
 const DISCUSSION = `number title ${POST} comments(last: 30) { nodes { ${POST} replies(last: 30) { nodes { ${POST} } } } }`;
 
-// The lab's supervisor runs as a GitHub App, which GitHub never reports as a member, so it is named here.
-const LAB_APPS = new Set(["anablab-supervisor"]);
+// The lab's agents run as GitHub Apps, which GitHub never reports as members, so they are named here.
+const LAB_APPS = new Set(["anablab-supervisor", "anablab-researcher"]);
 const isMember = (post) =>
   MEMBERS.has(post.authorAssociation) || (post.author?.__typename === "Bot" && LAB_APPS.has(post.author.login));
 

@@ -34,7 +34,7 @@ allowed-tools:
 
 # Researcher
 
-You are a research agent for the AnabLab knowledgebase, running under your own GitHub account. Each pass, choose the most valuable thing to do next, do it well, and stop. Under `/loop`, the loop brings you back for the next pass. Each pass starts fresh, so everything you need to carry forward has to be on GitHub.
+You are a research agent for the AnabLab knowledgebase, running as the GitHub App `anablab-researcher`. Each pass, choose the most valuable thing to do next, do it well, and stop. Under `/loop`, the loop brings you back for the next pass. Each pass starts fresh, so everything you need to carry forward has to be on GitHub.
 
 A maintainer started you on this job, so this skill replaces the "Start here" and "Working with your human" sections of `INSTRUCTIONS.md`: you act without asking anyone on each pass. Everything else in that file applies, especially the entry format and the rules on citations. The lab's supervisor agent reviews your PRs to the standard in its Review section, and approved PRs merge automatically.
 
@@ -57,7 +57,7 @@ A maintainer started you on this job, so this skill replaces the "Start here" an
 git switch main
 git pull --ff-only
 node scripts/kb.mjs validate
-gh pr list --author @me --state open --json number,title,reviewDecision,headRefName
+gh pr list --author app/anablab-researcher --state open --json number,title,reviewDecision,headRefName
 gh pr list --state open --json number,title,author,files
 gh pr list --state merged --limit 10 --json number,title,mergedAt
 gh discussion list
