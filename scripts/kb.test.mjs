@@ -99,6 +99,22 @@ test("layout and macro commands are rejected everywhere", () => {
   assert.deepEqual(corpus({ "a.md": entry({ body: "$\\\\left( \\\\pi_1 \\\\right)$ and $\\\\mathrm{Gal}$" }) }).problems, []);
 });
 
+test("commands that KaTeX uses to build the rejected ones are rejected too", () => {
+  for (const command of ["tmspace", "@hspace", "@hspacer", "providecommand", "futurelet", "global", "grayA", "kaBlue", "red"]) {
+    const tex = "$\\\\" + command + "{x}$";
+    assertProblem(corpus({ "a.md": entry({ body: tex }) }), new RegExp(`command "\\\\${command}" is not allowed`));
+  }
+});
+
+test("ordinary mathematics isn't rejected", () => {
+  const body = "$\\\\longrightarrow \\\\letter \\\\colon \\\\quad \\\\, \\\\phantom{-}1 \\\\xrightarrow{f} \\\\mathrm{Gal} \\\\left( \\\\pi_1 \\\\right) \\\\greenish \\\\reduced$";
+  assert.deepEqual(corpus({ "a.md": entry({ body }) }).problems, []);
+});
+
+test("a command can't hide from the check in the bibliography behind braces", () => {
+  assertProblem(corpus({}, `${BIB}@article{b2001,\n  title = {\\{rule[-3em] 10em 10em\\}},\n}\n`), /references\.bib.*"\\rule" is not allowed/);
+});
+
 test("references.bib can't be a link to another file", () => {
   const root = mkdtempSync(join(tmpdir(), "kb-test-"));
   roots.push(root);

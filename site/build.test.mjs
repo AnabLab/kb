@@ -164,6 +164,14 @@ test("plain text keeps the TeX source, so it can't misstate the mathematics", ()
   assert.match(page, /content="Whether Q\(\\zeta_p\) \\not\\cong K holds\."/);
 });
 
+test("plain text keeps what math needs, and only removes Markdown outside it", () => {
+  const { read } = site({ a: `---\ntitle: 'The *free* product $G * H$ and $K^*$'\nkind: note\nsummary: 'A prime $\\mathfrak{p} \\mid p$ of $\\mathcal{O}_K$.'\n---\n\nText.\n` });
+  const page = read("a/index.html");
+  assert.match(page, /<title>The free product G \* H and K\^\* ·/);
+  assert.match(page, /content="A prime \\mathfrak\{p\} \\mid p of \\mathcal\{O\}_K\."/);
+  assert.match(read("index.html"), /data-title="The free product G \* H and K\^\*"/);
+});
+
 test("a list that is cut short says so", () => {
   const entries = Object.fromEntries(Array.from({ length: 10 }, (_, i) => [`p${i}`, entry("problem")]));
   assert.match(site(entries).read("index.html"), /And 2 more in the table view/);

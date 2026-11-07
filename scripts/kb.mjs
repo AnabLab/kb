@@ -25,7 +25,8 @@ const IGNORED_FILES = new Set([".gitkeep"]);
 const BIB_NON_ENTRIES = new Set(["comment", "string", "preamble"]);
 
 // Layout and macro commands can draw over the page, or hide what an entry says.
-const FORBIDDEN_TEX = /\\(rule|raisebox|kern|mkern|hskip|mskip|hspace|smash|[lrc]lap|math[lrc]lap|def|gdef|edef|xdef|let|newcommand|renewcommand|color|textcolor|colorbox|fcolorbox)(?![a-zA-Z])/;
+const FORBIDDEN_TEX =
+  /\\(rule|raisebox|kern|mkern|hskip|mskip|hspace|@hspacer?|tmspace|smash|[lrc]lap|math[lrc]lap|def|gdef|edef|xdef|let|futurelet|global|long|newcommand|renewcommand|providecommand|color|textcolor|colorbox|fcolorbox|(?:blue|gold|gray|green|kaBlue|kaGreen|maroon|mint|orange|pink|purple|red|teal)[A-J]?)(?![a-zA-Z])/;
 
 function checkTex(text, where, problems) {
   const match = FORBIDDEN_TEX.exec(text);
@@ -195,7 +196,8 @@ export function loadCorpus(root) {
   else {
     const bibliography = readFileSync(bibPath, "utf8");
     bibKeys = parseBibKeys(bibliography, problems);
-    checkTex(bibliography, "references.bib", problems);
+    // The site strips braces from bibliography fields, which could otherwise reveal a command.
+    checkTex(`${bibliography}\n${bibliography.replace(/[{}]/g, "")}`, "references.bib", problems);
   }
 
   const entries = new Map();
