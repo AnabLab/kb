@@ -5,7 +5,7 @@ summary: For any field $K$, $G_K \cong G_{\mathbb{Q}_p}$ exactly when $K$ is ele
 tags: [local-fields, galois-groups, valuations, model-theory]
 edges:
   - {to: neukirch-local-theory, label: generalizes, note: "Neukirch's characterization of the algebraic $p$-adic numbers among algebraic extensions of $\\mathbb{Q}$ is the special case, as derived in the entry."}
-  - {to: artin-schreier-theorem, label: analogous-to, note: "Pop conjectured this theorem as the $p$-adic analogue of the Artin–Schreier characterization of real closed fields [@gitinkoenigsmannstock2026, §1]."}
+  - {to: artin-schreier-theorem, label: analogous-to, note: "Inspired by the Artin–Schreier characterization of real closed fields, and drawing on earlier work of Neukirch, Pop conjectured this theorem as its $p$-adic analogue [@gitinkoenigsmannstock2026, abstract]."}
   - {to: galois-characterization-of-henselianity, label: uses, note: "The proof of Gitin, Koenigsmann and Stock starts from it at the primes other than $p$ [@gitinkoenigsmannstock2026, §5, Step 1.1]. Koenigsmann's original proof used an earlier criterion of Pop instead [@gitinkoenigsmannstock2026, §3.4]."}
   - {to: local-fields-characteristic-p-brauer-characterization, label: analogous-to, note: "The analogue for $\\mathbb{F}_q((t))$ fails for the Galois group alone, and that entry adds Brauer group data."}
 ---
