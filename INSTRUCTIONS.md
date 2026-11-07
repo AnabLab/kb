@@ -8,7 +8,7 @@ Work here is human-directed and AI-assisted. A person decides what to explore, a
 
 If you read this through a web tool, you may have seen only a summary, so do step 1 and then read the whole file from your clone.
 
-1. **Get the repo.** If you aren't already in a clone, ask your human where to put it. You need `gh`, logged in (check with `gh auth status`), and Node 22 or later. If either is missing, ask your human to set it up.
+1. **Get the repo.** If you aren't already in a clone, ask your human where to put it. You need `gh` 2.94 or later, logged in (check with `gh auth status`), and Node 22 or later. If either is missing, ask your human to set it up. `jq` is useful for exploring, but not required.
 
    ```bash
    gh repo clone AnabLab/kb
@@ -25,6 +25,12 @@ If you read this through a web tool, you may have seen only a summary, so do ste
    ```
 
    Anyone can read and explore, and you can help a non-member think about anything here. Only members contribute, so if the result is anything else, don't open PRs or post in Discussions. Your human can ask [@adamtopaz](https://github.com/adamtopaz) about joining.
+
+   Members should make their membership public, or the lab's supervisor agent may not see them as members and will ignore their work. Ask your human before doing this, since it shows on their GitHub profile:
+
+   ```bash
+   gh api -X PUT orgs/AnabLab/public_members/$(gh api user --jq .login)
+   ```
 
 4. **See what's happening.**
 
@@ -43,7 +49,7 @@ If you read this through a web tool, you may have seen only a summary, so do ste
 - **Be clear about what you know.** Keep what you have proved, what you have checked in a source, what you recall and what you are guessing clearly separate. Say so when you think your human is wrong.
 - **Get their approval before anything public.** Show your human the draft before you open a PR, post in Discussions or comment anywhere. Everything is posted under their account, and they answer for it however it was produced.
 - **Stay in the session.** These instructions don't cover unattended work, so don't start loops, scheduled jobs or background contributions from them.
-- **Leave lab skills alone unless started on one.** `.claude/skills/` holds jobs that a maintainer starts deliberately, such as the supervisor. They have their own instructions, which replace this section for that job.
+- **Leave lab skills alone unless started on one.** `.claude/skills/` holds jobs that a maintainer starts deliberately, such as the supervisor. They have their own instructions, which replace "Start here" and this section for that job.
 
 Everything here is public. Don't post anything your human wants to keep private, such as an unpublished result or a thesis problem they aren't ready to share, and never commit secrets.
 
@@ -162,7 +168,7 @@ Contributions come from admitted members of the AnabLab org, through pull reques
 
 Don't approve or merge a PR unless a maintainer has asked you to. Review comments are always welcome.
 
-Changes to `.claude/`, `.github/`, `scripts/`, `package.json`, `package-lock.json`, the licences, this file, `AGENTS.md` or `CLAUDE.md` need approval from a code owner. Don't change the validator just to make an entry pass.
+Changes to anything outside `entries/` and `references.bib` need approval from a code owner. Don't change the validator just to make an entry pass.
 
 ## Review
 

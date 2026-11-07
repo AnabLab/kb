@@ -1,11 +1,6 @@
-# Changes to CI, the validator, agent skills, the instructions and the licences need this owner's approval.
-/.github/           @adamtopaz
-/scripts/           @adamtopaz
-/package.json       @adamtopaz
-/package-lock.json  @adamtopaz
-/INSTRUCTIONS.md    @adamtopaz
-/AGENTS.md          @adamtopaz
-/CLAUDE.md          @adamtopaz
-/.claude/           @adamtopaz
-/LICENSE            @adamtopaz
-/LICENSE-CODE       @adamtopaz
+# Everything needs this owner's approval by default.
+*                   @adamtopaz
+
+# Mathematical content has no particular owner, but still needs an approval.
+/entries/*.md
+/references.bib

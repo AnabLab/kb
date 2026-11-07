@@ -1,45 +1,58 @@
 #!/usr/bin/env node
 // Helper for the supervisor skill: finds work, shows it safely, and posts verdicts.
-// Instructions for using it are in SKILL.md.
+// Instructions for using it are in SKILL.md, and for running it in SETUP.md.
 import { execFileSync } from "node:child_process";
-import { readFileSync, rmSync } from "node:fs";
-import { dirname, resolve } from "node:path";
-import { fileURLToPath, pathToFileURL } from "node:url";
+import { existsSync, mkdirSync, readFileSync, realpathSync, rmSync, statSync, writeFileSync } from "node:fs";
+import { dirname, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
 const OWNER = "AnabLab";
 const NAME = "kb";
 const REPO = `${OWNER}/${NAME}`;
+const BASE_BRANCH = "main";
 const REQUIRED_CHECK = "validate";
 const MEMBER_ASSOCIATIONS = new Set(["OWNER", "MEMBER", "COLLABORATOR"]);
 // The supervisor approves mathematical content only; anything else goes to a maintainer.
 const APPROVABLE_PATH = /^(entries\/[^/]+\.md|references\.bib)$/;
 const REVIEW_EVENTS = { approve: "APPROVE", "request-changes": "REQUEST_CHANGES", comment: "COMMENT" };
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "../../..");
+const WORK_DIR = join(ROOT, ".supervisor");
 
 // Marks the supervisor's posts, because it may share an account with a person.
 export const MARKER = "<sub>supervisor agent</sub>";
 
-const REACTIONS = "reactionGroups { content viewerHasReacted }";
-const POST = `id authorAssociation author { login } body createdAt ${REACTIONS}`;
+const POST = "id authorAssociation author { __typename login } body createdAt reactionGroups { content viewerHasReacted }";
 const PR_FIELDS = `
-  number title state isDraft authorAssociation author { login } headRefOid body changedFiles
+  number title state isDraft baseRefName authorAssociation author { __typename login } headRefOid body changedFiles
   autoMergeRequest { enabledAt }
+  timelineItems(last: 20, itemTypes: [AUTO_MERGE_ENABLED_EVENT, AUTO_MERGE_DISABLED_EVENT]) { nodes {
+    __typename
+    ... on AutoMergeEnabledEvent { createdAt }
+    ... on AutoMergeDisabledEvent { createdAt }
+  } }
   files(first: 100) { nodes { path changeType } }
   commits(last: 1) { nodes { commit { statusCheckRollup { contexts(first: 50) { nodes {
     ... on CheckRun { name status conclusion }
   } } } } } }
-  reviews(last: 50) { nodes { author { login } authorAssociation state body commit { oid } } }
+  reviews(last: 50) { nodes { ${POST} state commit { oid } } }
+  reviewThreads(last: 30) { nodes { isResolved comments(last: 5) { nodes { ${POST} path line } } } }
   comments(last: 20) { nodes { ${POST} } }`;
 const DISCUSSION_FIELDS = `
   number title ${POST}
   comments(last: 20) { nodes { ${POST} replies(last: 20) { nodes { ${POST} } } } }`;
 
-// GitHub calls an App "name[bot]" when it is the viewer, but "name" when it is an author.
-const accountName = (login) => login?.replace(/\[bot\]$/, "");
-const isAccount = (author, viewer) => accountName(author?.login) === accountName(viewer);
+// GitHub calls an App "name[bot]" when it is the viewer, but "name", of type Bot, when it is an author.
+function isAccount(author, viewer) {
+  if (!author) return false;
+  if (viewer.endsWith("[bot]")) return author.__typename === "Bot" && `${author.login}[bot]` === viewer;
+  return author.__typename !== "Bot" && author.login === viewer;
+}
+
 const isMember = (post) => MEMBER_ASSOCIATIONS.has(post.authorAssociation);
 const isOwnPost = (post, viewer) => isAccount(post.author, viewer) && (post.body ?? "").includes(MARKER);
+const isKnownPost = (post, viewer) => isMember(post) || isOwnPost(post, viewer);
 const isSeen = (post) => (post.reactionGroups ?? []).some((group) => group.content === "EYES" && group.viewerHasReacted);
+const byCreatedAt = (a, b) => a.createdAt.localeCompare(b.createdAt);
 
 export function ciState(pr) {
   const contexts = pr.commits.nodes[0]?.commit.statusCheckRollup?.contexts.nodes ?? [];
@@ -52,6 +65,7 @@ export function approvalBlockers(pr, viewer) {
   const blockers = [];
   const files = pr.files.nodes;
   if (isAccount(pr.author, viewer)) blockers.push("GitHub does not let an account approve its own PR");
+  if (pr.baseRefName !== BASE_BRANCH) blockers.push(`the PR targets ${pr.baseRefName}, not ${BASE_BRANCH}`);
   if (pr.isDraft) blockers.push("the PR is a draft");
   if (pr.changedFiles > files.length) blockers.push("the PR changes too many files to check");
   const outside = files.filter((file) => !APPROVABLE_PATH.test(file.path)).map((file) => file.path);
@@ -61,10 +75,44 @@ export function approvalBlockers(pr, viewer) {
   return blockers;
 }
 
+function verdictsAtHead(pr, viewer) {
+  return pr.reviews.nodes.filter((review) => isOwnPost(review, viewer) && review.commit?.oid === pr.headRefOid);
+}
+
+// The supervisor's standing decision on the current commit. Comments don't change it.
+function decisiveVerdict(pr, viewer) {
+  return verdictsAtHead(pr, viewer)
+    .filter((review) => ["APPROVED", "CHANGES_REQUESTED"].includes(review.state))
+    .at(-1);
+}
+
+function autoMergeTurnedOff(pr) {
+  return pr.timelineItems.nodes.at(-1)?.__typename === "AutoMergeDisabledEvent";
+}
+
+// Auto-merge is retried only if nothing has happened to it since the approval. Any event means
+// that it was turned on, or that someone turned it off, which must not be undone.
+export function needsAutoMergeRetry(pr, viewer) {
+  if (pr.autoMergeRequest) return false;
+  const verdict = decisiveVerdict(pr, viewer);
+  if (verdict?.state !== "APPROVED") return false;
+  return !pr.timelineItems.nodes.some((event) => event.createdAt >= verdict.createdAt);
+}
+
+function latestPost(posts, viewer) {
+  return posts.filter((post) => isKnownPost(post, viewer)).at(-1) ?? null;
+}
+
 // The newest post by a member or the supervisor, if the supervisor still has to deal with it.
 function pendingPost(posts, viewer) {
-  const last = posts.filter((post) => isMember(post) || isOwnPost(post, viewer)).at(-1);
+  const last = latestPost(posts, viewer);
   return last && !isOwnPost(last, viewer) && !isSeen(last) ? last : null;
+}
+
+export function prPosts(pr) {
+  const inline = pr.reviewThreads.nodes.flatMap((thread) => thread.comments.nodes);
+  const reviews = pr.reviews.nodes.filter((review) => review.body);
+  return [...pr.comments.nodes, ...reviews, ...inline].sort(byCreatedAt);
 }
 
 export function threadPosts(discussion) {
@@ -74,7 +122,11 @@ export function threadPosts(discussion) {
     posts.push(comment);
     for (const reply of replies.nodes) posts.push({ ...reply, replyToId: comment.id });
   }
-  return posts.sort((a, b) => a.createdAt.localeCompare(b.createdAt));
+  return posts.sort(byCreatedAt);
+}
+
+function discussionTitle(discussion, viewer) {
+  return isKnownPost(discussion, viewer) ? discussion.title : "[hidden: title from a non-member]";
 }
 
 export function planWork(viewer, prs, discussions) {
@@ -82,39 +134,49 @@ export function planWork(viewer, prs, discussions) {
 
   for (const pr of prs) {
     const { number, title, headRefOid: head } = pr;
+    const wait = (reason) => plan.waiting.push({ pr: number, reason });
     if (!isMember(pr)) {
-      plan.ignored.push({ pr: number });
+      plan.ignored.push({ pr: number, association: pr.authorAssociation });
+      continue;
+    }
+    if (pr.baseRefName !== BASE_BRANCH) {
+      wait(`targets-${pr.baseRefName}`);
       continue;
     }
     if (pr.isDraft) {
-      plan.waiting.push({ pr: number, reason: "draft" });
+      wait("draft");
       continue;
     }
-    const verdicts = pr.reviews.nodes.filter((item) => isOwnPost(item, viewer) && item.commit?.oid === head);
+    const verdicts = verdictsAtHead(pr, viewer);
     if (verdicts.length === 0) {
       const ci = ciState(pr);
       if (ci === "success") {
         const blockers = approvalBlockers(pr, viewer);
         plan.review.push({ number, title, author: pr.author?.login, head, canApprove: blockers.length === 0, blockers });
       } else {
-        plan.waiting.push({ pr: number, reason: `ci-${ci}` });
+        wait(`ci-${ci}`);
       }
       continue;
     }
-    if (verdicts.some((item) => item.state === "APPROVED") && !pr.autoMergeRequest) {
-      plan.automerge.push({ number, head });
+    if (verdicts.every((review) => review.state === "DISMISSED")) {
+      // Someone or something withdrew the verdict at this commit, so don't simply repeat it.
+      wait("verdict-dismissed");
+    } else if (decisiveVerdict(pr, viewer)?.state === "APPROVED") {
+      if (needsAutoMergeRetry(pr, viewer)) plan.automerge.push({ number, head });
+      else if (!pr.autoMergeRequest) wait("auto-merge-turned-off");
+      else if (pr.reviewThreads.nodes.some((thread) => !thread.isResolved)) wait("unresolved-threads");
     }
-    const comment = pendingPost(pr.comments.nodes, viewer);
-    if (comment) plan.prComments.push({ number, title, head, commentId: comment.id, author: comment.author?.login });
+    const post = pendingPost(prPosts(pr), viewer);
+    if (post) plan.prComments.push({ number, title, head, commentId: post.id, author: post.author?.login });
   }
 
   for (const discussion of discussions) {
     const posts = threadPosts(discussion);
     const last = pendingPost(posts, viewer);
     if (last) {
-      plan.discussions.push({ number: discussion.number, title: discussion.title, lastId: last.id, author: last.author?.login });
-    } else if (!posts.some((post) => isMember(post) || isOwnPost(post, viewer))) {
-      plan.ignored.push({ discussion: discussion.number });
+      plan.discussions.push({ number: discussion.number, title: discussionTitle(discussion, viewer), lastId: last.id, author: last.author?.login });
+    } else if (!posts.some((post) => isKnownPost(post, viewer))) {
+      plan.ignored.push({ discussion: discussion.number, association: discussion.authorAssociation });
     }
   }
   return plan;
@@ -127,7 +189,7 @@ function renderPost(post, viewer) {
 }
 
 export function renderThread(discussion, viewer) {
-  const sections = [`# Discussion #${discussion.number}: ${discussion.title}`];
+  const sections = [`# Discussion #${discussion.number}: ${discussionTitle(discussion, viewer)}`];
   for (const post of threadPosts(discussion)) {
     const target = post.replyToId ?? (post.id === discussion.id ? null : post.id);
     const ids = target ? `id: ${post.id}; to reply here use --to ${target}` : `id: ${post.id}`;
@@ -142,16 +204,25 @@ export function renderPr(pr, viewer, contents) {
     `# PR #${pr.number}: ${pr.title}`,
     [
       `author: ${pr.author?.login} (${pr.authorAssociation})`,
+      `base: ${pr.baseRefName}`,
       `head: ${pr.headRefOid}`,
       `CI: ${ciState(pr)}`,
+      `auto-merge: ${pr.autoMergeRequest ? "on" : "off"}`,
       `can approve: ${blockers.length === 0 ? "yes" : `no; ${blockers.join("; ")}`}`,
       "files:",
       ...pr.files.nodes.map((file) => `  ${file.changeType} ${file.path}`),
     ].join("\n"),
     `## Description\n${pr.body || "(none)"}`,
   ];
-  for (const item of pr.reviews.nodes.filter((review) => isMember(review) || isOwnPost(review, viewer))) {
-    sections.push(`## Review, ${item.state}, by ${item.author?.login}, at ${item.commit?.oid?.slice(0, 7)}\n${item.body || "(no text)"}`);
+  for (const review of pr.reviews.nodes.filter((item) => isKnownPost(item, viewer))) {
+    const heading = `## Review ${review.id}, ${review.state}, at ${review.commit?.oid?.slice(0, 7)}`;
+    sections.push(`${heading}\n${review.body ? renderPost(review, viewer) : `${review.author?.login}: (no text)`}`);
+  }
+  for (const thread of pr.reviewThreads.nodes) {
+    const status = thread.isResolved ? "resolved" : "unresolved";
+    for (const comment of thread.comments.nodes) {
+      sections.push(`## Inline comment ${comment.id}, ${status}, on ${comment.path}:${comment.line ?? "?"}\n${renderPost(comment, viewer)}`);
+    }
   }
   for (const comment of pr.comments.nodes) sections.push(`## Comment ${comment.id}\n${renderPost(comment, viewer)}`);
   for (const [path, text] of contents) sections.push(`## ${path} at ${pr.headRefOid.slice(0, 7)}\n${text}`);
@@ -174,11 +245,14 @@ function graphql(query, variables = {}) {
   return JSON.parse(gh(["api", "graphql", "--input", "-"], JSON.stringify({ query, variables }))).data;
 }
 
+function assertCleanMain() {
+  if (git("rev-parse", "--abbrev-ref", "HEAD") !== BASE_BRANCH) fail(`the supervisor runs only on ${BASE_BRANCH}; switch this clone to ${BASE_BRANCH}`);
+  if (git("status", "--porcelain") !== "") fail(`this clone has local changes; the supervisor needs a clean ${BASE_BRANCH}`);
+}
+
 function syncMain() {
-  if (git("rev-parse", "--abbrev-ref", "HEAD") !== "main") fail("the supervisor runs only on main; switch this clone to main");
-  if (git("status", "--porcelain") !== "") fail("this clone has local changes; the supervisor needs a clean main");
-  git("fetch", "--quiet", "origin", "main");
-  git("merge", "--ff-only", "--quiet", "origin/main");
+  git("fetch", "--quiet", "origin", BASE_BRANCH);
+  git("merge", "--ff-only", "--quiet", `origin/${BASE_BRANCH}`);
 }
 
 function fetchPr(number) {
@@ -203,13 +277,29 @@ function fetchDiscussion(number) {
   return { viewer: data.viewer.login, discussion: data.repository.discussion };
 }
 
-function runThread(number) {
-  const { viewer, discussion } = fetchDiscussion(number);
-  console.log(renderThread(discussion, viewer));
+// Reading records the newest post, so that the supervisor can't answer without seeing what has
+// arrived since, or post something it hasn't read at all.
+const readRecord = (kind, number) => join(WORK_DIR, `read-${kind}-${number}`);
+
+function recordRead(kind, number, posts, viewer) {
+  mkdirSync(WORK_DIR, { recursive: true });
+  writeFileSync(readRecord(kind, number), latestPost(posts, viewer)?.id ?? "none");
 }
 
+function assertNothingNew(kind, number, posts, viewer) {
+  const record = readRecord(kind, number);
+  if (!existsSync(record)) fail(`read ${kind} ${number} before posting to it`);
+  if (readFileSync(record, "utf8") !== (latestPost(posts, viewer)?.id ?? "none")) {
+    fail(`something new was posted to ${kind} ${number} after you read it; read it again`);
+  }
+}
+
+// Posted text can only come from the supervisor's own folder, so that an agent steered by
+// something it read can't be made to publish other files.
 function readBody(file) {
-  const body = readFileSync(resolve(file), "utf8").trim();
+  const inWorkDir = existsSync(file) && existsSync(WORK_DIR) && dirname(realpathSync(file)) === realpathSync(WORK_DIR);
+  if (!inWorkDir || !statSync(file).isFile()) fail(`posted text must be a file directly inside ${WORK_DIR}`);
+  const body = readFileSync(file, "utf8").trim();
   if (body === "") fail(`${file} is empty`);
   return `${body}\n\n${MARKER}`;
 }
@@ -222,6 +312,12 @@ function assertReviewable(pr, sha) {
   if (pr.state !== "OPEN") fail(`PR #${pr.number} is ${pr.state}`);
   if (!isMember(pr)) fail(`PR #${pr.number} is from a non-member`);
   if (pr.headRefOid !== sha) fail(`the head moved to ${pr.headRefOid}; review the new commit first`);
+}
+
+function assertApprovable(pr, viewer) {
+  const blockers = approvalBlockers(pr, viewer);
+  if (ciState(pr) !== "success") blockers.push(`the ${REQUIRED_CHECK} check has not passed`);
+  if (blockers.length > 0) fail(`cannot approve: ${blockers.join("; ")}; post a comment instead`);
 }
 
 function runQueue() {
@@ -249,6 +345,7 @@ function runPr(number) {
     const url = `repos/${REPO}/contents/${encodeURI(path)}?ref=${pr.headRefOid}`;
     contents.push([path, gh(["api", url, "-H", "Accept: application/vnd.github.raw"])]);
   }
+  recordRead("pr", number, prPosts(pr), viewer);
   console.log(renderPr(pr, viewer, contents));
 }
 
@@ -258,18 +355,19 @@ function runReview(number, sha, verdict, file) {
   const body = readBody(file);
   const { viewer, pr } = fetchPr(number);
   assertReviewable(pr, sha);
+  assertNothingNew("pr", number, prPosts(pr), viewer);
   if (verdict === "request-changes" && isAccount(pr.author, viewer)) {
     fail("GitHub does not let an account request changes on its own PR; use comment");
   }
-  if (verdict === "approve") {
-    const blockers = approvalBlockers(pr, viewer);
-    if (ciState(pr) !== "success") blockers.push(`the ${REQUIRED_CHECK} check has not passed`);
-    if (blockers.length > 0) fail(`cannot approve: ${blockers.join("; ")}; post a comment instead`);
-  }
+  if (verdict === "approve") assertApprovable(pr, viewer);
   gh(["api", `repos/${REPO}/pulls/${number}/reviews`, "--method", "POST", "--input", "-"], JSON.stringify({ commit_id: sha, event, body }));
-  rmSync(resolve(file));
+  rmSync(file);
+  rmSync(readRecord("pr", number));
   console.log(`posted ${verdict} on PR #${number} at ${sha.slice(0, 7)}`);
-  if (verdict === "approve") {
+  if (verdict !== "approve") return;
+  if (autoMergeTurnedOff(pr)) {
+    console.log("auto-merge was turned off on this PR, so it stays off; a maintainer can merge it");
+  } else {
     enableAutoMerge(number, sha);
     console.log("auto-merge is on");
   }
@@ -278,22 +376,30 @@ function runReview(number, sha, verdict, file) {
 function runAutomerge(number, sha) {
   const { viewer, pr } = fetchPr(number);
   assertReviewable(pr, sha);
-  const approved = pr.reviews.nodes.some((item) => isOwnPost(item, viewer) && item.commit?.oid === sha && item.state === "APPROVED");
-  if (!approved) fail(`the supervisor has not approved ${sha.slice(0, 7)}`);
+  assertApprovable(pr, viewer);
+  if (!needsAutoMergeRetry(pr, viewer)) fail(`PR #${number} has no approval at ${sha.slice(0, 7)} waiting for auto-merge, so nothing was changed`);
   enableAutoMerge(number, sha);
   console.log(`auto-merge is on for PR #${number}`);
 }
 
+function runThread(number) {
+  const { viewer, discussion } = fetchDiscussion(number);
+  recordRead("discussion", number, threadPosts(discussion), viewer);
+  console.log(renderThread(discussion, viewer));
+}
+
 function runReply(number, file, replyToId) {
   const body = readBody(file);
-  const { discussion } = fetchDiscussion(number);
+  const { viewer, discussion } = fetchDiscussion(number);
+  assertNothingNew("discussion", number, threadPosts(discussion), viewer);
   const data = graphql(
     `mutation ($discussionId: ID!, $replyToId: ID, $body: String!) {
       addDiscussionComment(input: { discussionId: $discussionId, replyToId: $replyToId, body: $body }) { comment { url } }
     }`,
     { discussionId: discussion.id, replyToId: replyToId ?? null, body },
   );
-  rmSync(resolve(file));
+  rmSync(file);
+  rmSync(readRecord("discussion", number));
   console.log(data.addDiscussionComment.comment.url);
 }
 
@@ -316,23 +422,34 @@ const USAGE = `usage:
   supervisor.mjs reply <number> <file> [--to <id>]         post to a discussion
   supervisor.mjs seen <id>                                 mark a post as dealt with
 
-Posted text is read from <file>, which is deleted once the text is posted.`;
+Posted text is read from <file>, which must be directly inside .supervisor/ and is deleted once posted.`;
 
-function main([command, ...args]) {
+function commandFor(command, args) {
   const number = Number(args[0]);
-  if (command === "queue" && args.length === 0) return runQueue();
-  if (command === "pr" && args.length === 1 && number) return runPr(number);
-  if (command === "review" && args.length === 4 && number) return runReview(number, args[1], args[2], args[3]);
-  if (command === "automerge" && args.length === 2 && number) return runAutomerge(number, args[1]);
-  if (command === "thread" && args.length === 1 && number) return runThread(number);
-  if (command === "reply" && args.length === 2 && number) return runReply(number, args[1]);
-  if (command === "reply" && args.length === 4 && number && args[2] === "--to") return runReply(number, args[1], args[3]);
-  if (command === "seen" && args.length === 1) return runSeen(args[0]);
-  console.error(USAGE);
-  process.exitCode = 2;
+  const hasNumber = Number.isInteger(number) && number > 0;
+  if (command === "queue" && args.length === 0) return runQueue;
+  if (command === "pr" && args.length === 1 && hasNumber) return () => runPr(number);
+  if (command === "review" && args.length === 4 && hasNumber) return () => runReview(number, args[1], args[2], args[3]);
+  if (command === "automerge" && args.length === 2 && hasNumber) return () => runAutomerge(number, args[1]);
+  if (command === "thread" && args.length === 1 && hasNumber) return () => runThread(number);
+  if (command === "reply" && args.length === 2 && hasNumber) return () => runReply(number, args[1]);
+  if (command === "reply" && args.length === 4 && hasNumber && args[2] === "--to") return () => runReply(number, args[1], args[3]);
+  if (command === "seen" && args.length === 1) return () => runSeen(args[0]);
+  return null;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+function main([command, ...args]) {
+  const run = commandFor(command, args);
+  if (!run) {
+    console.error(USAGE);
+    process.exitCode = 2;
+    return;
+  }
+  assertCleanMain();
+  run();
+}
+
+if (process.argv[1] && realpathSync(process.argv[1]) === fileURLToPath(import.meta.url)) {
   try {
     main(process.argv.slice(2));
   } catch (error) {
