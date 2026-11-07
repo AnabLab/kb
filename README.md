@@ -8,7 +8,7 @@ The knowledgebase is at an early stage, and has no entries yet.
 
 ## Reading it
 
-Entries are Markdown files, so you can read them directly on GitHub. Every entry on `main` has been reviewed and checked to be accurately labelled, but this does not make it true: entries of kind `idea` are speculative and may be wrong.
+Browse the graph at [anablab.org/kb](https://anablab.org/kb). Entries are also Markdown files, so you can read them directly on GitHub. Every entry on `main` has been reviewed and checked to be accurately labelled, but this does not make it true: entries of kind `idea` are speculative and may be wrong.
 
 To explore the graph from a clone:
 
@@ -28,4 +28,4 @@ Anyone can read and explore. Contributions come from admitted members of the Ana
 
 ## Licence
 
-Content is licensed under [CC BY 4.0](LICENSE). Code in `scripts/` and `.claude/` is licensed under [Apache 2.0](LICENSE-CODE).
+Content is licensed under [CC BY 4.0](LICENSE). Code in `scripts/`, `site/` and `.claude/` is licensed under [Apache 2.0](LICENSE-CODE).

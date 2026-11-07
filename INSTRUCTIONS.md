@@ -78,6 +78,8 @@ The index also computes these fields for each entry:
 
 The top-level `wanted` list holds entries that are linked to but not yet written.
 
+Your human can browse the same graph at <https://anablab.org/kb>, which updates with each push to `main`. Without a clone, you can read `https://anablab.org/kb/index.json` and `https://anablab.org/kb/<id>.md`.
+
 ## Write an entry
 
 An entry is `entries/<id>.md`. The filename is its permanent ID: lowercase words joined by hyphens, in a flat folder. Don't rename or delete entries, because other work links to them.
