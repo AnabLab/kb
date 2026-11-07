@@ -6,7 +6,9 @@ tags: [local-fields, galois-groups, pro-p-groups]
 edges:
   - {to: demushkin-group, label: uses}
   - {to: classification-of-demushkin-groups, label: uses}
-  - {to: isomorphism-classes-of-p-adic-galois-groups, label: analogous-to, note: "The same shape one level down: for $G_K$ the data are the degree and $K \\cap \\mathbb{Q}_p^{\\mathrm{ab}}$, and for $G_K(p)$ only $K \\cap \\mathbb{Q}_p(\\mu_{p^\\infty})$ survives."}
+  - {to: isomorphism-classes-of-p-adic-galois-groups, label: uses, note: "only its forward direction, that $G_K$ determines $K \\cap \\mathbb{Q}_p^{\\mathrm{ab}}$, in the comparison and the examples"}
+  - {to: isomorphism-classes-of-p-adic-galois-groups, label: analogous-to, note: "For odd $p$, $G_K$ is determined by the degree and $K \\cap \\mathbb{Q}_p^{\\mathrm{ab}}$. For every $p$, $G_K(p)$ is determined by the degree and, when $\\zeta_p \\in K$, by $K \\cap \\mathbb{Q}_p(\\mu_{p^\\infty})$."}
+  - {to: abrashkin-local-grothendieck-theorem, label: uses, note: "only for the remark that the ramification filtration is essential"}
 ---
 
 **Setting.** Let $K/\mathbb{Q}_p$ be finite of degree $d$, inside a fixed algebraic closure. Let $K(p)$ be the largest Galois extension of $K$ whose Galois group is a pro-$p$ group, and put $G_K(p) = \mathrm{Gal}(K(p)/K)$, the maximal pro-$p$ quotient of $G_K$. If $\zeta_p \in K$, let $q$ be the largest power of $p$ with $\mu_q \subset K$. Put $K' = K \cap \mathbb{Q}_p(\mu_{p^\infty})$. Since $\mathbb{Q}_p(\mu_{p^\infty})/\mathbb{Q}_p$ is abelian, every subfield of it is normal over $\mathbb{Q}_p$, so $K'$ does not depend on how $K$ is embedded. The map $a \mapsto \sigma_a$, where $\sigma_a(\zeta) = \zeta^a$, identifies $\mathbb{Z}_p^\times$ with $\mathrm{Gal}(\mathbb{Q}_p(\mu_{p^\infty})/\mathbb{Q}_p)$ [@labute1967, §5, p. 131].
