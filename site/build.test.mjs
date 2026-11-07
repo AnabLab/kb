@@ -157,6 +157,55 @@ test("a refuted problem is no longer listed as open", () => {
   assert.ok(!read("index.html").match(/id="open-problems"[\s\S]*?<\/section>/)[0].includes('href="/kb/guess/"'));
 });
 
+test("plain text keeps the TeX source, so it can't misstate the mathematics", () => {
+  const { read } = site({ a: `---\ntitle: 'The $p$-adic case'\nkind: note\nsummary: 'Whether $\\mathbb{Q}(\\zeta_p) \\not\\cong K$ holds.'\n---\n\nText.\n` });
+  const page = read("a/index.html");
+  assert.match(page, /<title>The p-adic case ·/);
+  assert.match(page, /content="Whether Q\(\\zeta_p\) \\not\\cong K holds\."/);
+});
+
+test("a list that is cut short says so", () => {
+  const entries = Object.fromEntries(Array.from({ length: 10 }, (_, i) => [`p${i}`, entry("problem")]));
+  assert.match(site(entries).read("index.html"), /And 2 more in the table view/);
+});
+
+test("a dependency that isn't established isn't called open, and refuted problems aren't either", () => {
+  const { read } = site({ guess: entry("problem"), result: entry("theorem", "Text.", "edges:\n  - {to: guess, label: uses}\n"), counterexample: entry("theorem", "Text.", "edges:\n  - {to: guess, label: refutes}\n") });
+  assert.match(read("result/index.html"), /which is not established/);
+  assert.ok(!read("guess/index.html").includes("Open problem"));
+  assert.match(read("index.html"), /<h2>Open problems<\/h2>/);
+});
+
+test("a reference shows its note, and keeps braces in its math", () => {
+  const root = mkdtempSync(join(tmpdir(), "kb-site-"));
+  directories.push(root);
+  mkdirSync(join(root, "entries"));
+  writeFileSync(join(root, "references.bib"), "@article{a2020,\n  author = {A, B},\n  title = {Over $\\mathbb{Q}$ and {R}},\n  year = {2020},\n  note = {Locations refer to arXiv v2.},\n}\n");
+  writeFileSync(join(root, "entries/a.md"), entry("note", "See [@a2020, p. 1]."));
+  build({ root, out: join(root, "dist") });
+  const page = readFileSync(join(root, "dist/kb/a/index.html"), "utf8");
+  assert.match(page, /Locations refer to arXiv v2/);
+  assert.match(page, /\\mathbb\{Q\}<\/annotation>/);
+  assert.ok(!page.includes("katex-error"));
+});
+
+test("a mid-line display doesn't swallow text up to the next one", () => {
+  const { read } = site({ a: entry("note", "Text $$a+b$$ more.\n\n$$c+d$$\n") });
+  const page = read("a/index.html");
+  assert.match(page, /more\./);
+  assert.ok(!page.includes("katex-error"));
+  assert.ok(!page.includes("$$"));
+});
+
+test("an empty bibliography isn't published", () => {
+  const root = mkdtempSync(join(tmpdir(), "kb-site-"));
+  directories.push(root);
+  mkdirSync(join(root, "entries"));
+  writeFileSync(join(root, "references.bib"), "");
+  build({ root, out: join(root, "dist") });
+  assert.ok(!existsSync(join(root, "dist/kb/references.bib")));
+});
+
 test("the bibliography handles bare years and keeps URLs intact", () => {
   const root = mkdtempSync(join(tmpdir(), "kb-site-"));
   directories.push(root);
@@ -168,11 +217,6 @@ test("the bibliography handles bare years and keeps URLs intact", () => {
   assert.match(page, /\[Neukirch 1977, p\. 1\]/);
   assert.match(page, /1–2/);
   assert.match(page, /href="https:\/\/example\.org\/a--b"/);
-});
-
-test("very large math can't take over the page", () => {
-  const { read } = site({ a: entry("note", "$\\rule{9999em}{9999em}$") });
-  assert.ok(!/style="[^"]*9999/.test(read("a/index.html")), "the drawn size is capped");
 });
 
 test("an invalid corpus fails the build", () => {

@@ -15,8 +15,8 @@ const BASE = "/kb";
 const REPO_URL = "https://github.com/AnabLab/kb";
 const SITE_DIR = dirname(fileURLToPath(import.meta.url));
 
-const KIND_NAMES = { definition: "Definition", theorem: "Theorem", problem: "Open problem", idea: "Idea", note: "Note" };
-const KIND_PLURALS = { definition: "Definitions", theorem: "Theorems", problem: "Open problems", idea: "Ideas", note: "Notes" };
+const KIND_NAMES = { definition: "Definition", theorem: "Theorem", problem: "Problem", idea: "Idea", note: "Note" };
+const KIND_PLURALS = { definition: "Definitions", theorem: "Theorems", problem: "Problems", idea: "Ideas", note: "Notes" };
 // How to read an arrow from its source, and from its target.
 const LABEL_WORDS = {
   uses: ["Uses", "Used by"],
@@ -35,11 +35,12 @@ const escapeHtml = (text) =>
 
 const renderMath = (tex, displayMode) => katex.renderToString(tex, { displayMode, throwOnError: false, maxSize: 10 });
 
-// A readable approximation of LaTeX, for places that can't show rendered math.
-const SYMBOLS = { alpha: "α", beta: "β", gamma: "γ", delta: "δ", ell: "ℓ", lambda: "λ", mu: "μ", nu: "ν", pi: "π", rho: "ρ", sigma: "σ", tau: "τ", phi: "φ", chi: "χ", Gamma: "Γ", Pi: "Π", Sigma: "Σ", cong: "≅", simeq: "≃", to: "→", rightarrow: "→", in: "∈", subset: "⊂", le: "≤", leq: "≤", ge: "≥", geq: "≥", neq: "≠", times: "×", otimes: "⊗" };
+// For places that can't show rendered math, such as link previews and graph labels. This keeps the
+// TeX source, apart from a few font wrappers, because rewriting it could misstate the mathematics.
 const plainText = (text) =>
   text
-    .replace(/\$\$?([^$]+)\$\$?/g, (_, tex) => tex.replace(/\\([a-zA-Z]+)\s*/g, (__, name) => (Object.hasOwn(SYMBOLS, name) ? ` ${SYMBOLS[name]} ` : "")).replace(/[{}]/g, ""))
+    .replace(/\$\$?([^$]+)\$\$?/g, "$1")
+    .replace(/\\(?:mathbb|mathrm|mathcal|mathfrak|mathbf|operatorname)\{([^{}]*)\}/g, "$1")
     .replace(/[*`]/g, "")
     .replace(/\s+/g, " ")
     .trim();
@@ -48,7 +49,8 @@ const TEX_ACCENTS = { "'": "\u0301", "`": "\u0300", "^": "\u0302", '"': "\u0308"
 const cleanBibText = (text) =>
   text
     .replace(/\\(['`^"~=.])\{?([a-zA-Z])\}?/g, (_, accent, letter) => (letter + TEX_ACCENTS[accent]).normalize("NFC"))
-    .replace(/[{}]/g, "")
+    .replace(/(\$[^$]*\$)|[{}]/g, (_, math) => math ?? "")
+    .replace(/\\&/g, "&")
     .replace(/--/g, "–")
     .replace(/\s+/g, " ")
     .trim();
@@ -81,7 +83,7 @@ function renderReference(key, reference, inline) {
     .join(" ");
   const url = reference.url ?? (reference.doi && `https://doi.org/${reference.doi}`);
   const link = /^https?:\/\//.test(url ?? "") ? ` <a href="${escapeHtml(url)}">Link</a>` : "";
-  return `<li id="ref-${escapeHtml(key)}">${escapeHtml(reference.author ?? "")}. <cite>${inline(reference.title ?? key)}</cite>. ${escapeHtml(venue)}.${link}</li>`;
+  return `<li id="ref-${escapeHtml(key)}">${escapeHtml(reference.author ?? "")}. <cite>${inline(reference.title ?? key)}</cite>. ${escapeHtml(venue)}.${reference.note ? ` ${inline(reference.note)}` : ""}${link}</li>`;
 }
 
 // Renders entry Markdown. Raw HTML and unsafe links are neutralized, because entries come from pull requests.
@@ -99,7 +101,7 @@ function makeMarkdown(index, references) {
         level: "block",
         start: (src) => src.indexOf("$$"),
         tokenizer(src) {
-          const match = /^\$\$([\s\S]+?)\$\$(?:\n+|$)/.exec(src);
+          const match = /^\$\$((?:(?!\$\$)[\s\S])+)\$\$(?:\n+|$)/.exec(src);
           if (match) return { type: "mathBlock", raw: match[0], tex: match[1] };
         },
         renderer: (token) => renderMath(token.tex, true),
@@ -158,7 +160,7 @@ function lastChanged(root) {
 
 const NODE_RADIUS = { min: 6.5, max: 13 };
 const LABEL_LENGTH = 34;
-const CHAR_WIDTH = 7;
+const CHAR_WIDTH = 7.6;
 const shortTitle = (title) => (title.length > LABEL_LENGTH ? `${title.slice(0, LABEL_LENGTH - 1)}…` : title);
 // Written-out names for entries that don't exist yet.
 const wantedName = (id) => id.charAt(0).toUpperCase() + id.slice(1).replaceAll("-", " ");
@@ -313,7 +315,7 @@ function statusNotes(entry, titleOf, inline) {
     notes.push(`<p class="status status-warning"><span aria-hidden="true">!</span> <strong>Contested.</strong> This claim is under genuine dispute.</p>`);
   }
   if (entry.conditionalOn.length > 0) {
-    notes.push(`<p class="status status-warning"><span aria-hidden="true">!</span> <strong>Conditional.</strong> Rests on ${list(entry.conditionalOn)}, which ${entry.conditionalOn.length === 1 ? "is" : "are"} open.</p>`);
+    notes.push(`<p class="status status-warning"><span aria-hidden="true">!</span> <strong>Conditional.</strong> Rests on ${list(entry.conditionalOn)}, which ${entry.conditionalOn.length === 1 ? "is" : "are"} not established.</p>`);
   }
   return notes.join("");
 }
@@ -368,6 +370,8 @@ ${body}
 `;
 }
 
+const LIST_LENGTH = 8;
+
 function renderDashboard(index, graph, dates, inline, titleOf, isWritten) {
   const { entries, wanted } = index;
   const arrowCount = entries.reduce((sum, entry) => sum + entry.edges.length, 0);
@@ -390,7 +394,7 @@ function renderDashboard(index, graph, dates, inline, titleOf, isWritten) {
   const problems = entries.filter((entry) => entry.kind === "problem" && entry.refutedBy.length === 0).sort(byConnections);
   const ideas = entries.filter((entry) => entry.kind === "idea" && entry.refutedBy.length === 0).sort(byConnections);
   const recent = entries.filter((entry) => dates.has(entry.id)).sort((a, b) => dates.get(b.id).localeCompare(dates.get(a.id)) || a.id.localeCompare(b.id));
-  const listSection = (id, heading, items, renderItem, empty) => `<section class="list" id="${id}"><h2>${heading}</h2>${items.length > 0 ? `<ul>${items.slice(0, 8).map(renderItem).join("")}</ul>` : `<p class="muted">${empty}</p>`}</section>`;
+  const listSection = (id, heading, items, renderItem, empty) => `<section class="list" id="${id}"><h2>${heading}</h2>${items.length > 0 ? `<ul>${items.slice(0, LIST_LENGTH).map(renderItem).join("")}</ul>${items.length > LIST_LENGTH ? `<p class="muted">And ${items.length - LIST_LENGTH} more in the table view.</p>` : ""}` : `<p class="muted">${empty}</p>`}</section>`;
 
   const kindChips = [...KINDS.map((kind) => [kind, KIND_PLURALS[kind], kindIcon(kind)]), ...(graph.nodes.some((node) => node.kind === "wanted") ? [["wanted", "Not written yet", kindIcon("wanted")]] : [])]
     .map(([kind, name, icon]) => `<label class="chip"><input type="checkbox" data-filter-kind="${kind}" checked>${icon}${name}</label>`)
@@ -477,8 +481,6 @@ const HEADERS = `${BASE}/*
   Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
-
-${BASE}/index.json
   Access-Control-Allow-Origin: *
 `;
 
@@ -511,7 +513,7 @@ export function build({ root = resolve(SITE_DIR, ".."), out = join(SITE_DIR, "di
   }
   writeFileSync(join(out, "_assets/icon.svg"), ICON);
   writeFileSync(join(dist, "_headers"), HEADERS);
-  writeFileSync(join(out, "references.bib"), bibliography);
+  if (bibliography.trim() !== "") writeFileSync(join(out, "references.bib"), bibliography);
   writeFileSync(join(out, "index.json"), `${JSON.stringify(index, null, 2)}\n`);
 
   writeFileSync(
