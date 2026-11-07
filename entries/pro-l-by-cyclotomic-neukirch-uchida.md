@@ -16,4 +16,4 @@ edges:
 
 **Open direction.** See [the prosupersolvable problem](prosupersolvable-neukirch-uchida-problem.md).
 
-**Status of the source.** This entry cites an arXiv preprint from January 2026, which has not been checked for publication or refereeing.
+**Status of the source.** This entry cites an arXiv preprint from January 2026, whose arXiv page lists no journal reference as of November 2026.

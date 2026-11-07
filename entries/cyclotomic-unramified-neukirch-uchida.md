@@ -13,4 +13,4 @@ edges:
 
 **Analogy.** Regard $k(\mu_\infty)/k$ as the analogue of the constant field extension of a function field over a finite field. Then the sequence $1 \to \mathrm{Gal}(L/k(\mu_\infty)) \to \mathrm{Gal}(L/k) \to \mathrm{Gal}(k(\mu_\infty)/k) \to 1$ is the analogue of the fundamental exact sequence of a proper curve [@ozaki2025, §1].
 
-**Status of the source.** This entry cites an arXiv preprint, which has not been checked for publication or refereeing.
+**Status of the source.** This entry cites an arXiv preprint, whose arXiv page lists no journal reference as of November 2026.
