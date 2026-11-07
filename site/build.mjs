@@ -36,12 +36,15 @@ const escapeHtml = (text) =>
 const renderMath = (tex, displayMode) => katex.renderToString(tex, { displayMode, throwOnError: false, maxSize: 10 });
 
 // For places that can't show rendered math, such as link previews and graph labels. This keeps the
-// TeX source, apart from a few font wrappers, because rewriting it could misstate the mathematics.
+// TeX source, apart from a few wrappers that don't change the meaning, because rewriting it could
+// misstate the mathematics. Only text outside math loses its Markdown markers.
 const plainText = (text) =>
   text
-    .replace(/\$\$?([^$]+)\$\$?/g, "$1")
-    .replace(/\\(?:mathbb|mathrm|mathcal|mathfrak|mathbf|operatorname)\{([^{}]*)\}/g, "$1")
-    .replace(/[*`]/g, "")
+    .split(/(\$\$?[^$]+\$\$?)/)
+    .map((part, index) =>
+      index % 2 === 1 ? part.replace(/^\$+|\$+$/g, "").replace(/\\(?:mathbb|mathrm|operatorname)\{([^{}]*)\}/g, "$1") : part.replace(/[*`]/g, ""),
+    )
+    .join("")
     .replace(/\s+/g, " ")
     .trim();
 
