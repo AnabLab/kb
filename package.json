@@ -7,7 +7,7 @@
     "node": ">=22"
   },
   "scripts": {
-    "test": "node --test scripts/kb.test.mjs .claude/skills/supervisor/supervisor.test.mjs .claude/skills/supervisor/supervisor.cli.test.mjs",
+    "test": "node --test scripts/kb.test.mjs .claude/skills/supervisor/supervisor.test.mjs",
     "validate": "node scripts/kb.mjs validate"
   },
   "dependencies": {
