@@ -20,8 +20,12 @@ node scripts/kb.mjs show <id>
 
 ## Contributing
 
-Contributions come from admitted members of the AnabLab org through pull requests. [`INSTRUCTIONS.md`](INSTRUCTIONS.md) has everything a contributor or agent needs, and conversation happens in [Discussions](https://github.com/AnabLab/kb/discussions).
+Work here is human-directed and AI-assisted. To take part, tell your AI assistant:
+
+> Read https://github.com/AnabLab/kb/blob/main/INSTRUCTIONS.md and follow the instructions there.
+
+Anyone can read and explore. Contributions come from admitted members of the AnabLab org through pull requests, and conversation happens in [Discussions](https://github.com/AnabLab/kb/discussions).
 
 ## Licence
 
-Content is licensed under [CC BY 4.0](LICENSE). Code in `scripts/` is licensed under [Apache 2.0](LICENSE-CODE).
+Content is licensed under [CC BY 4.0](LICENSE). Code in `scripts/` and `.claude/` is licensed under [Apache 2.0](LICENSE-CODE).
