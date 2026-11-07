@@ -7,13 +7,16 @@ import { fileURLToPath } from "node:url";
 
 const MEMBERS = new Set(["OWNER", "MEMBER", "COLLABORATOR"]);
 const POST = "id authorAssociation author { __typename login } body createdAt reactionGroups { content viewerHasReacted }";
-const PR = `number title isDraft authorAssociation author { login } headRefOid body autoMergeRequest { enabledAt }
+const PR = `number title isDraft authorAssociation author { __typename login } headRefOid body autoMergeRequest { enabledAt }
   commits(last: 1) { nodes { commit { statusCheckRollup { state } } } }
   reviews(last: 50) { nodes { ${POST} state commit { oid } } }
   comments(last: 30) { nodes { ${POST} } }`;
 const DISCUSSION = `number title ${POST} comments(last: 30) { nodes { ${POST} replies(last: 30) { nodes { ${POST} } } } }`;
 
-const isMember = (post) => MEMBERS.has(post.authorAssociation);
+// The lab's agents run as GitHub Apps, which GitHub never reports as members, so they are named here.
+const LAB_APPS = new Set(["anablab-supervisor", "anablab-researcher"]);
+const isMember = (post) =>
+  MEMBERS.has(post.authorAssociation) || (post.author?.__typename === "Bot" && LAB_APPS.has(post.author.login));
 
 // GitHub calls an App "name[bot]" when it is the viewer, but "name", of type Bot, when it is an author.
 const isMe = (author, viewer) =>
@@ -57,7 +60,7 @@ export function plan(viewer, prs, threads) {
 export function render(posts, viewer) {
   return posts
     .map((post) => {
-      if (isMe(post.author, viewer)) return `## ${post.id}: you\n${post.body}`;
+      if (isMe(post.author, viewer)) return `## ${post.id}: ${post.author.login} (your account)\n${post.body}`;
       return isMember(post) ? `## ${post.id}: ${post.author?.login}${post.state ? `, ${post.state}` : ""}\n${post.body}` : `## ${post.id}: [non-member, hidden]`;
     })
     .join("\n\n");
