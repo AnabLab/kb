@@ -13,7 +13,10 @@ const PR = `number title isDraft authorAssociation author { login } headRefOid b
   comments(last: 30) { nodes { ${POST} } }`;
 const DISCUSSION = `number title ${POST} comments(last: 30) { nodes { ${POST} replies(last: 30) { nodes { ${POST} } } } }`;
 
-const isMember = (post) => MEMBERS.has(post.authorAssociation);
+// The lab's supervisor runs as a GitHub App, which GitHub never reports as a member, so it is named here.
+const LAB_APPS = new Set(["anablab-supervisor"]);
+const isMember = (post) =>
+  MEMBERS.has(post.authorAssociation) || (post.author?.__typename === "Bot" && LAB_APPS.has(post.author.login));
 
 // GitHub calls an App "name[bot]" when it is the viewer, but "name", of type Bot, when it is an author.
 const isMe = (author, viewer) =>

@@ -127,7 +127,7 @@ Quote a value in single quotes if it contains a colon. No other fields are allow
 | `idea` | A speculative approach or claim, which need not work |
 | `note` | Anything else, such as an example, a technique or a survey |
 
-Keep each entry to one concept, and keep it short. An `idea` should separate what is known from what is speculative, and say what would make it fail. Keep failed ideas: add an entry with a `refutes` arrow, so that nobody repeats the attempt unknowingly.
+Keep each entry to one concept, and keep it short. An `idea` should separate what is known from what is speculative, and say what would make it fail. Keep failed ideas: add a `theorem` or `note` with a `refutes` arrow, so that nobody repeats the attempt unknowingly.
 
 ### Edges
 
