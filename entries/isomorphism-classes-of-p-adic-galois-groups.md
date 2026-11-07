@@ -1,7 +1,7 @@
 ---
 title: Classification of p-adic fields with isomorphic absolute Galois groups
 kind: theorem
-summary: 'Finite $K, L/\mathbb{Q}_p$ with $G_K \cong G_L$ have the same degree and the same maximal subfield abelian over $\mathbb{Q}_p$. The converse holds for odd $p$, and for $p = 2$ when $K(\sqrt{-1})/K$ is unramified. For $p = 2$ with $K(\sqrt{-1})/K$ ramified it is not settled here.'
+summary: 'Finite $K, L/\mathbb{Q}_p$ with $G_K \cong G_L$ have the same degree and the same maximal subfield abelian over $\mathbb{Q}_p$. The converse holds for odd $p$, and for $p = 2$ when $K(\sqrt{-1})/K$ is unramified. For $p = 2$ with $K(\sqrt{-1})/K$ ramified it is settled here only in special cases.'
 tags: [local-fields, galois-groups]
 edges:
   - {to: jarden-ritter-theorem, label: generalizes, note: "Jarden and Ritter assume $\\zeta_p \\in K$, and $\\zeta_4 \\in K$ if $p = 2$. Both cases are covered here."}
@@ -15,7 +15,7 @@ edges:
 1. For every $p$, if $G_K \cong G_L$, then $[K:\mathbb{Q}_p] = [L:\mathbb{Q}_p]$ [@jardenritter1979, Lemma 1] and $K^0 = L^0$ [@jenkner1992, Théorème].
 2. Suppose that $p$ is odd, or that $p = 2$ and $K(\sqrt{-1})/K$ is unramified, which includes the case $\sqrt{-1} \in K$. If $[K:\mathbb{Q}_p] = [L:\mathbb{Q}_p]$ and $K^0 = L^0$, then $G_K \cong G_L$.
 
-For $p = 2$, whether $K(\sqrt{-1})/K$ is unramified depends only on $K^0$, by Step 1 below. So in the cases of part 2, the isomorphism type of $G_K$ carries exactly the information of the pair $([K:\mathbb{Q}_p], K^0)$. For $p = 2$ with $K(\sqrt{-1})/K$ ramified, the sources opened here do not settle part 2. See the last two sections.
+For $p = 2$, whether $K(\sqrt{-1})/K$ is unramified depends only on $K^0$, by Step 1 below. So in the cases of part 2, the isomorphism type of $G_K$ carries exactly the information of the pair $([K:\mathbb{Q}_p], K^0)$. For $p = 2$ with $K(\sqrt{-1})/K$ ramified, part 2 is settled here only in special cases. See the last two sections.
 
 **Attribution.** Jarden and Ritter proved both parts when $\zeta_p \in K$, and $\zeta_4 \in K$ if $p = 2$ (the [Jarden–Ritter theorem](jarden-ritter-theorem.md)). Ritter's paper continuing that work proves both parts for every odd $p$ [@ritter1978, Theorem, p. 281], deducing part 2 from a result of Koch [@ritter1978, pp. 286–288]. Joshi states the same equivalence and credits Ritter [@joshi2020, §3.5 and Theorem 3.5.1]. Jenkner proves part 1 for every $p$, using only local class field theory [@jenkner1992, pp. 221–225]. He also remarks that Jannsen–Wingberg and Diekert describe $G_K$ when $K(\zeta_{2p})/K$ has no wild ramification, and that the results above, including Ritter's, follow from these descriptions fairly directly [@jenkner1992, p. 221]. For $p = 2$ that hypothesis says that $K(\sqrt{-1})/K$ is unramified, since a ramified quadratic extension in residue characteristic $2$ is wildly ramified. The proof of part 2 below is written out here from those presentations.
 
@@ -43,6 +43,7 @@ For $p = 2$, the group $H_K$ has odd order and lies in the $2$-group $(\mathbb{Z
 
 - If $K$ is abelian over $\mathbb{Q}_2$, as every quadratic $K$ is, then $K^0 = K$, so $L^0 = K$ and $[L:\mathbb{Q}_2] = [K:\mathbb{Q}_2]$ force $L = K$.
 - A cubic $K$ that is not abelian is not unramified, so it is totally ramified. For a uniformizer $\varpi$, then, $\varpi^3 = 2u$ with $u \in 1 + \varpi\mathcal{O}_K$, since the residue field is $\mathbb{F}_2$. This group is pro-$2$, so $u = w^3$ for some $w$ in it, and $(\varpi/w)^3 = 2$. So $K$ is conjugate to $\mathbb{Q}_2(\sqrt[3]{2})$. Then $K^0 = \mathbb{Q}_2$, so $L^0 = \mathbb{Q}_2$ and $L$ is a non-abelian cubic too, hence also conjugate to $\mathbb{Q}_2(\sqrt[3]{2})$. Conjugate fields have isomorphic absolute Galois groups.
+- More generally, let $K$ be tamely ramified, that is, of odd ramification index $e$, with residue degree $f$. Then the fields $L$ that part 2 compares with $K$ are the tamely ramified fields with the same $e$ and $f$. If $\gcd(e, 2^f - 1) = 1$, they are all isomorphic to $K$, so part 2 holds for $K$. Every field of odd degree is tamely ramified, and this covers every $K$ of odd degree less than $21$. See [tamely ramified 2-adic fields](tamely-ramified-2-adic-fields.md), which also gives the smallest tame cases left open, in degrees $6$ and $21$.
 
 So the smallest cases left open here have degree $4$. The examples below give one where $K'$, defined next, is real and one where it is not.
 
