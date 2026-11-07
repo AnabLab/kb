@@ -14,8 +14,8 @@ edges:
 
 **Scope of the hypotheses.**
 
-- The paper proves the theorem under the stated hypothesis on roots of unity, and defers the remaining case to a subsequent paper [@jardenritter1979, p. 2].
-- One direction holds without the hypothesis: $G_K$ always determines $[K:\mathbb{Q}_p]$ and $K^0$ [@mochizuki1997, §1, Remark after Corollary 1.3].
+- The paper proves the theorem under the stated hypothesis on roots of unity, and defers the remaining case to a subsequent paper [@jardenritter1979, p. 2]. For odd $p$ the hypothesis can be dropped: see the [classification for odd $p$](isomorphism-classes-of-p-adic-galois-groups.md).
+- One direction holds without the hypothesis: $G_K$ always determines $[K:\mathbb{Q}_p]$ and $K^0$ [@mochizuki1997, §1, Remark after Corollary 1.3]. Jenkner proves that $G_K \cong G_L$ implies $K^0 = L^0$ for every $p$, using only local class field theory [@jenkner1992, Théorème].
 - Equality of the subfields $K^0, L^0$ cannot be weakened to equality of their degrees. The fields $\mathbb{Q}_3(\zeta_3)$ and the unramified quadratic extension of $\mathbb{Q}_3$ are both abelian of degree $2$, but they have different residue degrees, so their absolute Galois groups differ by [@jardenritter1979, Lemma 1].
 
 **Consequence.** The theorem gives [explicit counterexamples](nonisomorphic-p-adic-fields-with-isomorphic-galois-groups.md) to a naive local analogue of Neukirch–Uchida.
