@@ -18,6 +18,6 @@ Then $K \cong \mathbb{F}_q((t))$ [@dittmann2025, Theorem 1.1]. Conversely, $\mat
 
 **Why extra data is needed.** Efrat and Fesenko analysed the fields whose absolute Galois group is isomorphic to that of $\mathbb{F}_q((t))$. Their examples include fields of characteristic $0$, fields of arbitrarily large imperfection degree, and fields with imperfect residue field [@dittmann2025, §1]. Absolute Galois groups in characteristic $p$ carry little information at $p$, and the extra axioms supply it [@dittmann2025, §1].
 
-**Comparison with the $p$-adic case.** This is stronger than the $p$-adic characterization, because $p$-adic local fields cannot be distinguished Galois-theoretically from the larger class of $p$-adically closed fields [@dittmann2025, §1]. The theorem does not address functorial reconstruction of the field [@dittmann2025, §1].
+**Comparison with the $p$-adic case.** This is stronger than the $p$-adic characterization, because $p$-adic local fields cannot be distinguished Galois-theoretically from the larger class of [$p$-adically closed fields](galois-characterization-of-p-adically-closed-fields.md) [@dittmann2025, §1]. The theorem does not address functorial reconstruction of the field [@dittmann2025, §1].
 
 **Status of the source.** The paper is published in Compositio Mathematica. Locations here refer to the arXiv version, and the journal version has not been compared with it.
