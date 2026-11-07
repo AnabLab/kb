@@ -215,6 +215,7 @@ if (root) {
   if (shown < 640 && fit.width > shown * 1.5) zoom((shown * 1.5) / fit.width);
 
   // A long label near the edge would be cut off, so it waits until its node is hovered or selected.
+  updateTextScale();
   const card = svg.getBoundingClientRect();
   for (const node of nodes.filter((item) => item.classList.contains("is-labelled"))) {
     const label = node.querySelector("text").getBoundingClientRect();
