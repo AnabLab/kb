@@ -20,4 +20,6 @@ edges:
 
 **Cyclotomic criterion.** Hoshi proved that a continuous open homomorphism compatible with the cyclotomic characters arises from a field homomorphism, for solvably closed Galois groups in general [@hoshi2026, Introduction]. For maximal prosolvable quotients, this is recorded as an equivalence in [@maosaidi2025open, §1, Theorem 1.2]. Hoshi's Tôhoku paper, which proves this, has not been opened for this entry.
 
-**Solvable quotients.** There are conditional versions for $m$-step solvable quotients, and the case over $\mathbb{Q}$ is unconditional [@coratosaidi2023, Introduction]. An $m$-step form of the cyclotomic criterion, for open homomorphisms $G_K^{m+3} \to G_L^{m+3}$ with $m \ge 2$, is [@maosaidi2025open, Theorem 1.5]. These two sources are arXiv preprints, each whose arXiv page lists no journal reference as of November 2026.
+**Solvable quotients.** There are conditional versions for $m$-step solvable quotients, and the case over $\mathbb{Q}$ is unconditional [@coratosaidi2023, Introduction]. An $m$-step form of the cyclotomic criterion, for open homomorphisms $G_K^{m+3} \to G_L^{m+3}$ with $m \ge 2$, is [@maosaidi2025open, Theorem 1.5]. These two sources are arXiv preprints, neither of whose arXiv pages lists a journal reference as of November 2026.
+
+**The general case.** These are partial results. For the status of the full statement, including a 2026 manuscript that claims a proof, see [Uchida's conjecture](uchida-homomorphism-conjecture.md).
