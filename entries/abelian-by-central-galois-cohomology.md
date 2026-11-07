@@ -11,6 +11,6 @@ edges:
 
 **Relation to Milnor K-theory.** By the Merkurjev–Suslin theorem, the second cohomology of the absolute Galois group with $\mathbb{Z}/\ell^n$ coefficients is $K^M_2(K)/\ell^n$. Bogomolov and Tschinkel explain that the Bloch–Kato conjecture implies that the abelian-by-central quotient captures the $\ell$-part of the cohomology, and they present this theorem as a related incarnation of that principle [@bogomolovtschinkel2012, §3].
 
-**A formal description.** If $\mu_n \subset K$ and the characteristic of $K$ is prime to $n$, then the Merkurjev–Suslin theorem gives a functorial description of the second graded piece of the mod-$n$ central series of $G_K$ as a group of functions on $K \setminus \{0,1\}$, compatibly with Kummer theory [@topaz2017abc, Theorem 1].
+**A formal description.** If $\mu_n \subset K$ and the characteristic of $K$ is prime to $n$, then the Merkurjev–Suslin theorem gives a functorial description of the second graded piece of the mod-$n$ central series of the absolute Galois group of $K$ as a group of functions on $K \setminus \{0,1\}$, compatibly with Kummer theory [@topaz2017abc, Theorem 1].
 
 **Attribution.** The original paper of Chebolu, Efrat and Mináč has not been opened for this entry.

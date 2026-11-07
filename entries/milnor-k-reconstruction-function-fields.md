@@ -1,14 +1,15 @@
 ---
 title: Reconstructing function fields from Milnor K-theory
 kind: theorem
-summary: For regular extensions $F/k$ of transcendence degree at least $2$ over a perfect field, $F^\times/k^\times$ with the relation of algebraic dependence determines $F/k$ functorially (Cadoret–Pirutka). Over algebraically closed or finite fields, the Milnor K-ring detects that relation.
+summary: For finitely generated regular $F/k$ of transcendence degree at least $2$ over a perfect field, $F^\times/k^\times$ with the relation of algebraic dependence determines $F/k$ functorially (Cadoret–Pirutka). Over algebraically closed or finite fields, the Milnor K-ring detects that relation.
 tags: [milnor-k-theory, function-fields]
 edges:
-  - {to: milnor-k-ring-determines-field-question, label: addresses}
+  - {to: milnor-k-ring-does-not-determine-field, label: motivated-by, note: "This paper is motivated by the question recorded there [@cadoretpirutka2019, §1]."}
+  - {to: bogomolov-pop-conjecture, label: analogous-to, note: "Milnor K-theory in place of Galois groups. The Bloch–Kato theorem relates the two at finite level [@topaz2016, §1.6]."}
   - {to: milnor-k-ring, label: uses}
 ---
 
-**Algebraic dependence.** Let $k, k'$ be perfect fields of the same characteristic, and let $F/k$, $F'/k'$ be finitely generated regular extensions of transcendence degree at least $2$. Then the canonical map from field isomorphisms $F \to F'$ carrying $k$ to $k'$, to isomorphisms $F^\times/k^\times \to F'^\times/k'^\times$ preserving algebraic dependence, taken modulo $\psi \mapsto \psi^{-1}$, is a bijection [@cadoretpirutka2021, Theorem 4].
+**Algebraic dependence.** Let $k, k'$ be perfect fields of the same characteristic, and let $F/k$, $F'/k'$ be finitely generated regular extensions of transcendence degree at least $2$. Then the canonical map from field isomorphisms $F \to F'$ carrying $k$ to $k'$, to isomorphisms $F^\times/k^\times \to F'^\times/k'^\times$ preserving algebraic dependence, taken modulo $\psi \mapsto \psi^{-1}$, is a bijection [@cadoretpirutka2021, Theorem 4]. A later copy of the paper assumes this transcendence degree for only one of the two extensions [@cadoretpirutka2019, Theorem 4].
 
 **Detecting it.** A function field has type $1$ if its constant field is algebraically closed, and type $2$ if it is finite [@cadoretpirutka2021, §2.2]. For type $1$ take the Milnor K-ring modulo divisible elements, and for type $2$ modulo torsion. This ring detects algebraic dependence. For $x_1, \ldots, x_n$, vanishing of the symbol implies that $k(x_1, \ldots, x_n)$ has transcendence degree at most $n - 1$, and the converse holds in the cases stated in the source [@cadoretpirutka2021, Theorem 7].
 

@@ -4,7 +4,7 @@ kind: theorem
 summary: Topaz shows that for any field $K$ of absolute transcendence degree at least $5$, the $\mathbb{Q}$-algebra $\mathbb{Q} \otimes K^M_*(K)$ determines $K$ up to purely inseparable extensions, with no other restriction on $K$.
 tags: [milnor-k-theory, function-fields]
 edges:
-  - {to: milnor-k-ring-determines-field-question, label: addresses}
+  - {to: milnor-k-ring-does-not-determine-field, label: motivated-by, note: "The paper investigates the same question, for fields without finiteness conditions [@topaz2022, §1]."}
   - {to: combinatorial-geometry-reconstruction, label: uses, note: "The key tool for the absolute result [@topaz2022, §5]."}
   - {to: milnor-k-reconstruction-function-fields, label: uses, note: "For the finitely generated case [@topaz2022, Theorem 5.6]."}
   - {to: milnor-k-ring, label: uses}
