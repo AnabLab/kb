@@ -15,4 +15,4 @@ edges:
 
 **Consequence.** For imaginary quadratic fields and $\mathbb{Q}$, this gives another proof that $G_K^6 \cong G_L^6$ implies $K \cong L$ [@maosaidi2025mono, §1].
 
-**Status of the sources.** Both sources are arXiv preprints, which have not been checked for publication or refereeing.
+**Status of the sources.** Both sources are arXiv preprints, each whose arXiv page lists no journal reference as of November 2026.
