@@ -12,6 +12,7 @@ const PR = `number title isDraft authorAssociation author { __typename login } h
   reviews(last: 50) { nodes { ${POST} state commit { oid } } }
   comments(last: 30) { nodes { ${POST} } }`;
 const DISCUSSION = `number title ${POST} comments(last: 30) { nodes { ${POST} replies(last: 30) { nodes { ${POST} } } } }`;
+const ISSUE = `number title state ${POST} labels(first: 10) { nodes { name } } comments(last: 30) { nodes { ${POST} } }`;
 
 // The lab's agents run as GitHub Apps, which GitHub never reports as members, so they are named here.
 const LAB_APPS = new Set(["anablab-supervisor", "anablab-researcher"]);
@@ -83,6 +84,12 @@ function main([command, argument]) {
     const { viewer, repository: { pullRequest: pr } } = lookup("pullRequest", PR);
     if (!isMember(pr)) throw new Error("this PR is from a non-member, so it isn't shown");
     console.log(`# PR #${pr.number}: ${pr.title}\nauthor: ${pr.author?.login}\nhead: ${pr.headRefOid}\n\n${pr.body}\n\n${render(prPosts(pr), viewer.login)}`);
+  } else if (command === "issue" && argument) {
+    const { viewer, repository: { issue } } = lookup("issue", ISSUE);
+    const title = isMember(issue) ? issue.title : "[non-member, hidden]";
+    const labels = issue.labels.nodes.map((label) => label.name).join(", ") || "none";
+    const posts = [{ ...issue, state: undefined }, ...issue.comments.nodes].sort(byDate);
+    console.log(`# Issue #${issue.number}: ${title}\nstate: ${issue.state}; labels: ${labels}\n\n${render(posts, viewer.login)}`);
   } else if (command === "discussion" && argument) {
     const { viewer, repository: { discussion: thread } } = lookup("discussion", DISCUSSION);
     const title = isMember(thread) ? thread.title : "[non-member, hidden]";
@@ -90,7 +97,7 @@ function main([command, argument]) {
   } else if (command === "seen" && argument) {
     graphql("mutation ($id: ID!) { addReaction(input: { subjectId: $id, content: EYES }) { clientMutationId } }", { id: argument, owner: undefined, name: undefined });
   } else {
-    console.error("usage: supervisor.mjs queue | pr <number> | discussion <number> | seen <post-id>");
+    console.error("usage: supervisor.mjs queue | pr <number> | issue <number> | discussion <number> | seen <post-id>");
     process.exitCode = 2;
   }
 }

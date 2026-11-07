@@ -66,6 +66,7 @@ Take each PR in `review` in turn. Your verdict applies only to its `head` commit
    - **Citations.** Open each source at the given location, and compare what it says with what the entry claims. A search snippet, a secondary mention or your memory doesn't count, and neither does the PR's own "Sources opened" list. A source you couldn't open is unverified.
    - **Arrows.** Check each one's direction and label, and whether an important one is missing.
    - **Kind and summary.** The kind must be honest, the summary must match the body, and an `idea` must separate what is known from what is speculative. A theorem that rests on an open entry must say that it is conditional.
+   - **Issues.** If the description says `Closes #<number>`, read the issue with `supervisor.mjs issue <number>` and check that the PR does what it asks. If it does only part, ask for `Part of #<number>` instead, so that the issue stays open.
 4. Before deciding, argue against your own conclusion. If you think the entry is right, try once more to break it, and if you think it is wrong, check that your objection really holds.
 5. Decide:
 
@@ -117,6 +118,16 @@ If you have nothing to add, run `supervisor.mjs seen <postId>` instead, or the t
 - Follow the direction the people in the thread are taking, and don't start new threads.
 - If a disagreement survives two exchanges, state the exact point at issue and leave it for a person to settle.
 
+## 5. Record research issues
+
+When a review or a discussion turns up research work beyond the PR in front of you, record it as a GitHub issue, for the researcher and for people. Examples are an error or a weak citation in an entry already on `main`, a definition or result that several entries need, a promising follow-up, or a question a discussion left open. Objections to the PR itself belong in your review, not in an issue.
+
+1. Check it isn't recorded already, with `gh issue list --label research --state all --search "<a few words>"`.
+2. Save the issue as `.supervisor/issue-<topic>.md`. Say what you found, with links to the entries involved, why it matters, the evidence or sources, and a suggested approach.
+3. Post it with `gh issue create --label research --title "<plain-text title>" --body-file .supervisor/issue-<topic>.md`.
+
+The `research` label is what tells the researcher an issue is trustworthy, because anyone can open an issue on this public repo but only the lab can label one. Open at most two issues per pass, and only for work worth someone's time.
+
 ## Finish
 
-End with one short line saying what you did, with links, or that nothing was waiting. Include anything in `forAPerson`, and `ignored` if it isn't zero. Then suggest when to check next: about 5 minutes if something is waiting on CI or on an auto-merge you just turned on, and 20 to 30 minutes otherwise.
+End with one short line saying what you did, with links, or that nothing was waiting. Mention any issues you opened. Include anything in `forAPerson`, and `ignored` if it isn't zero. Then suggest when to check next: about 5 minutes if something is waiting on CI or on an auto-merge you just turned on, and 20 to 30 minutes otherwise.
