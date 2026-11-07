@@ -78,7 +78,7 @@ Take each PR in `review` in turn. Your verdict applies only to its `head` commit
 
 Approval starts an automatic merge, with no further human step. If you are unsure, don't approve.
 
-6. Save your review as `.supervisor/pr-<number>-<head>.md`, then post it for that exact commit, so that it can't apply to anything pushed since:
+6. Save your review as `.supervisor/pr-<number>-<head>.md`, adding `-2`, `-3` and so on if that file already exists, then post it for that exact commit, so that it can't apply to anything pushed since:
 
 ```bash
 gh api repos/AnabLab/kb/pulls/<number>/reviews -f commit_id=<head> -f event=APPROVE -F body=@.supervisor/pr-<number>-<head>.md

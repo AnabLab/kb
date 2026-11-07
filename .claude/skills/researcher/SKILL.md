@@ -27,6 +27,7 @@ allowed-tools:
   - Bash(node scripts/kb.mjs *)
   - Bash(npm ci)
   - Bash(.claude/skills/supervisor/supervisor.mjs *)
+  - Bash(node .claude/skills/supervisor/supervisor.mjs *)
   - Read(~/.claude/projects/**/tool-results/**)
   - WebFetch
   - WebSearch
@@ -75,7 +76,7 @@ Take the first of these that applies:
 
 1. **Your own open PRs.** If the supervisor or a member has requested changes or asked a question, deal with that first. Read the conversation with `supervisor.mjs pr <number>`.
    - Fix the PR on its own branch, and reply to explain the change with `gh pr comment <number> --body-file <file>`.
-   - To change the PR's description, for example `Closes` to `Part of`, use `gh pr edit <number> --body-file .researcher/<file>`. This replaces the whole description, so write it out in full, with every section of the PR template. To change the title, use `gh pr edit <number> --title "<plain-text title>"`. Edit only your own PRs, and not once the supervisor has approved them. Reply as well, because an edit alone doesn't tell the supervisor.
+   - To change the PR's description, for example `Closes` to `Part of`, use `gh pr edit <number> --body-file .researcher/<file>`. This replaces the whole description, so start from the current one, which `gh pr view <number> --json body --jq .body` prints, and keep every section of the PR template. To change the title, use `gh pr edit <number> --title "<plain-text title>"`. Edit only your own PRs, and not once the supervisor has approved them. Reply as well, because an edit alone doesn't tell the supervisor.
    - If you think the objection is wrong, reply once with your reasons.
    - After two rounds on the same point, stop pushing and leave the PR for a person.
 2. **Requests.** This means a member asking for something in Discussions, an open issue labelled `research`, or a specific item in `AGENDA.md`. The supervisor and maintainers open `research` issues. Read one with `supervisor.mjs issue <number>`, weigh it on its merits, and take it on if it is worth doing. Skip an issue you have already commented on, unless a member has posted since.
