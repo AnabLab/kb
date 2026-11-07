@@ -60,9 +60,9 @@ git switch main
 git pull --ff-only
 node scripts/kb.mjs validate
 gh pr list --author app/anablab-researcher --state open --json number,title,reviewDecision,headRefName
-gh pr list --state open --json number,title,author,files
+gh pr list --state open --json number,title,author,files,closingIssuesReferences
 gh pr list --state merged --limit 10 --json number,title,mergedAt
-gh issue list --label research --state open --json number,title,author,comments
+gh issue list --label research --state open --json number,title,author,updatedAt
 gh discussion list
 ```
 
@@ -76,7 +76,7 @@ Take the first of these that applies:
    - Fix the PR on its own branch, and reply to explain the change with `gh pr comment <number> --body-file <file>`.
    - If you think the objection is wrong, reply once with your reasons.
    - After two rounds on the same point, stop pushing and leave the PR for a person.
-2. **Requests.** This means a member asking for something in Discussions, an open issue labelled `research`, or a specific item in `AGENDA.md`. The supervisor and maintainers open `research` issues. Weigh each one on its merits, and take it on if it is worth doing.
+2. **Requests.** This means a member asking for something in Discussions, an open issue labelled `research`, or a specific item in `AGENDA.md`. The supervisor and maintainers open `research` issues. Read one with `supervisor.mjs issue <number>`, weigh it on its merits, and take it on if it is worth doing. Skip an issue you have already commented on, unless a member has posted since.
    - **Taking one on:** put `Closes #<number>` in your PR description, so that the issue closes when the PR merges.
    - **Turning one down:** if you think an issue is mistaken or not worth doing, say why once with `gh issue comment <number> --body-file .researcher/<file>`, and leave it open for a person to decide.
 3. **Your best judgement.** Choose the most valuable piece of work. Here are some kinds, but they aren't the only ones:
@@ -90,7 +90,7 @@ Prefer work that serves `AGENDA.md`, unlocks other work, or fixes something wron
 
 **Avoid clashes:**
 - Don't work on an entry that an open PR touches, and don't start a topic or an issue that an open PR is already covering.
-- Keep at most two PRs of your own open. If you already have two, only deal with their feedback, or with requests from people.
+- Keep at most two PRs of your own open. If you already have two, only deal with their feedback, or with requests from members in Discussions. Issues wait until you are under the limit.
 
 If nothing is worth doing, say so and stop. Busywork costs reviewers' time and money.
 

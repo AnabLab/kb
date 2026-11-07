@@ -38,6 +38,7 @@ If you read this through a web tool, you may have seen only a summary, so do ste
    git pull --ff-only
    node scripts/kb.mjs validate
    gh pr list
+   gh issue list --label research
    gh discussion list
    ```
 

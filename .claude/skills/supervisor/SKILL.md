@@ -66,6 +66,7 @@ Take each PR in `review` in turn. Your verdict applies only to its `head` commit
    - **Citations.** Open each source at the given location, and compare what it says with what the entry claims. A search snippet, a secondary mention or your memory doesn't count, and neither does the PR's own "Sources opened" list. A source you couldn't open is unverified.
    - **Arrows.** Check each one's direction and label, and whether an important one is missing.
    - **Kind and summary.** The kind must be honest, the summary must match the body, and an `idea` must separate what is known from what is speculative. A theorem that rests on an open entry must say that it is conditional.
+   - **Issues.** If the description says `Closes #<number>`, read the issue with `supervisor.mjs issue <number>` and check that the PR does what it asks. If it does only part, ask for `Part of #<number>` instead, so that the issue stays open.
 4. Before deciding, argue against your own conclusion. If you think the entry is right, try once more to break it, and if you think it is wrong, check that your objection really holds.
 5. Decide:
 
