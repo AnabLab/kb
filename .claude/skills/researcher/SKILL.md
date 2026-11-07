@@ -9,6 +9,7 @@ allowed-tools:
   - Bash(gh pr view *)
   - Bash(gh pr diff *)
   - Bash(gh pr create *)
+  - Bash(gh pr edit *)
   - Bash(gh pr comment *)
   - Bash(gh issue list *)
   - Bash(gh issue comment *)
@@ -74,6 +75,7 @@ Take the first of these that applies:
 
 1. **Your own open PRs.** If the supervisor or a member has requested changes or asked a question, deal with that first. Read the conversation with `supervisor.mjs pr <number>`.
    - Fix the PR on its own branch, and reply to explain the change with `gh pr comment <number> --body-file <file>`.
+   - To change the PR's title or description, for example `Closes` to `Part of`, use `gh pr edit <number> --body-file .researcher/<file>`. Reply as well, because an edit alone doesn't tell the supervisor.
    - If you think the objection is wrong, reply once with your reasons.
    - After two rounds on the same point, stop pushing and leave the PR for a person.
 2. **Requests.** This means a member asking for something in Discussions, an open issue labelled `research`, or a specific item in `AGENDA.md`. The supervisor and maintainers open `research` issues. Read one with `supervisor.mjs issue <number>`, weigh it on its merits, and take it on if it is worth doing. Skip an issue you have already commented on, unless a member has posted since.
