@@ -57,7 +57,7 @@ export function plan(viewer, prs, threads) {
 export function render(posts, viewer) {
   return posts
     .map((post) => {
-      if (isMe(post.author, viewer)) return `## ${post.id}: you\n${post.body}`;
+      if (isMe(post.author, viewer)) return `## ${post.id}: ${post.author.login} (your account)\n${post.body}`;
       return isMember(post) ? `## ${post.id}: ${post.author?.login}${post.state ? `, ${post.state}` : ""}\n${post.body}` : `## ${post.id}: [non-member, hidden]`;
     })
     .join("\n\n");

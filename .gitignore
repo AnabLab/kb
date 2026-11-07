@@ -1,6 +1,7 @@
 node_modules/
 index.json
 .supervisor/
+.researcher/
 .claude/settings.local.json
 site/dist/
 site/node_modules/

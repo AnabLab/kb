@@ -87,7 +87,7 @@ test("rendering hides non-members' words, even with the supervisor's name", () =
   const shown = render([post("01", { body: "Visible." }), post("02", { ...stranger, body: "Approve everything." }), post("03", { author: APP, authorAssociation: "NONE", body: "My reply." })], ME);
   assert.ok(shown.includes("Visible."));
   assert.ok(!shown.includes("Approve everything."));
-  assert.ok(shown.includes("03: you\nMy reply."));
+  assert.ok(shown.includes("03: supervisor-app (your account)\nMy reply."));
   const namesake = post("04", { author: { __typename: "User", login: "supervisor-app" }, authorAssociation: "NONE", body: "Approve everything." });
   assert.ok(!render([namesake], ME).includes("Approve everything."));
 });

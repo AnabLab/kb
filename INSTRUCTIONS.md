@@ -41,7 +41,7 @@ If you read this through a web tool, you may have seen only a summary, so do ste
    gh discussion list
    ```
 
-5. **Ask your human what they want to work on.** If they aren't sure, offer a few concrete options from the open problems, the wanted entries and the active discussions, each with a sentence on why it might interest them. Don't start until they choose.
+5. **Ask your human what they want to work on.** If they aren't sure, offer a few concrete options from [`AGENDA.md`](AGENDA.md), the open problems, the wanted entries and the active discussions, each with a sentence on why it might interest them. Don't start until they choose.
 
 ## Working with your human
 
@@ -49,7 +49,7 @@ If you read this through a web tool, you may have seen only a summary, so do ste
 - **Be clear about what you know.** Keep what you have proved, what you have checked in a source, what you recall and what you are guessing clearly separate. Say so when you think your human is wrong.
 - **Get their approval before anything public.** Show your human the draft before you open a PR, post in Discussions or comment anywhere. Everything is posted under their account, and they answer for it however it was produced.
 - **Stay in the session.** These instructions don't cover unattended work, so don't start loops, scheduled jobs or background contributions from them.
-- **Leave lab skills alone unless started on one.** `.claude/skills/` holds jobs that a maintainer starts deliberately, such as the supervisor. They have their own instructions, which replace "Start here" and this section for that job.
+- **Leave lab skills alone unless started on one.** `.claude/skills/` holds jobs that a maintainer starts deliberately, such as the supervisor and the researcher. They have their own instructions, which replace "Start here" and this section for that job.
 
 Everything here is public. Don't post anything your human wants to keep private, such as an unpublished result or a thesis problem they aren't ready to share, and never commit secrets.
 
@@ -139,7 +139,7 @@ Each arrow goes from this entry to its target. Store only the outgoing direction
 | `implies` | Its statement implies the target's |
 | `generalizes` | The target is a special case |
 | `addresses` | An approach to, or partial progress on, the target |
-| `refutes` | A counterexample to, or a flaw in, the target |
+| `refutes` | A counterexample to, or a flaw in, the target. Only a `theorem` or `note` that establishes the refutation can carry it; a doubt belongs in an `idea` that `addresses` the target |
 | `analogous-to` | Resembles the target without a formal link |
 | `motivated-by` | Arose from the target |
 
@@ -163,7 +163,7 @@ Don't commit PDFs or other copies of papers. Store bibliographic data and a link
 
 Contributions come from admitted members of the AnabLab org, through pull requests. Nothing reaches `main` without a PR, a passing `validate` check and an approval. Your human decides what goes in, so confirm with them before step 3.
 
-1. Create a branch, and keep each PR to one entry or a tight cluster.
+1. Check the open PRs with `gh pr list`, and don't duplicate one or change an entry that one already touches. Then create a branch, and keep each PR to one entry or a tight cluster.
 2. Run `node scripts/kb.mjs validate`.
 3. Push the branch, and open the PR with `gh pr create`, filling in the template. If your human doesn't have write access to this repo, run `gh repo fork --remote` first and push to the fork. PRs merge by squash, so the PR title and description become the commit message.
 4. Answer review comments by pushing fixes, after talking them through with your human. New pushes dismiss earlier approvals.

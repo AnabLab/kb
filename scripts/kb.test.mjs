@@ -115,6 +115,15 @@ test("a command can't hide from the check in the bibliography behind braces", ()
   assertProblem(corpus({}, `${BIB}@article{b2001,\n  title = {\\{rule[-3em] 10em 10em\\}},\n}\n`), /references\.bib.*"\\rule" is not allowed/);
 });
 
+test("only a theorem or note can refute", () => {
+  const refutes = "edges:\n  - {to: b, label: refutes}\n";
+  for (const kind of ["idea", "problem", "definition"]) {
+    assertProblem(corpus({ "a.md": entry({ kind, extra: refutes }) }), /only a theorem or note .* "refutes" arrow/);
+  }
+  for (const kind of ["theorem", "note"]) assert.deepEqual(corpus({ "a.md": entry({ kind, extra: refutes }) }).problems, []);
+  assert.deepEqual(corpus({ "a.md": entry({ kind: "idea", extra: "edges:\n  - {to: b, label: addresses}\n" }) }).problems, []);
+});
+
 test("references.bib can't be a link to another file", () => {
   const root = mkdtempSync(join(tmpdir(), "kb-test-"));
   roots.push(root);

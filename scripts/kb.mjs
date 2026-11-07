@@ -18,6 +18,8 @@ export const LABELS = [
 ];
 
 const ID = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+// A refutation has to be established, so it can't come from a speculative or open entry.
+const REFUTING_KINDS = ["theorem", "note"];
 const ENTRY_FIELDS = new Set(["title", "kind", "summary", "tags", "edges"]);
 const EDGE_FIELDS = new Set(["to", "label", "note"]);
 const MAX_SUMMARY_LENGTH = 300;
@@ -173,6 +175,10 @@ function parseEntry(file, text, bibKeys, problems) {
   const body = (match[2] ?? "").trim();
   if (body === "") problems.push(`${where}: the body is empty`);
   checkTex([meta.title, meta.summary, body].filter((text) => typeof text === "string").join("\n"), where, problems);
+  const edges = checkEdges(meta.edges, id, where, bibKeys, problems);
+  if (edges.some((edge) => edge.label === "refutes") && !REFUTING_KINDS.includes(meta.kind)) {
+    problems.push(`${where}: only a theorem or note that establishes the refutation can have a "refutes" arrow`);
+  }
   const prose = stripCodeAndMath(body);
   checkCitations(prose, where, bibKeys, problems);
   return {
@@ -181,7 +187,7 @@ function parseEntry(file, text, bibKeys, problems) {
     kind: meta.kind,
     summary: meta.summary,
     tags: checkTags(meta.tags, where, problems),
-    edges: checkEdges(meta.edges, id, where, bibKeys, problems),
+    edges,
     links: collectLinks(prose, where, problems),
     body,
   };
