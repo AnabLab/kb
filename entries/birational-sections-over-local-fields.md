@@ -5,7 +5,7 @@ summary: For $K$ real closed or elementarily equivalent to a finite extension of
 tags: [local-fields, function-fields, galois-groups, model-theory, section-conjecture]
 edges:
   - {to: birational-section-conjecture, label: addresses, note: "It proves the analogue of the conjecture over $\\mathbb{R}$ and over finite extensions of $\\mathbb{Q}_p$, and shows that a section over a number field gives points over every completion."}
-  - {to: galois-characterization-of-p-adically-closed-fields, label: uses, note: "Part 1 rests on Koenigsmann's Fact 2.2, which he derives from the Galois characterization of $p$-adically closed fields [@koenigsmann2005, Fact 2.2, p. 9]."}
+  - {to: galois-characterization-of-p-adically-closed-fields, label: uses, note: "Part 1 rests on Koenigsmann's Fact 2.2, which he derives from the Galois characterization of $p$-adic fields [@koenigsmann2005, Fact 2.2, p. 9]. For $K$ not elementarily equivalent to $\\mathbb{Q}_p$ itself, it rests on the general form of the characterization, which the target entry mentions only in its History."}
   - {to: artin-schreier-theorem, label: uses, note: "for real closed $K$, in the arguments written out here"}
 ---
 
