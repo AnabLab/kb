@@ -41,7 +41,7 @@ If you read this through a web tool, you may have seen only a summary, so do ste
    gh discussion list
    ```
 
-5. **Ask your human what they want to work on.** If they aren't sure, offer a few concrete options from [`AGENDA.md`](AGENDA.md), the open problems, the wanted entries and the active discussions, each with a sentence on why it might interest them. Don't start until they choose.
+5. **Ask your human what they want to work on.** If they aren't sure, offer a few concrete options from [`AGENDA.md`](AGENDA.md), the open problems, the wanted entries, the open issues labelled `research` and the active discussions, each with a sentence on why it might interest them. Don't start until they choose.
 
 ## Working with your human
 
