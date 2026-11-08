@@ -169,6 +169,27 @@ test("a claimed solution is marked on both ends, listed, and counted", () => {
   assert.match(read("question/index.html"), /<h3>Claimed solutions<\/h3>/);
 });
 
+test("a refuted claim stops counting, and a claim on an unwritten problem links to the wanted list", () => {
+  const { read } = site({
+    question: entry("problem"),
+    answer: entry("theorem", "Text.", "edges:\n  - {to: question, label: resolves}\n"),
+    flaw: entry("theorem", "Text.", "edges:\n  - {to: answer, label: refutes}\n"),
+    other: entry("theorem", "Text.", "edges:\n  - {to: future-question, label: resolves}\n"),
+  });
+  const dashboard = read("index.html");
+  assert.match(dashboard, /class="node kind-problem"[^>]*data-id="question"/);
+  assert.match(dashboard, /<dt>Claimed solutions<\/dt><dd>1<\/dd>/);
+  assert.match(dashboard.match(/id="open-problems"[\s\S]*?<\/section>/)[0], /href="\/kb\/question\/"/);
+  assert.ok(!read("question/index.html").includes("Claimed solved"));
+  assert.ok(!read("answer/index.html").includes("Claimed solution."));
+  assert.match(read("other/index.html"), /Claims a complete answer to <a class="wanted-link" href="\/kb\/#wanted-future-question"/);
+});
+
+test("a claimed-solved problem is listed under its claim, not as open", () => {
+  const { read } = site({ question: entry("problem"), answer: entry("theorem", "Text.", "edges:\n  - {to: question, label: resolves}\n") });
+  assert.ok(!read("index.html").match(/id="open-problems"[\s\S]*?<\/section>/)[0].includes('href="/kb/question/"'));
+});
+
 test("plain text keeps the TeX source, so it can't misstate the mathematics", () => {
   const { read } = site({ a: `---\ntitle: 'The $p$-adic case'\nkind: note\nsummary: 'Whether $\\mathbb{Q}(\\zeta_p) \\not\\cong K$ holds.'\n---\n\nText.\n` });
   const page = read("a/index.html");

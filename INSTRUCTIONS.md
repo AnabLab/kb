@@ -125,7 +125,7 @@ Quote a value in single quotes if it contains a colon. No other fields are allow
 |---|---|
 | `definition` | A definition |
 | `theorem` | A proved statement, including lemmas and propositions |
-| `problem` | An open conjecture or question. When solved, change its kind to `theorem` |
+| `problem` | A conjecture or question. When a theorem answers it, give that theorem a `resolves` arrow to it, and leave the problem a `problem` |
 | `idea` | A speculative approach or claim, which need not work |
 | `note` | Anything else, such as an example, a technique or a survey |
 
@@ -146,7 +146,7 @@ Each arrow goes from this entry to its target. Store only the outgoing direction
 | `analogous-to` | Resembles the target without a formal link |
 | `motivated-by` | Arose from the target |
 
-A claimed solution is a separate `theorem` with a `resolves` arrow to the `problem` it answers. Leave the problem itself a `problem`, so that the question stays on record whatever happens to the claim. The dashboard marks both. If a claim fails, add a `refutes` arrow to the theorem, not to the problem.
+A claimed solution is a separate `theorem` with a `resolves` arrow to the `problem` it answers. Leave the problem itself a `problem`, so that the question stays on record whatever happens to the claim. Refiling an entry that was never a real problem, such as a definition filed as a `problem`, is a different matter and is fine. The dashboard marks both. If a claim fails, add a `refutes` arrow to the theorem, not to the problem.
 
 An arrow is a claim, and it is reviewed like one. If a relationship needs more than a line of justification, make it an entry of its own. An arrow may point to an entry that doesn't exist yet.
 
@@ -185,7 +185,7 @@ A maintainer or the lab's supervisor agent reviews each PR. Everything on `main`
 |---|---|
 | `definition` | Well-formed, and matches its source or standard usage |
 | `theorem` | The statement is right, and the proof is complete or the citation has been checked at its location |
-| `problem` | Precisely stated, correctly attributed, and open as far as is known |
+| `problem` | Precisely stated, correctly attributed, and open as far as is known, unless a theorem `resolves` it |
 | `idea` | Coherent, with known and speculative parts clearly separated |
 | `note` | Accurate |
 

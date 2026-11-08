@@ -173,9 +173,10 @@ const wantedName = (id) => id.charAt(0).toUpperCase() + id.slice(1).replaceAll("
 const GRAPH_ASPECT = 1.1;
 
 export function layoutGraph(index) {
+  const refuted = new Set(index.entries.filter((entry) => entry.refutedBy.length > 0).map((entry) => entry.id));
   const arrowTargets = new Set(index.entries.flatMap((entry) => entry.edges.map((edge) => edge.to)));
   const nodes = [
-    ...index.entries.map((entry) => ({ id: entry.id, kind: entry.kind, title: plainText(entry.title), refuted: entry.refutedBy.length > 0, claimedSolved: entry.resolvedBy.length > 0, degree: entry.edges.length + entry.incoming.length })),
+    ...index.entries.map((entry) => ({ id: entry.id, kind: entry.kind, title: plainText(entry.title), refuted: entry.refutedBy.length > 0, claimedSolved: entry.resolvedBy.some((id) => !refuted.has(id)), degree: entry.edges.length + entry.incoming.length })),
     // Only arrows form the graph, so an entry that is only mentioned in a body has no node.
     ...index.wanted.filter((item) => arrowTargets.has(item.id)).map((item) => ({ id: item.id, kind: "wanted", title: wantedName(item.id), degree: 0 })),
   ];
@@ -319,8 +320,8 @@ function renderGraph(graph) {
 <g class="viewport"><g class="edges">${edges}</g><g class="nodes">${nodes}</g></g></svg>`;
 }
 
-function statusNotes(entry, titleOf, inline) {
-  const list = (ids) => ids.map((id) => `<a href="${BASE}/${id}/">${inline(titleOf(id))}</a>`).join(", ");
+function statusNotes(entry, titleOf, inline, isWritten, isRefuted) {
+  const list = (ids) => ids.map((id) => (isWritten(id) ? `<a href="${BASE}/${id}/">${inline(titleOf(id))}</a>` : `<a class="wanted-link" href="${BASE}/#wanted-${id}" title="Not written yet">${escapeHtml(wantedName(id))}</a>`)).join(", ");
   const notes = [];
   const contested = entry.tags.includes("contested");
   if (entry.refutedBy.length > 0) {
@@ -328,12 +329,14 @@ function statusNotes(entry, titleOf, inline) {
   } else if (contested) {
     notes.push(`<p class="status status-warning"><span aria-hidden="true">!</span> <strong>Contested.</strong> This claim is under genuine dispute.</p>`);
   }
+  // A refuted claim no longer counts, on either end.
   const claims = entry.edges.filter((edge) => edge.label === "resolves").map((edge) => edge.to);
-  if (claims.length > 0) {
+  const standing = entry.resolvedBy.filter((id) => !isRefuted(id));
+  if (claims.length > 0 && entry.refutedBy.length === 0) {
     notes.push(`<p class="status status-claim"><span aria-hidden="true">✓</span> <strong>Claimed solution.</strong> Claims a complete answer to ${list(claims)}.</p>`);
   }
-  if (entry.resolvedBy.length > 0) {
-    notes.push(`<p class="status status-claim"><span aria-hidden="true">✓</span> <strong>Claimed solved.</strong> See ${list(entry.resolvedBy)}.</p>`);
+  if (standing.length > 0) {
+    notes.push(`<p class="status status-claim"><span aria-hidden="true">✓</span> <strong>Claimed solved.</strong> See ${list(standing)}.</p>`);
   }
   if (entry.conditionalOn.length > 0) {
     notes.push(`<p class="status status-warning"><span aria-hidden="true">!</span> <strong>Conditional.</strong> Rests on ${list(entry.conditionalOn)}, which ${entry.conditionalOn.length === 1 ? "is" : "are"} not established.</p>`);
@@ -393,7 +396,7 @@ ${body}
 
 const LIST_LENGTH = 8;
 
-function renderDashboard(index, graph, dates, inline, titleOf, isWritten) {
+function renderDashboard(index, graph, dates, inline, titleOf, isWritten, isRefuted) {
   const { entries, wanted } = index;
   const arrowCount = entries.reduce((sum, entry) => sum + entry.edges.length, 0);
   const counts = Object.fromEntries(KINDS.map((kind) => [kind, entries.filter((entry) => entry.kind === kind).length]));
@@ -401,7 +404,7 @@ function renderDashboard(index, graph, dates, inline, titleOf, isWritten) {
   const tiles = [
     tile("Entries", entries.length),
     ...["theorem", "problem", "idea", "definition", "note"].map((kind) => tile(KIND_PLURALS[kind], counts[kind], kindIcon(kind))),
-    tile("Claimed solutions", entries.filter((entry) => entry.edges.some((edge) => edge.label === "resolves")).length),
+    tile("Claimed solutions", entries.filter((entry) => entry.refutedBy.length === 0 && entry.edges.some((edge) => edge.label === "resolves")).length),
     tile("Arrows", arrowCount),
     tile("Wanted", wanted.length),
   ].join("");
@@ -413,9 +416,10 @@ function renderDashboard(index, graph, dates, inline, titleOf, isWritten) {
 
   const item = (entry) => `<li><a href="${BASE}/${entry.id}/">${inline(entry.title)}</a><p>${inline(entry.summary)}</p></li>`;
   const byConnections = (a, b) => b.edges.length + b.incoming.length - (a.edges.length + a.incoming.length) || a.id.localeCompare(b.id);
-  const problems = entries.filter((entry) => entry.kind === "problem" && entry.refutedBy.length === 0).sort(byConnections);
+  // A problem with a standing claimed solution is listed under the claim instead.
+  const problems = entries.filter((entry) => entry.kind === "problem" && entry.refutedBy.length === 0 && !entry.resolvedBy.some((id) => !isRefuted(id))).sort(byConnections);
   const ideas = entries.filter((entry) => entry.kind === "idea" && entry.refutedBy.length === 0).sort(byConnections);
-  const claimed = entries.filter((entry) => entry.edges.some((edge) => edge.label === "resolves")).sort(byConnections);
+  const claimed = entries.filter((entry) => entry.refutedBy.length === 0 && entry.edges.some((edge) => edge.label === "resolves")).sort(byConnections);
   const claimItem = (entry) => `<li><a href="${BASE}/${entry.id}/">${inline(entry.title)}</a><p>Claims to solve ${entry.edges.filter((edge) => edge.label === "resolves").map((edge) => (isWritten(edge.to) ? `<a href="${BASE}/${edge.to}/">${inline(titleOf(edge.to))}</a>` : escapeHtml(wantedName(edge.to)))).join(", ")}.</p></li>`;
   const recent = entries.filter((entry) => dates.has(entry.id)).sort((a, b) => dates.get(b.id).localeCompare(dates.get(a.id)) || a.id.localeCompare(b.id));
   const listSection = (id, heading, items, renderItem, empty) => `<section class="list" id="${id}"><h2>${heading}</h2>${items.length > 0 ? `<ul>${items.slice(0, LIST_LENGTH).map(renderItem).join("")}</ul>${items.length > LIST_LENGTH ? `<p class="muted">And ${items.length - LIST_LENGTH} more in the table view.</p>` : ""}` : `<p class="muted">${empty}</p>`}</section>`;
@@ -429,7 +433,7 @@ function renderDashboard(index, graph, dates, inline, titleOf, isWritten) {
 
   const templates = entries
     .map(
-      (entry) => `<template id="panel-${entry.id}"><p class="panel-kind">${kindIcon(entry.kind)}${KIND_NAMES[entry.kind]}</p><h2><a href="${BASE}/${entry.id}/">${inline(entry.title)}</a></h2><p class="panel-summary">${inline(entry.summary)}</p>${statusNotes(entry, titleOf, inline)}<div class="relations">${relationGroups(entry, titleOf, inline, isWritten)}</div><p><a class="button" href="${BASE}/${entry.id}/">Open entry</a></p></template>`,
+      (entry) => `<template id="panel-${entry.id}"><p class="panel-kind">${kindIcon(entry.kind)}${KIND_NAMES[entry.kind]}</p><h2><a href="${BASE}/${entry.id}/">${inline(entry.title)}</a></h2><p class="panel-summary">${inline(entry.summary)}</p>${statusNotes(entry, titleOf, inline, isWritten, isRefuted)}<div class="relations">${relationGroups(entry, titleOf, inline, isWritten)}</div><p><a class="button" href="${BASE}/${entry.id}/">Open entry</a></p></template>`,
     )
     .join("");
   const wantedTemplates = wanted
@@ -478,7 +482,7 @@ ${templates}${wantedTemplates}
 </main>`;
 }
 
-function renderEntry(entry, source, body, dates, inline, titleOf, isWritten, references) {
+function renderEntry(entry, source, body, dates, inline, titleOf, isWritten, isRefuted, references) {
   const citedIn = (text) => [...text.matchAll(/\[@([^\],\s]+)\s*,/g)].map((match) => match[1]);
   const cited = [...new Set([...citedIn(source), ...entry.edges.flatMap((edge) => citedIn(edge.note ?? ""))])];
   const tags = entry.tags.length > 0 ? `<ul class="tags">${entry.tags.map((tag) => `<li>${escapeHtml(tag)}</li>`).join("")}</ul>` : "";
@@ -490,7 +494,7 @@ function renderEntry(entry, source, body, dates, inline, titleOf, isWritten, ref
 <p class="entry-kind">${kindIcon(entry.kind)}${KIND_NAMES[entry.kind]}</p>
 <h1>${inline(entry.title)}</h1>
 <p class="entry-summary">${inline(entry.summary)}</p>
-${statusNotes(entry, titleOf, inline)}
+${statusNotes(entry, titleOf, inline, isWritten, isRefuted)}
 <div class="prose">${body}</div>
 ${referenceList ? `<section class="references"><h2>References</h2><ol>${referenceList}</ol></section>` : ""}
 </article>
@@ -522,6 +526,8 @@ export function build({ root = resolve(SITE_DIR, ".."), out = join(SITE_DIR, "di
   const inline = (text) => markdown.parseInline(text);
   const titleOf = (id) => corpus.get(id)?.title ?? wantedName(id);
   const isWritten = (id) => corpus.has(id);
+  const refuted = new Set(index.entries.filter((entry) => entry.refutedBy.length > 0).map((entry) => entry.id));
+  const isRefuted = (id) => refuted.has(id);
   const graph = layoutGraph(index);
 
   // URLs map directly onto files: /kb/x/ is dist/kb/x/index.html.
@@ -546,7 +552,7 @@ export function build({ root = resolve(SITE_DIR, ".."), out = join(SITE_DIR, "di
     page({
       title: "AnabLab knowledgebase",
       description: "A graph of known mathematics and new ideas in anabelian geometry, written and reviewed by humans and AI agents.",
-      body: renderDashboard(index, graph, dates, inline, titleOf, isWritten),
+      body: renderDashboard(index, graph, dates, inline, titleOf, isWritten, isRefuted),
     }),
   );
   writeFileSync(join(out, "404.html"), page({ title: "Not found · AnabLab knowledgebase", description: "This page doesn't exist.", body: `<main class="entry-missing"><h1>This entry doesn't exist</h1><p>It may not have been written yet. <a href="${BASE}/">Go to the knowledgebase</a>, or see its <a href="${BASE}/#wanted">wanted entries</a>.</p></main>` }));
@@ -559,7 +565,7 @@ export function build({ root = resolve(SITE_DIR, ".."), out = join(SITE_DIR, "di
       page({
         title: `${plainText(entry.title)} · AnabLab knowledgebase`,
         description: plainText(entry.summary),
-        body: renderEntry(entry, source.body, markdown.parse(source.body), dates, inline, titleOf, isWritten, references),
+        body: renderEntry(entry, source.body, markdown.parse(source.body), dates, inline, titleOf, isWritten, isRefuted, references),
         bodyClass: "entry-page",
       }),
     );
