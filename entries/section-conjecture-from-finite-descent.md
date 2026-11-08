@@ -10,7 +10,7 @@ edges:
   - {to: birational-sections-with-local-conditions, label: uses, note: "Stix's Corollary 5: a non-cuspidal Selmer section with finite support comes from a rational point [@stix2015birational, Corollary 5, p. 5]."}
   - {to: finite-support-for-finite-abelian-descent, label: uses, note: "Through Stix's Corollary 5 in part 2, and in Stoll's proofs of the criteria in part 3 [@stoll2007descent, Proposition 8.5 and Theorem 8.6, pp. 384–385]."}
   - {to: real-section-conjecture, label: uses, note: "Identifies the localization at a real place with a connected component of real points."}
-  - {to: section-conjecture-injectivity, label: uses, note: "Over each completion, distinct points give distinct sections, so the adelic point of a section is unique."}
+  - {to: section-conjecture-injectivity, label: uses, note: "Over each finite completion, distinct points give distinct sections, so the finite components of the adelic point of a section are unique."}
   - {to: manuscript-claiming-p-adic-section-conjecture, label: motivated-by, note: "Checks §8 of the manuscript: Proposition 8.1, Theorem 8.2 and Corollaries 8.3 and 8.5."}
 ---
 
