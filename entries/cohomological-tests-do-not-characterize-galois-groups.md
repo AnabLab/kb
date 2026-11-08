@@ -4,6 +4,7 @@ kind: theorem
 summary: 'The product of two free pro-2 groups of rank two has Koszul cohomology, satisfies the kernel-unipotent property and strong Massey vanishing at every length, but is not the maximal pro-2 Galois group of any field.'
 tags: [galois-groups, galois-cohomology, pro-p-groups, counterexample]
 edges:
+  - {to: bloch-kato-pro-p-group, label: uses, note: "The subgroup obstruction below is failure of this hereditary quadraticity condition."}
   - {to: kernel-unipotent-conjecture, label: analogous-to, note: "This group satisfies every asserted equality, but is not Galois realizable; the conjecture asserts necessity only."}
   - {to: strong-massey-vanishing, label: uses, note: "the definition of the property satisfied by the example"}
   - {to: norm-residue-isomorphism-theorem, label: uses, note: "Its restriction on the cohomology of closed subgroups supplies the obstruction to realizability described below."}
@@ -18,7 +19,7 @@ edges:
 
 These are the assertions of [@hamzamaireminactan2025, §4.5 and Proposition 4.16, pp. 27–28]. Here Koszul means that the trivial module over the graded cohomology algebra admits a graded free resolution whose term in homological degree $i$ is generated in internal degree $i$.
 
-**A subgroup obstruction.** A pro-$p$ group is called *Bloch–Kato* if every closed subgroup has mod-$p$ cohomology generated in degree one with relations in degree two. Maximal pro-$p$ Galois groups over fields containing a primitive $p$th root of unity have this property [@quadrelli2012blochkato, §1–2, pp. 1–3]. Quadrelli proves that the product of two rank-two free pro-$p$ groups fails it: his proof constructs a closed subgroup $\Gamma$ with
+**A subgroup obstruction.** Maximal pro-$p$ Galois groups over fields containing a primitive $p$th root of unity have the [Bloch–Kato property](bloch-kato-pro-p-group.md): quadratic mod-$p$ cohomology for every closed subgroup [@quadrelli2012blochkato, §1–2, pp. 1–3]. Quadrelli proves that the product of two rank-two free pro-$p$ groups fails it: his proof constructs a closed subgroup $\Gamma$ with
 
 $$\dim_{\mathbb F_p}H^1(\Gamma,\mathbb F_p)=3,\qquad \dim_{\mathbb F_p}H^2(\Gamma,\mathbb F_p)=\infty,$$
 
