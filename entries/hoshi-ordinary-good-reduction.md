@@ -7,6 +7,7 @@ edges:
   - {to: hyperbolic-curve, label: uses}
   - {to: local-field-galois-invariants, label: uses, note: 'The reconstruction recognizes inertia in the recovered local Galois quotient [@hoshi2018propgood, Theorem 3.7 (iii), p. 24].'}
   - {to: crystalline-fundamental-group-good-reduction, label: analogous-to, note: 'Both detect good reduction at the residue prime; this criterion uses the abstract arithmetic group and assumes ordinarity, while the crystalline criterion uses a field and geometric section.'}
+  - {to: stable-reduction-of-curves, label: uses, note: 'Ordinarity is defined through the stable model after a finite extension, which exists by the stable reduction theorem.'}
 ---
 
 **Setting.** Let $K/\mathbb{Q}_p$ be finite and $X/K$ a smooth proper geometrically connected curve of genus $g\ge 2$. Write $\Delta_X$ for the maximal pro-$p$ quotient of $\pi_1(X_{\bar K})$, and $\Pi_X$ for the geometrically pro-$p$ arithmetic fundamental group, with
