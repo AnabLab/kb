@@ -4,12 +4,13 @@ kind: theorem
 summary: 'For odd p, a pro-p group with quadratic mod-p cohomology for every closed subgroup either contains a closed nonabelian free pro-p subgroup or admits an orientation with scalar conjugation on its kernel. The latter case is locally powerful, and analytic when finitely generated.'
 tags: [galois-groups, galois-cohomology, pro-p-groups]
 edges:
+  - {to: bloch-kato-pro-p-group, label: uses}
   - {to: norm-residue-isomorphism-theorem, label: uses, note: "It supplies the hereditary quadraticity of maximal pro-p Galois groups with a primitive pth root of unity [@quadrelli2012blochkato, §1–2, pp. 1–3]."}
   - {to: p-adic-analytic-pro-p-galois-groups, label: analogous-to, note: "For finitely generated Bloch–Kato groups at odd p, analyticity is exactly the branch of this alternative without nonabelian free subgroups."}
   - {to: p-rigid-fields, label: analogous-to, note: "The scalar conjugation structure and exterior cohomology here also occur in the p-rigid case described there."}
 ---
 
-**Definitions.** A pro-$p$ group $G$ is *Bloch–Kato* if, for every closed subgroup $H\subseteq G$, the continuous cohomology algebra $H^*(H,\mathbb F_p)$ is generated in degree one with relations generated in degree two. It is *locally powerful* if every finitely generated closed subgroup $H$ is powerful, meaning
+**Definitions.** Use the [Bloch–Kato property](bloch-kato-pro-p-group.md) of hereditary quadratic mod-$p$ cohomology. A pro-$p$ group $G$ is *locally powerful* if every finitely generated closed subgroup $H$ is powerful, meaning
 
 $$
 \overline{[H,H]}\subseteq
