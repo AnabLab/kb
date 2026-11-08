@@ -1,7 +1,7 @@
 ---
 title: Small Galois quotients detect compatible valuations
 kind: theorem
-summary: Efrat–Mináč detect valuations with non-p-divisible value group and principal units that are p-th powers from the central image of a small Galois quotient, with rigidity and finiteness hypotheses. Their theorem also bounds the value group modulo p.
+summary: If F contains a primitive p-th root of unity and -1 is a p-th power, Efrat–Mináč detect valuations with non-p-divisible value group and p-th-power principal units from the central image of a small Galois quotient, under rigidity and finiteness hypotheses, and bound the value group modulo p.
 tags: [galois-groups, valuations, milnor-k-theory, reconstruction]
 edges:
   - {to: milnor-k-ring, label: uses}
