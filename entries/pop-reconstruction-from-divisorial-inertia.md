@@ -8,6 +8,7 @@ edges:
   - {to: quasi-divisorial-groups-recoverable, label: uses}
   - {to: abelian-by-central-galois-group, label: uses}
   - {to: pairing-compatible-isomorphisms-lift-to-abelian-by-central-groups, label: uses, note: "Identifies Pop's isomorphism set with the pairing-compatible isomorphisms of the conjecture."}
+  - {to: total-decomposition-graph-from-divisorial-inertia, label: uses, note: "Step 1 of the reconstruction proof [@pop2018, p. 5]."}
 ---
 
 **With divisorial inertia.** Let $K|k$ be a function field over an algebraically closed field with $\mathrm{char}(k) \ne \ell$ and $\mathrm{td}(K|k) > 2$. Let $\mathrm{In.div}(K) \subset \Pi^a_K$ be the union of the inertia groups of prime divisors. There is a group-theoretic recipe that reconstructs $K|k$ functorially from $\Pi^c_K$ with $\mathrm{In.div}(K)$. Let $\mathrm{Isom}^F(L, K)$ be the isomorphisms $L^i \to K^i$ up to Frobenius twists, and $\overline{\mathrm{Isom}}^c(\Pi^a_K, \Pi^a_L)$ the abelianizations of isomorphisms $\Pi^c_K \to \Pi^c_L$, modulo $\ell$-adic units. If $\Phi$ in the second set carries $\mathrm{In.div}(K)$ onto $\mathrm{In.div}(L)$, then $\Phi$ arises from a unique element of the first [@pop2018, Theorem 1.1].
