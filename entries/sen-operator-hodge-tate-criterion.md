@@ -5,6 +5,7 @@ summary: 'For a finite extension K of Q_p, a p-adic representation is Hodge–Ta
 tags: [local-fields, galois-groups, hodge-theory]
 edges:
   - {to: ax-sen-tate-fixed-field-theorem, label: uses, note: 'The scalar fixed field for cyclotomic descent is $C^{H_K}=\widehat K_\infty$ [@brinonconrad2009, proof of Theorem 15.1.2, p. 258].'}
+  - {to: p-adic-cyclotomic-tower, label: uses, note: 'The infinitely ramified cyclotomic character supplies the setup for classical Sen theory [@brinonconrad2009, opening of §15, p. 257].'}
 ---
 
 **Data.** Let $K/\mathbb Q_p$ be finite, $C=\widehat{\bar K}$, and $V$ a continuous $d$-dimensional $\mathbb Q_p$-representation of $G_K$. Put
@@ -13,6 +14,7 @@ K_\infty=K(\mu_{p^\infty}),\qquad
 H_K=\ker\chi_{\mathrm{cyc}},\qquad
 \Gamma_K=\operatorname{Gal}(K_\infty/K).
 $$
+This is the [cyclotomic tower](p-adic-cyclotomic-tower.md).
 Sen's descent gives a unique $G_K$-stable $d$-dimensional $K_\infty$-subspace $D_{\mathrm{Sen}}(V)\subset C\otimes_{\mathbb Q_p}V$, fixed by $H_K$, with
 $$
 C\otimes_{K_\infty}D_{\mathrm{Sen}}(V)
