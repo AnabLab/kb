@@ -4,7 +4,7 @@ kind: theorem
 summary: 'Barwick–Glasman–Haine recover normal finite-type schemes over finitely generated characteristic-zero fields from their topological category of geometric points and specializations over the base Galois group. Morphisms must preserve closed points.'
 tags: [galois-groups, fundamental-groups, etale-topoi]
 edges:
-  - {to: etale-topos-reconstruction-over-sub-p-adic-fields, label: analogous-to, note: "Galois categories recover the full étale topos; the reconstruction theorem here uses Voevodsky's normal characteristic-zero case."}
+  - {to: voevodsky-etale-topos-reconstruction, label: uses, note: "Barwick–Glasman–Haine deduce the theorem from Voevodsky's in its topos form [@barwickglasmanhaine2020, Theorem 14.4.6 and p. 233]."}
   - {to: neukirch-uchida-theorem, label: analogous-to, note: "Residue-field Galois groups are assembled with specialization data to reconstruct schemes over a fixed arithmetic base."}
 ---
 
@@ -25,6 +25,6 @@ $$
 $$
 preserving minimal objects is an equivalence. Morphisms in the latter groupoid are natural isomorphisms over $BG_k$. Minimal objects lie over closed scheme points. In particular, an equivalence of these topological categories over $BG_k$ determines a unique $k$-isomorphism $X\simeq Y$ [@barwickglasmanhaine2020, §14.4.3 and Theorem 14.4.7, pp. 232–233]. Equivalently, retain the geometric category $\operatorname{Gal}(X_{\bar k})$ with its continuous $G_k$-action [@barwickglasmanhaine2020, §14.4.8, p. 233].
 
-**Mechanism.** Exodromy reconstructs the entire étale topos from $\operatorname{Gal}(X)$ [@barwickglasmanhaine2020, Theorem 12.1.6, p. 189]. The scheme-reconstruction step uses Voevodsky's theorem [@barwickglasmanhaine2020, Theorem 14.4.6 and the discussion preceding Theorem 14.4.7, pp. 232–233]. The [topos entry](etale-topos-reconstruction-over-sub-p-adic-fields.md) treats broader base fields and nonnormal schemes after localization. Here the retained invariant includes specialization morphisms and their topology as well as the residue-field groups.
+**Mechanism.** Exodromy reconstructs the entire étale topos from $\operatorname{Gal}(X)$ [@barwickglasmanhaine2020, Theorem 12.1.6, p. 189]. The scheme-reconstruction step uses [Voevodsky's theorem](voevodsky-etale-topos-reconstruction.md) [@barwickglasmanhaine2020, Theorem 14.4.6 and the discussion preceding Theorem 14.4.7, pp. 232–233]. The [topos entry](etale-topos-reconstruction-over-sub-p-adic-fields.md) treats broader base fields and nonnormal schemes after localization. Fed into the same argument, it gives the [seminormal version over sub-p-adic fields](galois-categories-reconstruct-seminormal-schemes.md), with perfections in positive characteristic. Here the retained invariant includes specialization morphisms and their topology as well as the residue-field groups.
 
 **Source.** Locations refer to arXiv version 7. The cited statements are checked at their locations; no independent audit of their proofs is claimed.
