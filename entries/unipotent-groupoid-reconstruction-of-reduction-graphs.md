@@ -6,6 +6,7 @@ tags: [curves, local-fields, fundamental-groups, reconstruction-algorithms]
 edges:
   - {to: hyperbolic-curve, label: uses}
   - {to: oda-good-reduction-criterion, label: analogous-to}
+  - {to: relative-oda-tamagawa-criterion, label: uses, note: "The reconstruction uses the criterion to embed the reduction graph via the Kummer map [@bettsdogra2020, §1.4, p. 10]."}
 ---
 
 Let $K/\mathbb Q_p$ be finite, $\ell\ne p$, and $X/K$ a [hyperbolic curve](hyperbolic-curve.md). Write $\mathcal P_\ell(X)$ for its geometric $\mathbb Q_\ell$-pro-unipotent étale fundamental groupoid: objects $X(\bar K)$, affine path schemes, composition, inverses, and continuous $G_K$-action [@bettsdogra2020, §1.3, p. 9].
