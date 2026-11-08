@@ -21,6 +21,8 @@ Then $K \cong \mathbb{F}_q((t))$ [@dittmann2025, Theorem 1.1]. Conversely, $\mat
 
 **Completeness mechanism.** Galois theory first supplies a nontrivial henselian valuation with residue field admitting a cyclic degree-$p$ extension. The [Brauer-duality completeness theorem](brauer-duality-forces-local-completeness.md) then makes it a complete discrete valuation with finite residue field; its entry also defines the pairing in the fourth hypothesis [@dittmann2025, Corollary 3.3, p. 7; Proposition 4.7, p. 11; proof of Theorem 1.1, p. 12].
 
+**Necessity of full duality.** The [t-adic henselization of $\mathbb F_q(t)$](henselization-does-not-satisfy-local-brauer-duality.md) satisfies the first three hypotheses, but its pairing is not surjective onto the full discrete dual, even though it is nondegenerate in both variables. Thus nondegeneracy cannot replace the fourth hypothesis.
+
 **Milnor K-theoretic form.** The first and third hypotheses force $\operatorname{char}K=p$ [@dittmann2025, Lemma 2.3, p. 4]. In characteristic $p$, the [differential-symbol theorem](bloch-gabber-kato-theorem.md) gives
 $$
 [K:K^p]\le p\quad\Longleftrightarrow\quad K_2^M(K)/p=0.
