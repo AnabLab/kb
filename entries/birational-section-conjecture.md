@@ -11,7 +11,7 @@ A point $P \in X(\bar K)$ defines a valuation of $K(X)$, and each prolongation o
 
 **Conjecture.** If $K$ is finitely generated over $\mathbb{Q}$, then every section of $\mathrm{pr}_{X/K}$ is geometric.
 
-This is Koenigsmann's birational section property for every smooth complete curve over $K$ [@koenigsmann2005, Definition 1.4, p. 6], and it is the birational form of Grothendieck's section conjecture [@koenigsmann2005, abstract]. Bresciani states it in the same way for all smooth geometrically connected curves, with no hyperbolicity assumption, unlike the section conjecture for étale fundamental groups [@bresciani2023, §1, p. 1].
+This is Koenigsmann's birational section property for every smooth complete curve over $K$ [@koenigsmann2005, Definition 1.4, p. 6], and it is the birational form of Grothendieck's section conjecture [@koenigsmann2005, abstract]. Bresciani states it in the same way for all smooth geometrically connected curves, with no hyperbolicity assumption, unlike the [section conjecture](section-conjecture.md) for étale fundamental groups [@bresciani2023, §1, p. 1].
 
 **Sections and points.** When $K$ is not separably closed, as here, conjugates of decomposition groups at distinct points of $X$ meet trivially [@koenigsmann2005, p. 6]. So the image of a geometric section lies in decomposition groups at only one point, and the conjecture gives a map from sections onto $X(K)$ whose fibres are the families of sections attached to each point. Koenigsmann describes the expected correspondence as one between $K$-rational points and "certain canonical families of conjugacy classes of sections" [@koenigsmann2005, §1.2, p. 4]. In particular, the conjecture predicts that $\mathrm{pr}_{X/K}$ has a section only if $X(K) \ne \emptyset$.
 
