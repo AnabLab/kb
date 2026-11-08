@@ -4,7 +4,8 @@ kind: theorem
 summary: An abelian variety over a p-adic field has good reduction exactly when its rational p-adic Tate module is crystalline. Under semistable reduction, the maximal 1-crystalline submodule is the Tate module of its Raynaud extension.
 tags: [local-fields, hodge-theory, abelian-varieties]
 edges:
-  - {to: oda-good-reduction-criterion, label: analogous-to, note: 'Crystallinity at p replaces unramifiedness away from p; abelian varieties require only a Tate module, whereas curves require nonabelian data.'}
+  - {to: oda-good-reduction-criterion, label: analogous-to, note: 'Both detect good reduction through Galois data; abelian varieties require only a Tate module, whereas curves require nonabelian data.'}
+  - {to: neron-ogg-shafarevich-criterion, label: analogous-to, note: 'Crystallinity of $V_pA$ replaces unramifiedness of $T_\ell A$ for $\ell\ne p$ [@andreattaiovitakim2015, Theorems 1.1–1.2, p. 2].'}
 ---
 
 **Setting.** Let $K/\mathbb Q_p$ be finite and $A/K$ an abelian variety. Put
