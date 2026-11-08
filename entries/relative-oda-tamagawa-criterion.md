@@ -1,12 +1,11 @@
 ---
 title: The relative Oda–Tamagawa criterion for unipotent paths
 kind: theorem
-summary: 'For $\ell\ne p$, two points of a hyperbolic curve over a p-adic field have a Galois-invariant unipotent $\ell$-adic path exactly when their images in the stable reduction graph agree. Inertia-invariance is equivalent, and depth three suffices (Betts–Dogra, preprint).'
+summary: 'For $\ell\ne p$, two rational points of a hyperbolic curve over a p-adic field have a Galois-invariant unipotent $\ell$-adic path exactly when their images in the stable reduction graph agree. Inertia-invariance is equivalent, and depth three suffices (Betts–Dogra, preprint).'
 tags: [curves, local-fields, fundamental-groups, reconstruction-algorithms]
 edges:
   - {to: hyperbolic-curve, label: uses}
   - {to: oda-good-reduction-criterion, label: analogous-to}
-  - {to: unipotent-groupoid-reconstruction-of-reduction-graphs, label: analogous-to, note: "The path criterion detects the reduction map's fibres inside the groupoid used there."}
 ---
 
 Let $K/\mathbb Q_p$ be finite, $\ell\ne p$, and $X/K$ a [hyperbolic curve](hyperbolic-curve.md). For $x,y\in X(K)$, put
