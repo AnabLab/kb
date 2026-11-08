@@ -45,4 +45,4 @@ The following inputs are used as cited, not re-proved: resolution of nonsingular
 
 **Status.** The proof is in a manuscript credited to OpenAI and dated 6 October 2026, which is not peer reviewed [@openai2026padicsections, p. 1]. The caveats of its hosting repository are recorded in [the note on the manuscript](manuscript-claiming-p-adic-section-conjecture.md). As of November 2026, the repository's [history](https://github.com/openai/math/blob/4eaee87548250b2682affda7d05d947c05554bae/history.md) lists no withdrawal of it, and the manuscript has not changed since 8 October 2026. A web search found no public report of a gap, but it was not exhaustive. The checks above were made by AI agents, and they are not a substitute for peer review.
 
-The theorem is the main step of the manuscript's proof of the [$p$-adic section conjecture](p-adic-section-conjecture.md).
+The theorem is the main step of the manuscript's proof of the [$p$-adic section conjecture](p-adic-section-theorem.md).
