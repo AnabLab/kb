@@ -5,6 +5,7 @@ summary: Shimizu shows that $G_{K_1,S_1} \cong G_{K_2,S_2}$ implies $K_1 \cong K
 tags: [number-fields, galois-groups]
 edges:
   - {to: neukirch-uchida-theorem, label: generalizes, note: "The case where each $S_i$ contains all primes, so that $G_{K_i,S_i}$ is the absolute Galois group."}
+  - {to: local-correspondence-at-the-boundary, label: uses, note: "Shimizu's local correspondence is based on Ivanov's results on decomposition groups at the primes of $S$ [@shimizu2022, §0, p. 2]."}
 ---
 
 **Setting.** For a number field $K$ and a set $S$ of primes of $K$, let $K_S/K$ be the maximal extension unramified outside $S$, and let $G_{K,S} = \mathrm{Gal}(K_S/K)$.
@@ -15,9 +16,9 @@ edges:
 
 **Stable sets.** Ivanov proved the weak form for stable sets, which can have arbitrarily small positive density, under assumptions including that $K_1$ is totally imaginary and Galois over $\mathbb{Q}$ [@ivanov2017, Theorem 1.1]. A direct use of Chebotarev is impossible there [@ivanov2017, §1].
 
-**Key steps.** As for Neukirch–Uchida, one first establishes a local correspondence between decomposition groups [@shimizu2022, Theorem 2.6]. A key step is to recover the $l$-adic cyclotomic character of an open subgroup group-theoretically [@shimizu2022, Abstract]. This adapts the Iwasawa-theoretic methods of [Saïdi–Tamagawa](m-step-solvable-local-theory.md) [@shimizu2022, §0].
+**Key steps.** As for Neukirch–Uchida, one first establishes a local correspondence between decomposition groups [@shimizu2022, Theorem 2.6]. Shimizu bases it on his recovery of the cyclotomic character and on Ivanov's work for finite $S$ [@shimizu2022, §0, p. 2], described in [decomposition groups at the boundary](local-correspondence-at-the-boundary.md). A key step is to recover the $l$-adic cyclotomic character of an open subgroup group-theoretically [@shimizu2022, Abstract]. This adapts the Iwasawa-theoretic methods of [Saïdi–Tamagawa](m-step-solvable-local-theory.md) [@shimizu2022, §0].
 
-**Finite $S$.** For function fields over a finite field and finite $S$, the question was answered by Tamagawa, and the number field analogue of his proof seems out of reach [@ivanov2017, §1].
+**Finite $S$.** For function fields over a finite field and finite $S$, the question was answered by Tamagawa, and the number field analogue of his proof seems out of reach [@ivanov2017, §1]. For number fields and finite $S$ the question is open; see [the problem for arithmetic curves](isom-problem-for-arithmetic-curves.md).
 
 **Mono-anabelian form.** A group-theoretic reconstruction from $G_{K,S}$, for some sets $S$ of density $1$, is given in [@maowang2025, Abstract].
 
