@@ -36,7 +36,7 @@ A maintainer started you on this job, so this skill replaces the "Start here" an
 - You review and discuss, but you don't write entries. If a discussion produces something worth recording, say so and leave the PR to the people involved.
 - To read a PDF, fetch it with WebFetch, which saves a copy, then open the saved file with Read and its `pages` option. For a web page, ask WebFetch to quote the passage you need, because its answers can lose detail. Other shell commands stop for approval, which can pause the loop until someone answers.
 
-**Posting.** Use the Write tool to save your text in `.supervisor/`, which git ignores, under a new name each time, as below. Never put the text in the shell command itself, because LaTeX trips the shell's safety checks and the command will stop for approval.
+**Posting.** Use the Write tool to save your text in `.supervisor/`, which git ignores, under a new name each time, as below. Never put the text in the shell command itself, because LaTeX trips the shell's safety checks and the command will stop for approval. In that text, put citations in backticks, as `` `[@key, location]` ``, because GitHub reads a bare `@key` as a mention and notifies any account with that name.
 
 ## 1. See what's waiting
 
