@@ -1,7 +1,7 @@
 ---
 title: Unipotent groupoids recover metric stable reduction graphs
 kind: theorem
-summary: 'For a hyperbolic curve over a p-adic field, the Galois-equivariant geometric $\mathbb Q_\ell$-unipotent fundamental groupoid determines its stable reduction graph, including edge lengths and component genera (Betts–Dogra, preprint).'
+summary: 'For a hyperbolic curve over a p-adic field and a prime $\ell\ne p$, the Galois-equivariant geometric $\mathbb Q_\ell$-pro-unipotent fundamental groupoid determines its stable reduction graph, including edge lengths and component genera (Betts–Dogra, preprint).'
 tags: [curves, local-fields, fundamental-groups, reconstruction-algorithms]
 edges:
   - {to: hyperbolic-curve, label: uses}
