@@ -14,9 +14,9 @@ $$
 \operatorname{Tr}_m(F)=
 \left(R_m=\mathcal O_F/\mathfrak m_F^m,
 M_m=\mathfrak m_F/\mathfrak m_F^{m+1},
-\epsilon_m:M_m\longrightarrow R_m\right),
+\epsilon_m:M_m\longrightarrow\mathfrak m_F/\mathfrak m_F^m\right),
 $$
-where $M_m$ is a free rank-one $R_m$-module and $\epsilon_m$ is induced by inclusion. An isomorphism of triples consists of a ring isomorphism and a compatible semilinear module isomorphism commuting with $\epsilon_m$ [@ganapathy2019parahoric, §2.A, p. 1478].
+where $\epsilon_m$ is the natural projection [@ganapathy2019parahoric, §2.A, p. 1478].
 
 **Deligne's theorem.** An isomorphism $\operatorname{Tr}_m(F)\cong\operatorname{Tr}_m(F')$ induces an isomorphism
 $$
@@ -39,7 +39,7 @@ $$
 \cong\mathbb F_p[X]/(X^{m+1})
 \cong\mathcal O_F/(t^{m+1}).
 $$
-The isomorphism $\pi\mapsto t$ identifies the maximal ideals, their quotients modulo the $(m+1)$-st powers, and the projections to the length-$m$ rings. It therefore identifies all three parts of the triples. Apply Deligne's theorem. $\square$
+The isomorphism $\pi\mapsto t$ induces isomorphisms on $R_m$ and $M_m$ that commute with the natural projections $\mathfrak m/\mathfrak m^{m+1}\to\mathfrak m/\mathfrak m^m$. It therefore identifies all three parts of the triples. Apply Deligne's theorem. $\square$
 
 **Scope.** Thus no single ramification cutoff detects characteristic uniformly among these local fields. The field $K_e$ varies with the cutoff. This does not supply one mixed-characteristic field with compatible quotient isomorphisms at every depth, as would be needed to compare full filtered groups in [Abrashkin's reconstruction theorem](abrashkin-local-grothendieck-theorem.md).
 
