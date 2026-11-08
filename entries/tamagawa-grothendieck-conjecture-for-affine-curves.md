@@ -4,6 +4,7 @@ kind: theorem
 summary: Over finite fields an affine curve is determined functorially by its fundamental group alone, with no map to $G_k$ given, and an affine hyperbolic curve by its tame one. Over fields finitely generated over $\mathbb{Q}$, affine hyperbolic curves satisfy the Grothendieck conjecture.
 tags: [curves, fundamental-groups, function-fields, number-fields, section-conjecture]
 edges:
+  - {to: global-class-field-theory, label: uses, note: "Global reciprocity identifies the kernel recovering the function field's multiplicative group [@tamagawa1997, proof of Theorem (4.3), pp. 165–166]."}
   - {to: hyperbolic-curve, label: uses}
   - {to: pop-mochizuki-finitely-generated-fields, label: uses, note: "Only for the absolute form over fields finitely generated over $\\mathbb{Q}$, Theorem (6.1) [@tamagawa1997, §6, p. 183]."}
   - {to: uchida-global-function-fields, label: analogous-to, note: "The proof over finite fields modifies Uchida's proof of his theorem, but does not apply the theorem [@tamagawa1997, Introduction, p. 138]."}
@@ -65,7 +66,7 @@ where $\varphi_L$ is the $|L|$-th power Frobenius element and $I(\Pi)$ is the ke
 **From decomposition groups to the curve.** Let $\mathcal{F} : \Pi_1 \to \Pi_2$ be an isomorphism, over finite fields. By the above, it induces a bijection $f$ of closed points with $\mathcal{F}(D_v) = D_{f(v)}$ [@tamagawa1997, proof of Theorem (4.3), p. 165]. Then the multiplicative group is recovered [@tamagawa1997, pp. 165–166].
 
 - Let $K$ be the function field and $K_v$ its completion at $v$. Local class field theory identifies the preimage of the powers of Frobenius under $D_v^{\mathrm{ab}} \to G_k$. It is $\mathbb{Z}$ at points of $U$, and $K_v^\times$ at points of $S$, or $K_v^\times/(1 + \mathfrak{m}_v)$ for the tame group.
-- Global class field theory recovers $K^\times$ as the kernel of the map from the restricted product of these groups to $\Pi^{\mathrm{ab}}$.
+- [Global class field theory](global-class-field-theory.md) recovers $K^\times$ as the kernel of the map from the restricted product of these groups to $\Pi^{\mathrm{ab}}$.
 - This is the first point in the proof where $n > 0$ is used. For a proper curve, the same construction gives only $K^\times/k^\times$.
 
 Doing this on every open subgroup gives an isomorphism of multiplicative monoids between the function fields of the universal coverings [@tamagawa1997, Corollary (4.5), p. 166].
