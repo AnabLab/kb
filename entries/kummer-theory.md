@@ -16,7 +16,7 @@ and Hilbert 90 give a canonical isomorphism
 $$
 K^\times/K^{\times n}\xrightarrow{\sim}H^1(G_K,\mu_n).
 $$
-This does not require $\mu_n\subset K$ [@milnecft, Chapter III, §4, Step 2, p. 112]. The [Hilbert 90](hilbert-theorem-90.md) input is $H^1(G_K,(K^{\mathrm{sep}})^\times)=0$ [@stacks2026, Example 59.59.3, Tag 03QQ]; at finite Galois level it is $H^1(\operatorname{Gal}(L/K),L^\times)=0$ [@milnecft, Chapter II, Proposition 1.22, p. 67].
+This does not require $\mu_n\subset K$ [@milnecft, Chapter III, §4, Step 2, p. 112]. The [Hilbert 90](hilbert-theorem-90.md) input is $H^1(G_K,(K^{\mathrm{sep}})^\times)=0$ [@stacks2026, Example 59.59.3, Tag 03QV]; at finite Galois level it is $H^1(\operatorname{Gal}(L/K),L^\times)=0$ [@milnecft, Chapter II, Proposition 1.22, p. 67].
 
 **Character form.** Now assume $\mu_n\subset K$, and put
 $$

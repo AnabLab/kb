@@ -26,6 +26,6 @@ This is Hilbert's original Theorem 90; the general finite Galois form is Noether
 $$
 H^1\bigl(G_K,(K^{\mathrm{sep}})^\times\bigr)=0.
 $$
-No perfectness or characteristic restriction is needed [@stacks2026, Example 59.59.3, Tag 03QQ].
+No perfectness or characteristic restriction is needed [@stacks2026, Example 59.59.3, Tag 03QV].
 
 **Role in reconstruction.** This is the vanishing used in the [Kummer isomorphism](kummer-theory.md) for integers invertible in $K$ [@milnecft, Chapter III, §4, Step 2, p. 112]. In characteristic $p$, the same absolute Galois form is the input to the calculation with $(K^{\mathrm{sep}})^\times/((K^{\mathrm{sep}})^\times)^p$ in [Kato cohomology and local-field reconstruction](kato-cohomology-and-local-field-reconstruction.md).
