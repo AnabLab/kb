@@ -1,7 +1,7 @@
 ---
 title: The mod-l Bogomolov–Pop conjecture
 kind: problem
-summary: 'The mod-$\ell$ analogue of the Bogomolov–Pop conjecture replaces $\Pi^a, \Pi^c$ by $G^a, G^c$ from the Zassenhaus filtration. Together with one injectivity statement it would imply the pro-$\ell$ conjecture. A 2026 manuscript, not peer reviewed, claims a Milnor K-theory form of it.'
+summary: 'The mod-$\ell$ analogue of the Bogomolov–Pop conjecture replaces $\Pi^a, \Pi^c$ by $G^a, G^c$ from the Zassenhaus filtration. With one injectivity statement it would imply the pro-$\ell$ conjecture. A 2026 manuscript, not peer reviewed, claims a Milnor K-theory form, whose proof is checked here.'
 tags: [function-fields, galois-groups, milnor-k-theory]
 edges:
   - {to: bogomolov-pop-conjecture, label: addresses, note: "It reduces that conjecture to the injectivity of a map on isomorphism sets, as stated in [@topaz2016, §1.2]."}
@@ -16,4 +16,4 @@ edges:
 
 **Known.** [Reconstruction with rational quotients](mod-l-reconstruction-from-rational-quotients.md) in transcendence degree at least $5$ reduces the conjecture in that range to recovering the rational quotients from $G^c_K$ [@topaz2016, §1.4].
 
-**Status.** A [manuscript credited to OpenAI](manuscripts-claiming-bogomolov-pop.md) and dated 5 October 2026 claims a form of this for $K^M_1/\ell$ and $K^M_2/\ell$ with their product, in transcendence degree at least $2$ [@openai2026modl, Theorem 1.1]. It is not peer reviewed, and this entry does not record it as established. Kummer duality and Topaz's comparison of the commutator pairing with $k^M_2$ [@topaz2016, Theorem 8.6] show that this Milnor form is [equivalent to the conjecture above](milnor-and-galois-forms-of-mod-l-bogomolov-pop.md). A literature search in November 2026 found no refereed proof, but that search was not exhaustive.
+**Status.** A [manuscript credited to OpenAI](manuscripts-claiming-bogomolov-pop.md) and dated 5 October 2026 claims a form of this for $K^M_1/\ell$ and $K^M_2/\ell$ with their product, in transcendence degree at least $2$ [@openai2026modl, Theorem 1.1]. It is not peer reviewed. Its proof has been checked here component by component, and [function fields from mod-ℓ Milnor K-theory](mod-l-milnor-k-reconstruction-of-function-fields.md) composes those checks into a proof of that form and of the conjecture. These are checks by AI agents, not peer review. Kummer duality and Topaz's comparison of the commutator pairing with $k^M_2$ [@topaz2016, Theorem 8.6] show that this Milnor form is [equivalent to the conjecture above](milnor-and-galois-forms-of-mod-l-bogomolov-pop.md). A literature search in November 2026 found no refereed proof, but that search was not exhaustive.

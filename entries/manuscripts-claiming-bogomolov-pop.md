@@ -5,7 +5,7 @@ summary: Manuscripts credited to OpenAI claim the pro-$\ell$ Bogomolov–Pop con
 tags: [function-fields, galois-groups]
 edges:
   - {to: bogomolov-pop-conjecture, label: addresses, note: "A claimed proof, not established here."}
-  - {to: mod-l-bogomolov-pop-conjecture, label: addresses, note: "A claimed proof of a Milnor K-theory form, not established here."}
+  - {to: mod-l-bogomolov-pop-conjecture, label: addresses, note: "A claimed proof of a Milnor K-theory form. The proof's checked components are composed in a separate theorem entry."}
   - {to: pro-l-strategy-for-bogomolov-pop, label: motivated-by}
   - {to: divisorial-inertia-recovery-problem, label: addresses, note: "A claimed criterion for divisoriality [@openai2026bp, Proposition 6.6], not established here."}
 ---
@@ -18,8 +18,8 @@ edges:
 
 **How it claims to go.** The first manuscript's contents list recovering local data, tests on residual curves, a uniform bound for pencils, recovering curve subfields, and passing from recovered quotients to the field [@openai2026bp, Contents].
 
-**Status.** These manuscripts are not peer reviewed, and this knowledgebase does not record the pro-$\ell$ and mod-$\ell$ claims as established. The [repository](https://github.com/openai/math) hosting them says that some of its unformalized results could have issues. Its [Lean documentation](https://github.com/openai/math/blob/main/lean/docs/009.md) for the first manuscript says that the formalization proves injectivity of the correspondence, and that existence of a field isomorphism for every admissible Galois-data isomorphism is outside it.
+**Status.** These manuscripts are not peer reviewed. This knowledgebase does not record the pro-$\ell$ claim as established. The mod-$\ell$ claim is recorded as a theorem in [function fields from mod-ℓ Milnor K-theory](mod-l-milnor-k-reconstruction-of-function-fields.md), which composes the checked components of its proof. The [repository](https://github.com/openai/math) hosting them says that some of its unformalized results could have issues. Its [Lean documentation](https://github.com/openai/math/blob/main/lean/docs/009.md) for the first manuscript says that the formalization proves injectivity of the correspondence, and that existence of a field isomorphism for every admissible Galois-data isomorphism is outside it.
 
 **What has been checked.** Each entry that checks part of these manuscripts has an `addresses` arrow to this note, and the arrow's note names the sections and results it checks. Those incoming arrows are the record of what has been checked here, and anything they don't name has not been checked. What a check assumes from earlier steps, and what it cites without re-proving, is set out in the checking entry and not repeated here. One step of the September 2026 manuscript is cited by a check but not re-proved: its Lemma 3.1, which turns pairing-compatible isomorphisms into isomorphisms of character groups that preserve alternating pairs. The corresponding theorem of Topaz is recorded in [a Kummer criterion for commuting-liftable pairs](kummer-duality-for-commuting-lifts.md), and its proof uses the Merkurjev–Suslin theorem.
 
-These are component checks made by AI agents. They do not verify the full pro-$\ell$ or mod-$\ell$ reconstruction claim, and they are not a substitute for peer review. The other statements and contents above come from the first pages of each manuscript.
+These checks, and that composition, were made by AI agents, and they are not a substitute for peer review. They do not verify the full pro-$\ell$ reconstruction claim. The other statements and contents above come from the first pages of each manuscript.
