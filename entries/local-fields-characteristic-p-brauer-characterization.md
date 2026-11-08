@@ -5,6 +5,7 @@ summary: 'A field $K$ with $G_K \cong G_{\mathbb{F}_q((t))}$, imperfect exponent
 tags: [local-fields, galois-groups]
 edges:
   - {to: neukirch-local-theory, label: analogous-to, note: "Both characterize local fields by Galois data, but this one needs extra data at $p$."}
+  - {to: fontaine-wintenberger-field-of-norms, label: uses, note: "only for an explicit field of characteristic $0$ in the remark on why extra data is needed"}
 ---
 
 **Statement.** Let $p$ be a prime and $q = p^n$. Let $K$ be a field such that:
@@ -16,7 +17,7 @@ edges:
 
 Then $K \cong \mathbb{F}_q((t))$ [@dittmann2025, Theorem 1.1]. Conversely, $\mathbb{F}_q((t))$ satisfies these axioms [@dittmann2025, §1].
 
-**Why extra data is needed.** Efrat and Fesenko analysed the fields whose absolute Galois group is isomorphic to that of $\mathbb{F}_q((t))$. Their examples include fields of characteristic $0$, fields of arbitrarily large imperfection degree, and fields with imperfect residue field [@dittmann2025, §1]. Absolute Galois groups in characteristic $p$ carry little information at $p$, and the extra axioms supply it [@dittmann2025, §1].
+**Why extra data is needed.** Efrat and Fesenko analysed the fields whose absolute Galois group is isomorphic to that of $\mathbb{F}_q((t))$. Their examples include fields of characteristic $0$, fields of arbitrarily large imperfection degree, and fields with imperfect residue field [@dittmann2025, §1]. An explicit field of characteristic $0$ of this kind is $U(\mu_{p^\infty})$, where $U$ is the unramified extension of $\mathbb{Q}_p$ of degree $n$, by the corollary in the entry on the [Fontaine–Wintenberger theorem](fontaine-wintenberger-field-of-norms.md). Absolute Galois groups in characteristic $p$ carry little information at $p$, and the extra axioms supply it [@dittmann2025, §1].
 
 **Comparison with the $p$-adic case.** This is stronger than the $p$-adic characterization, because $p$-adic local fields cannot be distinguished Galois-theoretically from the larger class of [$p$-adically closed fields](galois-characterization-of-p-adically-closed-fields.md) [@dittmann2025, §1]. The theorem does not address functorial reconstruction of the field [@dittmann2025, §1].
 
