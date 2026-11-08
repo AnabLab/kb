@@ -148,7 +148,7 @@ Each arrow goes from this entry to its target. Store only the outgoing direction
 
 A claimed solution is a separate `theorem` with a `resolves` arrow to the `problem` it answers. Leave the problem itself a `problem`, so that the question stays on record whatever happens to the claim. Refiling an entry that was never a real problem, such as a definition filed as a `problem`, is a different matter and is fine. The dashboard marks both. If a claim fails, add a `refutes` arrow to the theorem, not to the problem.
 
-An arrow is a claim, and it is reviewed like one. If a relationship needs more than a line of justification, make it an entry of its own. An arrow may point to an entry that doesn't exist yet.
+An arrow is a claim, and it is reviewed like one. If a relationship needs more than a line of justification, make it an entry of its own. An arrow may point to an entry that doesn't exist yet. If an entry checks part of a source whose status a `note` records, such as a manuscript, give it an `addresses` arrow to that note, naming the parts it checks. The note's incoming arrows are the record of what has been checked, so don't also list the check in the note.
 
 To propose a new label, open a PR adding it to `LABELS` in `scripts/kb.mjs` and to this table.
 
