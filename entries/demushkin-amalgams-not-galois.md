@@ -5,7 +5,8 @@ summary: 'For primes at least five, Quadrelli gives Demushkin amalgams with a un
 tags: [galois-groups, galois-cohomology, pro-p-groups, counterexample]
 edges:
   - {to: demushkin-group, label: uses}
-  - {to: kummerian-obstruction-to-galois-realizability, label: uses, note: "The obstruction requires the Kummerian condition on subgroups, even though it holds on the whole group."}
+  - {to: one-smooth-oriented-pro-p-group, label: uses, note: "the distinction between a Kummerian pair and a 1-smooth pair"}
+  - {to: kummerian-obstruction-to-galois-realizability, label: uses, note: "only Galois necessity, which rules out realizability when no orientation is 1-smooth [@quadrelli2022smooth, Theorem 2.8]"}
   - {to: strong-massey-vanishing, label: uses, note: "the definition, here satisfied at length four"}
   - {to: elementary-type-conjecture, label: analogous-to, note: "Free products of canonically oriented Demushkin groups are 1-smooth, but these procyclic amalgams are not [@quadrelli2024chasing, Introduction, following Theorem 1.1]."}
 ---
@@ -21,7 +22,7 @@ r_1&=y_1^p[y_1,x][y_2,y_3]\cdots[y_{d_1-1},y_{d_1}],\\
 r_2&=z_1^p[z_1,x][z_2,z_3]\cdots[z_{d_2-1},z_{d_2}].
 \end{aligned}
 $$
-The products after $[y_1,x]$ and $[z_1,x]$ are empty when the corresponding $d_i=1$. No orientation $G\to1+p\mathbb Z_p$ is [1-smooth](kummerian-obstruction-to-galois-realizability.md). Thus $G$ is not $G_F(p)$ for any field $F$ containing a primitive $p$th root of unity, and is not the absolute Galois group of any field [@quadrelli2024chasing, Theorem 1.1, case (1.1.b), and Corollary 1.2].
+The products after $[y_1,x]$ and $[z_1,x]$ are empty when the corresponding $d_i=1$. No orientation $G\to1+p\mathbb Z_p$ is [1-smooth](one-smooth-oriented-pro-p-group.md). Thus $G$ is not $G_F(p)$ for any field $F$ containing a primitive $p$th root of unity, and is not the absolute Galois group of any field [@quadrelli2024chasing, Theorem 1.1, case (1.1.b), and Corollary 1.2].
 
 **Compatible orientations are insufficient.** The subgroups $G_1=\overline{\langle x,y_1,\ldots,y_{d_1}\rangle}$ and $G_2=\overline{\langle x,z_1,\ldots,z_{d_2}\rangle}$ are [Demushkin groups](demushkin-group.md), and $G$ is their proper amalgamated free pro-$p$ product over $\overline{\langle x\rangle}\cong\mathbb Z_p$ [@quadrelli2024chasing, Introduction, following Theorem 1.1, and §3.2]. There is exactly one orientation making $G$ Kummerian:
 $$

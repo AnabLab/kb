@@ -6,7 +6,7 @@ tags: [galois-groups, galois-cohomology, pro-p-groups, reconstruction-algorithms
 edges:
   - {to: elementary-type-conjecture, label: addresses, note: "Within this family, Galois-realizable groups are built using only free pro-p products and direct products with the p-adic integers."}
   - {to: norm-residue-isomorphism-theorem, label: uses, note: "The Galois-to-hereditary-quadraticity implication uses it [@snopcezalesskii2022, proof of Theorem 1.2, (v) implies (iv)]."}
-  - {to: kummerian-obstruction-to-galois-realizability, label: uses, note: "the definition of a 1-smooth orientation"}
+  - {to: one-smooth-oriented-pro-p-group, label: uses, note: "the definition of a 1-smooth orientation"}
   - {to: positselski-koszulity-conjecture, label: analogous-to, note: "Ordinary Koszulity holds for every graph here; universal Koszulity detects precisely the realizable ones."}
 ---
 
@@ -24,7 +24,7 @@ An induced subgraph retains every edge between its chosen vertices.
 4. Every closed subgroup $H$ has torsion-free abelianization $H^{\mathrm{ab}}$.
 5. $G_\Gamma$ is built from $\mathbb Z_p$ by free pro-$p$ products and direct products with $\mathbb Z_p$.
 
-These are also equivalent to admitting a [1-smooth orientation](kummerian-obstruction-to-galois-realizability.md); when they hold, the trivial orientation works [@snopcezalesskii2022, Theorem 1.5 and Lemma 4.1].
+These are also equivalent to admitting a [1-smooth orientation](one-smooth-oriented-pro-p-group.md); when they hold, the trivial orientation works [@snopcezalesskii2022, Theorem 1.5 and Lemma 4.1].
 
 **Recursive test.** Split disconnected graphs into components. For a connected graph, remove a vertex adjacent to every other vertex; such a vertex exists under condition 1. Repeat until single vertices remain. These steps give respectively free pro-$p$ products and factors $\mathbb Z_p$ [@snopcezalesskii2022, proof of Theorem 1.2, (i) implies (ii) and (vi)].
 

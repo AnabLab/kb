@@ -4,7 +4,8 @@ kind: problem
 summary: 'After adjoining all $p$-power roots of elements of a field containing $\mu_p$ (and $\sqrt{-1}$ for $p=2$), is the maximal pro-$p$ Galois group free? Positselski predicts yes. This holds for elementary-type groups and follows from a stronger module Koszulity conjecture.'
 tags: [galois-groups, galois-cohomology, pro-p-groups]
 edges:
-  - {to: kummerian-obstruction-to-galois-realizability, label: uses, note: "The cyclotomic pair is Kummerian; the conjecture additionally asks for freeness of its subgroup $K_\theta$."}
+  - {to: one-smooth-oriented-pro-p-group, label: uses, note: "the Kummerian condition, the subgroup $K_\theta$ and the kernel criterion"}
+  - {to: kummerian-obstruction-to-galois-realizability, label: uses, note: "only Galois necessity, which makes the cyclotomic pair Kummerian [@quadrelli2022smooth, Theorem 2.8]"}
   - {to: norm-residue-isomorphism-theorem, label: uses, note: "It supplies the quadratic cohomology hypothesis of the cohomological criterion below."}
   - {to: elementary-type-conjecture, label: uses, note: "only for the known case and conditional consequence below"}
   - {to: positselski-koszulity-conjecture, label: analogous-to, note: "The stronger module Koszulity condition discussed there implies this freeness conjecture [@positselski2005, Theorem 2, p. 3]."}
@@ -20,7 +21,7 @@ Then the maximal pro-$p$ Galois group $G_L(p)$ is free pro-$p$ [@positselski2005
 $$
 N=K_\theta(G)=\overline{\langle h^{-\theta(g)}ghg^{-1}:g\in G,\ h\in\ker\theta\rangle}.
 $$
-The pair is [Kummerian](kummerian-obstruction-to-galois-realizability.md), so $\ker\theta/N$ is free abelian pro-$p$; for $p=2$ the hypothesis on $K$ gives $\theta(G)\subseteq1+4\mathbb Z_2$ [@feuerpfeil2026, §1.1, pp. 1–2]. The identification $G_L(p)\cong N$ makes the conjecture exactly the assertion that $N$ is free [@quadrelliweigel2022bp, §3.1, p. 7]. If $K$ contains all $p$-power roots of unity, $\theta=1$ and $N=\overline{[G,G]}$ [@quadrelliweigel2022bp, §1, p. 2]. Positselski also states a stronger conjecture asking that a Sylow pro-$p$ subgroup of the full $G_L$ be free [@positselski2005, §1.2–1.3, Conjecture 1, p. 2].
+The pair is [Kummerian](one-smooth-oriented-pro-p-group.md), so $\ker\theta/N$ is free abelian pro-$p$; for $p=2$ the hypothesis on $K$ gives $\theta(G)\subseteq1+4\mathbb Z_2$ [@feuerpfeil2026, §1.1, pp. 1–2]. The identification $G_L(p)\cong N$ makes the conjecture exactly the assertion that $N$ is free [@quadrelliweigel2022bp, §3.1, p. 7]. If $K$ contains all $p$-power roots of unity, $\theta=1$ and $N=\overline{[G,G]}$ [@quadrelliweigel2022bp, §1, p. 2]. Positselski also states a stronger conjecture asking that a Sylow pro-$p$ subgroup of the full $G_L$ be free [@positselski2005, §1.2–1.3, Conjecture 1, p. 2].
 
 **Known case.** Quadrelli–Weigel prove freeness whenever $(G,\theta)$ is of [elementary type](elementary-type-conjecture.md), with $\theta(G)\subseteq1+4\mathbb Z_2$ for $p=2$. Consequently the elementary type conjecture would establish the assertion for every $K$ as above with $K^\times/K^{\times p}$ finite [@quadrelliweigel2022bp, Theorem 1.2 and preceding paragraph, pp. 2–3; Remark 5.10(a), p. 19].
 
