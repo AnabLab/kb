@@ -5,6 +5,7 @@ summary: 'For characteristic-two fields K with finite square degree at least fou
 tags: [milnor-k-theory, positive-characteristic, reconstruction-algorithms]
 edges:
   - {to: milnor-k-ring, label: uses}
+  - {to: fundamental-theorem-of-projective-geometry, label: uses, note: "Lifts the recovered projective isomorphism to a semilinear bijection, unique up to scalar."}
   - {to: bloch-gabber-kato-theorem, label: uses, note: "Its degree-two vanishing criterion identifies the symbol kernels used in the proof."}
   - {to: milnor-k-reconstruction-function-fields, label: analogous-to, note: "Here the characteristic is two and finite square degree replaces the hypotheses on constants and transcendence degree."}
   - {to: purely-inseparable-invariance-of-galois-groups, label: analogous-to, note: "The characteristic-prime symbol data here recover the imperfect field itself."}
@@ -35,7 +36,7 @@ $$
 $$
 This formula uses only the given group and relation. It includes both endpoints, since $1,b/a\in C(b/a)$. It follows that $\phi$ takes every projective line onto the corresponding line over $D=L^2$. Subspaces are exactly point sets closed under joining lines, so their inclusion lattices, and hence the finite vector-space dimensions, agree.
 
-**Recovering the field map.** The fundamental theorem of projective geometry now supplies an additive semilinear bijection $F:K\to L$ inducing $\phi$, unique up to multiplication by $D^\times$ [@taylor2021geometry, Theorem 3.1, pp. 14–15]. Its hypotheses hold because the equal vector-space dimensions are at least four. Since $\phi([1])=[1]$, we have $F(1)\in D^\times$; normalize $F(1)=1$.
+**Recovering the field map.** The [fundamental theorem of projective geometry](fundamental-theorem-of-projective-geometry.md) now supplies an additive semilinear bijection $F:K\to L$ inducing $\phi$, unique up to multiplication by $D^\times$ [@taylor2021geometry, Theorem 3.1, pp. 14–15]. Its hypotheses hold because the equal vector-space dimensions are at least four. Since $\phi([1])=[1]$, we have $F(1)\in D^\times$; normalize $F(1)=1$.
 
 For $a\in K^\times$, let $m_a$ denote multiplication by $a$. The semilinear bijections $F\circ m_a$ and $m_{F(a)}\circ F$ induce the same projective map: on a point $[x]$, this is the equality
 $$

@@ -5,6 +5,7 @@ summary: 'Recover $K^\times/k^\times$ inside the Kummer dual of $\Pi^a_K$, recov
 tags: [function-fields, galois-groups]
 edges:
   - {to: bogomolov-pop-conjecture, label: addresses}
+  - {to: fundamental-theorem-of-projective-geometry, label: uses, note: "The final step recovers the vector-space structure from projective points and lines [@topaz2016, §1.1, p. 3]."}
   - {to: commuting-liftable-pairs-and-valuations, label: uses, note: "The primary tool of the local theory [@topaz2016, §1.1]."}
 ---
 
@@ -12,7 +13,7 @@ edges:
 
 1. Determine $K^\times/k^\times$ as a subset of this dual. It is the infinite-dimensional projective space $\mathbb{P}_k(K)$.
 2. Determine the projective lines of $\mathbb{P}_k(K)$. Using the multiplication, it is enough to find those containing $1$.
-3. Apply the fundamental theorem of projective geometry to recover $K$ as a $k$-vector space, then use the multiplication to recover the field.
+3. Apply the [fundamental theorem of projective geometry](fundamental-theorem-of-projective-geometry.md) to recover $K$ as a $k$-vector space, then use the multiplication to recover the field.
 
 **Local theory.** Use $\Pi^c_K$ to recover inertia and decomposition groups in $\Pi^a_K$ of divisorial valuations and their Parshin chains. As of 2015, over an arbitrary algebraically closed field, one could [recover this only for quasi-divisorial valuations](quasi-divisorial-groups-recoverable.md) [@topaz2016, §1.1].
 
