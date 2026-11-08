@@ -4,6 +4,7 @@ kind: theorem
 summary: 'Let $k/\mathbb{Q}_p$ be finite with $\mu_p \subset k$, as always for $p = 2$. Every automorphism of $\mathrm{Gal}(k_{tr}/k)$ lifts to $\mathrm{Gal}(k_{tr}^{ab}/k)$. So the 2-adic Frobenius shift lifts there, and tame fields over $\mathbb{Q}_2$ with equal $e$ and $f$ have isomorphic such groups.'
 tags: [local-fields, galois-groups, galois-cohomology]
 edges:
+  - {to: local-tate-duality, label: uses, note: "Step 4 uses local duality and Tate's Euler characteristic formula to compute the first cohomology of simple modules."}
   - {to: frobenius-shift-lifting-problem, label: addresses, note: "Proves the lift on $G_{U_f}/[P,P] = \\mathrm{Gal}(T^{ab}/U_f)$. The question for $G_{U_f}$ itself stays open."}
   - {to: tame-automorphisms-lift-to-the-first-frattini-layer, label: implies, note: "A lift to $G_{U_f}/[P,P]$ induces one on $G_{U_f}/\\Phi(P)$, and step 1 shows that every automorphism of $\\Gamma_f$ preserves $I$."}
 ---
