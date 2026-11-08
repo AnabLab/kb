@@ -7,6 +7,7 @@ edges:
   - {to: section-conjecture, label: addresses, note: "It proves a valuative weakening of the $p$-adic analogue recorded in the target, and reduces that analogue to a local non-splitting statement [@popstix2017, §1.5.3 and §6.1, pp. 3–4 and 21]."}
   - {to: hyperbolic-curve, label: uses}
   - {to: section-conjecture-period-index, label: uses, note: "Proposition 24 uses Stix's theorem that the index of a curve with a section is a power of $p$ [@popstix2017, proof of Proposition 24, p. 16]."}
+  - {to: resolution-of-nonsingularities, label: uses, note: "The uniqueness results use Tamagawa's earlier, weaker form of it, through Theorem 36 [@popstix2017, §1.7, p. 4, and Theorem 36, p. 22]."}
   - {to: birational-sections-over-local-fields, label: analogous-to, note: "Pop and Stix call Koenigsmann's birational theorem perhaps the most convincing evidence for the $p$-adic conjecture, and say that Pop's proof of a birational version follows the same strategy with $\\pi_1(X)$ replaced by $G_K$ [@popstix2017, §1.3 and §1.5.3, pp. 2 and 4]."}
 ---
 
@@ -59,5 +60,7 @@ The uniqueness results use the $p$-part as well, through Tamagawa's resolution o
 - *Invisible components.* Pop and Stix find it conceivable that invisible projective lines contribute sections localized in a $p$-adic disc but not at a $k$-rational point, which would make the $p$-adic section conjecture fail [@popstix2017, §7.3, p. 25].
 - *Tempered sections.* Mochizuki showed that a section of the tempered fundamental group fixes a compatible system of vertices or edges of the dual graphs of stable models. The authors could not decide whether every profinite section is conjugate to one with image in the tempered group [@popstix2017, §1.6, p. 4].
 - *Berkovich points.* Pop and Stix credit Kedlaya with the interpretation that a section gives at least a $k$-Berkovich point responsible for it, and they leave open which such points contribute sections [@popstix2017, §1.5.3, p. 4].
+
+**Later progress.** Mochizuki and Tsujimura proved [resolution of nonsingularities](resolution-of-nonsingularities.md) for every hyperbolic curve over a finite extension of $\mathbb{Q}_p$. As checked in that entry, it answers the visibility question positively for proper $X$. So invisible components and bridges do not occur, and Corollary 41 applies to every proper $X$. They also prove that, for proper $X$, every section fixes exactly one point of the pro-Berkovich space of the geometrically pro-$\Sigma$ universal cover, when $\Sigma$ contains $p$ and another prime; see [Berkovich points fixed by sections](berkovich-points-fixed-by-p-adic-sections.md). The $p$-adic section conjecture itself remains open as far as these sources show.
 
 **Source.** The locations above refer to the arXiv version of 2011. The journal version (J. reine angew. Math. 725, 2017) has not been compared, and its numbering may differ. The papers of Pop, Mochizuki and Tamagawa that the proof relies on have not been opened, and what is attributed to them is reported through this source.
