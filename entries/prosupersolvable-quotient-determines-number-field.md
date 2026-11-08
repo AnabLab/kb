@@ -5,7 +5,7 @@ summary: 'Number fields with isomorphic maximal prosupersolvable Galois quotient
 tags: [number-fields, galois-groups, solvable-quotients]
 edges:
   - {to: chebotarev-density-theorem, label: uses, note: "Supplies completely split primes for the free Kummer module and for the common base-field isomorphism in Step 7 [@milnecft, Chapter VIII, Theorem 7.4, p. 259]."}
-  - {to: prosupersolvable-neukirch-uchida-problem, label: addresses, note: "Answers the first question positively. The second is answered only for the quotients $\\mathrm{Gal}(\\Omega_\\ell(K)/K)$, and is reduced to whether certain automorphisms of $G_K^{\\mathrm{ss}}$ are inner and whether its centre is trivial."}
+  - {to: prosupersolvable-neukirch-uchida-problem, label: addresses, note: "Answers the first question positively, and the second for each quotient $\\mathrm{Gal}(\\Omega_\\ell(K)/K)$. The full second question is answered, independently of this entry, by the later automorphism theorem."}
   - {to: pro-l-by-cyclotomic-neukirch-uchida, label: uses, note: "Karshon and Shusterman's proof of their Theorem 9.4, with the abundance hypothesis replaced by an argument that uses the quotients for all primes at once"}
   - {to: maximal-pro-p-galois-groups-of-p-adic-fields, label: uses, note: "only that $G_F(\\ell)$ needs at least $3$ generators when $F/\\mathbb{Q}_\\ell$ is finite and contains $\\mu_\\ell$"}
   - {to: neukirch-uchida-theorem, label: analogous-to}
@@ -93,7 +93,15 @@ The set $S$ for which $\Omega_i$ is $\ell$-sealed is used throughout, and here i
 
 For primes $\ell, \ell'$, let $\tau = (\sigma_\ell|_{K_1})^{-1} \circ \sigma_{\ell'}|_{K_1}$, an automorphism of $K_1$ that fixes every finite place. Suppose $\tau \ne 1$, and let $B$ be its fixed field. By Chebotarev, some finite place of $B$ splits completely in the cyclic extension $K_1/B$. The group $\mathrm{Gal}(K_1/B) = \langle \tau \rangle$ permutes the places over it simply transitively, so $\tau$ moves them, a contradiction. So $\tau = 1$. $\square$
 
-**What remains.** Whether $\alpha$ itself is induced by an isomorphism $K_1^{\mathrm{ss}} \to K_2^{\mathrm{ss}}$ is not settled here. Part 3 reduces this question to one about automorphisms. This reduction is proved here.
+**Functoriality.** The theorem does not say whether $\alpha$ itself is induced by an isomorphism $K_1^{\mathrm{ss}} \to K_2^{\mathrm{ss}}$. This is the second question of [the prosupersolvable problem](prosupersolvable-neukirch-uchida-problem.md). A later entry, [centre and automorphisms of the maximal prosupersolvable Galois group](automorphisms-of-maximal-prosupersolvable-galois-groups.md), settles it, and its proof does not use this entry. Three conclusions should be kept apart.
+
+- *The base field is determined.* $K_1 \cong K_2$, by part 2 above.
+- *An inducing field isomorphism is unique.* A field isomorphism $K_1^{\mathrm{ss}} \to K_2^{\mathrm{ss}}$ inducing $\alpha$ is unique when it exists, by parts 2 and 3 of the later entry.
+- *It need not exist.* Some isomorphisms are induced by no field isomorphism, already when $K_1 = K_2$, by part 4 of the later entry.
+
+[Isomorphisms of maximal prosupersolvable Galois groups](isomorphisms-of-maximal-prosupersolvable-galois-groups.md) then describes all isomorphisms $G_{K_1}^{\mathrm{ss}} \to G_{K_2}^{\mathrm{ss}}$, using parts 1–3 above.
+
+Before the later entry, part 3 reduced the question to two questions about automorphisms of $G_{K_1}^{\mathrm{ss}}$. This reduction is proved here. It is kept because it shows what the later answer had to decide, and the paragraph *Resolution* below records how it was decided.
 
 Extend $\sigma_\ell|_{K_1}$ to an isomorphism $\tilde\sigma : \bar{\mathbb{Q}} \to \bar{\mathbb{Q}}$. It maps $K_1^{\mathrm{ss}}$ onto $K_2^{\mathrm{ss}}$, so $\alpha' = c_{\tilde\sigma}^{-1} \circ \alpha$ is an automorphism of $G_{K_1}^{\mathrm{ss}}$, where $c_{\tilde\sigma}(g) = \tilde\sigma g \tilde\sigma^{-1}$. On $\mathrm{Gal}(\Omega_\ell(K_1)/K_1)$, $\alpha'$ is conjugation by $\tilde\sigma^{-1}\sigma_\ell$, which is the identity on $K_1$ by part 3. So $\alpha'$ is inner on every quotient $\mathrm{Gal}(\Omega_\ell(K_1)/K_1)$.
 
@@ -101,6 +109,11 @@ Moreover, $\alpha$ is induced by a field isomorphism exactly when $\alpha'$ is i
 
 Uniqueness of a field isomorphism inducing $\alpha$, when one exists, is equivalent to $G_{K_1}^{\mathrm{ss}}$ having trivial centre. If $\sigma$ and $\sigma'$ both induce $\alpha$, then they agree on every $\Omega_\ell(K_1)$ by part 2, so $\sigma^{-1}\sigma'$ fixes $K_1$ and is a central element of $G_{K_1}^{\mathrm{ss}}$. Conversely, if $z$ is central and $\sigma$ induces $\alpha$, then so does $\sigma z$. By part 2, applied to the identity of $G_{K_1}^{\mathrm{ss}}$, a central element acts trivially on every $\Omega_\ell(K_1)$, and in particular on $K_1^{\mathrm{ab}}$.
 
-The fields $\Omega_\ell(K)$ need not contain every finite Galois subextension of $K^{\mathrm{ss}}/K$. A finite quotient of $\mathrm{Gal}(\Omega_\ell(K)/K)$ has a normal Sylow $\ell$-subgroup with abelian quotient. A group $(\mathbb{Z}/7 \times \mathbb{Z}/13) \rtimes \mathbb{Z}/3$ in which $\mathbb{Z}/3$ acts nontrivially on both factors is supersolvable but has no such Sylow subgroup for any $\ell$. So a Galois extension of $K$ with this group lies in $K^{\mathrm{ss}}$ but in no $\Omega_\ell(K)$.
+*Resolution.* The later entry answers both reduced questions.
+
+- *The centre.* By its part 2, $G_{K_1}^{\mathrm{ss}}$ has trivial centre. So by the equivalence just proved, a field isomorphism inducing $\alpha$ is unique when it exists.
+- *Automorphisms inner on every quotient.* These need not be inner. Let $K$ be a number field and $g \in \mathrm{Gal}(\Omega_2(K)/K)$, and let $\alpha_g$ be the automorphism of $G_K^{\mathrm{ss}}$ in part 4 of the later entry. By its definition there, $\alpha_g$ acts on $\mathrm{Gal}(\Omega_2(K)/K)$ as conjugation by $g$. For odd $\ell$ it acts on $\mathrm{Gal}(\Omega_\ell(K)/K)$ as the identity, since $\alpha_g(x)$ and $x$ agree on the compositum of the fields $\Omega_m(K)$ for odd $m$, which contains $\Omega_\ell(K)$. So $\alpha_g$ is inner on every quotient $\mathrm{Gal}(\Omega_\ell(K)/K)$. If $g$ is nontrivial on $K^{\mathrm{ab}}(2)$, part 4 says that no automorphism in the class of $\alpha_g$ is induced by a field automorphism of $K^{\mathrm{ss}}$. An inner automorphism is induced by a field automorphism, namely the conjugating element, so $\alpha_g$ is not inner. With $K_1 = K_2 = K$ and $\alpha = \alpha_g$, this gives an isomorphism that no field isomorphism induces.
+
+The fields $\Omega_\ell(K)$ generate $K^{\mathrm{ss}}$, by part 1 of the later entry, but they need not contain every finite Galois subextension of $K^{\mathrm{ss}}/K$. A finite quotient of $\mathrm{Gal}(\Omega_\ell(K)/K)$ has a normal Sylow $\ell$-subgroup with abelian quotient. A group $(\mathbb{Z}/7 \times \mathbb{Z}/13) \rtimes \mathbb{Z}/3$ in which $\mathbb{Z}/3$ acts nontrivially on both factors is supersolvable but has no such Sylow subgroup for any $\ell$. So a Galois extension of $K$ with this group lies in $K^{\mathrm{ss}}$ but in no $\Omega_\ell(K)$.
 
 **Status of the inputs.** The proof rests on Karshon and Shusterman's arXiv preprint of January 2026. Its Theorem 9.4 and the results leading to it are used as stated, apart from the modification described in Step 6. They have not been independently audited here, beyond the reading needed to check where abundance is used.
