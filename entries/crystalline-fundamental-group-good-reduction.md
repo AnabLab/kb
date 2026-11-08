@@ -5,7 +5,7 @@ summary: For a proper hyperbolic curve over a p-adic field with semistable reduc
 tags: [curves, local-fields, fundamental-groups, hodge-theory]
 edges:
   - {to: hyperbolic-curve, label: uses}
-  - {to: tamagawa-grothendieck-conjecture-for-affine-curves, label: analogous-to, note: 'The good-reduction criterion recalled there tests the outer pro-$\ell$ action of inertia for $\ell \ne p$; here a crystalline condition replaces unramifiedness at $p$.'}
+  - {to: oda-good-reduction-criterion, label: analogous-to, note: 'The Oda–Tamagawa criterion tests the outer pro-$\ell$ action of inertia for $\ell \ne p$; here a crystalline condition replaces unramifiedness at $p$.'}
   - {to: hodge-tate-geometricity-criterion, label: analogous-to, note: "Both recover a geometric property using p-adic Hodge conditions on Galois representations; here the property is good reduction, there geometricity of a field homomorphism."}
 ---
 
