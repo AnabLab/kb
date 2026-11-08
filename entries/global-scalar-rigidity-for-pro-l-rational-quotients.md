@@ -1,7 +1,7 @@
 ---
 title: Global scalar rigidity for pro-ell rational quotients
 kind: theorem
-summary: 'A continuous automorphism of pro-$\ell$ characters that permutes divisorial inertia-decomposition pairs and descends to every rational quotient fixing its subfield is one global unit. Thus a field isomorphism matching the recovered rational subfields induces the original map up to scalar.'
+summary: 'For a function field of transcendence degree at least $2$, a continuous automorphism of its pro-$\ell$ characters that permutes divisorial inertia-decomposition pairs and descends to each rational quotient is multiplication by one global unit.'
 tags: [function-fields, reconstruction-algorithms, valuations]
 edges:
   - {to: divisoriality-from-completed-curve-subfields, label: uses, note: "Its point-inertia saturation formula is used; its matched divisorial pairs and rational quotient maps supply the rigidity hypotheses."}
@@ -11,7 +11,7 @@ edges:
   - {to: manuscripts-claiming-bogomolov-pop, label: addresses, note: "An integral analogue of the mod-ell manuscript's Lemmas 8.1–8.2 and Proposition 8.3; not an audit of its earlier recovery steps."}
 ---
 
-**Setting.** Let $K/k$ have transcendence degree $d\ge2$ over an algebraically closed field of characteristic different from $\ell$. Put $W_F=\mathrm{Hom}(F^\times,\mathbb Z_\ell)$, with its pointwise topology. For a prime divisor $v$ trivial on $k$, normalize $vK=\mathbb Z$ and put
+**Setting.** Let $K/k$ be a function field, that is, a finitely generated extension, of transcendence degree $d\ge2$ over an algebraically closed field of characteristic different from $\ell$. Put $W_F=\mathrm{Hom}(F^\times,\mathbb Z_\ell)$, with its pointwise topology. For a prime divisor $v$ trivial on $k$, normalize $vK=\mathbb Z$ and put
 $$I_v=\mathbb Z_\ell v,\qquad D_v=\{\chi\in W_K:\chi(1+\mathfrak m_v)=0\}.$$
 For a relatively algebraically closed rational subfield $E\subset K$, write $\rho_E:W_K\to W_E$ for restriction.
 
@@ -57,7 +57,7 @@ $$\Phi(\chi)(f)=\Phi(\chi)(ft)-\Phi(\chi)(t)
 =a\chi(ft)-a\chi(t)=a\chi(f).$$
 This proves the theorem. $\square$
 
-**Application to a recovered field.** Let $K/k,L/l$ satisfy the same hypotheses. Suppose $\varphi:W_L\to W_K$ matches divisorial pairs, matches all relatively algebraically closed rational subfields $E\leftrightarrow P_E$, and commutes with their actual restriction maps. Suppose an isomorphism $\alpha:K^i\to L^i$ carries $k$ onto $l$ and $E^i$ onto $P_E^i$ for every $E$. For example, [field recovery from simultaneous values](field-recovery-from-simultaneous-point-values.md) supplies such an $\alpha$ when its hypotheses hold for all rational subfields.
+**Application to a recovered field.** Let $K/k,L/l$ satisfy the same hypotheses. Suppose a continuous $\mathbb Z_\ell$-linear isomorphism $\varphi:W_L\to W_K$ matches divisorial pairs, matches all relatively algebraically closed rational subfields $E\leftrightarrow P_E$, and commutes with their actual restriction maps. Suppose an isomorphism $\alpha:K^i\to L^i$ carries $k$ onto $l$ and $E^i$ onto $P_E^i$ for every $E$. For example, [field recovery from simultaneous values](field-recovery-from-simultaneous-point-values.md) supplies such an $\alpha$ when its hypotheses hold for all rational subfields.
 
 Perfection does not change character groups: in characteristic $p\ne\ell$, a character extends uniquely by $\chi(f^{p^{-n}})=p^{-n}\chi(f)$. Thus $\alpha$ induces $\alpha^*:W_L\to W_K$. Field isomorphisms carry divisorial pairs to divisorial pairs, and $\alpha(E^i)=P_E^i$ gives the same quotient correspondence. Therefore $\varphi(\alpha^*)^{-1}$ satisfies hypotheses 1–2, so
 $$\varphi=a\alpha^*,\qquad\Theta=a\widehat\alpha,$$
@@ -65,6 +65,6 @@ where $\Theta:\widehat K\to\widehat L$ is the evaluation dual and $\widehat\alph
 
 In particular, the outputs of part 3 of [divisoriality from completed curve subfields](divisoriality-from-completed-curve-subfields.md) have all the required data: [simultaneous values from pro-$\ell$ rational quotients](simultaneous-values-from-pro-l-rational-quotients.md) supplies $\alpha$, and decomposition pairs are also matched. Their combination with this theorem gives the field isomorphism and compatibility up to one global unit, conditional on that part's preceding correspondences, without Pop's reconstruction theorems.
 
-**Checks and limits.** This proves a conditional integral rigidity statement and its application, using the mod-$\ell$ argument as a template. Decomposition groups enter (1); inertia restrictions alone can vanish modulo $\ell$ despite a nontrivial restriction of valuations. The proof retains positive integral multiplicities and uses saturation to recover point lines. Transcendence degree one fails: on $K=k(t)$, interchange the coordinates $\chi(t),\chi(t-1)$ of $W_K=\prod_{c\in k}\mathbb Z_\ell$ and fix the others. This continuous nonscalar automorphism exchanges $I_0,I_1$, fixes every other point line including $I_\infty$, and permutes all divisorial pairs, since $D_x=I_x$. The only relatively algebraically closed rational subfield is $K$, so hypothesis 2 also holds.
+**Checks and limits.** This proves a conditional integral rigidity statement and its application, using the mod-$\ell$ argument as a template. The displayed proof uses decomposition groups in (1), but integral inertia alone also detects triviality: $\rho_E(I_v)=\mathbb Z_\ell(v|_E)$ is zero exactly when $v|_E=0$, since $\mathbb Z\hookrightarrow\mathbb Z_\ell$. Positive restriction multiplicities can disappear modulo $\ell$; they remain nonzero here, and saturation recovers the point lines. Transcendence degree one fails: on $K=k(t)$, interchange the coordinates $\chi(t),\chi(t-1)$ of $W_K=\prod_{c\in k}\mathbb Z_\ell$ and fix the others. This continuous nonscalar automorphism exchanges $I_0,I_1$, fixes every other point line including $I_\infty$, and permutes all divisorial pairs, since $D_x=I_x$. The only relatively algebraically closed rational subfield is $K$, so hypothesis 2 also holds.
 
 Recovering the assumed local and rational data, and uniqueness of $\alpha$ modulo Frobenius, remain separate steps. The cited 2026 manuscripts are not peer reviewed.
