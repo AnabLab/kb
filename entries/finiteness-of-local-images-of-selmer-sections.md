@@ -18,7 +18,7 @@ By functoriality, the section of a rational point $y \in Y(K)$ restricts on $G_u
 
 Totally real fields and fields of odd degree contain no CM subfield [@bettsstix2025, Remark 2.18 (1), p. 13].
 
-- *A prediction of the section conjecture.* If the [section conjecture](section-conjecture.md) holds for $Y$, every section comes from a rational point. Then the image of $\mathrm{loc}_v$ is $Y(K)$, which is finite by Faltings' theorem. Theorem A verifies this consequence unconditionally [@bettsstix2025, Abstract, p. 1].
+- *A prediction of the section conjecture.* If the [section conjecture](section-conjecture.md) holds for $Y$, every section comes from a rational point. Then the image of $\mathrm{loc}_v$ is $Y(K)$, which is finite by [Faltings' theorem](faltings-finiteness-theorems.md). Theorem A verifies this consequence unconditionally [@bettsstix2025, Abstract, p. 1].
 - *Images only.* Theorem A bounds the image of each $\mathrm{loc}_v$, not $\mathrm{Sec}^{\mathrm{Sel}}(Y/K)$ itself. The section and Mordell conjectures together predict that $\mathrm{Sec}(Y/K)$ is finite. The authors note that this is known only in a handful of examples where the sequence has no sections at all [@bettsstix2025, §1, p. 1].
 - *Mordell.* The image of $\mathrm{loc}_v$ contains $Y(K)$, so Theorem A contains Faltings' theorem for such $K$. The authors observe that the finiteness half of the proof, Theorem 6.5 below, already implies the Mordell conjecture, as in Lawrence and Venkatesh's proof [@bettsstix2025, p. 44].
 
