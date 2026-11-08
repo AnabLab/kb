@@ -4,6 +4,7 @@ kind: theorem
 summary: Over a normal noetherian domain with characteristic-zero fraction field, a p-divisible group and all its morphisms are determined by its integral Galois module. Tate's local proof recovers dimension through Hodge–Tate theory before recovering the integral models.
 tags: [local-fields, galois-groups, hodge-theory]
 edges:
+  - {to: ax-sen-tate-fixed-field-theorem, label: uses, note: 'The local proof uses $C^{G_K}=K$ for descent and linear independence of invariant vectors [@tate1967pdivisible, §4.1, proof of Proposition 11, Steps 3 and 7, pp. 178–179].'}
   - {to: hodge-tate-geometricity-criterion, label: analogous-to, note: 'Both recover geometry from Galois representations using the completed algebraic closure; here the base ring is fixed.'}
   - {to: finite-flat-group-scheme-ramification-bounds, label: analogous-to, note: 'Here a compatible torsion tower is recovered from its Galois module; there finite-level ramification bounds constrain cotangent data.'}
 ---
