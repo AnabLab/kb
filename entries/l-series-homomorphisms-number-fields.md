@@ -4,6 +4,7 @@ kind: theorem
 summary: 'For number fields K and L, Smit identifies embeddings K into L with homomorphisms of their prime-order Dirichlet character groups preserving divisibility of local Euler polynomials, when the prime exceeds the squared degree of a common Galois closure.'
 tags: [number-fields, galois-groups, reconstruction-algorithms]
 edges:
+  - {to: chebotarev-density-theorem, label: uses, note: "It identifies finite-order characters from their values on enough primes [@smit2021hom, proof of Lemma 5.10, pp. 10–11]."}
   - {to: l-series-reconstruction-global-fields, label: analogous-to, note: "An L-series criterion for embeddings, using divisibility of local Euler polynomials."}
   - {to: uchida-homomorphism-conjecture, label: analogous-to, note: "Both recover embeddings from maps on Galois data; here Euler polynomials supplement prime-order characters."}
 ---
@@ -35,6 +36,6 @@ $$
 
 Divisibility is in $\mathbb C[T]$. The embedding $\tau$ transports characters to $\tau(K)$ and then restricts them to $G_L$ [@smit2021hom, Theorem A, p. 2; Theorem 2.2, p. 4; §5.1, p. 7].
 
-**Reconstruction.** The proof first matches each degree-one prime of $K$ to a prime of $L$ over the same rational prime, with compatible character values. A density argument and Chebotarev then recover the embedding [@smit2021hom, Theorems 5.2 and 5.7, pp. 8–11].
+**Reconstruction.** The proof first matches each degree-one prime of $K$ to a prime of $L$ over the same rational prime, with compatible character values. A density argument and [Chebotarev](chebotarev-density-theorem.md) then recover the embedding [@smit2021hom, Theorems 5.2 and 5.7, pp. 8–11].
 
 **Scope.** A size restriction is necessary: for each prime $\ell\ge5$, an $S_\ell$-extension $M/\mathbb Q$ and $L=M^{C_\ell}$ give extra homomorphisms $X_\ell(\mathbb Q)\to X_\ell(L)$ satisfying divisibility, beyond the unique field embedding [@smit2021hom, §6, pp. 11–12].
