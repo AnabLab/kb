@@ -148,9 +148,16 @@ gh pr list --state merged --limit 20 --json number,body --jq '[.[] | select(.bod
 
 For each issue they name that is open and labelled `research`:
 
-1. Read it with `supervisor.mjs issue <number>`. List the PRs that mention it with `gh pr list --state all --search "<number> in:body" --json number,title,state`. The search also matches the number used in other ways, such as a page number, so read the descriptions to see which PRs work on the issue.
-2. If a PR working on it is still open, or part of what it asks isn't done, leave it open.
-3. Otherwise, save a short comment as `.supervisor/close-issue-<number>.md`. Name the PRs that did each part. Post it, then close the issue:
+1. Read it with `supervisor.mjs issue <number>`. If it plainly still has work left, as an umbrella issue on an open problem does, leave it open and go to the next one.
+2. Otherwise, list the PRs that mention it, and any reopening, from its timeline:
+
+```bash
+gh api --paginate repos/AnabLab/kb/issues/<number>/timeline --jq '.[] | select(.event == "reopened" or (.event == "cross-referenced" and .source.issue.pull_request != null)) | if .event == "reopened" then "reopened" else "#\(.source.issue.number) \(.source.issue.state) merged=\(.source.issue.pull_request.merged_at != null)" end'
+```
+
+3. If someone reopened it, leave it open.
+4. Read each open or merged PR on the list with `supervisor.mjs pr <number>`. Skip any that it refuses to show, because they come from non-members. Some PRs only mention the issue in passing. If a PR that works on the issue is still open, or part of what the issue asks isn't done, leave it open.
+5. Otherwise, save a short comment as `.supervisor/close-issue-<number>.md`, naming the PRs that did each part. Just before posting, check with `supervisor.mjs issue <number>` that the issue is still open and that nobody has posted since. Then post the comment and close the issue:
 
 ```bash
 gh issue comment <number> --body-file .supervisor/close-issue-<number>.md
