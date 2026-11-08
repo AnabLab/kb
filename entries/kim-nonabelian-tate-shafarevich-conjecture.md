@@ -22,7 +22,7 @@ $$\mathrm{Sel}^n(\mathcal{X}) = \bigcap_{v \ne p} \mathrm{loc}_v^{-1}(\mathrm{Im
 
 Kim proposed this in his lectures at the IHÉS in February 2012 [@bdckw2018, §3.1, p. 12]. The authors expect a suitable generalization to hold over number fields, but do not formulate one [@bdckw2018, Remark 3.2, p. 13]. For a proper curve, $\mathcal{X}(\mathbb{Z}) = X(\mathbb{Q})$ by the valuative criterion, so the conjecture then describes the rational points.
 
-*$S$-integral variant.* For a finite set $S$ of primes not containing $p$, dropping the local conditions at $v \in S$ gives $\mathrm{Sel}^n_S(\mathcal{X}) = \bigcap_{v \ne p,\, v \notin S} \mathrm{loc}_v^{-1}(\mathrm{Im}\, j_v)$ and sets $\mathcal{X}(\mathbb{Z}_p)_{S,n}$ containing $\mathcal{X}(\mathbb{Z}[1/S])$. The authors suggest, without stating it as a conjecture, that $\mathcal{X}(\mathbb{Z}_p)_{S,n} = \mathcal{X}(\mathbb{Z}[1/S])$ may hold for large $n$ [@bdckw2018, §1.4, p. 3, and §8.1, p. 48].
+*$S$-integral variant.* Let $S$ be a finite set of primes not containing $p$, and take $T$ to contain $S$ as well as $p$ and the primes of bad reduction [@bdckw2018, §8.1, p. 48]. Dropping the local conditions at $v \in S$ then gives $\mathrm{Sel}^n_S(\mathcal{X}) = \bigcap_{v \ne p,\, v \notin S} \mathrm{loc}_v^{-1}(\mathrm{Im}\, j_v)$ and sets $\mathcal{X}(\mathbb{Z}_p)_{S,n}$ containing $\mathcal{X}(\mathbb{Z}[1/S])$. The authors suggest, without stating it as a conjecture, that $\mathcal{X}(\mathbb{Z}_p)_{S,n} = \mathcal{X}(\mathbb{Z}[1/S])$ may hold for large $n$ [@bdckw2018, §1.4, p. 3, and §8.1, p. 48].
 
 **Relation to the Tate–Shafarevich and section conjectures.**
 
