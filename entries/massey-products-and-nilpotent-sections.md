@@ -1,7 +1,7 @@
 ---
 title: Massey products obstruct nilpotent Galois sections
 kind: theorem
-summary: 'For the thrice-punctured line in characteristic zero, an abelian section class lifting to the geometric class-n quotient satisfies n-fold Massey vanishing with cyclotomic coefficients away from primes at most n (Wickelgren). The lift supplies compatible defining systems.'
+summary: 'For the thrice-punctured line in characteristic zero, if an abelian section class $(a,b)$ lifts to the geometric class-$n$ quotient, then each $n$-fold Massey product of $n-1$ copies of $-a$ and one $-b$ contains zero, with cyclotomic coefficients, away from primes at most $n$ (Wickelgren).'
 tags: [curves, fundamental-groups, section-conjecture, galois-cohomology]
 edges:
   - {to: section-conjecture, label: addresses, note: "Necessary conditions on abelianized sections for the affine version, obtained from nilpotent quotients."}
@@ -18,7 +18,7 @@ gives a boundary map
 
 $$\delta_r:H^1(G_k,\pi/[\pi]_r)\longrightarrow H^2(G_k,[\pi]_r/[\pi]_{r+1}).$$
 
-A class lifts to $H^1(G_k,\pi/[\pi]_{r+1})$ exactly when its boundary vanishes. Starting with an abelian class, one must consider all its lifts at each successive stage [@wickelgren2012three, §12.2.3, pp. 11–12]. The base section identifies these cohomology sets with sections of the corresponding arithmetic extensions, modulo geometric conjugation [@wickelgren2012nilpotent, §1, p. 2].
+A class lifts to $H^1(G_k,\pi/[\pi]_{r+1})$ exactly when its boundary vanishes. Starting with an abelian class, one must consider all its lifts at each successive stage [@wickelgren2012three, §12.2.3, pp. 11–12].
 
 **Theorem (Wickelgren).** If $(a,b)\in H^1(G_k,A(1))^2$ lies in the image of
 
