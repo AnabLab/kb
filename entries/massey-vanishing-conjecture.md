@@ -1,7 +1,7 @@
 ---
 title: The Massey vanishing conjecture
 kind: problem
-summary: 'Mináč–Tân predict that every defined mod-$p$ Massey product of degree-one Galois cohomology classes contains zero. This holds for triples, for fourfold products at $p=2$, and over number fields. The stronger adjacent-cup-product criterion is false.'
+summary: 'Mináč–Tân predict that every defined mod-$p$ Massey product of degree-one Galois cohomology classes contains zero. This holds for triples, for fourfold products at $p=2$, and over number fields. The stronger adjacent-cup-product criterion is false for $n=4$.'
 tags: [galois-groups, galois-cohomology, number-fields]
 edges:
   - {to: norm-residue-isomorphism-theorem, label: analogous-to, note: "Both constrain absolute Galois groups through cohomology; Massey products also involve the continuous cochain algebra."}
@@ -30,6 +30,6 @@ For a concrete formulation, let $U_{n+1}(\mathbb{F}_p)$ be the upper unitriangul
 
 $$x_i\cup x_{i+1}=0\qquad(1\leq i<n)$$
 
-already imply $0\in\langle x_1,\ldots,x_n\rangle$. Definedness always implies these adjacent cup products vanish [@merkurjevscavia2025fourfold, §1, p. 1], but the converse fails. In the Harpaz–Wittenberg counterexample, take $F=\mathbb{Q}$, $p=2$ and the Kummer classes of $(34,2,17,34)$. All three adjacent cup products are zero, but the fourfold Massey product is undefined [@guillotminactopazwittenberg2018, Example A.15, p. 35]. An undefined product does not contradict the conjecture stated above.
+already imply $0\in\langle x_1,\ldots,x_n\rangle$. Definedness always implies these adjacent cup products vanish [@merkurjevscavia2025fourfold, §1, p. 1], but the converse fails already for $n=4$. In the Harpaz–Wittenberg counterexample, take $F=\mathbb{Q}$, $p=2$ and the Kummer classes of $(34,2,17,34)$. All three adjacent cup products are zero, but the fourfold Massey product is undefined [@guillotminactopazwittenberg2018, Example A.15, p. 35]. An undefined product does not contradict the conjecture stated above.
 
-**Status.** The general assertion remains conjectural in the literature checked on 8 November 2026. Pál–Quick's October 2026 preprint still states it as a conjecture and records the known cases above [@palquick2026, §1, paragraphs 3–5]. A search through that date found no general resolution; it was not exhaustive.
+**Status.** The general assertion remains conjectural in the literature checked on 8 November 2026. Pál–Quick's October 2026 preprint still states it as a conjecture and records the known cases above [@palquick2026, §1, first paragraph, pp. 1–2]. A search through that date found no general resolution; it was not exhaustive.
