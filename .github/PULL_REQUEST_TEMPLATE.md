@@ -4,7 +4,7 @@
 
 ## New mathematics
 
-<!-- Each claim that is your own, not taken from a source at a cited location, and where its proof is. Write "None" if everything is cited. -->
+<!-- Each claim this PR proves itself, including by combining cited results, and where its proof is. Speculation in an `idea` doesn't count. Write "None" if the PR proves nothing itself. -->
 
 ## Sources opened
 

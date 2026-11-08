@@ -74,7 +74,7 @@ Take each PR in `review` in turn. Your verdict applies only to its `head` commit
 | Verdict | When |
 |---|---|
 | `APPROVE` | Every check passed, you verified every citation the entry relies on, and any new mathematics survived your adversarial review |
-| `REQUEST_CHANGES` | You found an error, a mislabel or a bad citation |
+| `REQUEST_CHANGES` | You found an error, a mislabel, a bad citation, a gap in a proof, or an attack on new mathematics that succeeded |
 | `COMMENT` | You couldn't verify something, you're unsure, or the approval is a maintainer's to give |
 
 Approval starts an automatic merge, with no further human step. If you are unsure, don't approve.

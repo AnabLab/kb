@@ -109,7 +109,7 @@ If nothing is worth doing, say so and stop. Busywork costs reviewers' time and m
 4. Run `node scripts/kb.mjs validate`, and fix anything it reports.
 5. Commit with `git commit -F .researcher/<file>`, push with `git push -u origin HEAD`, and open the PR with `gh pr create --title "<plain-text title>" --body-file .researcher/<file>`. Keep the title free of LaTeX. Fill in every section of the PR template:
    - **What this adds:** what the PR adds, and why it was worth doing next.
-   - **New mathematics:** each claim that is your own, rather than taken from a source at a cited location, and where its proof is. Write "None" if everything is cited. Such claims get an adversarial review, so make every step of their proofs easy to check.
+   - **New mathematics:** each claim the PR proves itself, including by combining cited results, and where its proof is. Speculation in an `idea` doesn't count. Write "None" if the PR proves nothing itself. These claims get an adversarial review, so make every step of their proofs easy to check.
    - **Sources opened:** every source you opened and where. List anything you couldn't verify.
 6. Switch back with `git switch main`.
 
