@@ -4,6 +4,7 @@ kind: note
 summary: 'Kato cohomology retains characteristic-p multiplicative and Brauer data through field-dependent coefficients. Dittmann reconstructs a positive-characteristic local field using these groups and their cup product. Passing to perfection preserves the Galois group but kills these data.'
 tags: [galois-cohomology, milnor-k-theory, local-fields, positive-characteristic]
 edges:
+  - {to: hilbert-theorem-90, label: uses, note: 'The multiplicative-coefficient calculation uses H1(G_K,(K^sep)^times)=0 in every characteristic [@stacks2026, Example 59.59.3, Tag 03QV].'}
   - {to: milnor-k-ring, label: uses}
   - {to: bloch-gabber-kato-theorem, label: uses, note: "It translates the diagonal degree-two vanishing into imperfection at most one."}
   - {to: local-fields-characteristic-p-brauer-characterization, label: uses, note: "The reconstruction statement below is its cohomological reformulation, Dittmann's Theorem 1.2."}
@@ -25,7 +26,7 @@ $$
 $$
 1\longrightarrow M\xrightarrow{x\mapsto x^p}M\longrightarrow C\longrightarrow1
 $$
-is exact. Hilbert 90 gives $H^1(G,M)=0$ [@stacks2026, Example 59.59.3, Tag 03QQ]. The long exact sequence therefore gives
+is exact. [Hilbert 90](hilbert-theorem-90.md) gives $H^1(G,M)=0$ [@stacks2026, Example 59.59.3, Tag 03QV]. The long exact sequence therefore gives
 $$
 K^\times\xrightarrow{x\mapsto x^p}K^\times\longrightarrow C^G\longrightarrow0,
 \qquad
