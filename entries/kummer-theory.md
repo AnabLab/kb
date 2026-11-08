@@ -34,7 +34,7 @@ The first Hom has the topology of pointwise convergence. Choosing a primitive ro
 
 **Finite extensions.** Finite subgroups $B\subset K^\times/K^{\times n}$ correspond to finite abelian extensions of $K$ of exponent dividing $n$: the extension is $L_B=K(a^{1/n}:[a]\in B)$. The same pairing identifies $\operatorname{Gal}(L_B/K)$ with $\operatorname{Hom}(B,\mu_n)$, and $[L_B:K]=|B|$ [@milne2022fields, Theorem 5.30 and Remark 5.32, pp. 75–76].
 
-**Function fields and pro-$\ell$ duality.** Let $K/k$ be a function field over an algebraically closed field, and let $\ell\ne\operatorname{char}K$ be prime. Write $\Pi_K^a$ for its maximal abelian pro-$\ell$ Galois group. Then
+**Function fields and pro-$\ell$ duality.** Let $K/k$ be a function field of transcendence degree at least $2$ over an algebraically closed field, and let $\ell\ne\operatorname{char}K$ be prime. Write $\Pi_K^a$ for its maximal abelian pro-$\ell$ Galois group. Then
 $$
 \operatorname{Hom}_{\mathrm{cont}}(\Pi_K^a,\mathbb Z_\ell(1))
 \cong\widehat{K^\times}_{\ell}
