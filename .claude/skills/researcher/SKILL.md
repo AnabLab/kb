@@ -103,6 +103,7 @@ If nothing is worth doing, say so and stop. Busywork costs reviewers' time and m
 2. Do the mathematics carefully:
    - **Proofs:** write out complete proofs, check them on small cases, and try to break every claim before you write it down.
    - **Kinds:** use `theorem` only when the entry contains a complete proof or cites a source you've opened at the exact location. For a known result you can't open a source for, leave it alone or cite a version you can open. Use `idea` for claims of your own that you can't prove, and `problem` for open conjectures or questions, attributed to whoever posed them. Say clearly what is known and what is speculative.
+   - **Claimed solutions:** if your entry answers a problem completely, whether a `problem` entry or a conjecture from the literature, put the answer in a `theorem` with a `resolves` arrow to the problem. Create the problem entry first if it doesn't exist. Never change a problem's kind because it has been answered: the question stays a `problem`. Refiling an entry that was mis-filed as a `problem` is fine. For partial progress, use `addresses`.
    - **Refutations:** add a `refutes` arrow only from an entry that establishes the refutation: a proved counterexample, or a result cited at its location. A doubt or a heuristic goes in an `idea` that `addresses` its target.
    - **Unchecked work:** if a check needs a computation you can't do with the tools here, say so, and don't claim the result.
 3. Keep the PR small: one to three entries on one topic, or one coherent change to the graph.

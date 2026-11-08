@@ -76,6 +76,7 @@ The index also computes these fields for each entry:
 - `incoming` and `backlinks`: arrows and body links pointing at the entry.
 - `conditionalOn`: for a theorem, the problems and ideas it rests on through chains of `uses` arrows.
 - `refutedBy`: entries with a `refutes` arrow to it.
+- `resolvedBy`: entries with a `resolves` arrow to it, which claim to solve it.
 
 The top-level `wanted` list holds entries that are linked to but not yet written.
 
@@ -124,7 +125,7 @@ Quote a value in single quotes if it contains a colon. No other fields are allow
 |---|---|
 | `definition` | A definition |
 | `theorem` | A proved statement, including lemmas and propositions |
-| `problem` | An open conjecture or question. When solved, change its kind to `theorem` |
+| `problem` | A conjecture or question. When a theorem answers it, give that theorem a `resolves` arrow to it, and leave the problem a `problem` |
 | `idea` | A speculative approach or claim, which need not work |
 | `note` | Anything else, such as an example, a technique or a survey |
 
@@ -140,9 +141,12 @@ Each arrow goes from this entry to its target. Store only the outgoing direction
 | `implies` | Its statement implies the target's |
 | `generalizes` | The target is a special case |
 | `addresses` | An approach to, or partial progress on, the target |
+| `resolves` | Claims a complete answer to the target, which must be a `problem`. Only a `theorem` can carry it |
 | `refutes` | A counterexample to, or a flaw in, the target. Only a `theorem` or `note` that establishes the refutation can carry it; a doubt belongs in an `idea` that `addresses` the target |
 | `analogous-to` | Resembles the target without a formal link |
 | `motivated-by` | Arose from the target |
+
+A claimed solution is a separate `theorem` with a `resolves` arrow to the `problem` it answers. Leave the problem itself a `problem`, so that the question stays on record whatever happens to the claim. Refiling an entry that was never a real problem, such as a definition filed as a `problem`, is a different matter and is fine. The dashboard marks both. If a claim fails, add a `refutes` arrow to the theorem, not to the problem.
 
 An arrow is a claim, and it is reviewed like one. If a relationship needs more than a line of justification, make it an entry of its own. An arrow may point to an entry that doesn't exist yet.
 
@@ -181,7 +185,7 @@ A maintainer or the lab's supervisor agent reviews each PR. Everything on `main`
 |---|---|
 | `definition` | Well-formed, and matches its source or standard usage |
 | `theorem` | The statement is right, and the proof is complete or the citation has been checked at its location |
-| `problem` | Precisely stated, correctly attributed, and open as far as is known |
+| `problem` | Precisely stated, correctly attributed, and open as far as is known, unless a theorem `resolves` it |
 | `idea` | Coherent, with known and speculative parts clearly separated |
 | `note` | Accurate |
 
@@ -192,6 +196,8 @@ For every entry, also check that each arrow is accurate and its label is the rig
 1. Attack the statement before the proof. Try small and degenerate cases, drop each hypothesis in turn, and look for known results that it would contradict, or that would make it suspiciously strong.
 2. Rebuild the proof. Write out a justification for every step that isn't immediate, rather than agreeing with the author's, and check each cited lemma's exact hypotheses against how the proof uses it.
 3. State the strongest objection you can find, and either show that it fails or request changes.
+
+A `resolves` arrow claims that the entry answers its problem completely. Check that it answers exactly the problem as stated, with the same hypotheses, the same scope and the same strength of conclusion. Answering a nearby question is the most common way a claimed solution fails. If the answer is only partial, the arrow should be `addresses`.
 
 Approve only if the proof is complete and every attack failed. If a step has a gap, or an attack succeeds, request changes, or suggest filing the claim as an `idea` with the gap stated. If the author justifies a step that you can't check yourself, comment instead, so that a person decides. Record the attacks in the review, and why each one failed, so that a person can check them later. On a later review of the same PR, first check whether earlier objections were resolved, and raise a new one only if it shows a real error or gap.
 

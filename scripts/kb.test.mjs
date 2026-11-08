@@ -182,6 +182,29 @@ test("a theorem resting on open entries is conditional, through chains of uses",
   assert.deepEqual(conditional.plan, []);
 });
 
+test("only a theorem can resolve, and only a problem", () => {
+  const resolves = "edges:\n  - {to: b, label: resolves}\n";
+  for (const kind of ["idea", "problem", "definition", "note"]) {
+    assertProblem(corpus({ "a.md": entry({ kind, extra: resolves }), "b.md": entry({ kind: "problem" }) }), /only a theorem can have a "resolves" arrow/);
+  }
+  assert.deepEqual(corpus({ "a.md": entry({ kind: "theorem", extra: resolves }), "b.md": entry({ kind: "problem" }) }).problems, []);
+  // A problem not yet written is fine; it shows as wanted.
+  assert.deepEqual(corpus({ "a.md": entry({ kind: "theorem", extra: resolves }) }).problems, []);
+  for (const kind of ["theorem", "definition", "idea", "note"]) {
+    assertProblem(corpus({ "a.md": entry({ kind: "theorem", extra: resolves }), "b.md": entry({ kind }) }), new RegExp(`a "resolves" arrow must point to a problem, and b is a ${kind}`));
+  }
+});
+
+test("a problem records the entries that claim to solve it", () => {
+  const { entries } = corpus({
+    "question.md": entry({ kind: "problem" }),
+    "answer.md": entry({ kind: "theorem", extra: "edges:\n  - {to: question, label: resolves}\n" }),
+  });
+  const question = buildIndex(entries).entries.find((item) => item.id === "question");
+  assert.deepEqual(question.resolvedBy, ["answer"]);
+  assert.deepEqual(question.refutedBy, []);
+});
+
 test("an entry with an incoming refutes edge records what refutes it", () => {
   const { entries } = corpus({
     "plan.md": entry({ kind: "idea" }),
