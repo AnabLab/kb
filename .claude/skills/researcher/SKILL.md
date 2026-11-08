@@ -11,6 +11,7 @@ allowed-tools:
   - Bash(gh pr create *)
   - Bash(gh pr edit *)
   - Bash(gh pr comment *)
+  - Bash(gh pr close *)
   - Bash(gh issue list *)
   - Bash(gh issue comment *)
   - Bash(gh discussion list *)
@@ -79,7 +80,7 @@ Take the first of these that applies:
    - Fix the PR on its own branch, and reply to explain the change with `gh pr comment <number> --body-file <file>`.
    - To change the PR's description, for example `Closes` to `Part of`, use `gh pr edit <number> --body-file .researcher/<file>`. This replaces the whole description, so start from the current one, which `gh pr view <number> --json body --jq .body` prints, and keep every section of the PR template. To change the title, use `gh pr edit <number> --title "<plain-text title>"`. Edit only your own PRs, and not once the supervisor has approved them. Reply as well, because an edit alone doesn't tell the supervisor.
    - If you think the objection is wrong, reply once with your reasons.
-   - After two rounds on the same point, stop pushing and leave the PR for a person.
+   - After two rounds on the same point, stop arguing. A second reviewer settles it. If the PR doesn't have the `second-opinion` label yet, add it with `gh pr edit <number> --add-label second-opinion`. If the second opinion goes against you, make the change it names. If you can't, close the PR with `gh pr close <number>`, which also frees a place under your PR limit.
 2. **Requests.** This means a member asking for something in Discussions, an open issue labelled `research`, or a specific item in `AGENDA.md`. The supervisor and maintainers open `research` issues. Read one with `supervisor.mjs issue <number>`, weigh it on its merits, and take it on if it is worth doing. Skip an issue you have already commented on, unless a member has posted since.
    - **Taking one on:** put `Closes #<number>` in your PR description, so that the issue closes when the PR merges. If the PR does only part of the issue, write `Part of #<number>` instead, in exactly that form, so that the supervisor can close the issue once every part is done.
    - **Mentioning an issue you don't close:** GitHub closes every issue whose number directly follows a closing word anywhere in the PR's title, its description or its commit messages, whatever the rest of the sentence says. The closing words are close, fix and resolve, in any form, such as closes, fixed or resolves. So "This does not close #30" closes #30 when the PR merges. Put a closing word before an issue number only when the PR closes that issue. Otherwise write, for example, `Part of #30`, `Related to #30` or "leaves #30 open", which still link to it.

@@ -110,6 +110,26 @@ If your last review asked for changes and the reply says they were made without 
 
 If someone shows you were wrong, say so plainly. If you had approved the PR, post `REQUEST_CHANGES` instead, because that withdraws your approval and stops the merge, while a comment leaves it in place.
 
+**Second opinions.** When a PR's author disputes one of your objections, and the same point has gone two rounds, a second reviewer settles it. Don't argue a third time. Post a `COMMENT` review that states the exact point at issue and each side's case in a sentence or two. Then add the label:
+
+```bash
+gh pr edit <number> --add-label second-opinion
+```
+
+The author may add the label too. To find PRs waiting for a second opinion, run:
+
+```bash
+gh pr list --label second-opinion --json number,title,headRefName,headRefOid
+```
+
+If your instructions say which of these are yours, follow them. Otherwise take any. For each PR you take:
+
+1. Read the conversation with `supervisor.mjs pr <number>`, and decide the point at issue on its merits. Then check the rest of the PR as in step 2.
+2. Post a full verdict for its head, as in steps 2.5 to 2.7. Approve if the author is right and everything else passes, and turn on auto-merge as usual. Otherwise request changes, naming exactly what must change.
+3. Remove the label with `gh pr edit <number> --remove-label second-opinion`.
+
+Your verdict settles the point, and neither side reopens it.
+
 ## 4. Take part in discussions
 
 For each item in `discussions`, read the thread with `supervisor.mjs discussion <number>`.
