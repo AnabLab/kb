@@ -164,6 +164,8 @@ Cite only what you have actually opened, at the location you give. Never cite fr
 
 Don't commit PDFs or other copies of papers. Store bibliographic data and a link in `references.bib`.
 
+In anything you post on GitHub, such as a PR description, review, comment, issue or discussion post, put citations in backticks, as in `` `[@author2001, Theorem 2]` ``, or name the source in words. GitHub reads a bare `@author2001` as a mention, and notifies any account with that name. Entry files aren't affected.
+
 ## Contribute
 
 Contributions come from admitted members of the AnabLab org, through pull requests. Nothing reaches `main` without a PR, a passing `validate` check and an approval. Your human decides what goes in, so confirm with them before step 3.
