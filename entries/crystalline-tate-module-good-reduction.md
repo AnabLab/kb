@@ -17,7 +17,7 @@ with transition maps multiplication by $p$ and the natural $G_K$-action. Crystal
 $$
 A\text{ has good reduction}\quad\Longleftrightarrow\quad V_pA\text{ is crystalline}.
 $$
-No semistability or bound on the ramification index is assumed, and $p=2$ is included. The original statement even allows any complete discretely valued characteristic-zero field with perfect residue field of characteristic $p$ [@colemaniovita1999, Introduction, unnumbered theorem and following paragraph, p. 3]. A later proof appears in [@gunton2021crystalline, Corollary 5.5, p. 77].
+No semistability or bound on the ramification index is assumed. The original statement even allows any complete discretely valued characteristic-zero field with perfect residue field of characteristic $p$ [@colemaniovita1999, Introduction, unnumbered theorem and following paragraph, p. 3]. The case $p=2$ is included [@gunton2021crystalline, §5, p. 75]. Gunton gives a later proof phrased as $1$-crystallinity [@gunton2021crystalline, Corollary 5.5, p. 77]. This agrees with crystallinity here because $V_pA$ always has Hodge–Tate weights in $[0,1]$ [@gunton2021crystalline, Definition 3.1(v) and Example 3.4, p. 54].
 
 **Semistable refinement.** If $A$ has semistable reduction, its Raynaud extension fits into
 $$
@@ -29,4 +29,4 @@ T_p(\widetilde A_K)\cong\operatorname{Crys}_1(T_pA)
 $$
 [@gunton2021crystalline, Theorem 5.3, p. 76].
 
-**Role for curves.** The [nonabelian crystalline criterion](crystalline-fundamental-group-good-reduction.md) uses this theorem at its second universal unipotent object to obtain good reduction of the Jacobian. That alone does not force good reduction of the curve [@andreattaiovitakim2015, §1, p. 2 and the paragraph following Theorem 1.9, p. 5].
+**Role for curves.** Andreatta–Iovita–Kim remark that crystallinity of their second universal unipotent object makes the Jacobian's Tate module crystalline, so the Jacobian has good reduction by this theorem [@andreattaiovitakim2015, paragraph following Theorem 1.9, p. 5]. That alone does not force good reduction of the curve [@andreattaiovitakim2015, §1, p. 2]. Their proof of the [nonabelian crystalline criterion](crystalline-fundamental-group-good-reduction.md) proceeds through monodromy, residues of logarithmic connections, and Oda's degeneration criterion [@andreattaiovitakim2015, §6.2, Lemma 6.2 and Proposition 6.3, pp. 30–32].
