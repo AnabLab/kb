@@ -12,7 +12,7 @@ edges:
 
 **Tame form.** The same statement holds for the maximal tamely ramified extension of $K_i$ [@karshonshusterman2026, Theorem 1.3].
 
-**Related negative results.** The authors report that the isomorphism types of the $p$-Sylow subgroups of $G_K$ do not recover $K$, citing Lubotzky and Neftin. They also report that the maximal pronilpotent quotient does not recover $K$, citing arXiv:2310.08283 [@karshonshusterman2026, §1]. arXiv lists that paper as withdrawn by its author in October 2026, after this preprint appeared, so the pronilpotent claim is not recorded here as established. Compare [the class-2 nilpotent counterexample](two-step-nilpotent-not-anabelian.md).
+**Related negative results.** Lubotzky and Neftin exhibit [nonisomorphic number fields with conjugate Sylow subgroups](sylow-subgroups-do-not-determine-number-field.md) for every prime, so these subgroup isomorphism types do not recover $K$ [@lubotzkyneftin2023, Definition 1.1 and Claim 1.2, pp. 1–2]. Karshon and Shusterman also report that the maximal pronilpotent quotient does not recover $K$, citing arXiv:2310.08283 [@karshonshusterman2026, §1]. arXiv lists that paper as withdrawn by its author in October 2026, after this preprint appeared, so the pronilpotent claim is not recorded here as established. Compare [the class-2 nilpotent counterexample](two-step-nilpotent-not-anabelian.md).
 
 **Open direction.** See [the prosupersolvable problem](prosupersolvable-neukirch-uchida-problem.md).
 
