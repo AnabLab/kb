@@ -11,7 +11,7 @@ edges:
 
 $$\mathrm{rec}_K:\widehat{K^\times}\xrightarrow{\sim}G_K^{\mathrm{ab}}.$$
 
-Every uniformizer maps to arithmetic Frobenius on the maximal unramified extension [@milnecft, Chapter I, Theorem 1.1, p. 20; §1.10, p. 23]. Choosing a uniformizer identifies $\widehat{K^\times}$ with $\mathcal O_K^\times\times\widehat{\mathbb Z}$ [@milnecft, Chapter I, §1.10, p. 23].
+Every uniformizer maps to arithmetic Frobenius on the maximal unramified extension [@milnecft, Chapter I, Theorem 1.1, p. 20; §1.8, pp. 22–23]. Choosing a uniformizer identifies $\widehat{K^\times}$ with $\mathcal O_K^\times\times\widehat{\mathbb Z}$ [@milnecft, Chapter I, §1.10, p. 23].
 
 **Finite extensions.** For each finite abelian extension $L/K$, reciprocity gives
 
@@ -23,6 +23,10 @@ The assignment $L\mapsto N_{L/K}(L^\times)$ is an inclusion-reversing bijection 
 
 $$\mathrm{rec}_K(U_K^n)=(G_K^{\mathrm{ab}})^n\qquad(n\ge0).$$
 
-In particular, units correspond to the image of inertia [@milnecft, Chapter I, §1.11, p. 24].
+**Deduction of ramification compatibility.** Choose a uniformizer $\pi$. Milne constructs $K_\pi$ with $K_\pi K^{\mathrm{un}}=K^{\mathrm{ab}}$ and states that restriction $r:G_K^{\mathrm{ab}}\to\mathrm{Gal}(K_\pi/K)$ identifies $U_K^n$ with $\mathrm{Gal}(K_\pi/K)^n$ under reciprocity [@milnecft, Chapter I, §1.11, p. 24]. The compact subgroup $\mathrm{rec}_K(U_K^0)$ is closed and has fixed field $K^{\mathrm{un}}$, so it equals the abelian inertia group $I=\mathrm{Gal}(K^{\mathrm{ab}}/K^{\mathrm{un}})=(G_K^{\mathrm{ab}})^0$. The compositum identity makes $r|_I$ injective, and the cited isomorphism on units makes it surjective. For $n\ge0$, both $(G_K^{\mathrm{ab}})^n$ and $\mathrm{rec}_K(U_K^n)$ lie in $I$. Quotient compatibility gives
+
+$$r\big((G_K^{\mathrm{ab}})^n\big)=\mathrm{Gal}(K_\pi/K)^n=r\big(\mathrm{rec}_K(U_K^n)\big)$$
+
+[@milnecft, Chapter I, Proposition 4.4 and the following infinite-level definition, p. 46]. Injectivity of $r|_I$ proves the displayed ramification identity, including the correspondence between units and inertia. $\square$
 
 This is the multiplicative input in [local Galois reconstruction](local-field-galois-invariants.md). Even retaining the entire abelianized ramification filtration [does not determine the local field](filtered-abelian-galois-groups-do-not-determine-local-fields.md).
