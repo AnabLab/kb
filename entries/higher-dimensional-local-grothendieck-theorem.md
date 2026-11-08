@@ -1,9 +1,10 @@
 ---
 title: Filtered Galois reconstruction of higher-dimensional local fields
 kind: theorem
-summary: 'For odd p, Abrashkin reconstructs mixed-characteristic higher local fields with a flag of constant subfields from Galois isomorphisms preserving multi-indexed ramification and P-continuity on finite extensions'' abelian p-power quotients.'
+summary: 'For odd p, Abrashkin reconstructs mixed-characteristic higher local fields from ramification and P-continuity data; in dimensions above two, the checked proof relies on an asserted characteristic-p extension.'
 tags: [local-fields, galois-groups, ramification, reconstruction-algorithms]
 edges:
+  - {to: mochizuki-local-fields-theorem, label: uses, note: 'Applied to the one-dimensional constant fields K(1), L(1) in the first step of the proof [@abrashkin2007higher, §9.1, p. 37; proof of Theorem 6, §9.3.1, p. 39].'}
   - {to: abrashkin-local-grothendieck-theorem, label: analogous-to, note: 'The higher-dimensional theorem uses a flag of constant subfields and an additional continuity hypothesis on abelian quotients.'}
   - {to: fontaine-wintenberger-field-of-norms, label: analogous-to, note: 'The proof uses a higher-dimensional analogue of the field-of-norms functor, compatible with ramification and P-continuity [@abrashkin2007higher, Theorems 2 and 4 and proof of Theorem 6].'}
 ---
@@ -21,7 +22,7 @@ Fix $N\ge2$ and the basic field
 
 $$F_N=\mathbb Q_p\{\{t_N\}\}\cdots\{\{t_2\}\}.$$
 
-Let $C_N$ be the completion of an algebraic closure of $F_N$ for its first valuation. Abrashkin fixes inside $C_N$ a flag $C_0\subset C_1\subset\cdots\subset C_N$, where $C_i$ for $i\ge1$ is the completed algebraic closure of the basic $i$-dimensional constant field, with $C_1=\mathbb C_p$, and $C_0$ is the completed maximal unramified extension of $\mathbb Q_p$. His category $\mathrm{LF}_0(N)$ consists of finite extensions $K/F_N$ inside $C_N$, equipped with the *constant-subfield flag* $K(i)=K\cap C_i$, called the $F$-structure [@abrashkin2007higher, §3.1, p. 12]. These are subfields, not successive residue fields.
+Let $C_N$ be the completion of an algebraic closure of $F_N$ for its first valuation. Abrashkin fixes inside $C_N$ a flag $C_0\subset C_1\subset\cdots\subset C_N$, where $C_i$ for $i\ge1$ is the completed algebraic closure of the basic constant subfield $F_i=\mathbb Q_p\{\{t_i\}\}\cdots\{\{t_2\}\}$, with $F_1=\mathbb Q_p$ and $C_1=\mathbb C_p$, and $C_0$ is the completed maximal unramified extension of $\mathbb Q_p$. His category $\mathrm{LF}_0(N)$ consists of finite extensions $K/F_N$ inside $C_N$, equipped with the *constant-subfield flag* $K(i)=K\cap C_i$, called the $F$-structure [@abrashkin2007higher, §3.1, p. 12]. These are subfields, not successive residue fields.
 
 Two further structures enter the theorem:
 
@@ -41,6 +42,8 @@ $$\iota(\sigma)=f^{-1}\sigma f\qquad(\sigma\in G_L).$$
 
 This is [@abrashkin2007higher, Theorem 6 and §9.3, pp. 38–40].
 
-**Mechanism and scope.** The proof first reconstructs the one-dimensional constant fields, then passes to suitably ramified towers. The higher-dimensional field-of-norms functor transports the Galois isomorphism to characteristic $p$; its compatibility with the $P$-topologies permits application of the characteristic-$p$ reconstruction theorem. Finally the resulting automorphism lifts back to characteristic $0$ [@abrashkin2007higher, proof of Theorem 6, §§9.3.1–9.3.4, pp. 39–40]. The flag, multi-indexed filtration and continuity condition are supplied data in this statement; it does not assert their recovery from the profinite group alone. The checked theorem assumes odd $p$.
+**Scope of the checked proof.** The characteristic-$p$ input is Theorem 5. Abrashkin attributes its $N=2$ case to his earlier paper [Ab6] and asserts the extension to general $N$ without writing it out. Thus for $N\ge3$, Theorem 6 as checked here depends on that asserted extension [@abrashkin2007higher, §9.2, Theorem 5 and following Remark, p. 38].
+
+**Mechanism.** The proof first applies the [one-dimensional local Grothendieck theorem](mochizuki-local-fields-theorem.md) to reconstruct the constant fields $K(1),L(1)$, then passes to suitably ramified towers. The higher-dimensional field-of-norms functor transports the Galois isomorphism to characteristic $p$; its compatibility with the $P$-topologies permits application of Theorem 5, subject to the scope qualification above. Finally the resulting automorphism lifts back to characteristic $0$ [@abrashkin2007higher, proof of Theorem 6, §§9.3.1–9.3.4, pp. 39–40]. The flag, multi-indexed filtration and continuity condition are supplied data in this statement; it does not assert their recovery from the profinite group alone. The checked theorem assumes odd $p$.
 
 **Source versions.** Abrashkin's locations refer to arXiv:math/0503200v1, not the pagination of the published article. Morrow's locations refer to arXiv:1204.0586v2.
