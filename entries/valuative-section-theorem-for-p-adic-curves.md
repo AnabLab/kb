@@ -4,7 +4,7 @@ kind: theorem
 summary: 'Pop and Stix show that for a hyperbolic curve over a finite extension of $\mathbb{Q}_p$, every Galois section lies in the decomposition group of a valuation prolonging the $p$-adic valuation. For proper curves, the $p$-adic section conjecture reduces to excluding valuations not of type 2h.'
 tags: [curves, local-fields, fundamental-groups, section-conjecture]
 edges:
-  - {to: section-conjecture, label: addresses, note: "It proves a valuative weakening of the $p$-adic analogue recorded in the target, and reduces that analogue to a local non-splitting statement [@popstix2017, §1.5.3 and §6.1, pp. 3–4 and 21]."}
+  - {to: p-adic-section-conjecture, label: addresses, note: "Localizes sections at valuations extending the $p$-adic valuation and reduces the proper case to excluding types other than 2h [@popstix2017, Theorem 26 and §6.1, pp. 18 and 21]."}
   - {to: hyperbolic-curve, label: uses}
   - {to: section-conjecture-period-index, label: uses, note: "Proposition 24 uses Stix's theorem that the index of a curve with a section is a power of $p$ [@popstix2017, proof of Proposition 24, p. 16]."}
   - {to: resolution-of-nonsingularities, label: uses, note: "The uniqueness results use Tamagawa's earlier, weaker form of it, through Theorem 36 [@popstix2017, §1.7, p. 4, and Theorem 36, p. 22]."}
@@ -54,13 +54,15 @@ In rigid-analytic terms, a valuation of type 2h corresponds to discs shrinking t
 
 The uniqueness results use the $p$-part as well, through Tamagawa's resolution of non-singularities [@popstix2017, §1.7, p. 4, and Theorem 36, p. 22].
 
-**What remains open.** As of this source, the $p$-adic section conjecture is open, and so are the following.
+**Questions left by Pop–Stix.** The 2011 source left the $p$-adic section conjecture and the following questions open. Later developments are recorded below.
 
 - *Visibility.* Pop asked whether all components are visible, and the authors could not resolve this [@popstix2017, Question 14, p. 12]. Tamagawa's work only shows that over each closed point of the stable model, fine enough models have visible non-stable rational components [@popstix2017, Remark 15 (1), p. 12].
 - *Invisible components.* Pop and Stix find it conceivable that invisible projective lines contribute sections localized in a $p$-adic disc but not at a $k$-rational point, which would make the $p$-adic section conjecture fail [@popstix2017, §7.3, p. 25].
 - *Tempered sections.* Mochizuki showed that a section of the tempered fundamental group fixes a compatible system of vertices or edges of the dual graphs of stable models. The authors could not decide whether every profinite section is conjugate to one with image in the tempered group [@popstix2017, §1.6, p. 4].
 - *Berkovich points.* Pop and Stix credit Kedlaya with the interpretation that a section gives at least a $k$-Berkovich point responsible for it, and they leave open which such points contribute sections [@popstix2017, §1.5.3, p. 4].
 
-**Later progress.** Mochizuki and Tsujimura proved [resolution of nonsingularities](resolution-of-nonsingularities.md) for every hyperbolic curve over a finite extension of $\mathbb{Q}_p$. As checked in that entry, it answers the visibility question positively for proper $X$. So invisible components and bridges do not occur, and Corollary 41 applies to every proper $X$. They also prove that, for proper $X$, every section fixes exactly one point of the pro-Berkovich space of the geometrically pro-$\Sigma$ universal cover, when $\Sigma$ contains $p$ and another prime; see [Berkovich points fixed by sections](berkovich-points-fixed-by-p-adic-sections.md). The $p$-adic section conjecture itself remains open as far as these sources show.
+**Later progress.** Mochizuki and Tsujimura proved [resolution of nonsingularities](resolution-of-nonsingularities.md) for every hyperbolic curve over a finite extension of $\mathbb{Q}_p$. As checked in that entry, it answers the visibility question positively for proper $X$. So invisible components and bridges do not occur, and Corollary 41 applies to every proper $X$. They also prove that, for proper $X$, every section fixes exactly one point of the pro-Berkovich space of the geometrically pro-$\Sigma$ universal cover, when $\Sigma$ contains $p$ and another prime; see [Berkovich points fixed by sections](berkovich-points-fixed-by-p-adic-sections.md).
 
-**Source.** The locations above refer to the arXiv version of 2011. The journal version (J. reine angew. Math. 725, 2017) has not been compared, and its numbering may differ. The papers of Pop, Mochizuki and Tamagawa that the proof relies on have not been opened, and what is attributed to them is reported through this source.
+For proper $X$ and the full profinite group, the later [proof of the $p$-adic section conjecture](p-adic-section-conjecture.md) completes the reduction: rank-one localization is impossible, and the rank-two analysis leaves only type 2h [@openai2026padicsections, Lemma 7.2 and proof of surjectivity in Theorem 1.1, pp. 16–18]. This proof is in a 2026 manuscript, not peer reviewed; its checks are recorded in the linked entry.
+
+**Sources.** Pop–Stix locations refer to the arXiv version of 2011. The journal version (J. reine angew. Math. 725, 2017) has not been compared, and its numbering may differ. The earlier papers of Pop, Mochizuki and Tamagawa on which their proof relies have not been opened; the attributions to them are reported through Pop–Stix. The later 2026 manuscript was opened at the locations cited in the last paragraph.
