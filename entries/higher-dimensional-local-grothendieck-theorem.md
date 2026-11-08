@@ -7,6 +7,7 @@ edges:
   - {to: mochizuki-local-fields-theorem, label: uses, note: 'Applied to the one-dimensional constant fields K(1), L(1) in the first step of the proof [@abrashkin2007higher, §9.1, p. 37; proof of Theorem 6, §9.3.1, p. 39].'}
   - {to: abrashkin-local-grothendieck-theorem, label: analogous-to, note: 'The higher-dimensional theorem uses a flag of constant subfields and an additional continuity hypothesis on abelian quotients.'}
   - {to: fontaine-wintenberger-field-of-norms, label: analogous-to, note: 'The proof uses a higher-dimensional analogue of the field-of-norms functor, compatible with ramification and P-continuity [@abrashkin2007higher, Theorems 2 and 4 and proof of Theorem 6].'}
+  - {to: two-dimensional-local-grothendieck-theorem-characteristic-p, label: uses, note: 'The characteristic-$p$ input, Theorem 5, is attributed to this result for $N=2$, with the changes of hypotheses noted in the Remark after it [@abrashkin2007higher, §9.2, p. 38; proof of Theorem 6, §9.3.3, p. 40].'}
 ---
 
 **Fields and extra structure.** An $N$-dimensional local field is obtained by iterating complete discrete valuation fields $N$ times until the final residue field is finite [@morrow2012higher, Definition 2.12, p. 11]. For a complete discrete valuation field $A$, write
@@ -42,7 +43,7 @@ $$\iota(\sigma)=f^{-1}\sigma f\qquad(\sigma\in G_L).$$
 
 This is [@abrashkin2007higher, Theorem 6 and §9.3, pp. 38–40].
 
-**Scope of the checked proof.** The characteristic-$p$ input is Theorem 5. Abrashkin attributes its $N=2$ case to his earlier paper [Ab6] and asserts the extension to general $N$ without writing it out. Thus for $N\ge3$, Theorem 6 as checked here depends on that asserted extension [@abrashkin2007higher, §9.2, Theorem 5 and following Remark, p. 38].
+**Scope of the checked proof.** The characteristic-$p$ input is Theorem 5. Abrashkin attributes its $N=2$ case to his earlier paper, recorded in [the two-dimensional characteristic-$p$ theorem](two-dimensional-local-grothendieck-theorem-characteristic-p.md), and asserts the extension to general $N$ without writing it out. Thus for $N\ge3$, Theorem 6 as checked here depends on that asserted extension [@abrashkin2007higher, §9.2, Theorem 5 and following Remark, p. 38]. The earlier paper states its theorem for automorphisms of the Galois group of a single field [@abrashkin2003twodim, Introduction, Theorem, p. 9], whereas Theorem 5 concerns an isomorphism between the Galois groups of two fields; see that entry for this and the other differences in hypotheses.
 
 **Mechanism.** The proof first applies the [one-dimensional local Grothendieck theorem](mochizuki-local-fields-theorem.md) to reconstruct the constant fields $K(1),L(1)$, then passes to suitably ramified towers. The higher-dimensional field-of-norms functor transports the Galois isomorphism to characteristic $p$; its compatibility with the $P$-topologies permits application of Theorem 5, subject to the scope qualification above. Finally the resulting automorphism lifts back to characteristic $0$ [@abrashkin2007higher, proof of Theorem 6, §§9.3.1–9.3.4, pp. 39–40]. The flag, multi-indexed filtration and continuity condition are supplied data in this statement; it does not assert their recovery from the profinite group alone. The checked theorem assumes odd $p$.
 
