@@ -9,13 +9,13 @@ edges:
   - {to: hyperbolic-curve, label: uses}
 ---
 
-**Setting.** The notation is that of the [section conjecture](section-conjecture.md). For a [hyperbolic curve](hyperbolic-curve.md) $X$ over a field $K$ of characteristic $0$, the map $\sigma_X : X(K) \to \mathrm{Sect}(G_K, \Pi^{\mathrm{prf}}_X)$ sends a $K$-rational point to the class of its section, modulo conjugation by $\Delta^{\mathrm{prf}}_X$. For a prime $p$, write $\sigma^{(p)}_X : X(K) \to \mathrm{Sect}(G_K, \Pi_X)$ for the analogous map to sections of the geometrically pro-$p$ quotient $\Pi_X \to G_K$, modulo conjugation by $\Delta_X$. A $K$-rational point induces $G_K \to \Pi^{\mathrm{prf}}_X \to \Pi_X$, so $\sigma^{(p)}_X$ is $\sigma_X$ followed by the map on sections induced by the quotient $q : \Pi^{\mathrm{prf}}_X \to \Pi_X$.
+**Setting.** The notation is that of the [section conjecture](section-conjecture.md). For a [hyperbolic curve](hyperbolic-curve.md) $X$ over a field $K$ of characteristic $0$, the map $\sigma_X : X(K) \to \mathrm{Sect}(G_K, \Pi^{\mathrm{prf}}_X)$ sends a $K$-rational point to the class of its section, modulo conjugation by $\Delta^{\mathrm{prf}}_X$. For a prime $p$, write $\sigma^{(p)}_X : X(K) \to \mathrm{Sect}(G_K, \Pi_X)$ for the analogous map to sections of the geometrically pro-$p$ quotient $\Pi_X \to G_K$, modulo conjugation by $\Delta_X$. A $K$-rational point induces $G_K \to \Pi^{\mathrm{prf}}_X \to \Pi_X$, so $\sigma^{(p)}_X$ is $\sigma_X$ followed by the map on sections induced by the quotient $q : \Pi^{\mathrm{prf}}_X \to \Pi_X$. The groups $\Pi^{\mathrm{prf}}_X \supseteq \Delta^{\mathrm{prf}}_X$ are defined for every curve over $K$, hyperbolic or not, as in the entry on hyperbolic curves, and $\sigma_X$ is defined for every curve in the same way. Part 3 uses this: it includes proper curves of genus $1$, which are not hyperbolic.
 
 **Theorem.**
 
 1. *(Mochizuki.)* If $K$ is sub-$p$-adic and $X$ is a hyperbolic curve over $K$, then $\sigma^{(p)}_X$ is injective [@mochizuki1999, Theorem 19.1, p. 92].
 2. *(Profinite injectivity.)* Under the same hypotheses, $\sigma_X$ is injective. In particular this holds for every hyperbolic curve over a field finitely generated over $\mathbb{Q}$.
-3. *(Kummer theory.)* If $K$ is a number field and $X$ is a smooth curve over $K$ whose smooth compactification has genus at least $1$, then $\sigma_X$ is injective.
+3. *(Kummer theory.)* If $K$ is a number field and $X$ is a curve over $K$, not necessarily hyperbolic, whose smooth compactification has genus at least $1$, then $\sigma_X$ is injective.
 
 Koenigsmann records part 2 for smooth complete curves of genus at least $2$, citing part 1 [@koenigsmann2005, Remark 1.2 (2), p. 5]. For proper hyperbolic curves over fields finitely generated over $\mathbb{Q}$, Hoshi attributes the injectivity of $\sigma_X$ to Grothendieck, who proved it with the Mordell–Weil theorem [@hoshi2010, Introduction, p. 830], and Stix calls it "only an exercise exploiting the Mordell-Weil Theorem" [@stix2010, (1.2), p. 1]. Part 3 writes out that argument over number fields.
 

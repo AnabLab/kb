@@ -7,7 +7,7 @@ edges:
   - {to: hyperbolic-curve, label: uses}
   - {to: hodge-tate-geometricity-criterion, label: analogous-to, note: "Both decide whether a Galois homomorphism is geometric by a Hodge–Tate comparison over $\\mathbb{C}_p$."}
   - {to: m-step-solvable-neukirch-uchida, label: analogous-to, note: "Theorem A′ recovers a morphism from $\\Pi^n$ only modulo $\\Delta\\{n-3\\}$, much as Saïdi and Tamagawa recover $K_m$ from $G_K^{m+3}$."}
-  - {to: section-conjecture, label: addresses, note: "Theorem C proves that $X(K) \\to \\mathrm{Sect}(G_K, \\Pi_X)$ is injective, even for the geometrically pro-$p$ quotient [@mochizuki1999, Theorem 19.1, p. 92]."}
+  - {to: section-conjecture, label: addresses, note: "Theorem C proves that $X(K) \\to \\mathrm{Sect}(G_K, \\Pi_X)$ is injective for the geometrically pro-$p$ quotient $\\Pi_X$ over sub-$p$-adic $K$, which gives injectivity for $\\Pi^{\\mathrm{prf}}_X$ too [@mochizuki1999, Theorem 19.1, p. 92]."}
 ---
 
 **Setting.** Let $p$ be a prime. A field is *sub-$p$-adic* if it is isomorphic to a subfield of a finitely generated field extension of $\mathbb{Q}_p$ [@mochizuki1999, Definition 15.4 (i)]. Examples are the finitely generated extensions of $\mathbb{Q}_p$, number fields, and the compositum in $\bar{\mathbb{Q}}$ of all number fields of degree at most $n$ [@mochizuki1999, p. 77].
