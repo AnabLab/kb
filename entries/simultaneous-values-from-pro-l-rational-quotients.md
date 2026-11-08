@@ -7,7 +7,7 @@ edges:
   - {to: divisoriality-from-completed-curve-subfields, label: uses, note: "Part 3 supplies the divisorial matching, rational-subfield correspondence and commuting quotient maps assumed here."}
   - {to: field-recovery-from-simultaneous-point-values, label: uses, note: "The coefficient-free theorem turns the simultaneous-value condition proved here into an isomorphism of perfect closures."}
   - {to: pro-l-strategy-for-bogomolov-pop, label: addresses, note: "A field-existence step from the recovered rational quotients; compatibility with the original character isomorphism is not asserted."}
-  - {to: manuscripts-claiming-bogomolov-pop, label: addresses, note: "Applies the field-theoretic argument of the mod-ell manuscript to the recovered pro-ell quotients of the earlier manuscript."}
+  - {to: manuscripts-claiming-bogomolov-pop, label: addresses, note: "Adapts Lemma 7.1 of the October 2026 mod-ℓ manuscript to pro-ℓ inertia [@openai2026modl, Lemma 7.1, p. 27], giving the field isomorphism of the September 2026 manuscript's surjectivity step from the outputs of its Propositions 6.6–6.7, without its Proposition 7.1; not compatibility up to one unit."}
 ---
 
 **Setting.** Let $K/k$ and $L/l$ be function fields of transcendence degree at least $2$ over algebraically closed fields of characteristic different from a fixed prime $\ell$. Write $W_F=\mathrm{Hom}(F^\times,\mathbb Z_\ell)$ with its pointwise topology. For a prime divisor $v$ trivial on the constants, normalize $vF=\mathbb Z$ and write $I_v=\mathbb Z_\ell v$. For a relatively algebraically closed rational subfield $E\subset K$, restriction is $\rho_E:W_K\to W_E$.

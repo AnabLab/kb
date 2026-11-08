@@ -7,7 +7,7 @@ edges:
   - {to: abelian-by-central-galois-group, label: uses}
   - {to: quasi-prime-divisor, label: uses, note: "Only the true divisors and their compositions, trivial on the constants, occur here."}
   - {to: pro-l-strategy-for-bogomolov-pop, label: motivated-by, note: "The output of the local theory includes the maps on all residue groups."}
-  - {to: manuscripts-claiming-bogomolov-pop, label: addresses, note: "Checks the cited input in Proposition 7.1(1), not the final field-reconstruction step [@openai2026bp, pp. 23–24]."}
+  - {to: manuscripts-claiming-bogomolov-pop, label: addresses, note: "Checks Pop's result cited as Proposition 7.1(1) of the September 2026 manuscript, not the final field-reconstruction step [@openai2026bp, pp. 23–24]."}
 ---
 
 **Statement.** Let $K/k$ be a function field of transcendence degree $d\ge2$, with $k$ algebraically closed and $\mathrm{char}(k)\ne\ell$. Set

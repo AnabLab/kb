@@ -7,7 +7,7 @@ edges:
   - {to: total-decomposition-graph-from-divisorial-inertia, label: uses, note: "Supplies the graph isomorphism in the application to the 2026 manuscript."}
   - {to: divisoriality-from-completed-curve-subfields, label: uses, note: "Supplies the actual rational quotient squares and their point inertia in that application."}
   - {to: bogomolov-pop-conjecture, label: addresses, note: "Conditional on supplying the decomposition graph and compatible rational quotients."}
-  - {to: manuscripts-claiming-bogomolov-pop, label: addresses, note: "Checks the external input in Proposition 7.1(2) and its use of the recovered quotient diagrams, assuming the preceding correspondences."}
+  - {to: manuscripts-claiming-bogomolov-pop, label: addresses, note: "Checks Pop's theorem cited as Proposition 7.1(2) of the September 2026 manuscript, and its application to the recovered quotient diagrams, assuming the preceding correspondences [@openai2026bp, pp. 23–24]."}
 ---
 
 **Pop's Isom theorem.** Let $K/k$ and $L/l$ be function fields of transcendence degree greater than one over algebraically closed fields of characteristic different from $\ell$. Endow their total decomposition graphs with Bertini-type families $\mathcal A$ and $\mathcal B$ of rational quotients. If an isomorphism $\Phi$ of these graphs is compatible with the two families, there are an isomorphism $\iota:L^i/l\to K^i/k$ of perfect closures and a unit $\epsilon\in\mathbb Z_\ell^\times$ such that

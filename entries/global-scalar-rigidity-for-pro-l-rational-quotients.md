@@ -8,7 +8,7 @@ edges:
   - {to: field-recovery-from-simultaneous-point-values, label: uses, note: "Supplies the field isomorphism in the conditional application when its simultaneous-value hypotheses hold."}
   - {to: simultaneous-values-from-pro-l-rational-quotients, label: uses, note: "Supplies the matched perfect-closure isomorphism from pro-ell rational quotient squares in the final consequence."}
   - {to: pro-l-strategy-for-bogomolov-pop, label: addresses, note: "The global-scalar step after recovering a field isomorphism that matches all rational subfields."}
-  - {to: manuscripts-claiming-bogomolov-pop, label: addresses, note: "An integral analogue of the mod-ell manuscript's Lemmas 8.1–8.2 and Proposition 8.3; not an audit of its earlier recovery steps."}
+  - {to: manuscripts-claiming-bogomolov-pop, label: addresses, note: "An integral analogue of Lemmas 8.1–8.2 and Proposition 8.3 of the October 2026 mod-ℓ manuscript [@openai2026modl, pp. 33–34]. With the simultaneous-values entry, it gives the conclusion of the September 2026 manuscript's surjectivity step, a field isomorphism inducing the given map up to one unit, from the outputs of its Propositions 6.6–6.7, without its Proposition 7.1."}
 ---
 
 **Setting.** Let $K/k$ be a function field, that is, a finitely generated extension, of transcendence degree $d\ge2$ over an algebraically closed field of characteristic different from $\ell$. Put $W_F=\mathrm{Hom}(F^\times,\mathbb Z_\ell)$, with its pointwise topology. For a prime divisor $v$ trivial on $k$, normalize $vK=\mathbb Z$ and put

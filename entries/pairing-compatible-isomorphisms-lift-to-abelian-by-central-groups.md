@@ -7,6 +7,7 @@ edges:
   - {to: abelian-by-central-galois-group, label: uses}
   - {to: kummer-theory, label: uses, note: "Only to show that every character of $\\Pi^a_L$ to $\\mathbb{Q}_\\ell/\\mathbb{Z}_\\ell$ is $\\ell$ times another."}
   - {to: bogomolov-pop-conjecture, label: motivated-by, note: "Identifies the pairing-compatible isomorphisms in the conjecture with the abelianizations of isomorphisms of $\\Pi^c$ used by Pop [@pop2018, §1, p. 2]."}
+  - {to: manuscripts-claiming-bogomolov-pop, label: addresses, note: "Proves Lemma 2.3 of the September 2026 manuscript, for more general fields, with a fibre-product argument like its own [@openai2026bp, Lemma 2.3, p. 5]."}
 ---
 
 **Statement.** Fix a prime $\ell$. Let $K$ and $L$ be fields of characteristic different from $\ell$, and suppose that $L$ contains all $\ell$-power roots of unity, as every function field over an algebraically closed field of characteristic different from $\ell$ does. Use the notation of [abelian-by-central Galois groups](abelian-by-central-galois-group.md): $\Pi^c_L \to \Pi^a_L$ is a central extension with kernel $\Delta_L$, and commutators of lifts give the pairing $[\sigma,\tau] \in \Delta_L$. Let $\varphi : \Pi^a_L \to \Pi^a_K$ and $\psi : \Delta_L \to \Delta_K$ be isomorphisms of profinite groups. The following are equivalent:

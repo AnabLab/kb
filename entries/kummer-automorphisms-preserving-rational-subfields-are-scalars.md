@@ -5,7 +5,7 @@ summary: 'For $K/k$ of transcendence degree at least $2$, an automorphism of $K^
 tags: [function-fields, valuations, milnor-k-theory, reconstruction-algorithms]
 edges:
   - {to: quasi-prime-divisor, label: uses, note: "Only prime divisors enter, through their characterization by residue transcendence degree."}
-  - {to: manuscripts-claiming-bogomolov-pop, label: addresses, note: "Checks Proposition 8.3 of the mod-ℓ manuscript and its use after Theorem 7.5 [@openai2026modl, §§8.1–8.2, pp. 32–34], using only inertia."}
+  - {to: manuscripts-claiming-bogomolov-pop, label: addresses, note: "Checks Proposition 8.3 of the October 2026 mod-ℓ manuscript and its use after Theorem 7.5, using only inertia, and the transverse-parameter facts of its Lemma 6.4 [@openai2026modl, pp. 25–26 and 32–34]; Propositions 6.1 and 6.3 are hypotheses."}
   - {to: mod-l-bogomolov-pop-conjecture, label: addresses, note: "The compatibility step of a claimed proof: a recovered field isomorphism induces the given isomorphism of Kummer groups up to a scalar."}
 ---
 
