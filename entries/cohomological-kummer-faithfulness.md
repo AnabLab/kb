@@ -1,18 +1,18 @@
 ---
 title: Cohomological criteria for Kummer-faithfulness
 kind: theorem
-summary: 'Yamamura''s 2026 preprint proves that sub-p-adic fields have vanishing positive-degree etale-cohomology coinvariants. For complete mixed-characteristic discretely valued fields with residue algebraic over a finite field, this condition is equivalent to Kummer-faithfulness.'
+summary: 'Yamamura''s 2026 preprint proves positive-degree rational ℓ-adic étale-cohomology coinvariant vanishing for proper smooth varieties over sub-p-adic fields; it characterizes Kummer-faithfulness for complete mixed-characteristic discretely valued fields with residue algebraic over a finite field.'
 tags: [local-fields, galois-cohomology, hodge-theory]
 edges:
-  - {to: semi-absolute-reconstruction-over-kummer-faithful-fields, label: analogous-to, note: 'Characterizes its Kummer-faithful base-field condition cohomologically in the complete mixed-characteristic setting below.'}
   - {to: hodge-tate-reconstruction-with-algebraic-residue-fields, label: analogous-to, note: 'Both treat complete mixed-characteristic discretely valued fields with residue fields algebraic over finite fields.'}
 ---
 
-**Condition.** A characteristic-zero field $k$ is *quasi-highly Kummer-faithful* if, for every finite extension $L/k$, proper smooth variety $X/L$, prime $\ell$, and $0<i\le2\dim X$,
+**Condition (Ozeki–Taguchi).** A characteristic-zero field $k$ is *quasi-highly Kummer-faithful* if, for every finite extension $L/k$, proper smooth variety $X/L$, prime $\ell$, and $0<i\le2\dim X$,
 $$H^i_{\mathrm{\acute et}}(X_{\bar L},\mathbb Q_\ell)_{G_L}=0.$$
 The subscript denotes coinvariants: $V_G=V/\langle gv-v:g\in G,\ v\in V\rangle$ [@yamamura2026weights, Definition 3.1, p. 17].
 
 **Theorems (preprint).** Every [sub-$p$-adic field](mochizuki-hom-theorem-for-hyperbolic-curves.md) satisfies this condition, including for $\ell=p$ [@yamamura2026weights, Theorem 3.7, p. 19].
+This answers Ozeki–Taguchi's question, recalled in [@yamamura2026weights, Question 3.2, p. 18].
 
 Let $k$ be complete discretely valued of mixed characteristic $(0,p)$, with residue field $\kappa$ algebraic over $\mathbb F_p$. Then the following are equivalent:
 
