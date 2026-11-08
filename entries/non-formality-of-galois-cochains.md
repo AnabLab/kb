@@ -6,6 +6,7 @@ tags: [galois-groups, galois-cohomology, milnor-k-theory, counterexample]
 edges:
   - {to: strong-massey-vanishing, label: refutes, note: "Refutes the universal strong assertion at n = 4 for every prime, not the positive result for specified number fields [@merkurjevscavia2025, Theorem 1.3, p. 832]."}
   - {to: norm-residue-isomorphism-theorem, label: uses, note: "For the consequence that quadratic Galois cohomology does not imply formality of cochains."}
+  - {to: positselski-koszulity-conjecture, label: motivated-by, note: "Theorem 1.2 answers Positselski's question, prompted by his Koszul but non-formal local examples, whether cochains can be non-formal when all $p$-power roots of unity are present [@merkurjevscavia2025, p. 831 and Theorem 1.2]."}
 ---
 
 **Setup.** Write $C_K=C^*_{\mathrm{cont}}(G_K,\mathbb{F}_p)$. Formality means a zigzag of quasi-isomorphisms of differential graded rings from $C_K$ to $(H^*(C_K),0)$. A Massey product is *defined* when its set of values is nonempty; it *vanishes* when that set contains zero [@merkurjevscavia2025, §2.2, p. 836].
