@@ -4,7 +4,7 @@ kind: theorem
 summary: 'For a pro-p p-adic Lie group, Wang-Erickson reconstructs its completed group algebra from the minimal A-infinity structure on continuous cohomology. Operations from tensor powers of degree one to degree two give its relations.'
 tags: [pro-p-groups, galois-cohomology, reconstruction-algorithms]
 edges:
-  - {to: abelian-by-central-galois-cohomology, label: analogous-to, note: "There the cohomology ring determines a small Galois quotient; here higher operations determine a completed algebra."}
+  - {to: minimal-galois-cohomology-quotient, label: analogous-to, note: "There degree-one and degree-two cohomology with the cup product determine a small Galois quotient; here higher operations determine a completed algebra."}
   - {to: non-formality-of-galois-cochains, label: analogous-to, note: "Both concern information retained by cochains beyond their cohomology ring."}
   - {to: p-adic-analytic-pro-p-galois-groups, label: analogous-to, note: "A reconstruction result for the same analytic class of pro-p groups."}
 ---
@@ -15,7 +15,7 @@ edges:
 $$
 \Omega=k[[G]]=\varprojlim_{U\triangleleft_{\mathrm{open}}G}k[G/U].
 $$
-No torsion-free hypothesis is required [@wangerickson2024, Theorem 1.2.2, Theorem 3.5.1 and Corollary 4.1.6].
+No torsion-free hypothesis is required [@wangerickson2024, Theorems 1.2.2, 3.5.1 and 4.2.1, and Corollary 4.1.6].
 
 **Construction.** Form the completed dual bar construction $B=\mathrm{Bar}^*(H,m)$. Its classical hull $\mathcal A(B)$ kills the nonzero graded pieces and boundaries from degree $-1$. Then
 $$
@@ -23,4 +23,4 @@ $$
 $$
 It has generators dual to $H^1$ and relations given by the sums of the suspended duals of $m_n:(H^1)^{\otimes n}\to H^2$ for $n\ge2$ [@wangerickson2024, §§3.3–3.5 and Remark 3.5.2].
 
-**Scope for anabelian reconstruction.** The output is an associative algebra, with no reconstructed coproduct specified. This entry makes no claim that it determines $G$. The input includes a coherent minimal $A_\infty$-model; the [cohomology ring alone](abelian-by-central-galois-cohomology.md) is different data. The [analytic Galois-realizability criterion](p-adic-analytic-pro-p-galois-groups.md) supplies the related field-theoretic setting.
+**Scope for anabelian reconstruction.** The output is an associative algebra, with no reconstructed coproduct specified. This entry makes no claim that it determines $G$. The input includes a coherent minimal $A_\infty$-model. Compare the [small Galois quotient determined by degree-one and degree-two cup-product data](minimal-galois-cohomology-quotient.md) [@efratminac2017functors, Theorem B and Corollary 7.3(1)]. The [analytic Galois-realizability criterion](p-adic-analytic-pro-p-galois-groups.md) supplies the related field-theoretic setting.
