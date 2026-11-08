@@ -36,3 +36,5 @@ $$
 No continuous orientation $\theta:G\to1+p\mathbb{Z}_p$ makes $(G,\theta)$ Kummerian. In particular, $G$ is not $G_F(p)$ for any field $F$ containing a primitive $p$-th root of unity [@efratquadrelli2019, Theorem 8.1(i) and §9, equation (9.1), with $d=3$ and $f=1$]. Nevertheless, $G$ is torsion-free of cohomological dimension $2$, its ring $H^*(G,\mathbb{F}_p)$ is quadratic, and every defined triple Massey product of degree-one classes contains zero [@efratquadrelli2019, Propositions 9.1(e)–(g) and 9.6].
 
 Thus quadraticity of a group's own mod-$p$ cohomology ring and [triple Massey vanishing](triple-massey-products-in-galois-cohomology.md) together do not characterize maximal pro-$p$ Galois groups with $\mu_p$ in the field [@efratquadrelli2019, §9, opening paragraphs]. The Kummerian test retains the cyclotomic action on higher $p$-power coefficients.
+
+Imposing the lifting condition on every open subgroup does force triple Massey vanishing: see [formal Hilbert 90 and Massey vanishing](formal-hilbert-90-and-massey-vanishing.md) [@merkurjevscavia2025hilbert90, Theorem 1.3, p. 2].
