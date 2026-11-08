@@ -23,7 +23,7 @@ For a concrete formulation, let $U_{n+1}(\mathbb{F}_p)$ be the upper unitriangul
 **Known cases.**
 
 - $n=3$, every field and every prime: the [triple Massey vanishing theorem](triple-massey-products-in-galois-cohomology.md) [@minactan2016, Theorem 1.2, p. 2].
-- $n=4$, $p=2$, every field: Merkurjev–Scavia [@merkurjevscavia2025fourfold, Theorem 1.2, p. 3].
+- $n=4$, $p=2$, every field: Merkurjev–Scavia; see [fourfold Massey products and their norm–Brauer criteria](fourfold-massey-products-modulo-two.md) [@merkurjevscavia2025fourfold, Theorem 1.2, p. 3].
 - Every $n\geq3$ and every prime over number fields: Harpaz–Wittenberg [@harpazwittenberg2023, Theorem 1.3, p. 3].
 - Every $n\geq3$ and every prime for fields of virtual cohomological dimension at most one: Pál–Szabó proved strong vanishing for degree-one classes [@palszabo2026, Theorem 1.7, p. 155]. Pál–Quick's [formality theorem](galois-cochain-formality-in-virtual-dimension-one.md) extends strong vanishing to arbitrary degrees [@palquick2025, Theorem 1.10, p. 1836]. For odd $p$, ordinary vanishing is immediate from $H^2(G_F,\mathbb F_p)=0$; the substantive case is $p=2$ [@palquick2025, Remarks 1.4 and 1.9, pp. 1834 and 1836].
 
