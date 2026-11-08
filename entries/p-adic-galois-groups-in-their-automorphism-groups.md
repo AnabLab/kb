@@ -4,7 +4,7 @@ kind: problem
 summary: 'Tsujimura asks whether, for finite $K/\mathbb{Q}_p$, $G_K$ is characteristic in $\mathrm{Aut}(G_K)$ and $\mathrm{Out}(\mathrm{Aut}(G_K)) = 1$, as for free pro-$p$ groups. A rival normal subgroup isomorphic to $G_K$ can neither contain nor lie in $G_K$. For number fields, it depends on $K$.'
 tags: [local-fields, galois-groups]
 edges:
-  - {to: free-pro-p-groups-are-characteristic-in-their-automorphism-groups, label: motivated-by}
+  - {to: free-pro-p-groups-inside-their-automorphism-groups, label: motivated-by}
   - {to: automorphism-towers-of-number-field-galois-groups, label: analogous-to, note: "The global analogue holds exactly when the fixed field of $\\mathrm{Aut}(K)$ has no nontrivial automorphisms."}
 ---
 
@@ -13,15 +13,15 @@ edges:
 1. Is $G_K$ characteristic in $\mathrm{Aut}(G_K)$, that is, preserved by every continuous automorphism of $\mathrm{Aut}(G_K)$? More strongly, is it the only closed normal subgroup of $\mathrm{Aut}(G_K)$ isomorphic to $G_K$?
 2. Is $\mathrm{Out}(\mathrm{Aut}(G_K)) = 1$?
 
-A positive answer to 1 gives one to 2, by Burnside's criterion [@tsujimura2026free, Introduction, p. 2].
+A positive answer to 1 gives one to 2, by Burnside's criterion [@tsujimura2026freeaut, Introduction, p. 2].
 
-**Attribution.** Tsujimura asks the first question after his Q.2 and the second in Remark 3.2.1, and he reports no partial answers [@tsujimura2026free, Introduction, p. 2] [@tsujimura2026free, Remark 3.2.1, p. 9]. His Q.2 asks the same for nonabelian Demushkin groups and profinite surface groups [@tsujimura2026free, Introduction, p. 2]. When $\zeta_p \in K$, the maximal pro-$p$ quotient of $G_K$ is a Demushkin group (see [maximal pro-$p$ Galois groups of $p$-adic fields](maximal-pro-p-galois-groups-of-p-adic-fields.md)).
+**Attribution.** Tsujimura asks the first question after his Q.2 and the second in Remark 3.2.1, and he reports no partial answers [@tsujimura2026freeaut, Introduction, p. 2] [@tsujimura2026freeaut, Remark 3.2.1, p. 9]. His Q.2 asks the same for nonabelian Demushkin groups and profinite surface groups [@tsujimura2026freeaut, Introduction, p. 2]. When $\zeta_p \in K$, the maximal pro-$p$ quotient of $G_K$ is a Demushkin group (see [maximal pro-$p$ Galois groups of $p$-adic fields](maximal-pro-p-galois-groups-of-p-adic-fields.md)).
 
 **Status.** Open as far as the sources opened here show.
 
 **Context.**
 
-- The answers are yes for [free pro-$p$ groups](free-pro-p-groups-are-characteristic-in-their-automorphism-groups.md) of finite rank at least $2$.
+- The answers are yes for [free pro-$p$ groups](free-pro-p-groups-inside-their-automorphism-groups.md) of finite rank at least $2$.
 - For a number field $K$, $\mathrm{Aut}(G_K)$ is the absolute Galois group of the fixed field $K_1$ of $\mathrm{Aut}(K)$, and $G_K$ is characteristic in $\mathrm{Aut}(G_K)$, or equivalently $\mathrm{Out}(\mathrm{Aut}(G_K)) = 1$, exactly when $\mathrm{Aut}(K_1) = 1$ ([automorphism towers of number-field Galois groups](automorphism-towers-of-number-field-galois-groups.md)). Both fail for $\mathbb{Q}(\sqrt[4]{2})$.
 - That argument does not carry over. Conjugation still embeds $G_{K_1}$ in $\mathrm{Aut}(G_K)$ when $K \subset \bar{\mathbb{Q}}_p$ and $K_1$ is the fixed field of $\mathrm{Aut}(K)$, since $G_{\mathbb{Q}_p}$ is slim [@mochizuki2012, Theorem 1.7 (ii), p. 14]. But $\mathrm{Out}(G_K)$ can be much larger than $\mathrm{Aut}(K)$: it is infinite for odd $p$ and $K \ne \mathbb{Q}_p$ Galois over $\mathbb{Q}_p$ ([field automorphisms inside the outer automorphism group](field-theoretic-subgroup-of-outer-automorphisms.md)), and $G_{\mathbb{Q}_p}$ has outer automorphisms for odd $p$ although $\mathrm{Aut}(\mathbb{Q}_p) = 1$ ([the presentations of $G_K$](local-galois-group-presentations.md)).
 
