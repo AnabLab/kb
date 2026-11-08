@@ -4,7 +4,7 @@ kind: theorem
 summary: Over a normal noetherian domain with characteristic-zero fraction field, a p-divisible group and all its morphisms are determined by its integral Galois module. Tate's local proof recovers dimension through Hodge–Tate theory before recovering the integral models.
 tags: [local-fields, galois-groups, hodge-theory]
 edges:
-  - {to: ax-sen-tate-fixed-field-theorem, label: uses, note: 'The local proof uses $C^{G_K}=K$ for descent and linear independence of invariant vectors [@tate1967pdivisible, §4.1, proof of Proposition 11, Steps 3 and 7, pp. 178–179].'}
+  - {to: ax-sen-tate-fixed-field-theorem, label: uses, note: 'The local proof uses $C^{G_K}=K$ for descent and linear independence, and $C(-1)^{G_K}=0$ in the dimension argument [@tate1967pdivisible, proof of Proposition 11, Steps 3 and 7, pp. 178–179; proof of Theorem 3, p. 179].'}
   - {to: hodge-tate-geometricity-criterion, label: analogous-to, note: 'Both recover geometry from Galois representations using the completed algebraic closure; here the base ring is fixed.'}
   - {to: finite-flat-group-scheme-ramification-bounds, label: analogous-to, note: 'Here a compatible torsion tower is recovered from its Galois module; there finite-level ramification bounds constrain cotangent data.'}
 ---
@@ -21,7 +21,7 @@ $$
 \xrightarrow{\sim}\operatorname{Hom}_K(G\times_R K,H\times_R K)
 \xrightarrow{\sim}\operatorname{Hom}_{\mathbb Z_p[G_K]}(T_pG,T_pH)
 $$
-are bijective. Every morphism of generic fibres extends uniquely over $R$, and a generic-fibre isomorphism extends to an isomorphism [@tate1967pdivisible, §4.2, Theorem 4 and Corollaries 1–2, p. 181].
+are bijective. Every morphism of generic fibres extends uniquely over $R$, and a generic-fibre isomorphism extends to an isomorphism [@tate1967pdivisible, §4.2, Theorem 4, p. 180; Corollaries 1–2, p. 181].
 
 **Hodge–Tate mechanism.** Suppose now that $R$ is a complete discrete valuation ring of mixed characteristic $(0,p)$ with perfect residue field, and put $C=\widehat{\bar K}$. For the Cartier dual $G^D$, Tate identifies
 $$
