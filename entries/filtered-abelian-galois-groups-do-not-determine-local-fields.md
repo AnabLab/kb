@@ -4,6 +4,7 @@ kind: theorem
 summary: 'The non-isomorphic local fields $\mathbb Q_5(\sqrt5)$ and $\mathbb Q_5(\sqrt{10})$ have isomorphic abelianized Galois groups preserving every upper ramification group and unramified Frobenius. Thus the metabelian threshold in filtered local reconstruction is sharp.'
 tags: [local-fields, galois-groups, ramification, counterexample]
 edges:
+  - {to: local-class-field-theory, label: uses, note: "The proof transports a unit-filtration-preserving multiplicative-group isomorphism through local reciprocity."}
   - {to: ramification-filtration, label: uses}
   - {to: m-step-solvable-filtered-local-fields, label: motivated-by, note: "The example proves that the metabelian quotient in the target's weak form cannot be replaced by the abelian quotient."}
   - {to: abelian-galois-group-does-not-determine-number-field, label: analogous-to, note: "Here the fields are local and even the full ramification filtration on the abelianization is retained."}
