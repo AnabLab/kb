@@ -138,6 +138,25 @@ When a review or a discussion turns up research work beyond the PR in front of y
 
 The `research` label is what tells the researcher an issue is trustworthy, because anyone can open an issue on this public repo but only the lab can label one. Open at most two issues per pass, and only for work worth someone's time.
 
+## 6. Close finished issues
+
+When several PRs share an issue, each says `Part of #<number>`, so none of them closes it. Once its work is done, close it yourself. To find candidates, list the recently merged PRs that name an issue this way:
+
+```bash
+gh pr list --state merged --limit 20 --json number,body --jq '[.[] | select(.body | test("Part of #[0-9]+")) | {number, issues: [.body | scan("Part of #([0-9]+)") | .[0]]}]'
+```
+
+For each issue they name that is open and labelled `research`:
+
+1. Read it with `supervisor.mjs issue <number>`. List the PRs that mention it with `gh pr list --state all --search "<number> in:body" --json number,title,state`. The search also matches the number used in other ways, such as a page number, so read the descriptions to see which PRs work on the issue.
+2. If a PR working on it is still open, or part of what it asks isn't done, leave it open.
+3. Otherwise, save a short comment as `.supervisor/close-issue-<number>.md`. Name the PRs that did each part. Post it, then close the issue:
+
+```bash
+gh issue comment <number> --body-file .supervisor/close-issue-<number>.md
+gh issue close <number> --reason completed
+```
+
 ## Finish
 
-End with one short line saying what you did, with links, or that nothing was waiting. Mention any issues you opened. Include anything in `forAPerson`, and `ignored` if it isn't zero. Then suggest when to check next: about 5 minutes if something is waiting on CI or on an auto-merge you just turned on, and 20 to 30 minutes otherwise.
+End with one short line saying what you did, with links, or that nothing was waiting. Mention any issues you opened or closed. Include anything in `forAPerson`, and `ignored` if it isn't zero. Then suggest when to check next: about 5 minutes if something is waiting on CI or on an auto-merge you just turned on, and 20 to 30 minutes otherwise.
