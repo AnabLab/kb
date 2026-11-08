@@ -1,7 +1,7 @@
 ---
 title: Prime-to-p birational reconstruction over finite fields
 kind: theorem
-summary: Saïdi–Tamagawa recover function fields of curves over finite fields from their geometrically pro-prime-to-characteristic Galois groups. Isomorphisms lift uniquely to the corresponding field extensions, with no genus restriction or marking of the constants.
+summary: Saïdi–Tamagawa recover function fields of curves over finite fields from their geometrically pro-prime-to-characteristic Galois groups. Every isomorphism of these groups comes from a unique isomorphism of the corresponding field extensions, with no genus restriction or marking of the constants.
 tags: [function-fields, galois-groups, reconstruction]
 edges:
   - {to: uchida-global-function-fields, label: analogous-to, note: "Birational reconstruction with a smaller geometric quotient; the full Galois group of the constants is retained."}
