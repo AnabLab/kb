@@ -6,6 +6,7 @@ tags: [curves, local-fields, fundamental-groups, reconstruction-algorithms]
 edges:
   - {to: hyperbolic-curve, label: uses}
   - {to: unipotent-groupoid-reconstruction-of-reduction-graphs, label: analogous-to, note: "Both recover metric reduction graphs, from different fundamental-group data."}
+  - {to: stable-reduction-of-curves, label: uses, note: "The stable reduction graphs are those of stable models over finite extensions, which exist by the stable reduction theorem."}
 ---
 
 Let $K/\mathbb Q_p$ be finite and $X,Y/K$ smooth proper Mumford curves of genus at least two: the normalized components of their geometric stable reductions are projective lines. Write $\Gamma_X,\Gamma_Y$ for the dual graphs. A node locally given by $uv=a$ contributes an edge of length $v_p(a)=-\log_p|a|$, with $v_p(p)=1$ [@lepage2010metric, Introduction, p. 851, and §4, Definition 4.1, p. 870].
