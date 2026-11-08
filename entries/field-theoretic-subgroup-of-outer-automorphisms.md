@@ -1,0 +1,43 @@
+---
+title: Field automorphisms inside the outer automorphism group of a p-adic Galois group
+kind: theorem
+summary: 'Field automorphisms of a finite $k/\mathbb{Q}_p$ form a finite subgroup $\mathrm{Aut}(k)$ of $\mathrm{Out}(G_k)$. For odd $p$ and $k \ne \mathbb{Q}_p$ Galois over $\mathbb{Q}_p$, it has infinitely many conjugates, so no functorial group-theoretic algorithm recovers it from $G_k$.'
+tags: [local-fields, galois-groups, mono-anabelian]
+edges:
+  - {to: mochizuki-local-fields-theorem, label: uses, note: "identifies $\\mathrm{Aut}(k)$ with the stabilizer of the ramification filtration, for the reformulation below"}
+  - {to: local-galois-group-presentations, label: uses, note: "The automorphisms with infinitely many conjugates are defined on Jannsen–Wingberg generators [@hoshinishio2022, Theorem 1.5]."}
+  - {to: local-field-galois-invariants, label: uses, note: "Outer automorphisms act on $k^\\times$ and $k_+$ through their group-theoretic reconstruction [@hoshi2021, Summary 3.15]."}
+---
+
+**Setting.** Let $k/\mathbb{Q}_p$ be finite. Extending a field automorphism of $k$ to $\bar k$ and conjugating gives a map $\mathrm{Aut}(k) \to \mathrm{Out}(G_k)$, which is injective [@hoshi2021, Proposition 2.1]. Its image, a finite group, is the *field-theoretic subgroup* [@kondo2025, Definition 2.1]. By [Mochizuki's theorem](mochizuki-local-fields-theorem.md), applied with $K = K' = k$, it consists exactly of the outer automorphisms that preserve the ramification filtration, since every field automorphism of $k$ is $\mathbb{Q}_p$-linear [@hyeon2025, §1]. For odd $p$ it is a proper subgroup: Jannsen and Wingberg found outer automorphisms of $G_{\mathbb{Q}_p}$ (see [generators and relations](local-galois-group-presentations.md)), and if $[k:\mathbb{Q}_p] > 1$ then $\mathrm{Out}(G_k)$ is infinite [@hoshinishio2022, Corollary 1.6].
+
+**Statement.** Let $p$ be odd and let $k$ be Galois over $\mathbb{Q}_p$ of degree $d > 1$.
+
+1. The set of $\mathrm{Out}(G_k)$-conjugates of $\mathrm{Aut}(k)$ is infinite. So $\mathrm{Aut}(k)$ is not normal in $\mathrm{Out}(G_k)$, and $\mathrm{Out}(G_k)$ has infinitely many distinct subgroups isomorphic to $\mathrm{Aut}(k)$ [@kondo2025, Theorem I]. The proof splits into even $d$ and odd $d$ [@kondo2025, Theorems 2.9 and 2.19].
+2. No functorial group-theoretic algorithm constructs the subgroup $\mathrm{Aut}(k) \subseteq \mathrm{Out}(G_k)$ from $G_k$ [@kondo2025, Remark 2.20].
+
+Hoshi and Nishio proved part 1 for $k$ abelian over $\mathbb{Q}_p$ of even degree [@hoshinishio2022, Theorem 3.4 and Corollary 3.5]. Earlier, Hoshi had shown that $\mathrm{Aut}(k)$ is not normal for $k = \mathbb{Q}_p(\zeta_p, \sqrt[p]{p})$ [@hoshinishio2022, Remark 3.6].
+
+**Part 2 from part 1.** This argument is given by Kondo [@kondo2025, Remark 2.20] and checked here. Suppose an algorithm assigned to every group $G$ isomorphic to some $G_k$ a subgroup $A(G) \subseteq \mathrm{Out}(G)$, functorially in isomorphisms, with $A(G_k) = \mathrm{Aut}(k)$. Each $\alpha \in \mathrm{Aut}(G_k)$ induces an automorphism of $\mathrm{Out}(G_k)$, namely conjugation by the class of $\alpha$, and functoriality makes it preserve $A(G_k)$. So $\mathrm{Aut}(k)$ would be normal, contradicting part 1. For $k$ abelian over $\mathbb{Q}_p$, the set of conjugates of $\mathrm{Aut}(k)$ can be recovered group-theoretically, by results of Hoshi that Hoshi and Nishio cite [@hoshinishio2022, Remark 3.7]. It is the subgroup itself that cannot.
+
+**Proof for quadratic $k$.** This is Hoshi and Nishio's argument, written out here from their lemmas. Let $p$ be odd and $k = \mathbb{Q}_p(\sqrt{a})$. For an automorphism $\beta$ of $G_k$, write $\beta_+$ for the induced $\mathbb{Q}_p$-linear automorphism of $k_+$. It depends only on the class of $\beta$ in $\mathrm{Out}(G_k)$, and $(\beta^n)_+ = (\beta_+)^n$.
+
+- (a) There is an automorphism $\alpha$ of $G_k$ with $\alpha_+^n \ne \mathrm{id}$ and $(\alpha_+^n - \mathrm{id})^2 = 0$ for every integer $n \ne 0$ [@hoshinishio2022, Theorem 1.5]. On Jannsen–Wingberg generators it fixes $\sigma, \tau$ and every $x_i$ except $x_d$, which it sends to $x_d x_{d-1}$ [@hoshinishio2022, proof of Theorem 1.5].
+- (b) Every $\beta_+$ is compatible with the trace $k_+ \to \mathbb{Q}_p$, so it preserves the kernel $\mathbb{Q}_p\sqrt{a}$ [@hoshinishio2022, Lemma 2.3].
+- (c) If the class of $\beta$ normalizes $\mathrm{Aut}(k)$, then $\beta_+$ fixes $\mathbb{Q}_p \subseteq k_+$ pointwise [@hoshinishio2022, Lemma 3.3].
+
+If the class of $\alpha^n$ normalized $\mathrm{Aut}(k)$ for some $n \ne 0$, then by (b) and (c) the map $\alpha_+^n$ would fix $1$ and send $\sqrt{a}$ to $c\sqrt{a}$ for some $c \in \mathbb{Q}_p$. Then $(\alpha_+^n - \mathrm{id})^2$ sends $\sqrt{a}$ to $(c-1)^2\sqrt{a}$, so (a) forces $c = 1$ and $\alpha_+^n = \mathrm{id}$, a contradiction. Hence the conjugates of $\mathrm{Aut}(k)$ by the classes of $\alpha^n$, for $n \in \mathbb{Z}$, are pairwise distinct: if those for $m \ne n$ agreed, the class of $\alpha^{m-n}$ would normalize $\mathrm{Aut}(k)$. For general $d$, Kondo replaces (b) by a description of the kernel of the trace in terms of Jannsen–Wingberg generators when $d$ is even [@kondo2025, Theorem 1.3], and uses mapping class groups and $p$-adic Lie groups when $d$ is odd [@kondo2025, proof of Theorem 2.19].
+
+**The ramification filtration.** This reformulation is checked here. Let $\mathcal{F}$ be the filtration of $G_k$ by the higher ramification groups of positive upper index, as in Mochizuki's theorem. Inner automorphisms fix every filtration by closed normal subgroups, so $\mathrm{Out}(G_k)$ acts on such filtrations. By Mochizuki's theorem the stabilizer of $\mathcal{F}$ is $\mathrm{Aut}(k)$, so the stabilizer of $\alpha(\mathcal{F})$ is $\alpha\,\mathrm{Aut}(k)\,\alpha^{-1}$. That the orbit of $\mathcal{F}$ is infinite already follows from $\mathrm{Out}(G_k)$ being infinite. Part 1 says more: infinitely many distinct finite subgroups of $\mathrm{Out}(G_k)$ arise as stabilizers of images of $\mathcal{F}$.
+
+**What the normalizer preserves.** Let $k$ be Galois over $\mathbb{Q}_p$, for any $p$. The normalizer of $\mathrm{Aut}(k)$ in $\mathrm{Out}(G_k)$ consists of the classes of the restrictions to $G_k$ of the automorphisms of $G_{\mathbb{Q}_p}$ that map $G_k$ onto itself [@kondo2025, Proposition 2.5]. Its elements act on $k^\times$ preserving $\mathbb{Q}_p^\times$ and fixing it pointwise [@kondo2025, Theorem 2.8]. A general outer automorphism need not. For odd $p$ and even $d$ there is one whose action on $k^\times$ does not preserve $\mathbb{Q}_p^\times$ [@kondo2025, discussion after Remark 2.2]. For odd $p$ and $d = 2$ there is one whose action on $k_+$ does not preserve $\mathbb{Q}_p$ [@hoshinishio2022, Remark 2.5]. So in general these subgroups cannot be recovered from $G_k$ by a functorial group-theoretic algorithm, unlike $k^\times$ and $k_+$ themselves (see [invariants recovered from $G_k$](local-field-galois-invariants.md)).
+
+**Other cases.**
+
+- If $k = \mathbb{Q}_p$, then $\mathrm{Aut}(k)$ is trivial, hence normal [@kondo2025, Remark 2.23].
+- If $k$ is not Galois over $\mathbb{Q}_p$ but $\mathrm{Aut}(k) \ne 1$, these methods do not decide normality [@kondo2025, Remark 2.23].
+- For $p = 2$, Kondo reports that Nishio proved analogous results for $k$ abelian over $\mathbb{Q}_2$ with $\sqrt{-1} \in k$, using Diekert's presentation [@kondo2025, Remark 2.22]. When $\sqrt{-1} \notin k$, Kondo writes that it is unclear whether $\mathrm{Aut}(k)$ is normal, even for $k$ Galois, because no presentation is known [@kondo2025, Remark 2.22]. Diekert's presentation does cover the fields with $k(\sqrt{-1})/k$ unramified, and the sources opened here do not say whether the arguments extend to them. The [Frobenius shift problem](frobenius-shift-lifting-problem.md) also asks about automorphisms of $G_k$ for $2$-adic fields with no known presentation.
+
+The automorphisms used here also show that [Hodge–Tate-ness is not preserved by automorphisms of $G_k$](aut-intrinsic-hodge-tate-representations.md).
+
+**Status of the sources.** Hoshi and Nishio's paper is published. Part 1 for $k$ not abelian over $\mathbb{Q}_p$, or of odd degree, rests on Kondo's RIMS preprint, which is not known to be published.
