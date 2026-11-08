@@ -4,6 +4,7 @@ kind: theorem
 summary: 'Under Kummer duality, commuting-liftable pairs are exactly pairs of multiplicative characters whose determinant vanishes on every Steinberg pair $(x,1-x)$. This gives a Milnor K-theoretic test; at finite level, actual commuting lifts require a further root-of-unity condition.'
 tags: [galois-groups, milnor-k-theory, valuations]
 edges:
+  - {to: kummer-theory, label: uses, note: "The Kummer pairing turns elements of the abelian Galois quotient into multiplicative characters [@topaz2017abc, §1.1, p. 4]."}
   - {to: milnor-k-ring, label: uses}
   - {to: norm-residue-isomorphism-theorem, label: uses, note: "Only the degree-two Merkurjev–Suslin theorem enters the proof [@topaz2017, §7.3 and Theorem 12]."}
   - {to: abelian-by-central-galois-cohomology, label: analogous-to, note: "The criterion makes the relation between commutators and degree-two cohomology explicit for a pair of elements."}
@@ -15,7 +16,7 @@ G^{(2)}=\overline{[G,G]G^m},\qquad
 G^{(3)}=\overline{[G,G^{(2)}](G^{(2)})^m},\qquad
 A=G/G^{(2)},\quad C=G/G^{(3)}.
 $$
-Kummer duality identifies $A$ with $\operatorname{Hom}(K^\times,\mathbb Z/m)$. For $\sigma,\tau\in A$, write $f,g$ for their characters. In the central kernel of $C\to A$, write $\sigma^\pi$ for the $m$-th power of a lift. The CL condition is $[\sigma,\tau]\in\langle2\sigma^\pi,2\tau^\pi\rangle$ [@topaz2017abc, §1.1 and §5.1].
+[Kummer duality](kummer-theory.md) identifies $A$ with $\operatorname{Hom}(K^\times,\mathbb Z/m)$. For $\sigma,\tau\in A$, write $f,g$ for their characters. In the central kernel of $C\to A$, write $\sigma^\pi$ for the $m$-th power of a lift. The CL condition is $[\sigma,\tau]\in\langle2\sigma^\pi,2\tau^\pi\rangle$ [@topaz2017abc, §1.1 and §5.1].
 
 **Criterion.** The pair is CL if and only if
 $$
