@@ -6,7 +6,7 @@ tags: [finite-fields, galois-groups, fundamental-groups, curves]
 edges:
   - {to: faltings-tate-isogeny-theorem, label: analogous-to, note: "The same completed Hom and rational isogeny statements over number fields."}
   - {to: tate-full-faithfulness-for-p-divisible-groups, label: analogous-to, note: "Another recovery of morphisms from Tate modules; here Hom is completed and the base field is finite."}
-  - {to: prime-to-p-anabelian-curves-over-finite-fields, label: analogous-to, note: "The final comparison describes the rational geometric abelian quotient of that theorem's input over a fixed base field."}
+  - {to: prime-to-p-anabelian-curves-over-finite-fields, label: analogous-to, note: "For proper curves, the final comparison describes the rational geometric abelian quotient of that theorem's input over a fixed base field."}
 ---
 
 **Setting.** Let $k=\mathbb F_q$ have characteristic $p$, let $A,B/k$ be abelian varieties, and let $\ell\ne p$. Put $G_k=\operatorname{Gal}(\bar k/k)$,
@@ -28,7 +28,7 @@ A\text{ and }B\text{ are }k\text{-isogenous}
 V_\ell A\cong V_\ell B\text{ as }G_k\text{-modules}
 \quad\Longleftrightarrow\quad f_A=f_B
 $$
-[@tate1966finite, §3, Theorem 1(b)–(c), p. 139]. Tate also proves equivalence with equality of the point counts over every finite extension of $k$ [@tate1966finite, Theorem 1(c), p. 139].
+[@tate1966finite, §3, Theorem 1(b)–(c), p. 139]. Theorem 1(c) also lists equality of zeta functions and equality of point counts over every finite extension of $k$; Tate notes that their equivalence with $f_A=f_B$ is well known [@tate1966finite, Theorem 1(c) and its proof, p. 139].
 
 **Geometric abelianization (deduced here).** Fix $k$ and $\ell\ne p$. For a smooth proper geometrically connected curve $X/k$ of genus at least $2$, let $\Delta_{X,\ell}^{\mathrm{ab}}$ be the maximal abelian pro-$\ell$ quotient of $\pi_1(X_{\bar k})$, with its conjugation action of $G_k$, and put
 $$W_\ell(X)=\Delta_{X,\ell}^{\mathrm{ab}}\otimes_{\mathbb Z_\ell}\mathbb Q_\ell.$$

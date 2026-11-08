@@ -5,7 +5,7 @@ summary: Saïdi–Tamagawa determine a hyperbolic curve over a finite field of c
 tags: [curves, fundamental-groups, function-fields]
 edges:
   - {to: hyperbolic-curve, label: uses}
-  - {to: tate-isogeny-theorem-over-finite-fields, label: uses, note: "Only for the final comparison with rational geometric abelianization over a fixed finite field."}
+  - {to: tate-isogeny-theorem-over-finite-fields, label: uses, note: "Only for the final comparison with rational geometric abelianization of proper curves over a fixed finite field."}
   - {to: tamagawa-grothendieck-conjecture-for-affine-curves, label: analogous-to, note: "The finite-field hyperbolic case with a smaller geometric quotient, also allowing proper curves."}
 ---
 
@@ -29,4 +29,4 @@ For proper curves, a [later refinement](proper-curves-over-finite-fields-from-la
 
 **Method.** For proper curves, cuspidalization recovers Kummer theory on affine opens $X\setminus S$, where the finite set of removed closed points $S$ avoids a finite exceptional set $E_X$. Kummer theory then determines, up to Frobenius twist, the multiplicative group of rational functions whose divisor avoids $E_X$. Functions with one pole recover addition [@saiditamagawa2009, §0, pp. 138–139].
 
-**Abelian comparison.** Over a fixed finite field $k$, the rationalized geometric abelian pro-$\ell$ quotient, for a single $\ell\ne p$ and with its $G_k$-action, detects exactly the Jacobian's $k$-isogeny class; see the deduction in [Tate's finite-field isogeny theorem](tate-isogeny-theorem-over-finite-fields.md). The theorem above recovers the curve itself from the arithmetic group $\Pi_U$.
+**Abelian comparison.** For proper $U$ over a fixed finite field $k$, the rationalized geometric abelian pro-$\ell$ quotient, for a single $\ell\ne p$ and with its $G_k$-action, detects exactly the Jacobian's $k$-isogeny class; see the deduction in [Tate's finite-field isogeny theorem](tate-isogeny-theorem-over-finite-fields.md). The theorem above recovers the curve itself from the arithmetic group $\Pi_U$.
