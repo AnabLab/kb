@@ -3,8 +3,6 @@ title: Specialization of fundamental groups of smooth curves
 kind: theorem
 summary: 'For a smooth proper family, specialization surjects on geometric fundamental groups and is an isomorphism on prime-to-p quotients, where p is the special characteristic. With a finite étale boundary, tame groups specialize and prime-to-p quotients remain unchanged.'
 tags: [curves, fundamental-groups, local-fields]
-edges:
-  - {to: oda-good-reduction-criterion, label: analogous-to, note: "Specialization compares fibres of a given smooth model; that criterion detects good reduction from the outer inertia action."}
 ---
 
 **Notation.** For a profinite group $G$ and a prime $p$, write $G^{p'}$ for its maximal quotient that is an inverse limit of finite groups of order prime to $p$. All fundamental groups below are geometric; specialization maps are understood up to inner automorphisms, after choosing compatible geometric points and paths.
