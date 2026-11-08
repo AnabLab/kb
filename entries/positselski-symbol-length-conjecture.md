@@ -1,0 +1,19 @@
+---
+title: Positselski's uniform symbol-length conjecture
+kind: problem
+summary: 'Positselski predicts a bound, uniform over fields and homomorphisms, for symbol lengths of pullbacks of a fixed mod-p cohomology class of a pro-p group. Efrat proves the elementary-type source case.'
+tags: [galois-cohomology, pro-p-groups, milnor-k-theory]
+edges:
+  - {to: norm-residue-isomorphism-theorem, label: analogous-to, note: 'Asks for uniform bounds beyond pointwise finiteness of symbol length.'}
+  - {to: massey-vanishing-conjecture, label: analogous-to, note: 'Its Massey special case bounds every value rather than asking for a zero value.'}
+---
+
+**Conjecture (Positselski).** Fix a prime $p$, a pro-$p$ group $\bar G$, $n\ge1$ and $\bar\omega\in H^n(\bar G,\mathbb F_p)$. There is an integer $M=M(\bar G,n,\bar\omega)<\infty$ such that
+$$\mathrm{sl}(\rho^*\bar\omega)\le M$$
+for every field $F$ containing a primitive $p$th root of unity and every continuous homomorphism $\rho:G_F\to\bar G$. Cohomology is continuous with trivial coefficients. Here $\mathrm{sl}$ is the least positive number of cup products of $n$ degree-one classes summing to the class, or $\infty$ if impossible [@efrat2024symbol, Conjecture 1.1 and preceding definition, p. 2].
+
+**Scope.** One may replace $G_F$ by $G_F(p)$. The [norm residue theorem](norm-residue-isomorphism-theorem.md) gives finite length for each class separately; uniformity is additional [@efrat2024symbol, Introduction, p. 2].
+
+**Known case.** Efrat proves the bound for elementary-type source groups [@efrat2024symbol, Theorem A, p. 3]. The [elementary type conjecture](elementary-type-conjecture.md) would therefore give it whenever $G_F(p)$ is finitely generated [@efrat2024symbol, Abstract and Example 3.2, pp. 1 and 10].
+
+**Massey case and status.** For fixed $m$ and $p$, a special case bounds the symbol length of every value of an $m$-fold Massey product uniformly over fields and inputs. Efrat's September 2025 survey still treats this and the general pullback statement as conjectural; it records bounds $2$ for triples and $4$ for fourfold products at $p=2$ [@efrat2025, §16.5]. The 2024 paper distinguishes this from [Massey vanishing](massey-vanishing-conjecture.md) for $m\ge4$ [@efrat2024symbol, Introduction, pp. 4–5].
