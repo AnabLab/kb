@@ -5,6 +5,7 @@ summary: 'Betts–Kumpitsch–Lüdtke show that Kim’s conjecture over a densit
 tags: [curves, number-fields, fundamental-groups, section-conjecture, hodge-theory]
 edges:
   - {to: section-conjecture, label: addresses, note: "The conclusion concerns sections induced by points at every completion; it does not establish that every section has this property."}
+  - {to: kim-nonabelian-tate-shafarevich-conjecture, label: addresses, note: "Proves its unrefined integral case for the thrice-punctured line and its refined S = {2} variant [@bettskumpitschludtke2026, Theorems B and D]."}
   - {to: refined-selmer-schemes, label: uses, note: "The affine version uses their refined Chabauty–Kim loci [@bettskumpitschludtke2026, Theorem A and Definition 2.16]."}
   - {to: descent-obstructions-for-galois-sections, label: uses, note: "Harari–Stix interpolation identifies the image of localization with the finite descent locus [@bettskumpitschludtke2026, proof of Theorem 2.7]."}
 ---
@@ -19,4 +20,6 @@ for every $p$ in a set of Dirichlet density $1$, then every Selmer section comes
 
 **Computed affine case.** For $\mathcal Y=\mathbb P^1_{\mathbb Z[1/2]}\setminus\{0,1,\infty\}$ and every odd prime $p$,
 $$\mathcal Y(\mathbb Z_p)^{\min}_{\{2\},\infty}=\{2,-1,1/2\}$$
-[@bettskumpitschludtke2026, Theorem B and Corollary 5.17]. Consequently, sections induced by rational local points at $2$ and $\infty$, and integral local points elsewhere, are precisely those three point sections [@bettskumpitschludtke2026, Definition 1.5 and Theorem C]. The locus here is refined; this does not assert the same computation for the unrefined $S$-integral loci.
+[@bettskumpitschludtke2026, Theorem B and Corollary 5.17]. Consequently, sections induced by rational local points at $2$ and $\infty$, and integral local points elsewhere, are precisely those three point sections [@bettskumpitschludtke2026, Definition 1.5 and Theorem C]. This section-theoretic conclusion was already known by Stix's different method [@bettskumpitschludtke2026, Remark 1.8]. The locus here is refined; this does not assert the same computation for the unrefined $S$-integral loci.
+
+**Unrefined integral case.** For $\mathcal Y=\mathbb P^1_{\mathbb Z}\setminus\{0,1,\infty\}$, the original Kim conjecture holds for every prime: its locus is empty in depth $p-3$ for $p\ge5$, and in depth $1$ for $p=2,3$ [@bettskumpitschludtke2026, Theorem D; §5.6, Theorem 5.19 and following paragraph].
