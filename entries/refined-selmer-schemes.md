@@ -5,7 +5,7 @@ summary: 'Local Kummer-image conditions at every prime define Betts–Dogra’s 
 tags: [curves, number-fields, fundamental-groups, galois-cohomology]
 edges:
   - {to: hyperbolic-curve, label: uses}
-  - {to: kim-nonabelian-tate-shafarevich-conjecture, label: analogous-to, note: "Retains local geometricity at the primes in $S$ in that entry's $S$-integral variant."}
+  - {to: kim-nonabelian-tate-shafarevich-conjecture, label: motivated-by, note: "Refines the Selmer schemes of that entry's $S$-integral variant; the refined loci lie between the $S$-integral points and that variant's loci [@bestetal2024refined, p. 17]."}
 ---
 
 **Setting.** Let $S$ be a finite set of primes and $\mathcal X/\mathbb Z[1/S]$ the complement of an étale divisor in a smooth proper curve, with affine [hyperbolic](hyperbolic-curve.md) generic fibre $X$. Choose $b\in\mathcal X(\mathbb Z[1/S])$ and a prime $\ell\notin S$. For $n\ge1$, put
@@ -14,13 +14,14 @@ where $C^\bullet$ is the lower central series and $G_{\mathbb Q,T}$ denotes the 
 
 **Refinement.** Betts–Dogra's refined scheme is
 $$\mathrm{Sel}^{\min}_{S,n}=\mathrm{Sel}_{S,n}\cap\bigcap_{q\in S}\mathrm{loc}_q^{-1}\left(\overline{j_{n,q}(X(\mathbb Q_q))}^{\mathrm{Zar}}\right).$$
+Under good reduction outside $S$, this is the scheme in Betts–Dogra's finiteness argument: its localization conditions range over $T=S\cup\{\ell\}$, and the Kummer-image closure at $\ell$ is $H^1_f(G_{\mathbb Q_\ell},U_n)$ [@bettsdogra2020, proof of Lemma 12.4.1, p. 97, and unnumbered Proposition, second bullet, pp. 4–5].
 Its refined locus is $\mathcal X(\mathbb Z_\ell)^{\min}_{S,n}=j_{n,\ell}^{-1}(\mathrm{Im}_{\mathrm{sch}}(\mathrm{loc}_\ell|_{\mathrm{Sel}^{\min}_{S,n}}))$, using the scheme-theoretic image; the usual locus uses $\mathrm{Sel}_{S,n}$ instead. Thus
-$$\mathcal X(\mathbb Z[1/S])\subseteq\mathcal X(\mathbb Z_\ell)^{\min}_{S,n}\subseteq\mathcal X(\mathbb Z_\ell)_{S,n}.$$
-Good reduction outside $S$ makes the other local conditions automatic within $\mathrm{Sel}_{S,n}$ [@bestetal2024refined, Definition 2.7 and following paragraph, pp. 16–17].
+$$\mathcal X(\mathbb Z[1/S])\subseteq\mathcal X(\mathbb Z_\ell)^{\min}_{S,n}\subseteq\mathcal X(\mathbb Z_\ell)_{S,n}$$
+[@bestetal2024refined, Definition 2.7 and following paragraph, pp. 16–17].
 
 **Finiteness (Betts–Dogra, preprint).** Each local closure at $q\in S$ has dimension at most $1$ [@bettsdogra2020, Proposition 1.2.1(2), p. 5]. With $V_i=C^iU/C^{i+1}U$,
 $$\dim\mathrm{Sel}^{\min}_{S,n}\le |S|+\sum_{i=1}^n\dim_{\mathbb Q_\ell}H^1_f(G_{\mathbb Q,T},V_i).$$
-Here global $f$ means crystalline at $\ell$ and unramified at every other prime. The refined locus is finite if
+Here global $f$ means crystalline at $\ell$ and unramified at every other prime [@bettsdogra2020, explanation after (1.2.2), p. 6]. The refined locus is finite if
 $$|S|+\sum_{i=1}^n\dim_{\mathbb Q_\ell}H^1_f(G_{\mathbb Q,T},V_i)<\sum_{i=1}^n\dim_{\mathbb Q_\ell}H^1_f(G_{\mathbb Q_\ell},V_i)$$
 [@bettsdogra2020, Lemma 12.4.1 and proof, pp. 97–98].
 
