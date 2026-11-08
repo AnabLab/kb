@@ -4,12 +4,12 @@ kind: problem
 summary: 'De Clercq–Florence predict that 1-smooth pro-p pairs are weakly Bloch–Kato: mod-p cohomology classes on open subgroups are sums of corestrictions of symbols. Several cases are known; Florence reported an incomplete general proof in October 2026.'
 tags: [galois-groups, galois-cohomology, pro-p-groups]
 edges:
-  - {to: kummerian-obstruction-to-galois-realizability, label: uses, note: "the 1-smoothness hypothesis"}
+  - {to: one-smooth-oriented-pro-p-group, label: uses, note: "the 1-smoothness hypothesis"}
   - {to: norm-residue-isomorphism-theorem, label: motivated-by, note: "The conjecture seeks to deduce the surjectivity half from Kummer theory [@declercqflorence2017, Remark 14.26, p. 65]."}
   - {to: massey-vanishing-under-formal-hilbert-90, label: analogous-to, note: "Both ask what higher cohomological properties follow from twisted degree-one lifting on subgroups."}
 ---
 
-**Hypothesis.** Let $G$ be pro-$p$ with a continuous orientation $\theta:G\to1+p\mathbb Z_p$. Assume that $(G,\theta)$ is [1-smooth](kummerian-obstruction-to-galois-realizability.md): reduction
+**Hypothesis.** Let $G$ be pro-$p$ with a continuous orientation $\theta:G\to1+p\mathbb Z_p$. Assume that $(G,\theta)$ is [1-smooth](one-smooth-oriented-pro-p-group.md): reduction
 $$
 H^1(H,\mathbb Z/p^r(1)_\theta)\longrightarrow H^1(H,\mathbb F_p)
 $$
