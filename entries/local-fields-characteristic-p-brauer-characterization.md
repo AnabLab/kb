@@ -25,7 +25,7 @@ Then $K \cong \mathbb{F}_q((t))$ [@dittmann2025, Theorem 1.1]. Conversely, $\mat
 $$
 [K:K^p]\le p\quad\Longleftrightarrow\quad K_2^M(K)/p=0.
 $$
-Thus the imperfection hypothesis may be replaced by this vanishing condition, retaining the Galois group, Brauer group and pairing hypotheses [@dittmann2025, §2, p. 5]. This is the diagonal Milnor K-theory term in Dittmann's cohomological formulation [@dittmann2025, Theorem 1.2, p. 2].
+Thus the imperfection hypothesis may be replaced by this vanishing condition, retaining the Galois group, Brauer group and pairing hypotheses [@dittmann2025, §2, p. 5]. For the full cohomological statement and coefficient dictionary, see the [Kato-cohomology formulation](kato-cohomology-and-local-field-reconstruction.md). Its perfection example isolates the Brauer hypothesis.
 
 **Why extra data is needed.** Efrat and Fesenko analysed the fields whose absolute Galois group is isomorphic to that of $\mathbb{F}_q((t))$. Their examples include fields of characteristic $0$, fields of arbitrarily large imperfection degree, and fields with imperfect residue field [@dittmann2025, §1]. An explicit field of characteristic $0$ of this kind is $U(\mu_{p^\infty})$, where $U$ is the unramified extension of $\mathbb{Q}_p$ of degree $n$, by the corollary in the entry on the [Fontaine–Wintenberger theorem](fontaine-wintenberger-field-of-norms.md). Absolute Galois groups in characteristic $p$ carry little information at $p$, and the extra axioms supply it [@dittmann2025, §1].
 
