@@ -8,6 +8,7 @@ edges:
   - {to: oda-good-reduction-criterion, label: analogous-to}
   - {to: relative-oda-tamagawa-criterion, label: uses, note: "The reconstruction uses the criterion to embed the reduction graph via the Kummer map [@bettsdogra2020, §1.4, p. 10]."}
   - {to: stable-reduction-of-curves, label: uses, note: "For proper $X$, a semistable model exists over some finite $L/K$ by the stable reduction theorem, and blowing up its nodes makes it regular [@stacks2026, Tag 0CDE]. Punctured $X$ needs the marked version, which is not recorded there."}
+  - {to: inertia-criterion-for-marked-stable-reduction, label: uses, note: "For punctured $X$, its corollary gives a stable model with the cusps marked over some finite $L/K$."}
 ---
 
 Let $K/\mathbb Q_p$ be finite, $\ell\ne p$, and $X/K$ a [hyperbolic curve](hyperbolic-curve.md). Write $\mathcal P_\ell(X)$ for its geometric $\mathbb Q_\ell$-pro-unipotent étale fundamental groupoid: objects $X(\bar K)$, affine path schemes, composition, inverses, and continuous $G_K$-action [@bettsdogra2020, §1.3, p. 9].

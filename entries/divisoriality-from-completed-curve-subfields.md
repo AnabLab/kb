@@ -1,0 +1,46 @@
+---
+title: Divisoriality and rational quotients from completed curve subfields
+kind: theorem
+summary: 'Completed curve subfields distinguish divisorial valuations among quasi prime divisors. Their quotient maps then recover point inertia by saturation and identify rational subfields. This checks Propositions 6.6–6.7 of a 2026 manuscript, assuming its preceding correspondences.'
+tags: [function-fields, valuations, galois-groups, curves]
+edges:
+  - {to: quasi-prime-divisor, label: uses}
+  - {to: completed-curve-subfield-correspondence, label: uses, note: "Supplies the completed curve-subfield correspondence assumed in the transport statement."}
+  - {to: divisorial-inertia-recovery-problem, label: addresses, note: "A criterion conditional on knowing the completed curve subfields; their recovery from the original group datum is a separate step."}
+  - {to: pro-l-strategy-for-bogomolov-pop, label: addresses, note: "Recovers rational quotient maps and their point groups once the local and curve-subfield correspondences are given."}
+  - {to: manuscripts-claiming-bogomolov-pop, label: addresses, note: "Checks §6.4, Propositions 6.6–6.7, pp. 22–23; not the final reconstruction argument."}
+---
+
+**Setting.** Fix a prime $\ell$. Let $K/k$ be a function field of transcendence degree $d\ge2$ over an algebraically closed field of characteristic different from $\ell$. Put
+$$W_K=\mathrm{Hom}(K^\times,\mathbb Z_\ell),\qquad \widehat K=\varprojlim_n K^\times/K^{\times\ell^n}.$$
+The character group has its pointwise topology. Evaluation identifies $\widehat K$ with $\mathrm{Hom}_{\mathrm{cont}}(W_K,\mathbb Z_\ell)$; constants have zero class. For a valuation $v$, put $I_v=(\mathcal O_v^\times)^\perp$ and $D_v=(1+\mathfrak m_v)^\perp$ in $W_K$. A *curve subfield* $E$ contains $k$, has transcendence degree one over $k$, and is relatively algebraically closed in $K$. Its completion embeds in $\widehat K$, and restriction $\rho_E:W_K\to W_E$ is a continuous surjection [@openai2026bp, Lemmas 2.1–2.2, pp. 4–5]. Write $C_E$ for its smooth projective curve and $I_x=\mathbb Z_\ell\mathrm{ord}_x\subset W_E$ for a point inertia line.
+
+**Statement.** The following are Propositions 6.6–6.7 of the September 2026 manuscript [@openai2026bp, §6.4, pp. 22–23].
+
+1. A quasi prime divisor $v$ of $K/k$ is divisorial, equivalently trivial on $k$, exactly when
+$$D_v^\perp\cap\widehat E=0$$
+for some curve subfield $E$. The annihilator here is in $\widehat K$.
+2. For any curve subfield $E$, its point inertia lines are exactly
+$$\operatorname{Sat}_{W_E}\bigl(\rho_E(I_v)\bigr),\qquad v\text{ divisorial},\quad\rho_E(I_v)\ne0,$$
+where $\operatorname{Sat}_{W_E}(M)=\{f\in W_E:\ell^n f\in M\text{ for some }n\ge0\}$.
+3. Suppose $L/l$ satisfies the same hypotheses and a continuous isomorphism $\varphi:W_L\to W_K$ matches all quasi-divisorial pairs $I_w\subset D_w$ in both directions. Suppose also that its evaluation dual $\Theta:\widehat K\to\widehat L$ gives a bijection of completed curve subfields. Then $\varphi$ matches true divisorial pairs. If $\Theta(\widehat E)=\widehat P$, its induced isomorphism $\varphi_E:W_P\to W_E$ satisfies
+$$\rho_E\circ\varphi=\varphi_E\circ\rho_P,$$
+matches point inertia lines, and preserves genus. In particular, it matches precisely the relatively algebraically closed rational subfields, with their actual quotient maps and point decomposition groups.
+
+**Proof of 1.** If $v$ is divisorial, choose a $v$-unit $t$ whose residue is transcendental over $k$; this uses $d-1\ge1$. Let $E$ be the relative algebraic closure of $k(t)$ in $K$. The valuation is trivial on $k(t)$ and therefore on its algebraic extension $E$, so reduction embeds $E$ in $Kv$. Let $E'$ be its relative algebraic closure in $Kv$. Since $Kv/E$ is finitely generated, $E'/E$ is finite. The completion map $\widehat E\to\widehat{Kv}$ factors through this finite extension and the relatively algebraically closed inclusion $E'\subset Kv$, and is injective by Lemma 2.2. For the finite step, norm composed with inclusion is multiplication by $[E':E]$ on the torsion-free $\widehat E$; thus even an $\ell$-divisible degree causes no kernel. Since $D_v/I_v=W_{Kv}$ and evaluation on $W_{Kv}$ detects completed classes, no nonzero element of $\widehat E$ annihilates $D_v$ [@openai2026bp, Lemma 3.2, p. 8; Proposition 6.6, p. 22].
+
+Conversely, if $v|_k$ is nontrivial, take any curve subfield $E$ and $x\in E\setminus k$. Replace $x$ by $x^{-1}$ if necessary to have $v(x)\ge0$, and choose $c\in k^\times$ with $v(c)>0$. Then $1+cx$ is a nonconstant principal unit, so $D_v$ kills its class. That class is nonzero in $\widehat E$: the divisor map makes $E^\times/k^\times$ a subgroup of a free abelian group, hence itself free abelian and injective into its own $\ell$-adic completion. The inclusion $\widehat E\subset\widehat K$ is injective as well. Thus every curve subfield has nonzero intersection with $D_v^\perp$. This is the completed version of Topaz's divisoriality argument [@topaz2025, Lemma A.7, pp. 26–27].
+
+**Proof of 2.** Normalize a divisorial valuation $v$ by $vK=\mathbb Z$. Its restriction to $E$ is either trivial or $e\,\mathrm{ord}_x$ for a unique point $x\in C_E(k)$ and an integer $e>0$. Indeed its nonzero value group is a subgroup of $\mathbb Z$, and its centre on the smooth projective curve has a discrete valuation ring. Therefore $\rho_E(I_v)=e\mathbb Z_\ell\mathrm{ord}_x$. The full line $I_x$ is saturated in $W_E$: evaluate $\ell f=a\,\mathrm{ord}_x$ on a local uniformizer to see that $a\in\ell\mathbb Z_\ell$, then use torsion freeness of $W_E$. Hence saturation gives precisely $I_x$.
+
+Every point occurs. Extend $\mathrm{ord}_x$ to a Gauss valuation on $E(z_1,\ldots,z_{d-1})$ for a transcendence basis of $K/E$, and prolong across the remaining finite extension to $K$. The prolonged valuation has discrete rank-one value group and residue transcendence degree $d-1$ over $k$, and is trivial on $k$. Normalize its value group to $\mathbb Z$. It is divisorial and restricts to $e\,\mathrm{ord}_x$ for some $e>0$, with no requirement that $e$ be prime to $\ell$ [@openai2026bp, proof of Proposition 6.7, p. 22].
+
+**Proof of 3.** Evaluation gives $\Theta(D_v^\perp)=D_w^\perp$ for matched pairs. The assumed curve-subfield bijection and part 1 therefore match divisorial pairs. Dualizing $\Theta|_{\widehat E}$ defines $\varphi_E$ and gives the displayed equality by evaluation on every element of $\widehat E$. Part 2 then matches all saturated point lines.
+
+The common kernel of their order evaluations on $E^\times/E^{\times\ell}$ is $\mathrm{Pic}(C_E)[\ell]$: send a function with divisor $\ell A$ to $[A]$. This is surjective onto the torsion subgroup; its kernel consists of $\ell$-th powers, since constants are $\ell$-divisible. Its dimension is $2g(C_E)$ [@openai2026bp, Lemma 2.4, pp. 5–6] [@stacks2026, Lemma 53.17.1, Tag 0C1Z]. Changing a point generator by a unit does not affect this kernel, so genus is preserved. Over algebraically closed constants, genus zero is equivalent to $C_E\cong\mathbb P^1_k$: a point supplies a divisor of degree one [@stacks2026, Proposition 53.10.4, Tag 0C6U].
+
+Finally a relatively algebraically closed rational subfield $E=k(t)$ makes $K/E$ regular. In characteristic $p>0$, $t\notin K^p$, since a $p$-th root in $K$ would be algebraic over $E$ but not belong to $E$. Thus $dt\ne0$ in $\Omega_{K/k}$. As $k$ is perfect, $\Omega_{E/\mathbb F_p}=E\,dt$ and the map $K\otimes_E\Omega_{E/\mathbb F_p}\to\Omega_{K/\mathbb F_p}$ is injective. This implies separability of $K/E$ [@stacks2026, Lemmas 10.158.2 and 10.158.4, Tags 031W and 031X]. Characteristic zero is immediate. These are therefore the geometric rational quotients. At every point the residue field is the algebraically closed constant field and has zero character group, so point decomposition equals point inertia. The commuting equality retains the actual quotient maps; no separate rescaling of their targets has been introduced. $\square$
+
+**Checks and limits.** For $K=k(x,y)$, $v=\mathrm{ord}_{x=0}$ and $E=k(y)$, the residue embedding is the identity on $E$, so part 1 holds. Saturation cannot be omitted: take instead $t=x^\ell y$ and $E=k(t)$. Since $K=E(x)$, this is a curve subfield, but the same $v$ restricts to $\ell\,\mathrm{ord}_{t=0}$. Its inertia image vanishes modulo $\ell$ even though its saturation is the full point line. The requirement $d\ge2$ is also essential: for $K/k$ a curve, its only curve subfield is $K$ itself and a point valuation has nonzero principal-unit classes in $D_v^\perp$.
+
+This rebuilds §6.4 with the two preceding correspondences as explicit hypotheses; no gap was found in this component. The [completed curve-subfield theorem](completed-curve-subfield-correspondence.md) supplies the second hypothesis under its own local matching assumptions. No proof of the full [divisorial inertia recovery problem](divisorial-inertia-recovery-problem.md), or audit of the manuscript's final use of Pop's reconstruction theorems in §7, is asserted here. The [manuscript](manuscripts-claiming-bogomolov-pop.md) is not peer reviewed; an agent's check does not replace that review.
