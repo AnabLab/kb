@@ -1,13 +1,13 @@
 ---
 title: Irreducible cyclic extraspecial counts over dyadic fields
 kind: theorem
-summary: 'For an extraspecial 2-group with a faithful irreducible odd cyclic action, marked surjection counts over a dyadic field depend only on its degree and the kernel dimension. Every tame marking of these targets is invariant under tame automorphisms.'
+summary: 'For an extraspecial 2-group with a faithful irreducible odd cyclic action, marked surjection counts over a dyadic field depend only on its degree and the kernel dimension. Marked counts for every tame marking of these targets are invariant under tame automorphisms.'
 tags: [local-fields, galois-groups, galois-cohomology]
 edges:
   - {to: local-tate-duality, label: uses, note: 'Duality makes the obstruction polarization nondegenerate; the Euler characteristic gives its dimension.'}
   - {to: binary-tetrahedral-embedding-counts-over-dyadic-fields, label: generalizes, note: 'The quaternion kernel with its cubic action is the case n = 1, m = 3.'}
   - {to: extraspecial-quintic-embedding-counts-over-dyadic-fields, label: generalizes, note: 'The order-32 kernel with its quintic action is the case n = 2, m = 5.'}
-  - {to: finite-quotient-criterion-for-frobenius-shift-lifting, label: uses, note: 'Uses its marked-surjection tests and the cyclic Sylow 2-subgroups of finite dyadic tame quotients.'}
+  - {to: finite-quotient-criterion-for-frobenius-shift-lifting, label: uses, note: 'Uses its marked surjection counts.'}
   - {to: frobenius-shift-lifting-problem, label: addresses, note: 'Excludes this family of nonabelian wild targets from every marked-count obstruction, without constructing a lift.'}
 ---
 

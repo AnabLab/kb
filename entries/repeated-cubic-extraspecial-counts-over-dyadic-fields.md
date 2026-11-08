@@ -6,7 +6,7 @@ tags: [local-fields, galois-groups, galois-cohomology]
 edges:
   - {to: binary-tetrahedral-embedding-counts-over-dyadic-fields, label: generalizes, note: 'One quaternion factor is its binary tetrahedral target; the proof uses its quadratic obstruction calculation.'}
   - {to: local-tate-duality, label: uses, note: 'Gives the cohomology dimensions and perfect obstruction polarization.'}
-  - {to: finite-quotient-criterion-for-frobenius-shift-lifting, label: uses, note: 'Uses its marked counts and the cyclic Sylow 2-subgroups of finite dyadic tame quotients.'}
+  - {to: finite-quotient-criterion-for-frobenius-shift-lifting, label: uses, note: 'Uses its marked surjection counts.'}
   - {to: frobenius-shift-lifting-problem, label: addresses, note: 'Excludes this infinite family with repeated cubic constituents from every marked-count obstruction; no tame automorphism is lifted.'}
 ---
 
