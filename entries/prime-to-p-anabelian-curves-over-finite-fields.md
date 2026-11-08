@@ -1,7 +1,7 @@
 ---
 title: Prime-to-p anabelian geometry of curves over finite fields
 kind: theorem
-summary: Saïdi–Tamagawa reconstruct a hyperbolic curve over a finite field of characteristic p, including a proper curve, functorially from its geometrically pro-prime-to-p arithmetic fundamental group. The full Galois group of the constants is retained.
+summary: Saïdi–Tamagawa determine a hyperbolic curve over a finite field of characteristic p, including a proper curve, functorially from its geometrically pro-prime-to-p arithmetic fundamental group. The full Galois group of the constants is retained.
 tags: [curves, fundamental-groups, function-fields]
 edges:
   - {to: hyperbolic-curve, label: uses}
@@ -24,4 +24,4 @@ whose horizontal arrows are scheme isomorphisms inducing $\alpha$ and whose vert
 
 **Intrinsic data.** No map of constant fields or Frobenius marking is supplied. The subgroup $\Delta_U$, quotient $G_k$, arithmetic Frobenius, characteristic, cardinality of $k$, genus and number of geometric punctures are recoverable from $\Pi_U$ [@saiditamagawa2009, Proposition 1.15 (i)–(v), (viii), pp. 150–152]. The theorem uses all primes different from the characteristic.
 
-**Method.** For proper curves, cuspidalization recovers Kummer theory on affine opens outside a finite exceptional set. Functions with one pole recover addition [@saiditamagawa2009, §0, pp. 138–139].
+**Method.** For proper curves, cuspidalization recovers Kummer theory on affine opens $X\setminus S$, where the finite set of removed closed points $S$ avoids a finite exceptional set $E_X$. Kummer theory then determines, up to Frobenius twist, the multiplicative group of rational functions whose divisor avoids $E_X$. Functions with one pole recover addition [@saiditamagawa2009, §0, pp. 138–139].
