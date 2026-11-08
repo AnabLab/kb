@@ -14,6 +14,8 @@ $$
 $$
 is bijective [@voevodsky1991etale, Theorem 3.1, p. 519]. Here $\operatorname{Mor}^0_k$ is the set of isomorphism classes of admissible morphisms of étale sites over $k_{\mathrm{\acute et}}$ [@voevodsky1991etale, definition of $\operatorname{Mor}^0_k$, p. 513]. In particular, a homeomorphism of these étale sites over $k_{\mathrm{\acute et}}$ implies $X\cong_kY$ [@voevodsky1991etale, Corollary 3.1, p. 519].
 
+As printed, Theorem 3.1 asks only that $X$ be reduced and nonsingular in codimension 1. In that generality it is false [@berens2025, Remark 1.3, pp. 3–4]; a [counterexample with full proofs](voevodsky-reconstruction-fails-for-r1-schemes.md) is recorded separately.
+
 Barwick–Glasman–Haine state the modern formulation: $X\mapsto X_{\mathrm{\acute et}}$ is fully faithful from normal finite-type $k$-schemes into bounded coherent $\infty$-topoi over the base with admissible coherent geometric morphisms [@barwickglasmanhaine2020, §14.4.3 and Theorem 14.4.6, p. 232]. This is the scheme-reconstruction input to the [Galois-category theorem](galois-categories-reconstruct-normal-schemes.md) [@barwickglasmanhaine2020, discussion preceding Theorem 14.4.7, p. 233].
 
 **Scope.** Voevodsky suggests that a modified proof should work over finitely generated positive-characteristic fields of transcendence degree at least one; this is a claim in the introduction, rather than a theorem proved there [@voevodsky1991etale, Introduction, p. 511]. The [later reconstruction entry](etale-topos-reconstruction-over-sub-p-adic-fields.md) records extensions beyond the normal characteristic-zero case.
