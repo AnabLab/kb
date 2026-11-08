@@ -49,6 +49,14 @@ If `node scripts/kb.mjs` later complains about a missing module, run `npm ci`.
 
 The queue lists `review`, `answerOnPr` and `discussions` for you to work through, in that order. `forAPerson` and `ignored`, a count of non-members' PRs and threads, need no action, but report them when you finish.
 
+Also list the PRs waiting for a second opinion:
+
+```bash
+gh pr list --label second-opinion --json number,author,headRefName,headRefOid
+```
+
+In steps 2 and 3, skip these PRs, unless you take one as a second opinion, as step 3 describes.
+
 ## 2. Review PRs
 
 Take each PR in `review` in turn. Your verdict applies only to its `head` commit.
@@ -75,8 +83,8 @@ Take each PR in `review` in turn. Your verdict applies only to its `head` commit
 | Verdict | When |
 |---|---|
 | `APPROVE` | Every check passed, you verified every citation the entry relies on, and any new mathematics survived your adversarial review |
-| `REQUEST_CHANGES` | You found an error, a mislabel, a bad citation, a gap in a proof, or an attack on new mathematics that succeeded |
-| `COMMENT` | You couldn't verify something, you're unsure, or the approval is a maintainer's to give |
+| `REQUEST_CHANGES` | You found an error, a mislabel, a bad citation, a gap in a proof, or an attack on new mathematics that succeeded, or you couldn't verify something the entry relies on. Say what would make it checkable. |
+| `COMMENT` | You're unsure in a way that no change request would settle, or the approval is a maintainer's to give |
 
 Approval starts an automatic merge, with no further human step. If you are unsure, don't approve.
 
@@ -109,6 +117,20 @@ For each item in `answerOnPr`, read the conversation with `supervisor.mjs pr <nu
 If your last review asked for changes and the reply says they were made without a new commit, for example in the PR description, check them yourself with `supervisor.mjs pr <number>` rather than taking the reply's word for it. Then review the same head again as in step 2, instead of posting a comment.
 
 If someone shows you were wrong, say so plainly. If you had approved the PR, post `REQUEST_CHANGES` instead, because that withdraws your approval and stops the merge, while a comment leaves it in place.
+
+**Second opinions.** When a PR's author disputes one of your objections, and the same point has gone two rounds, a second reviewer settles it. Don't argue a third time. Post a `COMMENT` review that states the exact point at issue and each side's case in a sentence or two. Then add the label:
+
+```bash
+gh pr edit <number> --add-label second-opinion
+```
+
+The author may add the label too. Step 1 lists the labelled PRs. If your instructions say which of these are yours, follow them. Otherwise take any, except one where you raised the disputed objection. Skip any that `supervisor.mjs pr` refuses to show. For each PR you take:
+
+1. Read the conversation with `supervisor.mjs pr <number>`, and decide the point at issue on its merits. Then check the rest of the PR as in step 2.
+2. Post a full verdict for its head, as in steps 2.5 to 2.7. Start the review with "Second opinion on:" and the point at issue. The verdict must be `APPROVE` or `REQUEST_CHANGES`, so that the PR can't stall. The one exception is a PR whose approval step 2.1 leaves to a maintainer, where you post a `COMMENT`. Approve if the author is right and everything else passes, and turn on auto-merge as usual. Otherwise request changes, naming exactly what must change. If you can't verify a step, say what would make it checkable.
+3. Remove the label with `gh pr edit <number> --remove-label second-opinion`.
+
+A second opinion settles its point. In later reviews of the PR, follow it, and don't send that point for a second opinion again.
 
 ## 4. Take part in discussions
 
@@ -166,4 +188,4 @@ gh issue close <number> --reason completed
 
 ## Finish
 
-End with one short line saying what you did, with links, or that nothing was waiting. Mention any issues you opened or closed. Include anything in `forAPerson`, and `ignored` if it isn't zero. Then suggest when to check next: about 5 minutes if something is waiting on CI or on an auto-merge you just turned on, and 20 to 30 minutes otherwise.
+End with one short line saying what you did, with links, or that nothing was waiting. Mention any issues you opened or closed. Include anything in `forAPerson`, and `ignored` if it isn't zero. Also name any PR labelled `second-opinion` that you skipped because it wasn't yours to take. Then suggest when to check next: about 5 minutes if something is waiting on CI or on an auto-merge you just turned on, and 20 to 30 minutes otherwise.

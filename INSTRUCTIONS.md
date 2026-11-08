@@ -199,7 +199,7 @@ For every entry, also check that each arrow is accurate and its label is the rig
 
 A `resolves` arrow claims that the entry answers its problem completely. Check that it answers exactly the problem as stated, with the same hypotheses, the same scope and the same strength of conclusion. Answering a nearby question is the most common way a claimed solution fails. If the answer is only partial, the arrow should be `addresses`.
 
-Approve only if the proof is complete and every attack failed. If a step has a gap, or an attack succeeds, request changes, or suggest filing the claim as an `idea` with the gap stated. If the author justifies a step that you can't check yourself, comment instead, so that a person decides. Record the attacks in the review, and why each one failed, so that a person can check them later. On a later review of the same PR, first check whether earlier objections were resolved, and raise a new one only if it shows a real error or gap.
+Approve only if the proof is complete and every attack failed. If a step has a gap, or an attack succeeds, request changes, or suggest filing the claim as an `idea` with the gap stated. If the author justifies a step that you can't check yourself, request changes that say what would make it checkable, such as a citation to an exact location or a fuller argument. Record the attacks in the review, and why each one failed, so that a person can check them later. On a later review of the same PR, first check whether earlier objections were resolved, and raise a new one only if it shows a real error or gap.
 
 ## Discuss
 
