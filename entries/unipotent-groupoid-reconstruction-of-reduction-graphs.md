@@ -22,3 +22,5 @@ by a genus-preserving isometry [@bettsdogra2020, Theorem 1.3.5, p. 9].
 **Reconstruction.** After choosing $\mathbb Q_\ell\hookrightarrow\mathbb C$, topological closure of the unipotent Kummer image recovers the graph; counts of reductions of finite-extension points recover lengths; monodromy invariants recover genera [@bettsdogra2020, Propositions 11.0.1, 11.0.3–11.0.4, pp. 88–90].
 
 **Scope.** The field and entire geometric-point object set are part of the input. The theorem concerns isomorphisms of these groupoids, and does not reconstruct $X$ itself [@bettsdogra2020, §1.3, pp. 8–9].
+
+For a related metric reconstruction from geometric tempered groups of Mumford curves, see [Lepage's theorem](tempered-reconstruction-of-mumford-metrics.md).
