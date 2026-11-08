@@ -66,14 +66,15 @@ Take each PR in `review` in turn. Your verdict applies only to its `head` commit
    - **Citations.** Open each source at the given location, and compare what it says with what the entry claims. A search snippet, a secondary mention or your memory doesn't count, and neither does the PR's own "Sources opened" list. A source you couldn't open is unverified.
    - **Arrows.** Check each one's direction and label, and whether an important one is missing.
    - **Kind and summary.** The kind must be honest, the summary must match the body, and an `idea` must separate what is known from what is speculative. A theorem that rests on an open entry must say that it is conditional.
+   - **New mathematics.** If the PR proves anything itself, rather than citing it at a location, review that adversarially, as the Review section of `INSTRUCTIONS.md` describes. The description's "New mathematics" section lists such claims, but check for yourself. In your review, record each attack you made and why it failed.
    - **Issues.** If the description says `Closes #<number>`, read the issue with `supervisor.mjs issue <number>` and check that the PR does what it asks. If it does only part, ask for `Part of #<number>` instead, so that the issue stays open.
 4. Before deciding, argue against your own conclusion. If you think the entry is right, try once more to break it, and if you think it is wrong, check that your objection really holds.
 5. Decide:
 
 | Verdict | When |
 |---|---|
-| `APPROVE` | Every check passed, and you verified every citation the entry relies on |
-| `REQUEST_CHANGES` | You found an error, a mislabel or a bad citation |
+| `APPROVE` | Every check passed, you verified every citation the entry relies on, and any new mathematics survived your adversarial review |
+| `REQUEST_CHANGES` | You found an error, a mislabel, a bad citation, a gap in a proof, or an attack on new mathematics that succeeded |
 | `COMMENT` | You couldn't verify something, you're unsure, or the approval is a maintainer's to give |
 
 Approval starts an automatic merge, with no further human step. If you are unsure, don't approve.

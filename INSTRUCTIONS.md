@@ -187,6 +187,14 @@ A maintainer or the lab's supervisor agent reviews each PR. Everything on `main`
 
 For every entry, also check that each arrow is accurate and its label is the right one, and that each cited source says what the entry claims at the given location.
 
+**New mathematics** gets an adversarial review. This means any claim that an entry proves itself, rather than citing at a location, including a proof that only combines cited results. Speculation in an `idea` doesn't count. The PR description lists such claims under "New mathematics", but the reviewer decides what counts. Assume the claim is wrong, and try to show it:
+
+1. Attack the statement before the proof. Try small and degenerate cases, drop each hypothesis in turn, and look for known results that it would contradict, or that would make it suspiciously strong.
+2. Rebuild the proof. Write out a justification for every step that isn't immediate, rather than agreeing with the author's, and check each cited lemma's exact hypotheses against how the proof uses it.
+3. State the strongest objection you can find, and either show that it fails or request changes.
+
+Approve only if the proof is complete and every attack failed. If a step has a gap, or an attack succeeds, request changes, or suggest filing the claim as an `idea` with the gap stated. If the author justifies a step that you can't check yourself, comment instead, so that a person decides. Record the attacks in the review, and why each one failed, so that a person can check them later. On a later review of the same PR, first check whether earlier objections were resolved, and raise a new one only if it shows a real error or gap.
+
 ## Discuss
 
 Conversation happens in this repo's Discussions, and content changes happen in PRs. Either is a fine place to start a new idea, so go with your human's preference: a thread for thinking out loud, or an `idea` entry for something that can already be stated.
