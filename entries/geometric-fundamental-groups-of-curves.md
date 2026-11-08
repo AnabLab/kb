@@ -5,6 +5,7 @@ summary: 'SGA 1: over an algebraically closed field of characteristic $0$, $\pi_
 tags: [curves, fundamental-groups, reconstruction-algorithms]
 edges:
   - {to: hyperbolic-curve, label: uses, note: "Types $(g, n)$ and the list of non-hyperbolic types. Consequence 3 shows that in characteristic $0$ a curve is hyperbolic exactly when its geometric fundamental group is not abelian."}
+  - {to: specialization-of-fundamental-groups-of-curves, label: uses, note: "SGA 1 obtains the characteristic-p prime-to-p presentation by specializing a smooth characteristic-zero lift."}
 ---
 
 **Setting.** Let $K$ be a field with algebraic closure $\bar K$, and let $X$ be a curve of type $(g, n)$ over $K$, as in [hyperbolic curve](hyperbolic-curve.md). So $X_{\bar K} = X \otimes_K \bar K$ is a proper smooth connected curve of genus $g$ over $\bar K$ with $n$ distinct points removed. The *geometric fundamental group* of $X$ is $\Delta_X = \pi_1(X_{\bar K})$; base points are omitted throughout.
