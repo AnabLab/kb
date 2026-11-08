@@ -5,12 +5,14 @@ summary: 'Hoshi–Sawada–Tsujimura reconstruct configuration spaces of hyperbo
 tags: [curves, fundamental-groups, function-fields, reconstruction]
 edges:
   - {to: hyperbolic-curve, label: uses}
-  - {to: tamagawa-grothendieck-conjecture-for-affine-curves, label: uses, note: 'Only the tame hyperbolic-curve theorem over finite fields, used in the induction base [@hoshisawadatsujimura2024, proof of Theorem 6.7, p. 39].'}
+  - {to: tamagawa-grothendieck-conjecture-for-affine-curves, label: uses, note: 'The tame hyperbolic-curve theorem over finite fields is used when reducing to n=1 [@hoshisawadatsujimura2024, proof of Theorem 6.7, p. 39].'}
   - {to: mochizuki-grothendieck-conjecture-proper-curves-finite-fields, label: uses, note: 'The proper-curve theorem supplies the other finite-field induction base [@hoshisawadatsujimura2024, proof of Theorem 6.7, p. 39].'}
+  - {to: grothendieck-conjecture-over-finitely-generated-fields-of-characteristic-p, label: uses, note: 'Tsujimura supplies the infinite-field curve theorem used when reducing to n=1 [@hoshisawadatsujimura2024, proof of Theorem 6.7, p. 39].'}
+  - {to: prime-to-p-anabelian-curves-over-finite-fields, label: uses, note: 'Saïdi–Tamagawa is a key input for the geometrically prime-to-p curve groups [@hoshisawadatsujimura2024, Introduction, item (a), p. 5].'}
   - {to: grothendieck-conjecture-for-configuration-spaces-over-tknd-avkf-fields, label: analogous-to, note: 'Both reconstruct configuration spaces from arithmetic fundamental groups; the base fields and hypotheses differ.'}
 ---
 
-**Groups.** For a [hyperbolic curve](hyperbolic-curve.md) $U=X\setminus D$ over $k$ and $n\ge1$, put
+**Groups.** Throughout, a [hyperbolic curve](hyperbolic-curve.md) $U=X\setminus D$ over $k$ comes from a pair $(X,D)$ with $X/k$ a proper smooth geometrically connected curve of genus $g$, $D\subset X$ finite étale over $k$ of degree $r$, and $2-2g-r<0$ [@hoshisawadatsujimura2024, Definition 2.1, p. 14]. For $n\ge1$, put
 $$U_n=U^n\setminus\bigcup_{i<j}\{x_i=x_j\}.$$
 Let $\Pi_{U,n}$ be the arithmetic tame fundamental group relative to the boundary of the canonical compactified configuration space $X^+_{(n)}$, and let $\Delta_{U,n}=\ker(\Pi_{U,n}\to G_k)$ [@hoshisawadatsujimura2024, Definition 2.6, Remark 2.6.1 (i), and Introduction, p. 4].
 
@@ -22,4 +24,4 @@ is bijective [@hoshisawadatsujimura2024, Theorem 6.7, p. 39].
 $$\mathrm{Isom}_{k,F^{-1}}(U_n,V_m)\xrightarrow{\sim}\mathrm{Isom}_{G_k}(\Pi_{U,n},\Pi_{V,m})/\Delta_{V,m},$$
 where the target uses conjugation by $\Delta_{V,m}$ and the source localizes $k$-varieties at universal homeomorphisms [@hoshisawadatsujimura2024, Corollary 6.9, p. 43, and Introduction, pp. 3–5].
 
-**Mechanism and scope.** Intrinsic recognition of generalized fiber subgroups permits induction on $n$ [@hoshisawadatsujimura2024, Theorem 4.8, p. 28, and proof of Theorem 6.7, pp. 39–40]. Nonisotriviality cannot generally be dropped over infinite fields [@hoshisawadatsujimura2024, Remark 6.7.1]. For products of curves, incompatible Frobenius twists can obstruct the analogous bijection even over finite fields [@hoshisawadatsujimura2024, Remark 6.7.2 (i), pp. 40–42].
+**Mechanism and scope.** Intrinsic recognition of generalized fiber subgroups permits induction on $n$ [@hoshisawadatsujimura2024, Theorem 4.8, p. 28, and proof of Theorem 6.7, pp. 39–40]. Over infinite fields the case $n=1$ uses [Tsujimura's preprint theorem](grothendieck-conjecture-over-finitely-generated-fields-of-characteristic-p.md) [@hoshisawadatsujimura2024, proof of Theorem 6.7, p. 39]. Nonisotriviality cannot generally be dropped over infinite fields [@hoshisawadatsujimura2024, Remark 6.7.1, p. 40]. For products of curves, incompatible Frobenius twists can obstruct the analogous bijection even over finite fields [@hoshisawadatsujimura2024, Remark 6.7.2 (i), pp. 40–42].
