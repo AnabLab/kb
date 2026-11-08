@@ -6,9 +6,10 @@ tags: [function-fields, number-fields, galois-groups]
 edges:
   - {to: neukirch-uchida-theorem, label: generalizes, note: "Number fields are the case of transcendence degree $0$ in characteristic $0$."}
   - {to: uchida-global-function-fields, label: generalizes, note: "Up to the purely inseparable extensions in the statement."}
+  - {to: purely-inseparable-invariance-of-galois-groups, label: uses, note: "Only to explain the purely inseparable ambiguity in the statement, not as a reconstruction theorem."}
 ---
 
-**Statement.** Let $K, L$ be infinite fields finitely generated over the prime field, and let $\Phi : G_K \to G_L$ be an isomorphism of profinite groups. Then there are purely inseparable extensions $K'/K$ and $L'/L$ with $K' \cong L'$, and an isomorphism $\varphi$ between their separable closures with $\Phi(g) = \varphi^{-1} \circ g \circ \varphi$ for all $g$ [@szamuely2004, Théorème 1.1]. The purely inseparable extensions cannot be avoided, because restriction $G_K \to G_{K'}$ is an isomorphism for a purely inseparable $K'/K$ [@szamuely2004, Remarques 1.2].
+**Statement.** Let $K, L$ be infinite fields finitely generated over the prime field, and let $\Phi : G_K \to G_L$ be an isomorphism of profinite groups. Then there are purely inseparable extensions $K'/K$ and $L'/L$ with $K' \cong L'$, and an isomorphism $\varphi$ between their separable closures with $\Phi(g) = \varphi^{-1} \circ g \circ \varphi$ for all $g$ [@szamuely2004, Théorème 1.1]. The purely inseparable qualification reflects that [restriction $G_{K'}\to G_K$ is an isomorphism](purely-inseparable-invariance-of-galois-groups.md) for a purely inseparable $K'/K$; see the elementary proof there.
 
 **Characteristic $0$.** Here the rule sending a field isomorphism to the induced isomorphism of Galois groups gives a bijection between field isomorphisms and isomorphisms of Galois groups modulo inner automorphisms [@szamuely2004, Remarques 1.2]. In particular, a field finitely generated over $\mathbb{Q}$ is determined up to isomorphism by its absolute Galois group.
 
