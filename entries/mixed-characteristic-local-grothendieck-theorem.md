@@ -1,10 +1,11 @@
 ---
 title: Filtered reconstruction with nondegenerate perfect residue fields
 kind: theorem
-summary: Tsujimura's 2026 preprint reconstructs mixed-characteristic complete discretely valued fields with perfect residues from filtered Galois groups, assuming nontrivial residue Sylow p-subgroups. A Hodge–Tate criterion also covers imperfect residues.
-tags: [local-fields, galois-groups, ramification, hodge-theory, reconstruction-algorithms]
+summary: Tsujimura's 2026 preprint identifies field isomorphisms with filtration-preserving outer Galois isomorphisms for mixed-characteristic complete discretely valued fields with nondegenerate perfect residues; its Hodge–Tate criterion also allows imperfect residues.
+tags: [local-fields, galois-groups, ramification, hodge-theory]
 edges:
   - {to: mochizuki-local-fields-theorem, label: generalizes}
+  - {to: hodge-tate-geometricity-criterion, label: generalizes, note: "Only the statement for isomorphisms of HT type; open homomorphisms are not treated [@tsujimura2026cdvf, p. 2 and Proposition 1.3, pp. 3–4]."}
   - {to: ramification-filtration, label: uses}
   - {to: field-automorphisms-act-faithfully-on-galois-groups, label: uses, note: "Injectivity in Corollary 2.7."}
   - {to: hodge-tate-reconstruction-with-algebraic-residue-fields, label: analogous-to}
@@ -24,4 +25,4 @@ $$
 $$
 [@tsujimura2026cdvf, Proposition 1.2, p. 3].
 
-**Scope.** This is an August 2026 preprint. Residues need not be algebraic over $\mathbb F_p$. Removing nondegeneracy, or extending the filtered theorem to imperfect residues, remains unresolved there [@tsujimura2026cdvf, Remarks 2.7.1–2.7.3, p. 7].
+**Scope.** This is an August 2026 preprint. Residues need not be algebraic over $\mathbb F_p$ [@tsujimura2026cdvf, Corollary 2.7, pp. 6–7]. Removing nondegeneracy, or extending the filtered theorem to imperfect residues, remains unresolved there [@tsujimura2026cdvf, Remarks 2.7.2–2.7.3, p. 7].
