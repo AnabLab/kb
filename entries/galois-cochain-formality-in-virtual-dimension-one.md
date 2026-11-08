@@ -5,6 +5,7 @@ summary: 'For a field of virtual cohomological dimension at most one and any pri
 tags: [galois-groups, galois-cohomology, orderings]
 edges:
   - {to: positselski-koszulity-conjecture, label: addresses, note: "Theorem 1.11 proves this case, without a roots-of-unity hypothesis."}
+  - {to: massey-vanishing-conjecture, label: addresses, note: "Theorem 1.10 gives strong vanishing, hence ordinary vanishing, in virtual cohomological dimension at most one; the target explains the implication."}
   - {to: non-formality-of-galois-cochains, label: analogous-to, note: "A positive class for the formality question whose general answer is negative."}
 ---
 

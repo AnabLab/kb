@@ -1,7 +1,7 @@
 ---
 title: The Massey vanishing conjecture
 kind: problem
-summary: 'Mináč–Tân predict that every defined mod-$p$ Massey product of degree-one Galois cohomology classes contains zero. This holds for triples, for fourfold products at $p=2$, and over number fields. The stronger adjacent-cup-product criterion is false for $n=4$.'
+summary: 'Mináč–Tân predict that every defined mod-$p$ Massey product of degree-one Galois classes contains zero. Known cases include triples, fourfold products at $p=2$, number fields, and fields of virtual cohomological dimension at most one.'
 tags: [galois-groups, galois-cohomology, number-fields]
 edges:
   - {to: norm-residue-isomorphism-theorem, label: analogous-to, note: "Both constrain absolute Galois groups through cohomology; Massey products also involve the continuous cochain algebra."}
@@ -25,6 +25,9 @@ For a concrete formulation, let $U_{n+1}(\mathbb{F}_p)$ be the upper unitriangul
 - $n=3$, every field and every prime: the [triple Massey vanishing theorem](triple-massey-products-in-galois-cohomology.md) [@minactan2016, Theorem 1.2, p. 2].
 - $n=4$, $p=2$, every field: Merkurjev–Scavia [@merkurjevscavia2025fourfold, Theorem 1.2, p. 3].
 - Every $n\geq3$ and every prime over number fields: Harpaz–Wittenberg [@harpazwittenberg2023, Theorem 1.3, p. 3].
+- Every $n\geq3$ and every prime for fields of virtual cohomological dimension at most one: Pál–Szabó proved strong vanishing for degree-one classes [@palszabo2026, Theorem 1.7, p. 155]. Pál–Quick's [formality theorem](galois-cochain-formality-in-virtual-dimension-one.md) extends strong vanishing to arbitrary degrees [@palquick2025, Theorem 1.10, p. 1836]. For odd $p$, ordinary vanishing is immediate from $H^2(G_F,\mathbb F_p)=0$; the substantive case is $p=2$ [@palquick2025, Remarks 1.4 and 1.9, pp. 1834 and 1836].
+
+For the last bullet, strong vanishing implies the stated conjecture as follows. In a defining system, $\delta a_{i,i+2}=a_{i,i+1}\cup a_{i+1,i+2}$, so each adjacent cup product $x_i\cup x_{i+1}$ is zero in cohomology. Strong vanishing then gives $0\in\langle x_1,\ldots,x_n\rangle$.
 
 **The stronger assertion is false.** Strong Massey vanishing asks that the weaker hypothesis
 
@@ -32,4 +35,4 @@ $$x_i\cup x_{i+1}=0\qquad(1\leq i<n)$$
 
 already imply $0\in\langle x_1,\ldots,x_n\rangle$. Definedness always implies these adjacent cup products vanish [@merkurjevscavia2025fourfold, §1, p. 1], but the converse fails already for $n=4$. In the Harpaz–Wittenberg counterexample, take $F=\mathbb{Q}$, $p=2$ and the Kummer classes of $(34,2,17,34)$. All three adjacent cup products are zero, but the fourfold Massey product is undefined [@guillotminactopazwittenberg2018, Example A.15, p. 35]. An undefined product does not contradict the conjecture stated above.
 
-**Status.** The general assertion remains conjectural in the literature checked on 8 November 2026. Pál–Quick's October 2026 preprint still states it as a conjecture and records the known cases above [@palquick2026, §1, first paragraph, pp. 1–2]. A search through that date found no general resolution; it was not exhaustive.
+**Status.** The general assertion remains conjectural in the literature checked on 8 November 2026. Pál–Quick's October 2026 preprint still states it as a conjecture and explicitly records the triple, fourfold-at-$2$, and number-field cases [@palquick2026, §1, first paragraph, pp. 1–2]. A search through that date found no general resolution; it was not exhaustive.
