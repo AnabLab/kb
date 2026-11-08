@@ -4,6 +4,7 @@ kind: theorem
 summary: 'For every field and prime $p$, each defined triple Massey product in $H^1(G_F,\mathbb{F}_p)$ contains zero. Equivalently, three characters admitting a representation into $\overline{U}_4(\mathbb{F}_p)$ also admit one into $U_4(\mathbb{F}_p)$. This excludes certain pro-$p$ presentations.'
 tags: [galois-groups, galois-cohomology]
 edges:
+  - {to: massey-vanishing-conjecture, label: addresses, note: "Settles the conjecture for n = 3 over every field and at every prime."}
   - {to: norm-residue-isomorphism-theorem, label: analogous-to, note: "Both constrain realizable absolute Galois groups through cohomology; Massey products use the cochain algebra."}
 ---
 
