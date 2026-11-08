@@ -41,6 +41,6 @@ y=z^p(1+\pi x^p).
 $$
 The elements $1,\pi,\ldots,\pi^{p-1}$ form a basis of $K$ over $K^p$, and also of $\widehat K$ over $\widehat K^p$. Write $y=\sum_{i=0}^{p-1}\pi^i y_i^p$ with $y_i\in K$. Comparing coefficients in $\widehat K$ gives $y_0=z$ and $y_1=zx$, so $x=y_1/y_0\in K$. Hence $K=\widehat K$ [@dittmann2025, proof of Proposition 4.7, p. 11].
 
-**Role and limit.** In the [local-field characterization](local-fields-characteristic-p-brauer-characterization.md), Galois theory supplies the valuation; this theorem supplies completeness. The imperfection hypothesis is essential: Dittmann gives a construction, attributed to Arno Fehm, of a noncomplete henselian field satisfying the remaining hypotheses, even with the full absolute Galois group of a positive-characteristic local field [@dittmann2025, Remark 4.8, p. 11].
+**Role and limit.** In the [local-field characterization](local-fields-characteristic-p-brauer-characterization.md), Galois theory supplies the valuation; this theorem supplies completeness. The imperfection hypothesis is essential: the [construction attributed to Arno Fehm](imperfection-is-essential-in-local-brauer-reconstruction.md) gives a noncomplete henselian field satisfying the remaining hypotheses, even with the full absolute Galois group of a positive-characteristic local field [@dittmann2025, Remark 4.8, p. 11].
 
 **Source.** Locations refer to arXiv:2309.05398v3. The journal version was not compared; Dittmann's references were not opened independently.
