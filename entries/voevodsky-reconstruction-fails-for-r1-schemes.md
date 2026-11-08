@@ -37,4 +37,4 @@ So $\operatorname{Mor}_K(X,Y)\to\operatorname{Mor}^0_K(X_{\mathrm{\acute et}},Y_
 
 The open set is needed. On $X$ itself the units of $B$ are constants, and Berens computes that $\operatorname{Pic}(X)$ is isomorphic to the additive group $K^2$, which is torsion-free (his $k$ is our $K$) [@berens2025, Remark 1.3, p. 4]. On $V$, the linear terms of the new units $x-1$ and $1+2x$ produce the torsion.
 
-**Context.** $X$ is not seminormal: $x^2,x^3\in A$ but $x\notin A$. So the example is consistent with the [seminormal reconstruction theorems](etale-topos-reconstruction-over-sub-p-adic-fields.md), and it does not settle the question that Carlson–Haine–Wolf leave open for seminormal schemes without S2.
+**Context.** $X$ is not seminormal: $x^2,x^3\in A$ but $x\notin A$. So the example is consistent with the [seminormal reconstruction theorems](etale-topos-reconstruction-over-sub-p-adic-fields.md). For seminormal schemes, with or without S2, the torsion found here cannot occur: their [Picard groups are free plus finite](picard-groups-of-seminormal-schemes.md), which answers the question that Carlson–Haine–Wolf leave open.
