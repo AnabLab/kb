@@ -7,6 +7,7 @@ edges:
   - {to: section-conjecture, label: addresses, note: "It proves the injectivity half of the conjecture, so that only surjectivity remains open."}
   - {to: mochizuki-hom-theorem-for-hyperbolic-curves, label: uses, note: "Parts 1 and 2 rest on Theorem C [@mochizuki1999, Theorem 19.1, p. 92]."}
   - {to: hyperbolic-curve, label: uses}
+  - {to: mordell-weil-theorem, label: uses, note: 'Only the number-field Kummer proof of part 3 uses finite generation of the Jacobian rational points.'}
 ---
 
 **Setting.** The notation is that of the [section conjecture](section-conjecture.md). For a [hyperbolic curve](hyperbolic-curve.md) $X$ over a field $K$ of characteristic $0$, the map $\sigma_X : X(K) \to \mathrm{Sect}(G_K, \Pi^{\mathrm{prf}}_X)$ sends a $K$-rational point to the class of its section, modulo conjugation by $\Delta^{\mathrm{prf}}_X$. For a prime $p$, write $\sigma^{(p)}_X : X(K) \to \mathrm{Sect}(G_K, \Pi_X)$ for the analogous map to sections of the geometrically pro-$p$ quotient $\Pi_X \to G_K$, modulo conjugation by $\Delta_X$. A $K$-rational point induces $G_K \to \Pi^{\mathrm{prf}}_X \to \Pi_X$, so $\sigma^{(p)}_X$ is $\sigma_X$ followed by the map on sections induced by the quotient $q : \Pi^{\mathrm{prf}}_X \to \Pi_X$. The groups $\Pi^{\mathrm{prf}}_X \supseteq \Delta^{\mathrm{prf}}_X$ are defined for every curve over $K$, hyperbolic or not, as in the entry on hyperbolic curves, and $\sigma_X$ is defined for every curve in the same way. Part 3 uses this: it includes proper curves of genus $1$, which are not hyperbolic.
@@ -21,7 +22,7 @@ Koenigsmann records part 2 for smooth complete curves of genus at least $2$, cit
 
 **Proof of part 2.** This is checked here. The quotient $q$ is compatible with the projections to $G_K$ and maps $\Delta^{\mathrm{prf}}_X$ onto $\Delta_X$. If $\sigma_X(x) = \sigma_X(y)$, choose sections $s_x, s_y$ in these classes and $\delta \in \Delta^{\mathrm{prf}}_X$ with $s_y = \delta s_x \delta^{-1}$. Then $q \circ s_y = q(\delta) (q \circ s_x) q(\delta)^{-1}$ with $q(\delta) \in \Delta_X$, so $\sigma^{(p)}_X(x) = \sigma^{(p)}_X(y)$, and $x = y$ by part 1. Every field finitely generated over $\mathbb{Q}$ is sub-$p$-adic for every $p$, as checked in the entry on [Mochizuki's Hom theorem](mochizuki-hom-theorem-for-hyperbolic-curves.md). $\square$
 
-**Proof of part 3.** This is checked here, using the Mordell–Weil theorem, which is not cited at a location.
+**Proof of part 3.** This is checked here, using the [Mordell–Weil theorem](mordell-weil-theorem.md) [@conrad2006trace, Corollary 7.2, p. 23].
 
 *Reduction to proper curves.* Let $\bar X$ be the smooth compactification of $X$. The open immersion $X \to \bar X$ induces a surjection $\Pi^{\mathrm{prf}}_X \to \Pi^{\mathrm{prf}}_{\bar X}$ over $G_K$ that maps $\Delta^{\mathrm{prf}}_X$ onto $\Delta^{\mathrm{prf}}_{\bar X}$ [@saidi2012, §4.1.1, p. 16]. By functoriality it carries the section of a point $x \in X(K)$ to the section of $x$ viewed in $\bar X(K)$, and it carries conjugate sections to conjugate sections. So injectivity of $\sigma_{\bar X}$ implies injectivity of $\sigma_X$, and we may assume that $X$ is proper, of genus $g \ge 1$.
 
