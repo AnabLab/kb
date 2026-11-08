@@ -7,7 +7,7 @@ edges:
   - {to: quasi-prime-divisor, label: uses}
   - {to: kummer-duality-for-commuting-lifts, label: uses, note: "For the top-field Galois consequence only; residual induction uses characters in arbitrary characteristic [@openai2026bp, Lemma 3.1 and Proposition 3.5, pp. 6–7 and 10]."}
   - {to: quasi-divisorial-groups-recoverable, label: analogous-to, note: "An explicit character-space recognition and residual induction; it also works when a residual field has characteristic ell."}
-  - {to: manuscripts-claiming-bogomolov-pop, label: addresses, note: "Checks Lemmas 3.2–3.4 and the local induction of Proposition 3.5 [@openai2026bp, pp. 8–10]; the bracket-to-character input is its Lemma 3.1, pp. 6–7."}
+  - {to: manuscripts-claiming-bogomolov-pop, label: addresses, note: "Checks Lemmas 3.2–3.4 and the local induction of Proposition 3.5 of the September 2026 manuscript, including residue characteristic ℓ [@openai2026bp, pp. 8–10]; its Lemma 3.1, which supplies the alternating-pair-preserving map, is cited, not re-proved."}
 ---
 
 **Setting.** Fix a prime $\ell$. For a function field $F/\kappa$ over an algebraically closed field, put

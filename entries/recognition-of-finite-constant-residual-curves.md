@@ -6,7 +6,7 @@ tags: [function-fields, valuations, galois-groups, reconstruction]
 edges:
   - {to: quasi-prime-divisor, label: uses}
   - {to: quasi-divisorial-groups-recoverable, label: motivated-by, note: "The criterion uses the recovered quasi-divisorial inertia and a specified residual pair."}
-  - {to: manuscripts-claiming-bogomolov-pop, label: motivated-by, note: "Provides the cited residual-curve criterion in Proposition 3.7; it does not establish the manuscript's full reconstruction claim."}
+  - {to: manuscripts-claiming-bogomolov-pop, label: addresses, note: "Checks Pop's residual-curve criterion, which Proposition 3.7 of the September 2026 manuscript cites, and its transport along isomorphisms matching the groups of Proposition 3.5 [@openai2026bp, pp. 10–12]; constructing that matching is not checked."}
 ---
 
 **Input.** Let $K/k$ be a function field of transcendence degree $d\ge2$, with $k$ algebraically closed and $\mathrm{char}(k)\ne\ell$. Set

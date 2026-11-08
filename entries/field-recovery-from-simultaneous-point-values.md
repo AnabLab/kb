@@ -5,7 +5,7 @@ summary: 'Point bijections of the rational subfields of two function fields of t
 tags: [function-fields, reconstruction-algorithms, valuations]
 edges:
   - {to: quasi-prime-divisor, label: uses, note: "Only prime divisors, that is divisorial valuations trivial on the constants, enter."}
-  - {to: manuscripts-claiming-bogomolov-pop, label: addresses, note: "Checks §7 and the field-theoretic parts of Lemmas 6.4–6.5 of the mod-ℓ manuscript [@openai2026modl, pp. 25–32]; not §§2–6 or §8."}
+  - {to: manuscripts-claiming-bogomolov-pop, label: addresses, note: "Checks §7 and the field-theoretic parts of Lemmas 6.4–6.5 of the October 2026 mod-ℓ manuscript [@openai2026modl, pp. 25–32]; not the rest of §§2–6, nor §8."}
   - {to: mod-l-bogomolov-pop-conjecture, label: addresses, note: "The final field-recovery step of a claimed proof, conditional on that manuscript's earlier correspondences."}
   - {to: fundamental-theorem-of-projective-geometry, label: analogous-to, note: "Field operations are recovered from point bijections of rational subfields instead of projective lines."}
   - {to: mod-l-reconstruction-from-rational-quotients, label: analogous-to, note: "Both rebuild the field from rational subfields; Topaz uses algebraic-dependence geometry and needs transcendence degree at least 5."}

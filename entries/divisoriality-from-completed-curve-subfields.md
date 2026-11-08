@@ -8,7 +8,7 @@ edges:
   - {to: completed-curve-subfield-correspondence, label: uses, note: "Supplies the completed curve-subfield correspondence assumed in the transport statement."}
   - {to: divisorial-inertia-recovery-problem, label: addresses, note: "A criterion conditional on knowing the completed curve subfields; their recovery from the original group datum is a separate step."}
   - {to: pro-l-strategy-for-bogomolov-pop, label: addresses, note: "Recovers rational quotient maps and their point groups once the local and curve-subfield correspondences are given."}
-  - {to: manuscripts-claiming-bogomolov-pop, label: addresses, note: "Checks §6.4, Propositions 6.6–6.7, pp. 22–23; not the final reconstruction argument."}
+  - {to: manuscripts-claiming-bogomolov-pop, label: addresses, note: "Checks Propositions 6.6–6.7 of the September 2026 manuscript, assuming its preceding quasi-divisorial and curve-subfield correspondences [@openai2026bp, §6.4, pp. 22–23]; not §7."}
 ---
 
 **Setting.** Fix a prime $\ell$. Let $K/k$ be a function field of transcendence degree $d\ge2$ over an algebraically closed field of characteristic different from $\ell$. Put
