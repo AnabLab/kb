@@ -1,7 +1,7 @@
 ---
-title: Ax–Sen–Tate fixed-field theorem
+title: Ax–Sen–Tate fixed fields and cyclotomic twist invariants
 kind: theorem
-summary: 'For a complete discretely valued field K of mixed characteristic with perfect residue field, the invariants of its completed algebraic closure under any closed subgroup H of G_K are the completion of the algebraic fixed field. In particular, the full Galois group fixes exactly K.'
+summary: 'For mixed-characteristic complete discretely valued K with perfect residue, C^H is the completed algebraic fixed field for every closed subgroup H. Nonzero cyclotomic twists C(n) have no G_K-invariants, and the Hodge–Tate period ring has invariant field K.'
 tags: [local-fields, galois-groups, hodge-theory]
 ---
 
@@ -16,5 +16,16 @@ $$
 C^{G_K}=K
 $$
 is [@tate1967pdivisible, §3, Theorem 1, p. 176].
+
+**Cyclotomic twists (Tate–Sen).** Write $C(n)=C\otimes_{\mathbb Q_p}\mathbb Q_p(n)$, where $G_K$ acts on $\mathbb Q_p(n)$ by the $n$th power of the cyclotomic character. For every integer $n\ne0$,
+$$
+C(n)^{G_K}=0.
+$$
+This holds in the same setting, including infinite perfect residue fields [@brinonconrad2009, Definition 1.3.1, p. 7; §2, p. 11; Theorem 2.2.7, p. 15]. The graded Hodge–Tate period ring consequently satisfies
+$$
+B_{\mathrm{HT}}=\bigoplus_{n\in\mathbb Z}C(n),\qquad
+B_{\mathrm{HT}}^{G_K}=K,
+$$
+with $K$ in degree zero [@brinonconrad2009, Definition 2.4.7 and following discussion, p. 22]. This is the invariant identity used in the [non-Galois Lubin–Tate argument](non-galois-lubin-tate-representations-are-not-aut-intrinsically-hodge-tate.md).
 
 **Role in the graph.** The base-field identity identifies the field of definition in the [Berkovich section criterion](berkovich-points-fixed-by-p-adic-sections.md). It also enters the local proof of [Tate full faithfulness](tate-full-faithfulness-for-p-divisible-groups.md), through descent of points and tangent vectors and linear independence of invariant vectors [@tate1967pdivisible, §4.1, proof of Proposition 11, Steps 3 and 7, pp. 178–179]. The input here includes the natural action on the topological field $C$.
