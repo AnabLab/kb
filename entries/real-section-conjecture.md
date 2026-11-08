@@ -7,6 +7,7 @@ edges:
   - {to: hyperbolic-curve, label: uses}
   - {to: section-conjecture, label: analogous-to, note: "Over R the section classes classify connected components of real points."}
   - {to: involutions-and-real-places, label: analogous-to, note: "Involutions encode real connected components here and real places of algebraic extensions of Q there."}
+  - {to: two-nilpotent-real-section-theorem, label: analogous-to, note: "Wickelgren detects real components among abelian section classes by lifting to the geometric class-two quotient."}
 ---
 
 **Setting.** Let $X/\mathbb R$ be a smooth geometrically connected curve. Write
@@ -37,6 +38,6 @@ $$
 \operatorname{Br}(X/\mathbb R)
 :=\ker\bigl(\operatorname{Br}(\mathbb R)\longrightarrow\operatorname{Br}(X)\bigr)=0
 $$
-[@stix2010, Theorem 21, p. 12].
+[@stix2010, Definition 4, p. 3, and Theorem 21, p. 12].
 
 **Proof mechanisms in the sources.** Mochizuki uses Cox's criterion relating real points to nonvanishing étale mod-$2$ cohomology in arbitrarily high degrees, then applies it to finite étale neighbourhoods of a section [@mochizuki2003topics, Lemma 3.12, its following remark, and proof of Corollary 3.13, pp. 141–143]. In the proper case, Stix obtains a real point from the inverse limit of the nonempty compact real loci of those neighbourhoods. For injectivity on components he uses the Jacobian's mod-$2$ Kummer map and a sign-change argument for real rational functions [@stix2010, proof of Theorem 26, Lemma 27 and Proposition 28, pp. 14–15].
