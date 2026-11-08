@@ -15,6 +15,8 @@ edges:
 
 The theorem also has a fourth equivalent condition, called a reciprocity isomorphism.
 
+A companion [Hom theorem](l-series-homomorphisms-number-fields.md) recovers number-field embeddings using divisibility of local Euler polynomials on prime-order characters.
+
 **Number fields.** For a number field $K$ and any $k \ge 3$, there is a single character $\chi$ of order $k$ such that every number field $L$ with a character $\chi'$ satisfying $L_L(\chi') = L_K(\chi)$ is isomorphic to $K$ [@cornelissen2019, §1]. The precise statement is [@cornelissen2019, Theorem 10.1].
 
 **Contrast.** Zeta functions do not determine global fields, by Gaßmann for number fields and by a theorem of Tate for function fields [@cornelissen2019, §1]. The [abelianized Galois group](abelian-galois-group-does-not-determine-number-field.md) does not determine them either.
