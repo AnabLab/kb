@@ -4,6 +4,7 @@ kind: theorem
 summary: 'For every algebraic extension K of Q, degree-two mod-l Galois cohomology injects into its local groups and surjects onto those at any finite set of places (Neukirch). These two properties force henselianity in his characterization of algebraic p-adic fields.'
 tags: [number-fields, local-fields, galois-cohomology]
 edges:
+  - {to: poitou-tate-duality, label: uses, note: "The restricted-ramification localization kernel is computed using this duality [@ivanov2014, proof of Proposition 3.5, p. 12]."}
   - {to: local-correspondence-at-the-boundary, label: analogous-to, note: "With restricted ramification, a class-group term obstructs the corresponding injectivity [@ivanov2014, proof of Proposition 3.5, p. 12]."}
 ---
 

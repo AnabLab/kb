@@ -4,6 +4,7 @@ kind: theorem
 summary: 'For a number field $K$ and finite $S$ containing all primes over two rational primes, one of them $p$, the decomposition groups in $G_{K,S}$ over these are full local Galois groups. Given $G_{K,S}$, those at all of $S$ carry the same information as the $p$-cyclotomic character.'
 tags: [number-fields, galois-groups, local-fields, fundamental-groups]
 edges:
+  - {to: poitou-tate-duality, label: uses, note: "The decomposition-group criterion uses the duality of localization kernels and its class-group interpretation [@ivanov2014, proof of Proposition 3.5, p. 12]."}
   - {to: isom-problem-for-arithmetic-curves, label: addresses, note: "It matches the boundary points for isomorphisms respecting the cyclotomic character [@ivanov2014, Corollary 1.4]."}
   - {to: neukirch-local-theory, label: motivated-by, note: "Ivanov proves part 2 by modifying Neukirch's Brauer group argument [@ivanov2014, §3, p. 9]."}
   - {to: demushkin-group, label: uses, note: "The method uses the subgroups of $p$-decomposition type, the non-abelian Demushkin groups of rank $2$ [@ivanov2014, Definition 2.1]."}
