@@ -1,10 +1,9 @@
 ---
 title: Uniform symbol-length bounds for elementary-type groups
 kind: theorem
-summary: 'Efrat bounds pullbacks of a fixed cohomology class uniformly over standard elementary-type pro-p groups. Every value of an m-fold Massey product has symbol length at most $\lfloor m^2/4\rfloor+m$.'
+summary: 'Efrat bounds pullbacks of a fixed cohomology class uniformly over standard elementary-type pro-p groups. For such groups, every value of an m-fold Massey product has symbol length at most $\lfloor m^2/4\rfloor+m$.'
 tags: [galois-cohomology, pro-p-groups, milnor-k-theory]
 edges:
-  - {to: elementary-type-conjecture, label: uses, note: 'The standard class supplies the hypothesis; its conjectural exhaustiveness is used only in the final field-wide consequence.'}
   - {to: massey-vanishing-conjecture, label: analogous-to, note: 'Controls the symbol length of every value of a defined product.'}
 ---
 
