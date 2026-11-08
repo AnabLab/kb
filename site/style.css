@@ -122,10 +122,9 @@ h1, h2, h3 { line-height: 1.25; margin: 0; }
 .node.kind-wanted .mark { stroke: var(--edge); stroke-width: 1.5; }
 .node.is-refuted .mark { stroke: var(--critical); stroke-width: 2.5; }
 .node text { display: none; font-size: calc(12px * var(--unit, 1)); fill: var(--ink); paint-order: stroke; stroke: var(--surface); stroke-width: calc(3.5px * var(--unit, 1)); stroke-linejoin: round; pointer-events: none; }
-.node.is-labelled text { display: block; }
 .has-focus .node:not(.is-focus), .has-focus .edge:not(.is-focus) { opacity: 0.18; }
 .has-focus .edge.is-focus .edge-line { opacity: 1; stroke-width: 1.75; }
-.has-few-edges .edge.is-focus text, .has-focus .node.is-focus text { display: block; }
+.has-few-edges .edge.is-focus text, .node.is-selected text { display: block; }
 .node.is-selected .mark { stroke: var(--ink); stroke-width: 2.5; }
 .node.is-filtered { opacity: 0.1; pointer-events: none; }
 .node.is-filtered text { display: none; }

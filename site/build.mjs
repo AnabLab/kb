@@ -209,7 +209,17 @@ export function layoutGraph(index) {
   const unit = nodes.length === 0 ? 1 : Math.max(1, spanOf(nodes.map((node) => node.x)) / 700, spanOf(nodes.map((node) => node.y)) / 520);
   const lineHeight = 18 * unit;
 
-  // Label the most connected nodes first, trying each side, and skipping any label that would still collide.
+  // A node's label shows only while it is selected; hovering shows its title in a tooltip instead. Place
+  // labels most connected first, trying each side, so that a label clears its neighbours where it can and
+  // stays inside the view, which fits the nodes.
+  const padding = 48;
+  const bounds = {
+    left: Math.min(...nodes.map((node) => node.x - node.r)) - padding,
+    right: Math.max(...nodes.map((node) => node.x + node.r)) + padding,
+    top: Math.min(...nodes.map((node) => node.y - node.r - 6)) - padding,
+    bottom: Math.max(...nodes.map((node) => node.y + node.r + 6)) + padding,
+  };
+  const inside = ({ box }) => box.left >= bounds.left && box.right <= bounds.right && box.top >= bounds.top && box.bottom <= bounds.bottom;
   const placed = [];
   for (const node of [...nodes].sort((a, b) => b.degree - a.degree || a.id.localeCompare(b.id))) {
     const width = shortTitle(node.title).length * CHAR_WIDTH * unit;
@@ -223,18 +233,17 @@ export function layoutGraph(index) {
     ];
     const overlaps = (a, b) => a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top;
     const isClear = ({ box }) =>
+      inside({ box }) &&
       !placed.some((other) => overlaps(box, other)) &&
       !nodes.some((other) => other !== node && overlaps(box, { left: other.x - other.r, right: other.x + other.r, top: other.y - other.r, bottom: other.y + other.r }));
     const choice = candidates.find(isClear);
-    node.label = choice ?? candidates[0];
-    node.labelled = node.kind !== "wanted" && Boolean(choice);
-    if (node.labelled) placed.push(choice.box);
+    node.label = choice ?? candidates.find(inside) ?? candidates[0];
+    if (choice) placed.push(choice.box);
   }
 
-  const padding = 48;
-  const labelBoxes = nodes.filter((node) => node.labelled).map((node) => node.label.box);
-  const xs = [...nodes.flatMap((node) => [node.x - node.r, node.x + node.r]), ...labelBoxes.flatMap((box) => [box.left, box.right])];
-  const ys = [...nodes.flatMap((node) => [node.y - node.r - 6, node.y + node.r + 6]), ...labelBoxes.flatMap((box) => [box.top, box.bottom])];
+  // The view fits the nodes.
+  const xs = nodes.flatMap((node) => [node.x - node.r, node.x + node.r]);
+  const ys = nodes.flatMap((node) => [node.y - node.r - 6, node.y + node.r + 6]);
   const viewBox = nodes.length === 0 ? [0, 0, 800, 400] : [Math.min(...xs) - padding, Math.min(...ys) - padding, Math.max(...xs) - Math.min(...xs) + 2 * padding, Math.max(...ys) - Math.min(...ys) + 2 * padding];
   const [minWidth, minHeight] = [640, 440];
   if (viewBox[2] < minWidth) [viewBox[0], viewBox[2]] = [viewBox[0] - (minWidth - viewBox[2]) / 2, minWidth];
@@ -296,7 +305,7 @@ function renderGraph(graph) {
     .map((node) => {
       const href = node.kind === "wanted" ? `${BASE}/#wanted-${node.id}` : `${BASE}/${node.id}/`;
       const kindName = node.kind === "wanted" ? "Not written yet" : KIND_NAMES[node.kind];
-      const classes = ["node", `kind-${node.kind}`, node.refuted && "is-refuted", node.labelled && "is-labelled"].filter(Boolean).join(" ");
+      const classes = ["node", `kind-${node.kind}`, node.refuted && "is-refuted"].filter(Boolean).join(" ");
       return `<a class="${classes}" href="${href}" data-id="${node.id}" data-kind="${node.kind}" data-title="${escapeHtml(node.title)}" data-kind-name="${escapeHtml(kindName)}" aria-label="${escapeHtml(`${kindName}: ${node.title}`)}" transform="translate(${node.x.toFixed(1)} ${node.y.toFixed(1)})"><circle class="hit" r="${Math.max(14, node.r + 5).toFixed(1)}"/>${nodeMark(node.kind, node.r)}<text x="${node.label.x.toFixed(1)}" y="${node.label.y.toFixed(1)}" text-anchor="${node.label.anchor}">${escapeHtml(shortTitle(node.title))}</text></a>`;
     })
     .join("");
