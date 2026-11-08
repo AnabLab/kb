@@ -4,12 +4,15 @@ kind: theorem
 summary: 'Every Hodge–Tate character of $G_k$, for finite $k/\mathbb{Q}_p$, stays Hodge–Tate after composing with any automorphism of $G_k$. The Lubin–Tate representation of $k \ne \mathbb{Q}_p$ Galois over $\mathbb{Q}_p$ does not, for almost all outer automorphisms, if $p$ is odd or $\sqrt{-1} \in k$.'
 tags: [local-fields, galois-groups, hodge-theory]
 edges:
+  - {to: sen-operator-hodge-tate-criterion, label: uses, note: "For the Hodge–Tate condition in the definition below and the distinction from integral generalized weights."}
   - {to: hodge-tate-geometricity-criterion, label: motivated-by, note: "An automorphism of $G_k$ comes from a field automorphism exactly when it preserves all Hodge–Tate representations. This entry asks which single representations already detect that."}
   - {to: local-galois-group-presentations, label: uses, note: "The automorphisms in the proofs are defined on Jannsen–Wingberg generators, and for $p = 2$ on Diekert's [@kondo2026, Theorem 1.2]."}
   - {to: local-field-galois-invariants, label: uses, note: "Outer automorphisms act on $k_+$ through its group-theoretic reconstruction [@hoshi2021, Summary 3.15]. The cyclotomic character and inertia are also used."}
 ---
 
 **Definition.** Let $k/\mathbb{Q}_p$ be finite and $V$ a finite-dimensional $\mathbb{Q}_p$-vector space. A continuous representation $\rho : G_k \to \mathrm{Aut}_{\mathbb{Q}_p}(V)$ is *Aut-intrinsically Hodge–Tate* if $\rho \circ \alpha$ is Hodge–Tate for every continuous automorphism $\alpha$ of $G_k$ [@hoshi2024, Definition 1.3]. An inner automorphism changes $\rho$ only up to isomorphism, so only the class of $\alpha$ in $\mathrm{Out}(G_k)$ matters [@kondo2026, proof of Theorem 3.5].
+
+See [Sen's operator criterion](sen-operator-hodge-tate-criterion.md) for the Hodge–Tate condition and an example showing why integral generalized weights alone do not suffice.
 
 **Why ask.** An automorphism $\alpha$ of $G_k$ comes from a field automorphism of $\bar k$ exactly when $\rho \circ \alpha$ is Hodge–Tate for every Hodge–Tate $\rho$ [@hoshi2021, Theorem 2.3]. Testing potentially crystalline $\rho$ is enough [@hoshi2024, Theorem 1.4]. For odd $p$, $G_k$ always has automorphisms that do not come from field automorphisms, so some potentially crystalline representation is not Aut-intrinsically Hodge–Tate [@hoshi2024, Corollary 1.5]. In this sense Hodge–Tate-ness is not determined by the topological group $G_k$ [@hoshi2021, Remark 3.15.2]. The results below say which representations show this.
 
