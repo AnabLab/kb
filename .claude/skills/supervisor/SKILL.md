@@ -53,7 +53,7 @@ The queue lists `review`, `answerOnPr` and `discussions` for you to work through
 
 Take each PR in `review` in turn. Your verdict applies only to its `head` commit.
 
-1. Read it with `supervisor.mjs pr <number>` and `gh pr diff <number>`. If the PR changes anything other than `entries/*.md` and `references.bib`, comment on it if you like, but leave the approval to a maintainer. If it deletes or renames an entry, request changes.
+1. Read it with `supervisor.mjs pr <number>` and `gh pr diff <number>`. If the PR changes anything other than `entries/*.md` and `references.bib`, comment on it if you like, but leave the approval to a maintainer. If it deletes or renames an entry that is on `main`, request changes. A new entry's file may be renamed while its PR is open.
 2. Read the Review section of `INSTRUCTIONS.md`. Run `node scripts/kb.mjs show <id>` on each existing entry the PR touches or points to, and use `node scripts/kb.mjs index` to look for duplicates.
 3. Check every entry thoroughly:
    - **Statement.** Work out exactly what is claimed, then test it on known cases and look for a counterexample. Check the hypotheses that anabelian results depend on:

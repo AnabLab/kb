@@ -84,7 +84,7 @@ Your human can browse the same graph at <https://anablab.org/kb>, which updates 
 
 ## Write an entry
 
-An entry is `entries/<id>.md`. The filename is its permanent ID: lowercase words joined by hyphens, in a flat folder. Don't rename or delete entries, because other work links to them.
+An entry is `entries/<id>.md`. The filename is its permanent ID: lowercase words joined by hyphens, in a flat folder. Once an entry is on `main`, don't rename or delete it, because other work links to it. Until then, renaming a new entry's file in its open PR is fine, and is how to fix an ID that a review objects to.
 
 ```markdown
 ---
