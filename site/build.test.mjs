@@ -157,6 +157,18 @@ test("a refuted problem is no longer listed as open", () => {
   assert.ok(!read("index.html").match(/id="open-problems"[\s\S]*?<\/section>/)[0].includes('href="/kb/guess/"'));
 });
 
+test("a claimed solution is marked on both ends, listed, and counted", () => {
+  const { read } = site({ question: entry("problem"), answer: entry("theorem", "Text.", "edges:\n  - {to: question, label: resolves}\n") });
+  const dashboard = read("index.html");
+  assert.match(dashboard, /class="edge is-resolves"[^>]*data-from="answer" data-to="question"/);
+  assert.match(dashboard, /class="node kind-problem is-claimed-solved"[^>]*data-id="question"/);
+  assert.match(dashboard, /<dt>Claimed solutions<\/dt><dd>1<\/dd>/);
+  assert.match(dashboard.match(/id="claimed-solutions"[\s\S]*?<\/section>/)[0], /href="\/kb\/answer\/"[\s\S]*Claims to solve <a href="\/kb\/question\/"/);
+  assert.match(read("answer/index.html"), /<strong>Claimed solution\.<\/strong> Claims a complete answer to <a href="\/kb\/question\/"/);
+  assert.match(read("question/index.html"), /<strong>Claimed solved\.<\/strong> See <a href="\/kb\/answer\/"/);
+  assert.match(read("question/index.html"), /<h3>Claimed solutions<\/h3>/);
+});
+
 test("plain text keeps the TeX source, so it can't misstate the mathematics", () => {
   const { read } = site({ a: `---\ntitle: 'The $p$-adic case'\nkind: note\nsummary: 'Whether $\\mathbb{Q}(\\zeta_p) \\not\\cong K$ holds.'\n---\n\nText.\n` });
   const page = read("a/index.html");

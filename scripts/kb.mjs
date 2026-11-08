@@ -12,6 +12,7 @@ export const LABELS = [
   "implies",
   "generalizes",
   "addresses",
+  "resolves",
   "refutes",
   "analogous-to",
   "motivated-by",
@@ -179,6 +180,10 @@ function parseEntry(file, text, bibKeys, problems) {
   if (edges.some((edge) => edge.label === "refutes") && !REFUTING_KINDS.includes(meta.kind)) {
     problems.push(`${where}: only a theorem or note that establishes the refutation can have a "refutes" arrow`);
   }
+  // A claimed solution is a proved result, kept apart from the question it answers.
+  if (edges.some((edge) => edge.label === "resolves") && meta.kind !== "theorem") {
+    problems.push(`${where}: only a theorem can have a "resolves" arrow, which claims a complete answer to a problem`);
+  }
   const prose = stripCodeAndMath(body);
   checkCitations(prose, where, bibKeys, problems);
   return {
@@ -220,6 +225,14 @@ export function loadCorpus(root) {
     }
     const entry = parseEntry(item.name, readFileSync(join(entriesDir, item.name), "utf8"), bibKeys, problems);
     if (entry) entries.set(entry.id, entry);
+  }
+  for (const entry of entries.values()) {
+    for (const { to } of entry.edges.filter((edge) => edge.label === "resolves")) {
+      const target = entries.get(to);
+      if (target && target.kind !== "problem") {
+        problems.push(`entries/${entry.id}.md: a "resolves" arrow must point to a problem, and ${to} is a ${target.kind}`);
+      }
+    }
   }
   return { entries, problems };
 }
@@ -268,6 +281,10 @@ export function buildIndex(entries) {
           : [],
       refutedBy: (incoming.get(entry.id) ?? [])
         .filter((edge) => edge.label === "refutes")
+        .map((edge) => edge.from)
+        .sort(),
+      resolvedBy: (incoming.get(entry.id) ?? [])
+        .filter((edge) => edge.label === "resolves")
         .map((edge) => edge.from)
         .sort(),
     }));

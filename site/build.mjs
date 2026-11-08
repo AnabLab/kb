@@ -23,6 +23,7 @@ const LABEL_WORDS = {
   implies: ["Implies", "Implied by"],
   generalizes: ["Generalizes", "Generalized by"],
   addresses: ["Addresses", "Addressed by"],
+  resolves: ["Claims to solve", "Claimed solutions"],
   refutes: ["Refutes", "Refuted by"],
   "analogous-to": ["Analogous to", "Analogous to this"],
   "motivated-by": ["Motivated by", "Motivated"],
@@ -174,7 +175,7 @@ const GRAPH_ASPECT = 1.1;
 export function layoutGraph(index) {
   const arrowTargets = new Set(index.entries.flatMap((entry) => entry.edges.map((edge) => edge.to)));
   const nodes = [
-    ...index.entries.map((entry) => ({ id: entry.id, kind: entry.kind, title: plainText(entry.title), refuted: entry.refutedBy.length > 0, degree: entry.edges.length + entry.incoming.length })),
+    ...index.entries.map((entry) => ({ id: entry.id, kind: entry.kind, title: plainText(entry.title), refuted: entry.refutedBy.length > 0, claimedSolved: entry.resolvedBy.length > 0, degree: entry.edges.length + entry.incoming.length })),
     // Only arrows form the graph, so an entry that is only mentioned in a body has no node.
     ...index.wanted.filter((item) => arrowTargets.has(item.id)).map((item) => ({ id: item.id, kind: "wanted", title: wantedName(item.id), degree: 0 })),
   ];
@@ -296,8 +297,8 @@ function renderGraph(graph) {
   const edges = graph.edges
     .map((edge) => {
       const path = edgePath(edge, graph, seen);
-      const style = edge.label === "refutes" ? " is-refutes" : SOFT_LABELS.has(edge.label) ? " is-soft" : "";
-      const marker = edge.label === "refutes" ? "arrow-refutes" : "arrow";
+      const style = edge.label === "refutes" ? " is-refutes" : edge.label === "resolves" ? " is-resolves" : SOFT_LABELS.has(edge.label) ? " is-soft" : "";
+      const marker = edge.label === "refutes" ? "arrow-refutes" : edge.label === "resolves" ? "arrow-resolves" : "arrow";
       return `<g class="edge${style}" data-from="${edge.from}" data-to="${edge.to}" data-label="${edge.label}"><title>${escapeHtml(`${graph.byId.get(edge.from).title}: ${edge.label}: ${graph.byId.get(edge.to).title}`)}</title><path class="edge-hit" d="${path.d}"/><path class="edge-line" d="${path.d}" marker-end="url(#${marker})"/><text x="${path.labelX}" y="${path.labelY}">${edge.label}</text></g>`;
     })
     .join("");
@@ -305,13 +306,14 @@ function renderGraph(graph) {
     .map((node) => {
       const href = node.kind === "wanted" ? `${BASE}/#wanted-${node.id}` : `${BASE}/${node.id}/`;
       const kindName = node.kind === "wanted" ? "Not written yet" : KIND_NAMES[node.kind];
-      const classes = ["node", `kind-${node.kind}`, node.refuted && "is-refuted"].filter(Boolean).join(" ");
+      const classes = ["node", `kind-${node.kind}`, node.refuted && "is-refuted", node.claimedSolved && "is-claimed-solved"].filter(Boolean).join(" ");
       return `<a class="${classes}" href="${href}" data-id="${node.id}" data-kind="${node.kind}" data-title="${escapeHtml(node.title)}" data-kind-name="${escapeHtml(kindName)}" aria-label="${escapeHtml(`${kindName}: ${node.title}`)}" transform="translate(${node.x.toFixed(1)} ${node.y.toFixed(1)})"><circle class="hit" r="${Math.max(14, node.r + 5).toFixed(1)}"/>${nodeMark(node.kind, node.r)}<text x="${node.label.x.toFixed(1)}" y="${node.label.y.toFixed(1)}" text-anchor="${node.label.anchor}">${escapeHtml(shortTitle(node.title))}</text></a>`;
     })
     .join("");
   return `<svg class="graph" viewBox="${graph.viewBox.join(" ")}" role="group" aria-label="Graph of entries and the labelled arrows between them. The table view lists the same entries.">
 <defs>
 <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 .8L7 4L0 7.2Z"/></marker>
+<marker id="arrow-resolves" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 .8L7 4L0 7.2Z"/></marker>
 <marker id="arrow-refutes" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 .8L7 4L0 7.2Z"/></marker>
 </defs>
 <g class="viewport"><g class="edges">${edges}</g><g class="nodes">${nodes}</g></g></svg>`;
@@ -325,6 +327,13 @@ function statusNotes(entry, titleOf, inline) {
     notes.push(`<p class="status status-critical"><span aria-hidden="true">✕</span> <strong>${contested ? "Disputed" : "Refuted"}.</strong> See ${list(entry.refutedBy)}.</p>`);
   } else if (contested) {
     notes.push(`<p class="status status-warning"><span aria-hidden="true">!</span> <strong>Contested.</strong> This claim is under genuine dispute.</p>`);
+  }
+  const claims = entry.edges.filter((edge) => edge.label === "resolves").map((edge) => edge.to);
+  if (claims.length > 0) {
+    notes.push(`<p class="status status-claim"><span aria-hidden="true">✓</span> <strong>Claimed solution.</strong> Claims a complete answer to ${list(claims)}.</p>`);
+  }
+  if (entry.resolvedBy.length > 0) {
+    notes.push(`<p class="status status-claim"><span aria-hidden="true">✓</span> <strong>Claimed solved.</strong> See ${list(entry.resolvedBy)}.</p>`);
   }
   if (entry.conditionalOn.length > 0) {
     notes.push(`<p class="status status-warning"><span aria-hidden="true">!</span> <strong>Conditional.</strong> Rests on ${list(entry.conditionalOn)}, which ${entry.conditionalOn.length === 1 ? "is" : "are"} not established.</p>`);
@@ -392,6 +401,7 @@ function renderDashboard(index, graph, dates, inline, titleOf, isWritten) {
   const tiles = [
     tile("Entries", entries.length),
     ...["theorem", "problem", "idea", "definition", "note"].map((kind) => tile(KIND_PLURALS[kind], counts[kind], kindIcon(kind))),
+    tile("Claimed solutions", entries.filter((entry) => entry.edges.some((edge) => edge.label === "resolves")).length),
     tile("Arrows", arrowCount),
     tile("Wanted", wanted.length),
   ].join("");
@@ -405,6 +415,8 @@ function renderDashboard(index, graph, dates, inline, titleOf, isWritten) {
   const byConnections = (a, b) => b.edges.length + b.incoming.length - (a.edges.length + a.incoming.length) || a.id.localeCompare(b.id);
   const problems = entries.filter((entry) => entry.kind === "problem" && entry.refutedBy.length === 0).sort(byConnections);
   const ideas = entries.filter((entry) => entry.kind === "idea" && entry.refutedBy.length === 0).sort(byConnections);
+  const claimed = entries.filter((entry) => entry.edges.some((edge) => edge.label === "resolves")).sort(byConnections);
+  const claimItem = (entry) => `<li><a href="${BASE}/${entry.id}/">${inline(entry.title)}</a><p>Claims to solve ${entry.edges.filter((edge) => edge.label === "resolves").map((edge) => (isWritten(edge.to) ? `<a href="${BASE}/${edge.to}/">${inline(titleOf(edge.to))}</a>` : escapeHtml(wantedName(edge.to)))).join(", ")}.</p></li>`;
   const recent = entries.filter((entry) => dates.has(entry.id)).sort((a, b) => dates.get(b.id).localeCompare(dates.get(a.id)) || a.id.localeCompare(b.id));
   const listSection = (id, heading, items, renderItem, empty) => `<section class="list" id="${id}"><h2>${heading}</h2>${items.length > 0 ? `<ul>${items.slice(0, LIST_LENGTH).map(renderItem).join("")}</ul>${items.length > LIST_LENGTH ? `<p class="muted">And ${items.length - LIST_LENGTH} more in the table view.</p>` : ""}` : `<p class="muted">${empty}</p>`}</section>`;
 
@@ -412,7 +424,7 @@ function renderDashboard(index, graph, dates, inline, titleOf, isWritten) {
     .map(([kind, name, icon]) => `<label class="chip"><input type="checkbox" data-filter-kind="${kind}" checked>${icon}${name}</label>`)
     .join("");
   const labelChips = LABELS.filter((label) => graph.edges.some((edge) => edge.label === label))
-    .map((label) => `<label class="chip chip-edge"><input type="checkbox" data-filter-label="${label}" checked><span class="edge-key${label === "refutes" ? " is-refutes" : SOFT_LABELS.has(label) ? " is-soft" : ""}"></span>${label}</label>`)
+    .map((label) => `<label class="chip chip-edge"><input type="checkbox" data-filter-label="${label}" checked><span class="edge-key${label === "refutes" ? " is-refutes" : label === "resolves" ? " is-resolves" : SOFT_LABELS.has(label) ? " is-soft" : ""}"></span>${label}</label>`)
     .join("");
 
   const templates = entries
@@ -448,7 +460,7 @@ ${renderGraph(graph)}
 <p class="graph-hint">Drag to move around. Hold Ctrl and scroll to zoom.</p>
 <div class="graph-tooltip" data-tooltip hidden></div>
 </figure>
-<aside class="panel" data-panel aria-live="polite"><div data-panel-default><h2>Explore the graph</h2><p>Each shape is an entry, and each arrow says how one entry relates to another. Select a node to see its summary and connections here.</p><p class="muted">Solid arrows are logical, dashed arrows relate ideas, and red arrows refute their target. A red outline marks a refuted entry, and a dashed circle marks an entry not written yet.</p></div><div data-panel-content hidden></div></aside>
+<aside class="panel" data-panel aria-live="polite"><div data-panel-default><h2>Explore the graph</h2><p>Each shape is an entry, and each arrow says how one entry relates to another. Select a node to see its summary and connections here.</p><p class="muted">Solid arrows are logical, dashed arrows relate ideas, red arrows refute their target, and purple arrows claim to solve it. A red outline marks a refuted entry, a purple outline marks a problem with a claimed solution, and a dashed circle marks an entry not written yet.</p></div><div data-panel-content hidden></div></aside>
 </div>
 <details class="table-view"><summary>Table view: every entry, with these filters applied</summary>
 <div class="table-scroll"><table><thead><tr><th>Entry</th><th>Kind</th><th class="num">Arrows out</th><th class="num">Arrows in</th><th class="num">Updated</th></tr></thead><tbody>${rows}</tbody></table></div>
@@ -456,6 +468,7 @@ ${renderGraph(graph)}
 </section>
 <div class="lists">
 ${listSection("open-problems", "Open problems", problems, item, "None yet.")}
+${listSection("claimed-solutions", "Claimed solutions", claimed, claimItem, "No entry claims to solve a problem yet.")}
 ${listSection("active-ideas", "Active ideas", ideas, item, "None yet.")}
 ${listSection("recent", "Recently updated", recent, (entry) => `<li><a href="${BASE}/${entry.id}/">${inline(entry.title)}</a><p>${kindIcon(entry.kind)}${KIND_NAMES[entry.kind]} · ${dates.get(entry.id)}</p></li>`, "No history yet.")}
 <section class="list" id="wanted"><h2>Wanted entries</h2>${wanted.length > 0 ? `<ul>${wanted.map((want) => `<li id="wanted-${want.id}">${escapeHtml(wantedName(want.id))}<p>Referenced by ${want.referencedBy.map((id) => `<a href="${BASE}/${id}/">${inline(titleOf(id))}</a>`).join(", ")}</p></li>`).join("")}</ul>` : `<p class="muted">Nothing is waiting to be written.</p>`}</section>
