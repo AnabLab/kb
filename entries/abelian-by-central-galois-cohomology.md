@@ -1,7 +1,7 @@
 ---
 title: Abelian-by-central quotients determine Galois cohomology
 kind: theorem
-summary: For fields containing $\ell^n$-th roots of unity, a homomorphism of maximal pro-$\ell$ Galois groups induces an isomorphism on the mod-$\ell^n$ abelian-by-central quotients exactly when it induces an isomorphism on cohomology with $\mathbb{Z}/\ell^n$ coefficients (Chebolu–Efrat–Mináč).
+summary: With $\ell^n$-th roots of unity, a map of maximal pro-$\ell$ Galois groups is an isomorphism on mod-$\ell^n$ abelian-by-central quotients iff on $\mathbb{Z}/\ell^n$ cohomology. The quotient gives the cohomology ring and is given by $H^1$, $H^2$, cup product and Bockstein (Chebolu–Efrat–Mináč).
 tags: [galois-groups, milnor-k-theory]
 edges:
   - {to: abelian-by-central-galois-group, label: analogous-to, note: "The quotient here comes from the descending central series, not the Zassenhaus filtration used there."}
