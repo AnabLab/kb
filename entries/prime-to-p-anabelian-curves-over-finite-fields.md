@@ -24,4 +24,6 @@ whose horizontal arrows are scheme isomorphisms inducing $\alpha$ and whose vert
 
 **Intrinsic data.** No map of constant fields or Frobenius marking is supplied. The subgroup $\Delta_U$, quotient $G_k$, arithmetic Frobenius, characteristic, cardinality of $k$, genus and number of geometric punctures are recoverable from $\Pi_U$ [@saiditamagawa2009, Proposition 1.15 (i)–(v), (viii), pp. 150–152]. The theorem uses all primes different from the characteristic.
 
+For proper curves, a [later refinement](proper-curves-over-finite-fields-from-large-prime-sets.md) allows any finite set of primes to be omitted, and more generally any omitted set for which the Jacobian's corresponding Tate representation has nontrivial kernel [@saiditamagawa2018refined, Theorem C and following paragraph, p. 3].
+
 **Method.** For proper curves, cuspidalization recovers Kummer theory on affine opens $X\setminus S$, where the finite set of removed closed points $S$ avoids a finite exceptional set $E_X$. Kummer theory then determines, up to Frobenius twist, the multiplicative group of rational functions whose divisor avoids $E_X$. Functions with one pole recover addition [@saiditamagawa2009, §0, pp. 138–139].
