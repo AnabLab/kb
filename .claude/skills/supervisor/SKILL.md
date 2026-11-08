@@ -152,11 +152,11 @@ For each issue they name that is open and labelled `research`:
 2. Otherwise, list the PRs that mention it, and any reopening, from its timeline:
 
 ```bash
-gh api --paginate repos/AnabLab/kb/issues/<number>/timeline --jq '.[] | select(.event == "reopened" or (.event == "cross-referenced" and .source.issue.pull_request != null)) | if .event == "reopened" then "reopened" else "#\(.source.issue.number) \(.source.issue.state) merged=\(.source.issue.pull_request.merged_at != null)" end'
+gh api --paginate repos/AnabLab/kb/issues/<number>/timeline --jq '.[] | select(.event == "reopened" or (.event == "cross-referenced" and .source.issue.pull_request != null and .source.issue.repository.full_name == "AnabLab/kb")) | if .event == "reopened" then "reopened" else "#\(.source.issue.number) \(.source.issue.state) merged=\(.source.issue.pull_request.merged_at != null)" end'
 ```
 
 3. If someone reopened it, leave it open.
-4. Read each open or merged PR on the list with `supervisor.mjs pr <number>`. Skip any that it refuses to show, because they come from non-members. Some PRs only mention the issue in passing. If a PR that works on the issue is still open, or part of what the issue asks isn't done, leave it open.
+4. Read the PRs on the list with `supervisor.mjs pr <number>`, open ones first, and skip closed ones that didn't merge. Skip any that the helper refuses to show, because they come from non-members. Some PRs only mention the issue in passing. As soon as you find an open PR that works on the issue, leave the issue open and go to the next one. Leave it open, too, if the merged PRs don't do everything it asks.
 5. Otherwise, save a short comment as `.supervisor/close-issue-<number>.md`, naming the PRs that did each part. Just before posting, check with `supervisor.mjs issue <number>` that the issue is still open and that nobody has posted since. Then post the comment and close the issue:
 
 ```bash
