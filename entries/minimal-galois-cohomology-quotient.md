@@ -1,11 +1,11 @@
 ---
 title: The minimal quotient retaining Galois cohomology by inflation
 kind: theorem
-summary: 'For a field containing a primitive qth root of unity, Efrat–Mináč identify the smallest Galois quotient whose degree-one-generated cohomology inflates isomorphically to the full mod-q ring. Cup products reconstruct it; for q an odd prime it is detected by cyclic and Heisenberg quotients.'
+summary: 'For a field containing a primitive qth root of unity, Efrat–Mináč identify the smallest Galois quotient whose degree-one-generated cohomology inflates isomorphically to the full mod-q ring. Cup products determine it; for q an odd prime it is detected by cyclic and Heisenberg quotients.'
 tags: [galois-groups, galois-cohomology, pro-p-groups]
 edges:
   - {to: norm-residue-isomorphism-theorem, label: uses, note: "Theorem A uses the full symbol isomorphism; Theorem D uses only degree-two injectivity [@efratminac2017functors, §1, p. 3]."}
-  - {to: abelian-by-central-galois-cohomology, label: analogous-to, note: "A quotient of the descending q-central quotient there, with a precise minimality property [@efratminac2017functors, §1 and Remark 2.1(2)]."}
+  - {to: abelian-by-central-galois-cohomology, label: implies, note: "Theorem C strengthens the target's isomorphism criterion for maps [@efratminac2017functors, §1, p. 2]."}
   - {to: kernel-unipotent-conjecture, label: addresses, note: "For q = p, the intersection formula below is its n = 3 case [@efratminac2017functors, §1, p. 4]."}
 ---
 

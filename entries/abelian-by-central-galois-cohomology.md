@@ -19,4 +19,4 @@ edges:
 
 **Attribution.** In the original paper this is Theorem C, stated for absolute Galois groups, and Remark 8.2 there says that it also holds for maximal pro-$\ell$ Galois groups [@cheboluefratminac2012, Theorem C and Remark 8.2].
 
-**Minimal quotient.** Efrat and Mináč identify a [minimal quotient for inflation](minimal-galois-cohomology-quotient.md). It is reconstructed from the degree-one cup product without a separate Bockstein map [@efratminac2017functors, Theorems A–B and Corollary 7.3(1)].
+**Minimal quotient.** Efrat and Mináč identify a [minimal quotient for inflation](minimal-galois-cohomology-quotient.md). It is determined by the degree-one cup product without a separate Bockstein map [@efratminac2017functors, Theorems A–B and Corollary 7.3(1)].
