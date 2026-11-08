@@ -1,7 +1,7 @@
 ---
 title: A small Galois quotient and Brauer duality characterize positive-characteristic local fields
 kind: theorem
-summary: Dittmann characterizes $\mathbb F_q((t))$ using a quotient built from finite groups with a class-two nilpotent normal subgroup and abelian quotient, together with imperfection at most one, cyclic p-torsion Brauer group and its duality pairing.
+summary: Dittmann characterizes $\mathbb F_q((t))$ using its maximal pro-$\mathcal C$ Galois quotient, imperfection at most one, Brauer $p$-torsion of order $p$ and cyclic-algebra duality.
 tags: [local-fields, galois-groups, galois-cohomology, valuations]
 edges:
   - {to: local-fields-characteristic-p-brauer-characterization, label: generalizes, note: "Theorem 5.7 replaces the full Galois group in Theorem 1.1 by its maximal pro-C quotient, retaining the other axioms [@dittmann2025, p. 15]."}
