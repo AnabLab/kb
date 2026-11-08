@@ -35,10 +35,12 @@ $$h_B(z)=\frac{1}{1-dz+mz^2}.$$
 
 These are [@minacpasiniquadrellitan2022mild, Proposition 4.1, Proposition 4.5 and Theorem 4.6 with its proof, pp. 10–11]. For $m\ge1$ the group has $\operatorname{cd}(G)=2$ [@minacpasiniquadrellitan2022mild, Proposition 4.5, p. 11]. Conversely, if $G$ is finitely generated, $\operatorname{cd}(G)=2$ and $H$ is Koszul, then $G$ is mild [@minacpasiniquadrellitan2022mild, Proposition 4.7, pp. 11–12]. The theorem and converse hold also at $p=2$.
 
+**Abstract examples.** Infinite [Demushkin groups](demushkin-group.md) and, for odd $p$, the groups $S/\langle\!\langle r\rangle\!\rangle$ with $S$ finitely generated free pro-$p$ and $r\in S_{(2)}\setminus S_{(3)}$ are mild with quadratic cohomology, so the theorem applies to them. Here $S_{(n)}$ denotes the Zassenhaus filtration [@minacpasiniquadrellitan2022mild, Examples 5.1–5.2, p. 12]. Galois realizability is a further condition; see the [Kummerian obstruction for a group in this one-relator family](kummerian-obstruction-to-galois-realizability.md).
+
 **A cup-product criterion.** For a finitely generated $G$ with $H^2(G,\mathbb F_p)\ne0$, a decomposition $H^1(G,\mathbb F_p)=U\oplus W$ with
 
 $$U\cup U=0,\qquad U\otimes W\xrightarrow{\ \cup\ }H^2(G,\mathbb F_p)\ \text{surjective}$$
 
 implies mildness [@minacpasiniquadrellitan2022mild, Proposition 5.8, p. 15]. This is a sufficient criterion; no choice of presentation is part of its hypothesis.
 
-**Galois application.** Let $K$ contain a primitive $p$th root of unity and also $\sqrt{-1}$ if $p=2$. If $G_K(p)$ is mild, the [norm residue theorem](norm-residue-isomorphism-theorem.md) supplies quadratic cohomology, and the theorem proves the mild case of Positselski's conjecture and the corresponding quadratic-duality and graded-algebra Koszulity conjectures [@minacpasiniquadrellitan2022mild, Introduction, Conjectures 1.1–1.2 and the paragraph following Theorem 1.3, pp. 1–3]. Infinite [Demushkin groups](demushkin-group.md) are examples; for odd $p$, so is $S/\langle\!\langle r\rangle\!\rangle$ when $S$ is finitely generated free pro-$p$ and $r\in S_{(2)}\setminus S_{(3)}$, where $S_{(n)}$ denotes its Zassenhaus filtration [@minacpasiniquadrellitan2022mild, Examples 5.1–5.2, p. 12].
+**Galois application.** Let $K$ have characteristic different from $p$ and contain a primitive $p$th root of unity. If $G_K(p)$ is mild, the [norm residue theorem](norm-residue-isomorphism-theorem.md) supplies quadratic cohomology, and the theorem proves the mild case of Positselski's conjecture and the corresponding quadratic-duality and graded-algebra Koszulity conjectures [@minacpasiniquadrellitan2022mild, Conjectures 1.1–1.2 and the paragraph following Theorem 1.3, pp. 2–3].
