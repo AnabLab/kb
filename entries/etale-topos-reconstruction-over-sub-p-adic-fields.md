@@ -4,6 +4,7 @@ kind: theorem
 summary: 'Carlson–Stix reconstruct finite-type schemes over a fixed sub-p-adic field from their étale topoi, after inverting universal homeomorphisms. For a seminormal source, scheme morphisms correspond to geometric morphisms of topoi that send closed points to closed points.'
 tags: [fundamental-groups, local-fields, number-fields, reconstruction-algorithms]
 edges:
+  - {to: voevodsky-etale-topos-reconstruction, label: generalizes, note: 'Carlson–Stix explicitly recover Voevodsky''s normal case over finitely generated characteristic-zero fields [@carlsonstix2024, Introduction, p. 1].'}
   - {to: mochizuki-hom-theorem-for-hyperbolic-curves, label: uses, note: "The proof reduces to maps to the tripod and applies Mochizuki's Hom theorem [@carlsonstix2024, Proposition 4.5, pp. 13–14]."}
   - {to: purely-inseparable-invariance-of-galois-groups, label: analogous-to, note: "Universal homeomorphisms preserve the entire étale topos, explaining the localization here."}
 ---
