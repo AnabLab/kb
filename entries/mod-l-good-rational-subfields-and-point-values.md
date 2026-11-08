@@ -1,7 +1,7 @@
 ---
 title: Good rational subfields and simultaneous point values modulo ell
 kind: theorem
-summary: 'Nonzero divisorial inertia images recognize the rational curve subfields in which every point is detected. Ratios of transverse parameters supply enough such subfields, and matched character maps give the exact divisor-value condition for field recovery. This checks section 6 of a 2026 manuscript.'
+summary: 'In transcendence degree at least 2, nonzero divisorial inertia images recognize the rational curve subfields with every point detected. Transverse-parameter ratios supply enough of them, and matched character maps give the divisor-value condition for field recovery. Checks section 6 of a manuscript.'
 tags: [function-fields, valuations, curves, milnor-k-theory]
 edges:
   - {to: mod-l-divisoriality-from-curve-subfields, label: uses, note: "Supplies true-divisor matching from the two explicitly assumed correspondences."}

@@ -1,7 +1,7 @@
 ---
 title: True divisors from mod-ell curve subfields
 kind: theorem
-summary: 'A quasi-prime divisor is trivial on the constants exactly when its decomposition annihilator meets some curve subfield in finite dimension modulo ell. Thus matched quasi-divisorial pairs and curve subfields match true divisors. This checks Proposition 6.1 of a 2026 manuscript.'
+summary: 'In transcendence degree at least 2, a quasi-prime divisor is trivial on the constants exactly when its decomposition annihilator meets some curve subfield in finite dimension mod ell. So matched quasi-divisorial pairs and curve subfields match true divisors. Checks Proposition 6.1 of a manuscript.'
 tags: [function-fields, valuations, milnor-k-theory]
 edges:
   - {to: quasi-prime-divisor, label: uses}
