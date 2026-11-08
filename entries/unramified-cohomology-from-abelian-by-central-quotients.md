@@ -1,7 +1,7 @@
 ---
 title: Finite class-two quotients represent unramified cohomology
 kind: theorem
-summary: 'Over $k=\overline{\mathbb F}_p$, every unramified $\mathbb Z/\ell^n$ Galois class of degree greater than one, with $\ell\ne p$, comes from stable unramified cohomology of a suitable finite abelian-by-central $\ell$-group (Bogomolov–Tschinkel).'
+summary: 'For a function field $K/\overline{\mathbb F}_p$ of transcendence degree at least $2$, every unramified $\mathbb Z/\ell^n$ class of degree $i>1$, $\ell\ne p$, comes from stable unramified cohomology of a finite abelian-by-central $\ell$-quotient (Bogomolov–Tschinkel).'
 tags: [function-fields, galois-cohomology, galois-groups]
 edges:
   - {to: unramified-cohomology, label: uses}
@@ -10,7 +10,7 @@ edges:
   - {to: abelian-by-central-galois-cohomology, label: analogous-to, note: "Both encode Galois cohomology through small quotients; here the representative also satisfies an unramified condition."}
 ---
 
-**Statement.** Let $k=\overline{\mathbb F}_p$, let $K/k$ be a function field of transcendence degree at least $2$, and fix $\ell\ne p$, $n\ge1$, $i>1$ and $M=\mathbb Z/\ell^n$. Write $\Pi^c_K$ for the [maximal pro-$\ell$ class-two quotient](abelian-by-central-galois-group.md).
+**Statement.** Let $k=\overline{\mathbb F}_p$, let $K/k$ be a function field of transcendence degree at least $2$, and fix $\ell\ne p$, $n\ge1$, $i>1$ and $M=\mathbb Z/\ell^n$. Write $G_K$ for the absolute Galois group of $K$ and $\Pi^c_K$ for its [maximal pro-$\ell$ class-two quotient](abelian-by-central-galois-group.md).
 
 For every $\alpha\in H^i_{\mathrm{nr}}(K/k,M)$ there are continuous surjections
 $$

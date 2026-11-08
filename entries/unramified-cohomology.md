@@ -3,6 +3,8 @@ title: Unramified Galois cohomology
 kind: definition
 summary: Unramified Galois classes have zero residue at every divisorial valuation. For a finite group, stable unramified cohomology consists of its classes that remain unramified in the invariant field of a faithful representation, independently of that representation.
 tags: [function-fields, galois-cohomology, valuations]
+edges:
+  - {to: quasi-prime-divisor, label: uses, note: "The field definition ranges over prime divisors, also called divisorial valuations."}
 ---
 
 **Fields.** Let $K/k$ be a function field over an algebraically closed field, $\ell\ne\operatorname{char}(k)$, $n,i\ge1$ and $M=\mathbb Z/\ell^n$. Write $H^i(K,M)=H^i(G_K,M)$ for continuous cohomology of the absolute Galois group. Fix roots of unity to suppress Tate twists. Each divisorial valuation $v$ trivial on $k$ has a residue map
@@ -13,9 +15,9 @@ Define
 $$
 H^i_{\mathrm{nr}}(K/k,M)=\bigcap_v\ker(\partial_v).
 $$
-Here divisorial valuations are those arising from prime divisors on normal models of $K/k$; the intersection ranges over all such models [@bogomolovpetrovtschinkel2008, §6, p. 16].
+The intersection ranges over all divisorial valuations of $K/k$ [@bogomolovpetrovtschinkel2008, §6, p. 16]. These are the valuations arising from Weil prime divisors on normal models of $K/k$, as in the [prime-divisor definition](quasi-prime-divisor.md) [@pop2018, §1, p. 2].
 
-**Finite groups.** Let $G$ be finite with $|G|$ invertible in $k$, $V$ a faithful $k$-representation and $F=k(V)^G$. The natural map $G_F\to G$ defines
+**Finite groups.** Let $G$ be finite, $V$ a faithful $k$-representation and $F=k(V)^G$. The natural map $G_F\to G$ defines
 $$
 H^i_s(G,M)=\operatorname{im}\bigl(H^i(G,M)\to H^i(F,M)\bigr),
 \qquad
