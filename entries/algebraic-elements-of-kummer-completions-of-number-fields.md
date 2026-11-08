@@ -4,6 +4,7 @@ kind: theorem
 summary: Let $F$ be a number field. An element of the Kummer completion of $F^\times$ whose components at all degree-one primes are $p$-adic numbers satisfying one rational polynomial lies in $F^\times$. This answers both questions in Tachihara–Tsujimura's Remark 4.4.2 affirmatively.
 tags: [number-fields, mono-anabelian, kummer-theory]
 edges:
+  - {to: chebotarev-density-theorem, label: uses, note: "Step 2 prescribes Frobenius in an abelian Kummer extension and restricts to primes of absolute residue degree one."}
   - {to: purely-mono-anabelian-reconstruction-of-number-fields, label: motivated-by, note: "Answers (Q-1) and (Q-2) of [@tachiharatsujimura2026, Remark 4.4.2, p. 43]. Conditions (iii) and (iv) of their Lemma 4.4 can be dropped, and (i) weakened."}
 ---
 
@@ -39,7 +40,7 @@ Kummer completion is functorial, so $\pi_n(a_v)$ is the class of $\iota_v(a_n)$ 
 
 *Step 2: Chebotarev.* Fix $n$. Put $K = L(\mu_n)$, $\beta_j = \alpha_j a_n^{-1} \in L^\times$, $M_j = K(\beta_j^{1/n})$, and let $M$ be the compositum of the $M_j$. We show that $[M_j : K] \le k$ for some $j$.
 
-Let $\sigma \in \mathrm{Gal}(M/K)$. By the Chebotarev density theorem, the primes of $K$ unramified in $M$ with Frobenius $\sigma$ have Dirichlet density $1/[M:K] > 0$. The primes of $K$ that are unramified over $\mathbb Q$ and of residue degree $1$ over $\mathbb Q$ have Dirichlet density $1$ [@tachiharatsujimura2026, §0, p. 14]. So some prime $P$ of $K$ lies in both sets.
+Let $\sigma \in \mathrm{Gal}(M/K)$. By the [Chebotarev density theorem](chebotarev-density-theorem.md), the primes of $K$ unramified in $M$ with Frobenius $\sigma$ have Dirichlet density $1/[M:K] > 0$ [@milnecft, Chapter VIII, Corollary 7.3, p. 258]. The primes of $K$ that are unramified over $\mathbb Q$ and of residue degree $1$ over $\mathbb Q$ have Dirichlet density $1$ [@milnecft, Chapter VI, Propositions 4.4–4.5, p. 196]. So some prime $P$ of $K$ lies in both sets [@milnecft, Chapter VI, Corollary 4.6, pp. 196–197].
 
 - *The prime $P$.* Let $p$ be the prime below $P$. Then $K_P = \mathbb Q_p$, giving an embedding $\iota_P : K \to \mathbb Q_p$. Let $v$ be the prime of $F$ below $P$. Then $F_v \subseteq K_P = \mathbb Q_p$, so $v \in \mathcal V^{d=1}$, and $\iota_P$ restricts to $\iota_v$ on $F$.
 - *Matching a root.* The numbers $\iota_P(\alpha_1), \dots, \iota_P(\alpha_k)$ are $k$ distinct roots of $g$ in $\mathbb Q_p$, so they are all of its roots there. Hence $a_v = \iota_P(\alpha_j)$ for some $j$.
