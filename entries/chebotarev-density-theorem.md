@@ -5,16 +5,22 @@ summary: 'In a finite Galois extension of number fields with group G, primes who
 tags: [number-fields, galois-groups, reconstruction-algorithms]
 ---
 
-**Density.** For a set $S$ of nonarchimedean primes of a number field $K$, its Dirichlet density, when it exists, is
+**Density.** Throughout this entry, use Milne's convention: a set $S$ of nonarchimedean primes of a number field $K$ has Dirichlet density $\delta(S)$ if
+
+$$
+\sum_{\mathfrak p\in S}(N\mathfrak p)^{-s}
+-\delta(S)\log\frac{1}{s-1}
+$$
+
+stays bounded as real $s\to1^+$, where $N\mathfrak p=|\mathcal O_K/\mathfrak p|$. This implies
 
 $$
 \delta(S)=\lim_{s\to1^+}
 \frac{\sum_{\mathfrak p\in S}(N\mathfrak p)^{-s}}
-{\log(1/(s-1))},
-\qquad N\mathfrak p=|\mathcal O_K/\mathfrak p|.
+{\log(1/(s-1))}
 $$
 
-This is the density used here [@milnecft, Chapter VI, §4, p. 194].
+[@milnecft, Chapter VI, §4, pp. 193–194].
 
 **Theorem (Chebotarev).** Let $L/K$ be a finite Galois extension of number fields, with group $G$, and let $C\subseteq G$ be stable under conjugation. For an unramified prime $\mathfrak p$, write $\operatorname{Frob}_{\mathfrak p}(L/K)$ for its arithmetic Frobenius conjugacy class. Then
 
