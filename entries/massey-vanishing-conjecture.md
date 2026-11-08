@@ -1,7 +1,7 @@
 ---
 title: The Massey vanishing conjecture
 kind: problem
-summary: 'Mináč–Tân predict that every defined mod-$p$ Massey product of degree-one Galois classes contains zero. Known cases include triples, fourfold products at $p=2$, number fields, and fields of virtual cohomological dimension at most one.'
+summary: 'Mináč–Tân predict that every defined mod-$p$ Massey product of degree-one Galois classes contains zero. Known cases include triples, fourfold products at $p=2$, number fields, odd rigid fields, and fields of virtual cohomological dimension at most one.'
 tags: [galois-groups, galois-cohomology, number-fields]
 edges:
   - {to: norm-residue-isomorphism-theorem, label: analogous-to, note: "Both constrain absolute Galois groups through cohomology; Massey products also involve the continuous cochain algebra."}
@@ -25,6 +25,8 @@ For a concrete formulation, let $U_{n+1}(\mathbb{F}_p)$ be the upper unitriangul
 - $n=3$, every field and every prime: the [triple Massey vanishing theorem](triple-massey-products-in-galois-cohomology.md) [@minactan2016, Theorem 1.2, p. 2].
 - $n=4$, $p=2$, every field: Merkurjev–Scavia; see [fourfold Massey products and their norm–Brauer criteria](fourfold-massey-products-modulo-two.md) [@merkurjevscavia2025fourfold, Theorem 1.2, p. 3].
 - Every $n\geq3$ and every prime over number fields: Harpaz–Wittenberg [@harpazwittenberg2023, Theorem 1.3, p. 3].
+- Every $n\geq3$ for odd $p$ over $p$-rigid fields, with no finiteness assumption on $F^\times/F^{\times p}$: Mináč–Tân; see [odd rigid fields](kernel-unipotent-property-and-massey-vanishing-for-odd-rigid-fields.md) [@minactan2015kernel, Theorem 8.5, p. 20].
+- Products with all entries equal, $\langle\chi,\ldots,\chi\rangle$, at every length $n\geq3$ and every prime, over fields that contain a primitive $p$-th root of unity when $\operatorname{char}F\neq p$, and in which $-1$ is a square when $p=2$. Such a product is always defined and contains zero: see [equal entries](massey-products-with-equal-entries-vanish.md) [@minactan2015kernel, Theorem 8.1, p. 17].
 - Every $n\geq3$ and every prime for fields of virtual cohomological dimension at most one: Pál–Szabó proved strong vanishing for degree-one classes [@palszabo2026, Theorem 1.7, p. 155]. Pál–Quick's [formality theorem](galois-cochain-formality-in-virtual-dimension-one.md) extends strong vanishing to arbitrary degrees [@palquick2025, Theorem 1.10, p. 1836]. For odd $p$, ordinary vanishing is immediate from $H^2(G_F,\mathbb F_p)=0$; the substantive case is $p=2$ [@palquick2025, Remarks 1.4 and 1.9, pp. 1834 and 1836].
 
 For the last bullet, strong vanishing implies the stated conjecture as follows. In a defining system, $\delta a_{i,i+2}=a_{i,i+1}\cup a_{i+1,i+2}$, so each adjacent cup product $x_i\cup x_{i+1}$ is zero in cohomology. Strong vanishing then gives $0\in\langle x_1,\ldots,x_n\rangle$.
