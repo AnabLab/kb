@@ -1,7 +1,7 @@
 ---
 title: Tamagawa's anabelian theorems for curves over algebraically closed fields of characteristic p
 kind: theorem
-summary: 'Over an algebraically closed field of characteristic $p>0$, the tame fundamental group of a curve determines $p$ and the type $(g,n)$, and in genus $0$ over $\bar{\mathbb F}_p$ it determines the curve as a scheme (Tamagawa). In characteristic $0$ it depends only on $(g,n)$.'
+summary: 'For a curve other than $\mathbb P^1$, $\mathbb A^1$ over an algebraically closed field of characteristic $p>0$, the tame fundamental group determines $p$ and $(g,n)$, and in genus $0$ over $\bar{\mathbb F}_p$ the curve as a scheme among such curves. In characteristic $0$ it depends only on $(g,n)$.'
 tags: [curves, fundamental-groups, reconstruction-algorithms]
 edges:
   - {to: hyperbolic-curve, label: uses}
