@@ -5,7 +5,7 @@ summary: 'For a complete discretely valued field K of mixed characteristic with 
 tags: [local-fields, galois-groups, hodge-theory]
 ---
 
-**Setting.** Let $K$ be a complete discretely valued field of mixed characteristic $(0,p)$ with perfect residue field. Choose an algebraic closure $\bar K$, put $C=\widehat{\bar K}$, and extend the natural action of $G_K=\operatorname{Gal}(\bar K/K)$ to $C$ by continuity [@tate1967pdivisible, §3, pp. 170, 174].
+**Setting.** Let $K$ be a complete discretely valued field of mixed characteristic $(0,p)$ with perfect residue field. Choose an algebraic closure $\bar K$, put $C=\widehat{\bar K}$, and extend the natural action of $G_K=\operatorname{Gal}(\bar K/K)$ to $C$ by continuity [@tate1967pdivisible, §3, opening hypotheses and paragraph preceding Proposition 10].
 
 **Fixed fields (Ax–Sen–Tate).** For every closed subgroup $H\subseteq G_K$, put $L=\bar K^H$. Then, as subfields of $C$,
 $$
