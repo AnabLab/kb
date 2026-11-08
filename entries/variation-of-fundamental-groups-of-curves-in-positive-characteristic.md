@@ -4,6 +4,7 @@ kind: theorem
 summary: 'In characteristic $p$, specializing a proper smooth curve of genus $g \ge 2$ not defined over $\bar{\mathbb F}_p$ to one that is never induces an isomorphism of étale $\pi_1$ (Tamagawa). No nonisotrivial family of hyperbolic curves has constant geometric $\pi_1$, tame or étale (Saïdi–Tamagawa).'
 tags: [curves, fundamental-groups]
 edges:
+  - {to: specialization-of-fundamental-groups-of-curves, label: uses, note: "The setting uses surjective proper specialization and invariance of the prime-to-p quotient."}
   - {to: weak-isom-conjecture-in-positive-characteristic, label: addresses, note: "It proves the conjecture for a closed point and any other point specializing to it, rules out positive-dimensional families with constant group, and gives finiteness over the algebraic closure of the prime field."}
   - {to: hyperbolic-curve, label: uses, note: "The affine forms assume $2 - 2g - n < 0$."}
 ---
