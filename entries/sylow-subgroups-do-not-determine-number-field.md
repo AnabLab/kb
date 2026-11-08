@@ -22,6 +22,6 @@ These are nonisomorphic Sylow-conjugate degree-seven fields [@lubotzkyneftin2023
 
 **Relation to arithmetic equivalence.** Sylow-conjugacy does not imply equality of Dedekind zeta functions, and arithmetic equivalence does not imply Sylow-conjugacy [@lubotzkyneftin2023, Examples 4.1–4.2, pp. 11–12]. Both properties can hold simultaneously for nonisomorphic fields [@lubotzkyneftin2023, Example 4.3, p. 12].
 
-**Scope.** The invariant here consists of Sylow subgroups of the full absolute Galois group. A maximal pro-$p$ quotient is different data. The [pro-$\ell$-by-cyclotomic reconstruction theorem](pro-l-by-cyclotomic-neukirch-uchida.md) explicitly contrasts its positive result with this Sylow-subgroup obstruction [@karshonshusterman2026, §1, p. 1].
+**Scope.** The invariant here consists of Sylow subgroups of the full absolute Galois group. A maximal pro-$p$ quotient is different data. Karshon and Shusterman list this Sylow-subgroup obstruction among the negative results that precede their [pro-$\ell$-by-cyclotomic reconstruction theorem](pro-l-by-cyclotomic-neukirch-uchida.md) [@karshonshusterman2026, §1, p. 1].
 
 **Sources.** The Lubotzky–Neftin paper was published in 2023; locations above refer to its arXiv version 1. The displayed polynomial example is recorded from the cited paper; no independent computation of its splitting field is claimed here.
