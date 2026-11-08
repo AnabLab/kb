@@ -2,6 +2,10 @@
 
 <!-- One entry or a tight cluster, and why it belongs in the knowledgebase. -->
 
+## New mathematics
+
+<!-- Each claim that is your own, not taken from a source at a cited location, and where its proof is. Write "None" if everything is cited. -->
+
 ## Sources opened
 
 <!-- Each source you actually read, and where. List anything you could not verify. Write "None" if nothing is cited. -->
