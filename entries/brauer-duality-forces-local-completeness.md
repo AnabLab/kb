@@ -4,7 +4,6 @@ kind: theorem
 summary: 'For a characteristic-p field with countable Artin–Schreier quotient, imperfection degree at most one and Brauer p-torsion of order p, Dittmann’s duality axiom makes a nontrivial p-henselian valuation with non-p-closed residue complete and discrete with finite residue field.'
 tags: [local-fields, galois-cohomology, positive-characteristic]
 edges:
-  - {to: local-fields-characteristic-p-brauer-characterization, label: addresses, note: "This is the completeness step in its proof [@dittmann2025, Proposition 4.7, p. 11, and proof of Theorem 1.1, p. 12]."}
   - {to: bloch-gabber-kato-theorem, label: uses, note: "Only for the equivalent Milnor K-theoretic formulation of the imperfection hypothesis below."}
 ---
 
@@ -34,7 +33,7 @@ Then $(K,v)$ is complete and discretely valued, with finite residue field. Thus 
 $$
 K^\times/K^{\times p}\xrightarrow{\sim}\widehat K^\times/\widehat K^{\times p},
 $$
-where $\widehat K$ is the completion. It compares the pairings over $K$ and $\widehat K$: both the Artin–Schreier quotients and the $p$-torsion Brauer groups map isomorphically, and local class field theory gives the required duality over $\widehat K$ [@dittmann2025, Lemmas 4.5–4.6, pp. 10–11; Proposition 2.2, pp. 3–4].
+where $\widehat K$ is the completion. It compares the pairings over $K$ and $\widehat K$: both the Artin–Schreier quotients and the $p$-torsion Brauer groups map isomorphically, and local class field theory gives the required duality over $\widehat K$ [@dittmann2025, Lemmas 4.5–4.6, pp. 10–11; Proposition 2.2, p. 4].
 
 Let $\pi$ be a uniformiser and $x\in\widehat K$. The preceding isomorphism gives $y\in K^\times$ and $z\in\widehat K^\times$ with
 $$
