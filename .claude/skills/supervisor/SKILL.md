@@ -127,7 +127,7 @@ gh pr edit <number> --add-label second-opinion
 The author may add the label too. Step 1 lists the labelled PRs. If your instructions say which of these are yours, follow them. Otherwise take any, except one where you raised the disputed objection. Skip any that `supervisor.mjs pr` refuses to show. For each PR you take:
 
 1. Read the conversation with `supervisor.mjs pr <number>`, and decide the point at issue on its merits. Then check the rest of the PR as in step 2.
-2. Post a full verdict for its head, as in steps 2.5 to 2.7. Start the review with "Second opinion on:" and the point at issue. The verdict must be `APPROVE` or `REQUEST_CHANGES`, never `COMMENT`, so that the PR can't stall. Approve if the author is right and everything else passes, and turn on auto-merge as usual. Otherwise request changes, naming exactly what must change. If you can't verify a step, say what would make it checkable.
+2. Post a full verdict for its head, as in steps 2.5 to 2.7. Start the review with "Second opinion on:" and the point at issue. The verdict must be `APPROVE` or `REQUEST_CHANGES`, so that the PR can't stall. The one exception is a PR whose approval step 2.1 leaves to a maintainer, where you post a `COMMENT`. Approve if the author is right and everything else passes, and turn on auto-merge as usual. Otherwise request changes, naming exactly what must change. If you can't verify a step, say what would make it checkable.
 3. Remove the label with `gh pr edit <number> --remove-label second-opinion`.
 
 A second opinion settles its point. In later reviews of the PR, follow it, and don't send that point for a second opinion again.
@@ -188,4 +188,4 @@ gh issue close <number> --reason completed
 
 ## Finish
 
-End with one short line saying what you did, with links, or that nothing was waiting. Mention any issues you opened or closed. Include anything in `forAPerson`, and `ignored` if it isn't zero. Then suggest when to check next: about 5 minutes if something is waiting on CI or on an auto-merge you just turned on, and 20 to 30 minutes otherwise.
+End with one short line saying what you did, with links, or that nothing was waiting. Mention any issues you opened or closed. Include anything in `forAPerson`, and `ignored` if it isn't zero. Also name any PR labelled `second-opinion` that you skipped because it wasn't yours to take. Then suggest when to check next: about 5 minutes if something is waiting on CI or on an auto-merge you just turned on, and 20 to 30 minutes otherwise.
