@@ -7,6 +7,7 @@ edges:
   - {to: neukirch-local-theory, label: analogous-to, note: "Both characterize local fields by Galois data, but this one needs extra data at $p$."}
   - {to: fontaine-wintenberger-field-of-norms, label: uses, note: "only for an explicit field of characteristic $0$ in the remark on why extra data is needed"}
   - {to: bloch-gabber-kato-theorem, label: uses, note: "The Milnor K-theoretic reformulation of the imperfection hypothesis uses the differential symbol [@dittmann2025, §2, p. 5]."}
+  - {to: brauer-duality-forces-local-completeness, label: uses, note: "The proof applies Proposition 4.7 after Galois theory supplies a suitable valuation [@dittmann2025, proof of Theorem 1.1, p. 12]."}
 ---
 
 **Statement.** Let $p$ be a prime and $q = p^n$. Let $K$ be a field such that:
@@ -17,6 +18,8 @@ edges:
 - The natural pairing $\mathrm{Hom}(G_K, \mathbb{Z}/p) \times K^\times/K^{\times p} \to \mathrm{Br}(K)[p]$ induces an isomorphism $K^\times/K^{\times p} \cong \mathrm{Hom}(\mathrm{Hom}(G_K, \mathbb{Z}/p), \mathrm{Br}(K)[p])$.
 
 Then $K \cong \mathbb{F}_q((t))$ [@dittmann2025, Theorem 1.1]. Conversely, $\mathbb{F}_q((t))$ satisfies these axioms [@dittmann2025, §1].
+
+**Completeness mechanism.** Galois theory first supplies a nontrivial henselian valuation with residue field admitting a cyclic degree-$p$ extension. The [Brauer-duality completeness theorem](brauer-duality-forces-local-completeness.md) then makes it a complete discrete valuation with finite residue field; its entry also defines the pairing in the fourth hypothesis [@dittmann2025, Corollary 3.3, p. 7; Proposition 4.7, p. 11; proof of Theorem 1.1, p. 12].
 
 **Milnor K-theoretic form.** The first and third hypotheses force $\operatorname{char}K=p$ [@dittmann2025, Lemma 2.3, p. 4]. In characteristic $p$, the [differential-symbol theorem](bloch-gabber-kato-theorem.md) gives
 $$
