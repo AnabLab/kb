@@ -5,6 +5,7 @@ summary: For a pointed proper hyperbolic curve with a regular stable model over 
 tags: [curves, local-fields, positive-characteristic, fundamental-groups, hodge-theory]
 edges:
   - {to: hyperbolic-curve, label: uses}
+  - {to: overconvergent-dieudonne-good-reduction, label: analogous-to, note: 'Lazda extends the cohomological framework for abelian good reduction to a nonabelian invariant for curves [@lazda2017good, Introduction, pp. 757–758].'}
   - {to: crystalline-fundamental-group-good-reduction, label: uses, note: 'The proof deforms the logarithmic special fibre to mixed characteristic and applies the Andreatta–Iovita–Kim criterion [@lazda2017good, §10, pp. 794–797].'}
   - {to: oda-good-reduction-criterion, label: analogous-to, note: 'A Frobenius-and-connection condition gives the equal-characteristic p-adic counterpart of the prime-to-p unramifiedness criterion [@lazda2017good, Introduction, pp. 758–759].'}
 ---
