@@ -6,6 +6,7 @@ tags: [curves, local-fields, fundamental-groups, reconstruction-algorithms, sect
 edges:
   - {to: resolution-of-nonsingularities, label: uses, note: "$\\Sigma$-resolution of nonsingularities is a hypothesis of Proposition 3.9 (iii)–(iv), Corollary 3.10 and Theorem 3.11 (ii). Over $p$-adic fields it holds by the theorem of the target [@mochizukitsujimura2024, proof of Theorem 3.12, p. 91]."}
   - {to: hyperbolic-curve, label: uses}
+  - {to: decomposition-groups-of-p-adic-curves-of-belyi-type, label: generalizes, note: "With $\\Sigma$ the set of all primes, Theorem 3.11 gives for every hyperbolic curve over a $p$-adic field the preservation of decomposition groups of closed points that Mochizuki proved earlier for curves of strictly Belyi and quasi-Belyi type."}
   - {to: section-conjecture, label: analogous-to, note: "The authors call the reconstruction of the decomposition groups of closed points a sort of weak version of the section conjecture [@mochizukitsujimura2024, Introduction, pp. 6–7]. For proper $X$, the $p$-adic analogue asks that the image of every section be one of these groups. For affine $X$, it must also allow the cuspidal sections."}
 ---
 
