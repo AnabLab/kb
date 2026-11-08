@@ -5,7 +5,7 @@ summary: 'For a complete discretely valued field K of mixed characteristic with 
 tags: [local-fields, galois-groups, hodge-theory]
 ---
 
-**Setting.** Let $K$ be a complete discretely valued field of mixed characteristic $(0,p)$ with perfect residue field. Choose an algebraic closure $\bar K$, put $C=\widehat{\bar K}$, and extend the natural action of $G_K=\operatorname{Gal}(\bar K/K)$ to $C$ by continuity [@tate1967pdivisible, §3, opening hypotheses and paragraph preceding Proposition 10].
+**Setting.** Let $K$ be a complete discretely valued field of mixed characteristic $(0,p)$ with perfect residue field. Choose an algebraic closure $\bar K$, put $C=\widehat{\bar K}$, and extend the natural action of $G_K=\operatorname{Gal}(\bar K/K)$ to $C$ by continuity [@tate1967pdivisible, §3, opening hypotheses, p. 170; opening of (3.3), p. 175].
 
 **Fixed fields (Ax–Sen–Tate).** For every closed subgroup $H\subseteq G_K$, put $L=\bar K^H$. Then, as subfields of $C$,
 $$
@@ -17,4 +17,4 @@ C^{G_K}=K
 $$
 is [@tate1967pdivisible, §3, Theorem 1, p. 176].
 
-**Role in the graph.** The base-field identity identifies the field of definition in the [Berkovich section criterion](berkovich-points-fixed-by-p-adic-sections.md). It also enters the local proof of [Tate full faithfulness](tate-full-faithfulness-for-p-divisible-groups.md), through descent of points and tangent vectors and linear independence of invariant vectors [@tate1967pdivisible, §4.1, proof of Proposition 11, Steps 3 and 7, p. 178]. The input here includes the natural action on the topological field $C$.
+**Role in the graph.** The base-field identity identifies the field of definition in the [Berkovich section criterion](berkovich-points-fixed-by-p-adic-sections.md). It also enters the local proof of [Tate full faithfulness](tate-full-faithfulness-for-p-divisible-groups.md), through descent of points and tangent vectors and linear independence of invariant vectors [@tate1967pdivisible, §4.1, proof of Proposition 11, Steps 3 and 7, pp. 178–179]. The input here includes the natural action on the topological field $C$.
