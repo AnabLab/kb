@@ -1,7 +1,7 @@
 ---
 title: Hilbert 90 and a Kummerian obstruction to pro-p Galois realizability
 kind: theorem
-summary: The cyclotomic character of a maximal pro-$p$ Galois group satisfies a Hilbert 90 lifting condition. Efrat–Quadrelli use it to exclude groups that have quadratic mod-$p$ cohomology and vanishing defined triple Massey products.
+summary: For fields containing a primitive $p$-th root of unity, the cyclotomic character satisfies a Hilbert 90 lifting condition. Efrat–Quadrelli use it to exclude groups with quadratic mod-$p$ cohomology and vanishing defined triple Massey products.
 tags: [galois-groups, galois-cohomology, pro-p-groups]
 edges:
   - {to: elementary-type-conjecture, label: analogous-to, note: "Both constrain maximal pro-$p$ Galois groups together with their cyclotomic orientations."}
@@ -22,7 +22,7 @@ K_\theta(G)=\overline{\langle h^{-\theta(g)}ghg^{-1}:g\in G,\ h\in\ker\theta\ran
 $$
 Then $(G,\theta)$ is Kummerian exactly when $\ker\theta/K_\theta(G)$ is a free abelian pro-$p$ group [@quadrelli2022smooth, equation (2.1) and Proposition 2.2]. This is the equivalence of the quotient and cohomological definitions proved in [@efratquadrelli2019, Definition 3.4 and Theorem 7.1].
 
-**Galois necessity.** If $F$ has characteristic different from $p$ and contains a primitive $p$-th root of unity, then $(G_F(p),\theta_F)$, with its cyclotomic character, is 1-smooth [@quadrelli2022smooth, Theorem 2.8]. Kummer theory identifies the displayed map with the surjection
+**Galois necessity.** If $F$ has characteristic different from $p$ and contains a primitive $p$-th root of unity, then $(G_F(p),\theta_F)$, with its cyclotomic character, is 1-smooth [@quadrelli2022smooth, Theorem 2.8]. For $p$ odd, or $p=2$ with $\sqrt{-1}\in F$, Kummer theory identifies the displayed map with the surjection
 $$
 F^\times/(F^\times)^{p^n}\longrightarrow F^\times/(F^\times)^p
 $$
