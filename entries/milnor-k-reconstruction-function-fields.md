@@ -19,6 +19,8 @@ $$
 $$
 [@cadoretpirutka2019, Theorem 7].
 
+For a fixed prime-power modulus, vanishing of a symbol can instead occur for algebraically independent functions with independent Kummer classes; see the [explicit finite-level counterexample](finite-level-cup-vanishing-and-algebraic-dependence.md). That example's symbol survives at the next prime-power level and is not infinitely divisible.
+
 **Consequence.** For function fields of the same type and characteristic, each of transcendence degree $\ge2$, field isomorphisms correspond bijectively to isomorphisms of $Q_*$ modulo the $\mathbb Z/2$ action multiplying degree $n$ by $(-1)^n$. Degrees $1,2$ and their product suffice [@cadoretpirutka2019, Corollary 10(b) and Remark 12].
 
 **Earlier embedding theorem (characteristic $0$).** Let $K/k$, $L/l$ be function fields of transcendence degree $\ge2$ over algebraically closed fields of characteristic $0$. Write $\overline K^M_i$ for Milnor K-theory modulo infinitely divisible elements. Suppose an injective $\psi_1:\overline K^M_1(K)\to\overline K^M_1(L)$ admits a homomorphism $\psi_2$ in degree $2$ satisfying
