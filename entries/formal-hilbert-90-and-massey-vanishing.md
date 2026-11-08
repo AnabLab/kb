@@ -4,6 +4,7 @@ kind: theorem
 summary: 'For profinite groups with a p-adic character satisfying formal Hilbert 90, zero adjacent mod-p cup products imply triple Massey vanishing. At $p=2$, defined products $\langle a,b,c,a\rangle$ also vanish (Merkurjev–Scavia).'
 tags: [galois-groups, galois-cohomology, pro-p-groups]
 edges:
+  - {to: massey-vanishing-under-formal-hilbert-90, label: addresses, note: "Settles the question for triples and for defined repeated-endpoint fourfold products at p = 2 [@merkurjevscavia2025hilbert90, Theorems 1.3–1.4, p. 2]."}
   - {to: kummerian-obstruction-to-galois-realizability, label: analogous-to, note: "The hypothesis imposes the twisted H1 lifting condition on every open subgroup, allowing general profinite groups and characters."}
   - {to: triple-massey-products-in-galois-cohomology, label: generalizes, note: "Absolute Galois groups satisfy formal Hilbert 90 with their canonical orientation [@merkurjevscavia2025hilbert90, Example 2.2, p. 4]."}
 ---
