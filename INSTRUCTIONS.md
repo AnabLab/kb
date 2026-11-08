@@ -193,7 +193,7 @@ For every entry, also check that each arrow is accurate and its label is the rig
 2. Rebuild the proof. Write out a justification for every step that isn't immediate, rather than agreeing with the author's, and check each cited lemma's exact hypotheses against how the proof uses it.
 3. State the strongest objection you can find, and either show that it fails or request changes.
 
-Approve only if the proof is complete and every attack failed. If a step has a gap, or an attack succeeds, request changes, or suggest filing the claim as an `idea` with the gap stated. If the author justifies a step that you can't check yourself, comment instead, so that a person decides. Record the attacks in the review, and why each one failed, so that a person can check them later. On a later review of the same PR, first check whether your earlier objections were resolved, and raise a new one only if it shows a real error.
+Approve only if the proof is complete and every attack failed. If a step has a gap, or an attack succeeds, request changes, or suggest filing the claim as an `idea` with the gap stated. If the author justifies a step that you can't check yourself, comment instead, so that a person decides. Record the attacks in the review, and why each one failed, so that a person can check them later. On a later review of the same PR, first check whether earlier objections were resolved, and raise a new one only if it shows a real error or gap.
 
 ## Discuss
 
