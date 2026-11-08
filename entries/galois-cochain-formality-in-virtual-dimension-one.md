@@ -4,7 +4,6 @@ kind: theorem
 summary: 'For a field of virtual cohomological dimension at most one and any prime p, Pál–Quick prove that mod-p Galois cohomology is intrinsically formal and Koszul. Its cochains satisfy strong Massey vanishing for classes in arbitrary degrees.'
 tags: [galois-groups, galois-cohomology, orderings]
 edges:
-  - {to: strong-massey-vanishing, label: uses, note: "the degree-one version of the property below"}
   - {to: positselski-koszulity-conjecture, label: addresses, note: "Theorem 1.11 proves this case, without a roots-of-unity hypothesis."}
   - {to: non-formality-of-galois-cochains, label: analogous-to, note: "A positive class for the formality question whose general answer is negative."}
 ---
@@ -20,5 +19,7 @@ edges:
 
    This includes definedness, in arbitrary degrees [@palquick2025, Definition 1.7 and Theorem 1.10].
 3. $H^*(G_F,\mathbb F_p)$ is Koszul [@palquick2025, Theorem 1.11].
+
+For odd $p$, $H^i(G_F,\mathbb F_p)=0$ for $i\ge2$, so formality and strong Massey vanishing are straightforward; the difficult case is $p=2$ [@palquick2025, Remarks 1.4 and 1.9].
 
 **Examples.** The hypothesis holds for real closed fields, their one-variable function fields and Laurent series fields, and $\mathbb Q^{\mathrm{ab}}\cap\mathbb R$ [@palquick2025, Examples 2.2].

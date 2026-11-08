@@ -4,7 +4,6 @@ kind: problem
 summary: 'Positselski conjectures that $H^*(G_K, \mathbb{Z}/\ell) \cong K^M_*(K)/\ell$ is Koszul whenever $K$ contains a primitive $\ell$-th root of unity. It holds for local and global fields and when $G_K(\ell)$ is of elementary type, and is equivalent to quasi-formality of Galois cochains.'
 tags: [galois-cohomology, milnor-k-theory, pro-p-groups]
 edges:
-  - {to: galois-cochain-formality-in-virtual-dimension-one, label: uses, note: "a known case of Koszulity for every prime, without a roots-of-unity hypothesis"}
   - {to: norm-residue-isomorphism-theorem, label: uses, note: "It identifies the Milnor and Galois forms of the conjecture, makes the algebra quadratic, and gives the inflation isomorphism behind the quasi-formality form."}
   - {to: milnor-k-ring, label: uses}
   - {to: maximal-pro-p-galois-groups-of-p-adic-fields, label: uses, note: "only in the example"}
