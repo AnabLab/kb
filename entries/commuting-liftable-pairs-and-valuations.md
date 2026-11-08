@@ -5,6 +5,7 @@ summary: If $\mu_{\ell^\infty} \subset K$ and the residue characteristic is not 
 tags: [function-fields, galois-groups, valuations]
 edges:
   - {to: abelian-by-central-galois-group, label: uses}
+  - {to: rigid-subgroups-and-valuations, label: uses, note: "Topaz's C-group argument uses the criterion and canonical valuations [@topaz2017, Proposition 3.6, Lemmas 3.9–3.10 and Theorem 5]."}
   - {to: neukirch-local-theory, label: analogous-to, note: "Both are local theories, recovering decomposition groups from Galois data [@topaz2017, §1]."}
 ---
 
@@ -20,4 +21,4 @@ A precise form: let $K$ contain a subfield $k$ with at least $11$ elements, and 
 
 Let $N \ge R(n)$ for an explicit function $R$ with $R(1) = 1$ and $R(\infty) = \infty$. Let $K$ have characteristic different from $\ell$ and contain $\mu_{2\ell^N}$. Then a subgroup $D$ of $G^{a,n}_K$ satisfies $D \le D^n_v$ with $D/(D \cap I^n_v)$ cyclic for some valuation $v$ if and only if $D$ is the image of a CL-group in $G^{a,N}_K$. Here $I^n_v \le D^n_v$ are [minimized](quasi-prime-divisor.md) inertia and decomposition groups, which are needed when the residue characteristic may be $\ell$. No algebraically closed subfield is required [@topaz2017, Theorem 1].
 
-**Rigid elements.** A parallel theory uses rigid elements in the full pro-$\ell$ Galois group [@topaz2017, §1.1].
+**Rigid elements.** A parallel theory uses rigid elements in the full pro-$\ell$ Galois group [@topaz2017, §1.1]. Topaz unifies these approaches [@topaz2017, §1, p. 3]. The [rigid-elements criterion and canonical valuations](rigid-subgroups-and-valuations.md) supply the subgroup-to-valuation step in his C-group argument [@topaz2017, Proposition 3.6, Lemmas 3.9–3.10 and Theorem 5].
