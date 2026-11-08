@@ -13,10 +13,10 @@ edges:
 
 **Evidence.**
 
-The [PAC realization characterization](projective-profinite-groups-and-pac-fields.md) explains projectivity and gives a direct example showing that it does not imply freeness as a profinite group.
-
 - Iwasawa proved that the maximal prosolvable quotient of $G_{\mathbb{Q}^{\mathrm{ab}}}$ is a free prosolvable group, and Tate that $G_{\mathbb{Q}^{\mathrm{ab}}}$ has cohomological dimension $1$ [@barysorokerfehm2012, §3.1, p. 4]. So $G_{\mathbb{Q}^{\mathrm{ab}}}$ is projective, meaning that every finite embedding problem for it has a weak solution [@harbater2009, §2, p. 3]. Iwasawa's 1953 paper in the Annals has not been opened for this entry.
 - The [geometric Shafarevich conjecture](geometric-shafarevich-conjecture.md), the analogue for global function fields, is a theorem of Harbater and Pop [@barysorokerfehm2012, §3.1, p. 4].
+
+For why projectivity does not imply freeness, see the [PAC realization characterization](projective-profinite-groups-and-pac-fields.md) and its direct example.
 
 $G_{\mathbb{Q}}$ is an extension of $\mathrm{Gal}(\mathbb{Q}^{\mathrm{ab}}/\mathbb{Q}) \cong \widehat{\mathbb{Z}}^\times$ by $G_{\mathbb{Q}^{\mathrm{ab}}}$, so Bary-Soroker and Fehm see a proof as a step towards understanding $G_{\mathbb{Q}}$ [@barysorokerfehm2012, §3.1, p. 4].
 
