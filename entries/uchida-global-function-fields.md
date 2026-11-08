@@ -20,3 +20,5 @@ is bijective [@tamagawa1997, Introduction, p. 138]. Uchida describes his theorem
 Tamagawa adapts these steps to fundamental groups of affine curves over finite fields, replacing step 1 by an argument with sections and point counts. See [Tamagawa's theorem](tamagawa-grothendieck-conjecture-for-affine-curves.md).
 
 The function field paper itself (Ann. of Math. 106 (1977), 589–598) has not been opened for this entry. The functorial statement and the outline of the proof are as Tamagawa reports them.
+
+**Smaller quotients.** Saïdi–Tamagawa prove a [prime-to-characteristic birational version](prime-to-p-uchida-theorem.md), retaining the full Galois group of the constants and replacing only the geometric kernel by its maximal pro-prime-to-characteristic quotient [@saiditamagawa2009, Corollary 3.11, p. 176].
