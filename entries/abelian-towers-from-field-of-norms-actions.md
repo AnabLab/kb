@@ -26,4 +26,4 @@ A[r]=\{\sigma\in A:v_K(\sigma(T)-T)\ge r+1\},
 $$
 The pair has a realization with an isomorphism $A\cong\operatorname{Gal}(E/F)$ carrying $A[r]$ onto the lower ramification subgroup $\operatorname{Gal}(E/F)[r]$ for every $r\ge0$ [@keating2009, Corollary 1.2, p. 666; equation (2.2), p. 667].
 
-**Scope.** The reconstruction retains the action on $K$, not just the abstract group $A$ or the norm field alone. The theorem's morphisms include finite-extension and open-image conditions; it makes no assertion for arbitrary continuous homomorphisms of the acting groups. All citations use the printed pages of the published article.
+**Scope.** The reconstruction retains the action on $K$, not just the abstract group $A$ or the norm field alone. The theorem's morphisms include finite-extension and open-image conditions; it makes no assertion for arbitrary continuous homomorphisms of the acting groups. For finite $E/F$ in characteristic $p$, the norm-field convention gives $X_F(E)\cong E$ as fields, but this identification need not preserve the chosen copy of $k$ [@keating2009, §2, pp. 668–669]. All citations use the printed pages of the published article.
