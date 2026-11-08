@@ -4,6 +4,7 @@ kind: theorem
 summary: 'Tsujimura (2026 preprint): for any finite partition of the closed points of a model of a finitely generated infinite field, one piece, the same for every semi-abelian variety, detects nonzero Tate-module classes in $H^1$ and injects completions of finitely generated groups of points.'
 tags: [number-fields, galois-cohomology, kummer-theory]
 edges:
+  - {to: faltings-tate-isogeny-theorem, label: uses, note: 'The characteristic-zero semisimplicity input to the construction of central regular elements; positive characteristic uses Zarhin and Mori [@tsujimura2026gs, §2 and Theorem 2.2, pp. 9–11].'}
   - {to: purely-mono-anabelian-reconstruction-of-number-fields, label: motivated-by, note: "Tsujimura names the use of the $\\mathbb G_m$ case in Tachihara–Tsujimura's reconstruction as his motivation [@tsujimura2026gs, Introduction, p. 2]."}
 ---
 
