@@ -1,7 +1,7 @@
 ---
 title: Corry–Pop's pro-p birational Hom theorem
 kind: theorem
-summary: 'Over a sub-$p$-adic field $k$, regular function-field embeddings correspond bijectively to open homomorphisms over $G_k$ after replacing the geometric Galois groups by their maximal pro-$p$ quotients (Corry–Pop). The full base Galois group is retained, in every dimension.'
+summary: 'Over a sub-$p$-adic field $k$, regular function-field embeddings correspond bijectively to open $G_k$-homomorphisms modulo conjugation by the geometric kernel, using maximal pro-$p$ geometric Galois quotients in every dimension (Corry–Pop).'
 tags: [function-fields, galois-groups, local-fields, reconstruction]
 edges:
   - {to: mochizuki-hom-theorem-for-hyperbolic-curves, label: uses, note: "Only the function-field case with target of transcendence degree 1, Theorem 16.5 [@corrypop2009, §1.2, p. 3]."}
