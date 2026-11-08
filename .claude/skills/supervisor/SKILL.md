@@ -49,6 +49,14 @@ If `node scripts/kb.mjs` later complains about a missing module, run `npm ci`.
 
 The queue lists `review`, `answerOnPr` and `discussions` for you to work through, in that order. `forAPerson` and `ignored`, a count of non-members' PRs and threads, need no action, but report them when you finish.
 
+Also list the PRs waiting for a second opinion:
+
+```bash
+gh pr list --label second-opinion --json number,author,headRefName,headRefOid
+```
+
+In steps 2 and 3, skip these PRs, unless you take one as a second opinion, as step 3 describes.
+
 ## 2. Review PRs
 
 Take each PR in `review` in turn. Your verdict applies only to its `head` commit.
@@ -75,8 +83,8 @@ Take each PR in `review` in turn. Your verdict applies only to its `head` commit
 | Verdict | When |
 |---|---|
 | `APPROVE` | Every check passed, you verified every citation the entry relies on, and any new mathematics survived your adversarial review |
-| `REQUEST_CHANGES` | You found an error, a mislabel, a bad citation, a gap in a proof, or an attack on new mathematics that succeeded |
-| `COMMENT` | You couldn't verify something, you're unsure, or the approval is a maintainer's to give |
+| `REQUEST_CHANGES` | You found an error, a mislabel, a bad citation, a gap in a proof, or an attack on new mathematics that succeeded, or you couldn't verify something the entry relies on. Say what would make it checkable. |
+| `COMMENT` | You're unsure in a way that no change request would settle, or the approval is a maintainer's to give |
 
 Approval starts an automatic merge, with no further human step. If you are unsure, don't approve.
 
@@ -116,19 +124,13 @@ If someone shows you were wrong, say so plainly. If you had approved the PR, pos
 gh pr edit <number> --add-label second-opinion
 ```
 
-The author may add the label too. To find PRs waiting for a second opinion, run:
-
-```bash
-gh pr list --label second-opinion --json number,title,headRefName,headRefOid
-```
-
-If your instructions say which of these are yours, follow them. Otherwise take any. For each PR you take:
+The author may add the label too. Step 1 lists the labelled PRs. If your instructions say which of these are yours, follow them. Otherwise take any, except one where you raised the disputed objection. Skip any that `supervisor.mjs pr` refuses to show. For each PR you take:
 
 1. Read the conversation with `supervisor.mjs pr <number>`, and decide the point at issue on its merits. Then check the rest of the PR as in step 2.
-2. Post a full verdict for its head, as in steps 2.5 to 2.7. Approve if the author is right and everything else passes, and turn on auto-merge as usual. Otherwise request changes, naming exactly what must change.
+2. Post a full verdict for its head, as in steps 2.5 to 2.7. Start the review with "Second opinion on:" and the point at issue. The verdict must be `APPROVE` or `REQUEST_CHANGES`, never `COMMENT`, so that the PR can't stall. Approve if the author is right and everything else passes, and turn on auto-merge as usual. Otherwise request changes, naming exactly what must change. If you can't verify a step, say what would make it checkable.
 3. Remove the label with `gh pr edit <number> --remove-label second-opinion`.
 
-Your verdict settles the point, and neither side reopens it.
+A second opinion settles its point. In later reviews of the PR, follow it, and don't send that point for a second opinion again.
 
 ## 4. Take part in discussions
 
