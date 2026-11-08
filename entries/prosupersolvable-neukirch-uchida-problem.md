@@ -1,28 +1,19 @@
 ---
 title: The prosupersolvable variant of Neukirch–Uchida
-kind: theorem
-summary: 'Karshon and Shusterman suggested a prosupersolvable Neukirch–Uchida theorem. Answer, proved in the graph: the maximal prosupersolvable quotient of $G_K$ determines a number field $K$, and a field isomorphism inducing a given isomorphism of these quotients is unique, but it need not exist.'
+kind: problem
+summary: 'Karshon and Shusterman suggested a prosupersolvable Neukirch–Uchida variant: is every isomorphism between the maximal prosupersolvable Galois quotients of two number fields induced by a unique isomorphism of field extensions? And, more weakly, does this quotient determine the number field?'
 tags: [number-fields, galois-groups, solvable-quotients]
 edges:
   - {to: pro-l-by-cyclotomic-neukirch-uchida, label: motivated-by}
-  - {to: prosupersolvable-quotient-determines-number-field, label: uses, note: "part 1"}
-  - {to: automorphisms-of-maximal-prosupersolvable-galois-groups, label: uses, note: "parts 2 and 3"}
-  - {to: isomorphisms-of-maximal-prosupersolvable-galois-groups, label: uses, note: "part 4"}
 ---
 
-**Question.** Let $K, L$ be number fields. If the maximal prosupersolvable quotients of $G_K$ and $G_L$ are isomorphic as profinite groups, must $K \cong L$? And does an isomorphism of these quotients come from a unique isomorphism of the corresponding fields? This is a formulation of the variant proposed in [@karshonshusterman2026, §1].
+**Question.** Fix $\bar{\mathbb{Q}}$. For a number field $K \subset \bar{\mathbb{Q}}$, let $K^{\mathrm{ss}}$ be the compositum of the finite Galois extensions $M/K$ with $\mathrm{Gal}(M/K)$ supersolvable, and let $G_K^{\mathrm{ss}} = \mathrm{Gal}(K^{\mathrm{ss}}/K)$, the maximal prosupersolvable quotient of $G_K$. An *isomorphism of field extensions* $\sigma : K_1^{\mathrm{ss}}/K_1 \to K_2^{\mathrm{ss}}/K_2$ is a field isomorphism $\sigma : K_1^{\mathrm{ss}} \to K_2^{\mathrm{ss}}$ with $\sigma(K_1) = K_2$. It *induces* the isomorphism $g \mapsto \sigma g \sigma^{-1}$ from $G_{K_1}^{\mathrm{ss}}$ to $G_{K_2}^{\mathrm{ss}}$. Let $K_1, K_2$ be number fields.
 
-**Context.** The maximal pronilpotent-by-abelian quotient [determines $K$](pro-l-by-cyclotomic-neukirch-uchida.md). The maximal prosupersolvable quotient lies strictly between that quotient and the maximal pronilpotent quotient. The maximal pro-$\ell$ extension of $K(\mu_\ell)$ is a prosupersolvable extension of $K$, which is the source of the suggestion [@karshonshusterman2026, §1].
+1. *Weak form.* If $G_{K_1}^{\mathrm{ss}} \cong G_{K_2}^{\mathrm{ss}}$ as profinite groups, must $K_1 \cong K_2$?
+2. *Functorial form.* Is every isomorphism of profinite groups $\alpha : G_{K_1}^{\mathrm{ss}} \to G_{K_2}^{\mathrm{ss}}$ induced by an isomorphism of field extensions $K_1^{\mathrm{ss}}/K_1 \to K_2^{\mathrm{ss}}/K_2$, and is that isomorphism unique?
 
-**Answer.** Both questions are settled in the graph, the first positively and the second negatively. Write $G_K^{\mathrm{ss}}$ for the maximal prosupersolvable quotient, and let $K, K_1, K_2$ be number fields.
+A positive answer to question 2 would give one to question 1, since an inducing $\sigma$ restricts to an isomorphism $K_1 \to K_2$.
 
-1. *The weak form holds.* If $G_{K_1}^{\mathrm{ss}} \cong G_{K_2}^{\mathrm{ss}}$, then $K_1 \cong K_2$. This is [the prosupersolvable quotient determines a number field](prosupersolvable-quotient-determines-number-field.md).
-2. *An inducing field isomorphism is unique.* Each isomorphism $G_{K_1}^{\mathrm{ss}} \to G_{K_2}^{\mathrm{ss}}$ is induced by at most one field isomorphism $K_1^{\mathrm{ss}} \to K_2^{\mathrm{ss}}$, because $G_K^{\mathrm{ss}}$ has trivial centre. This is parts 2 and 3 of [centre and automorphisms of the maximal prosupersolvable Galois group](automorphisms-of-maximal-prosupersolvable-galois-groups.md).
-3. *A group isomorphism need not be field-induced, so the functorial form fails.* For every $K$, $\mathrm{Out}(G_K^{\mathrm{ss}})$ contains a copy of $\mathrm{Gal}(K^{\mathrm{ab}}(2)/K)$, and no nontrivial element of it is induced by a field automorphism. So the failure occurs already for $K_1 = K_2$. This is part 4 of the same entry.
-4. *How far it fails.* An isomorphism $G_{K_1}^{\mathrm{ss}} \to G_{K_2}^{\mathrm{ss}}$ is the same as a family of isomorphisms of field extensions $\Omega_\ell(K_1)/K_1 \to \Omega_\ell(K_2)/K_2$, one for each prime $\ell$, with a common restriction to $K_1$. It comes from a field isomorphism exactly when their restrictions to the fields $\Omega_\ell(K_1) \cap K_1^{\mathrm{ab}}$ are all restrictions of one isomorphism $K_1^{\mathrm{ab}} \to K_2^{\mathrm{ab}}$. And $\mathrm{Out}(G_K^{\mathrm{ss}}) \cong \bigl(\prod_\ell \mathrm{Gal}(E_\ell(K)/K)\bigr) \rtimes \mathrm{Aut}(K)$, where the field-induced classes form the complement $\mathrm{Aut}(K)$. This is [isomorphisms of maximal prosupersolvable Galois groups](isomorphisms-of-maximal-prosupersolvable-galois-groups.md), which defines $\Omega_\ell(K)$ and $E_\ell(K)$.
+**History.** Karshon and Shusterman state the Neukirch–Uchida theorem, and their own variants of it, in the form of question 2: an isomorphism of profinite groups between the relevant quotients of $G_{K_1}$ and $G_{K_2}$ is induced by an isomorphism of field extensions, and it is unique [@karshonshusterman2026, §1, Theorems 1.1–1.3, pp. 1–2]. They deduce that the maximal pronilpotent-by-abelian quotient [determines $K$](pro-l-by-cyclotomic-neukirch-uchida.md), and recall that the maximal pronilpotent quotient does not [@karshonshusterman2026, §1, p. 1]. They then note that the maximal prosupersolvable quotient lies strictly between these two, and that the maximal pro-$\ell$ extension of $K(\mu_\ell)$ is prosupersolvable over $K$, being an extension of a pro-$\ell$ group by an abelian group of exponent dividing $\ell - 1$. They conclude that "these observations suggest the prosupersolvable Neukirch-Uchida variant as a direction for future research" [@karshonshusterman2026, §1, p. 2]. Question 2 is that variant. Question 1 is the weaker property, recovery of the isomorphism type of $K$, which is how their abstract describes their results [@karshonshusterman2026, Abstract, p. 1].
 
-[The entry for part 1](prosupersolvable-quotient-determines-number-field.md) also reduced the functorial question, before parts 2 and 3 were proved, to whether $G_K^{\mathrm{ss}}$ has trivial centre and whether automorphisms inner on every quotient $\mathrm{Gal}(\Omega_\ell(K)/K)$ are inner. Its paragraph *Resolution* records how parts 2 and 3 answer these, yes and no respectively.
-
-**Status of the inputs.** Part 1, and the identification of all isomorphisms in part 4, rest on Karshon and Shusterman's Theorem 9.4, adapted in the entry for part 1. That input is an arXiv preprint of January 2026 and has not been independently audited here. Parts 2 and 3 do not use it: their proofs use Kummer theory, approximation and Chebotarev's theorem.
-
-A literature search in November 2026, which was not exhaustive, found no answer to either question earlier than these entries.
+**Status.** Both questions are [answered in the graph](prosupersolvable-neukirch-uchida-weak-but-not-functorial.md), the first positively and the second negatively: the inducing isomorphism is unique when it exists, but it need not exist.
