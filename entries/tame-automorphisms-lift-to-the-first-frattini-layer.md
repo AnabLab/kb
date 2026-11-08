@@ -14,7 +14,7 @@ edges:
 
 **Corollary.** Let $K, L \subset \bar{\mathbb{Q}}_2$ be finite tamely ramified extensions of $\mathbb{Q}_2$ with the same ramification index $e$ and residue degree $f$. Then $\mathrm{Gal}(E/K) \cong \mathrm{Gal}(E/L)$. Here $\mathrm{Gal}(E/K) = G_K/\Phi(P)$, and $P$ is the largest closed normal pro-$2$ subgroup of $G_K$ (lemma in the problem entry), so this quotient is determined by the group $G_K$. For example, the non-isomorphic degree-$6$ fields $U_2(\sqrt[3]{2})$ and $U_2(\sqrt[3]{2\omega})$ of [tamely ramified 2-adic fields](tamely-ramified-2-adic-fields.md) have isomorphic quotients of this kind, although no automorphism of $G_{\mathbb{Q}_2}$ carries one absolute Galois group onto the other (problem entry, second check).
 
-The theorem, the corollary and their proofs are worked out here. The sources opened for this entry do not state them.
+The theorem, the corollary and their proofs are worked out here. The sources opened for this entry do not state them. A stronger result, which lifts every automorphism of $\Gamma_f$ to $G_{U_f}/[P,P]$ without the explicit computation below, is proved in [automorphisms of the tame Galois group lift modulo wild commutators](tame-automorphisms-lift-modulo-wild-commutators.md). Its step 1 shows that the condition $\beta(I) = I$ always holds.
 
 **Proof.**
 
