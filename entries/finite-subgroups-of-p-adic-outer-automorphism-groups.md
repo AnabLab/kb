@@ -70,9 +70,9 @@ For $k = \mathbb{Q}_p$, this shows that the only quasi-geometric finite subgroup
 
 **Scope.**
 
-- For $d_k \in \{3, 4\}$ the hyperoctahedral group has order $2$, so Nishio's theorem gives only involutions in $\mathrm{Aut}(G_k)$. Absolute Galois groups can contain involutions, so consequence 5 does not reach these degrees.
+- For $d_k \in \{3, 4\}$ the hyperoctahedral group has order $2$, so Nishio's theorem gives only involutions in $\mathrm{Aut}(G_k)$. Absolute Galois groups can contain involutions, so consequence 5 does not reach these degrees. For odd $p$ and tamely ramified $k$, of any degree, $\mathrm{Aut}(G_k)$ is nevertheless not an absolute Galois group, by a centralizer argument: see [outer automorphisms of order two for tame fields](involutive-outer-automorphisms-of-tame-p-adic-galois-groups.md), part 3.
 - Nishio's construction gives nothing when $p$ is odd and $d_k \le 2$, since then $m = 0$, and it assumes that $p$ is odd [@nishio2026finite, Propositions 2.4 and 2.6, pp. 9–11].
-- Problem 1 therefore remains open for odd $p$ with $d_k \le 2$, and for $p = 2$, as far as the sources opened here show. By consequence 2, for $k = \mathbb{Q}_p$ it is the question whether $\mathrm{Out}(G_{\mathbb{Q}_p})$ is torsion-free.
+- For odd $p$ and $d_k \le 2$, the field $k$ is tamely ramified, and $\mathrm{Out}(G_k)$ has an element of order $2$ whose inverse image in $\mathrm{Aut}(G_k)$ contains an involution ([outer automorphisms of order two for tame fields](involutive-outer-automorphisms-of-tame-p-adic-galois-groups.md)). So Problem 1 has a negative answer for every $k$ with $p$ odd. By consequence 2, for $k = \mathbb{Q}_p$ this says that $\mathrm{Out}(G_{\mathbb{Q}_p})$ is not torsion-free. Problem 1 remains open for $p = 2$, as far as the sources opened here show.
 - For outer automorphisms of $G_k$ of infinite order, and the non-normality of $\mathrm{Aut}(k)$, see [the field-theoretic subgroup](field-theoretic-subgroup-of-outer-automorphisms.md).
 
 **Status of the source.** Nishio's paper is an arXiv preprint, posted in September 2026 and not known to be published.
