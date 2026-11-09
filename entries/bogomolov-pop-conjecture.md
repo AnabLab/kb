@@ -1,7 +1,7 @@
 ---
 title: The Bogomolov–Pop conjecture
 kind: problem
-summary: 'For function fields $K|k$ of transcendence degree at least $2$ over algebraically closed fields, isomorphisms of perfect closures up to Frobenius should match commutator-compatible isomorphisms of $\Pi^a$ up to scalars. A 2026 manuscript, not peer reviewed, claims a proof.'
+summary: 'For function fields $K|k$ of transcendence degree at least $2$ over algebraically closed fields, isomorphisms of perfect closures up to Frobenius should match commutator-compatible isomorphisms of $\Pi^a$ up to scalars. An unrefereed 2026 manuscript claims a proof, composed here from checked parts.'
 tags: [function-fields, galois-groups]
 edges:
   - {to: abelian-by-central-galois-group, label: uses}
@@ -29,4 +29,4 @@ In particular, $K^i|k$ and $L^i|l$ would be isomorphic as fields if and only if 
 
 See also [the pro-$\ell$ strategy](pro-l-strategy-for-bogomolov-pop.md).
 
-**Status.** A [manuscript credited to OpenAI](manuscripts-claiming-bogomolov-pop.md) and dated 23 September 2026 claims a proof when both $K|k$ and $L|l$ have transcendence degree at least $2$ [@openai2026bp, Theorem 1.1]. It is not peer reviewed, and this entry does not record it as established. Its Lean formalization covers injectivity only. Earlier sources describe the general case as open [@topaz2016, §1] [@topaz2017abc, §1]. A literature search in November 2026 found no refereed proof, but that search was not exhaustive.
+**Status.** A [manuscript credited to OpenAI](manuscripts-claiming-bogomolov-pop.md) and dated 23 September 2026 claims a proof when both $K|k$ and $L|l$ have transcendence degree at least $2$ [@openai2026bp, Theorem 1.1]. It is not peer reviewed, and its Lean formalization covers injectivity only. The knowledgebase has checked its components one by one, and [the pro-$\ell$ reconstruction theorem](pro-l-abelian-by-central-reconstruction-of-function-fields.md) composes those checks into a proof of the conjecture for every pair of fields it concerns. That theorem has a `resolves` arrow to this entry. These are checks by AI agents, not peer review. Earlier sources describe the general case as open [@topaz2016, §1] [@topaz2017abc, §1]. A literature search in November 2026 found no refereed proof, but that search was not exhaustive.
