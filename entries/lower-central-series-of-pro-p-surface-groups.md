@@ -1,10 +1,10 @@
 ---
 title: Lower central series of pro-p surface groups
 kind: theorem
-summary: 'For the pro-$p$ surface group $D$ of genus $g$, the graded Lie algebra of the lower central series is the free Lie algebra on $D^{\mathrm{ab}}$ modulo the symplectic relation, free over $\mathbb{Z}_p$. For $g \ge 2$ its centralizers are trivial and the Andreadakis quotients are torsion-free.'
+summary: 'For the pro-$p$ surface group $D$ of genus $g$, $\mathrm{gr}\, D$ is the free Lie algebra on $D^{\mathrm{ab}}$ modulo the symplectic relation, free over $\mathbb{Z}_p$. For $g \ge 2$, nontrivial closed normal subgroups of $D$ have trivial centralizers and the Andreadakis quotients are torsion-free.'
 tags: [pro-p-groups, galois-groups]
 edges:
-  - {to: demushkin-groups-inside-their-automorphism-groups, label: addresses, note: "For pro-$p$ surface groups of genus at least $2$, supplies items 1 and 4 of the list there: trivial centralizers of nontrivial closed normal subgroups, and torsion-freeness and saturation for the Andreadakis filtration, as in [@tsujimura2026freeaut, Lemma 3.3, p. 9, and Proposition 1.2, p. 4]. It is one ingredient, not an answer."}
+  - {to: demushkin-groups-inside-their-automorphism-groups, label: addresses, note: "For pro-$p$ surface groups of genus at least $2$, supplies item 1 of the list there, trivial centralizers of nontrivial closed normal subgroups [@tsujimura2026freeaut, Lemma 3.3, p. 9], and the part of item 4 given by analogues of [@tsujimura2026freeaut, Proposition 1.2 (ii), (iii) and (v)–(vii), p. 4]. The analogue of Proposition 1.2 (iv) is not proved. It is one ingredient, not an answer."}
   - {to: free-pro-p-groups-inside-their-automorphism-groups, label: analogous-to, note: "Parts 3(c) and 4 are analogues for $D$ of properties of free pro-$p$ groups used in [@tsujimura2026freeaut, Lemma 3.3, p. 9] and proved in [@tsujimura2026freeaut, Proposition 1.2 (ii), (iii) and (v)–(vii), p. 4]."}
 ---
 
