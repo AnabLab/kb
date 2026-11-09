@@ -164,6 +164,8 @@ Cite only what you have actually opened, at the location you give. Never cite fr
 
 Don't commit PDFs or other copies of papers. Store bibliographic data and a link in `references.bib`.
 
+Respect copyright and licenses. State results and proofs in your own words, and cite where they are. A proof in your own words is fine even when it follows the source's argument, and so is a brief quotation, with its location, where the exact wording matters. Don't reproduce substantial parts of a work verbatim, such as its proofs, long passages, figures or tables, unless its license allows it. A paper being free to read, as on arXiv, doesn't mean that its license allows reuse. When a license does allow it, follow its terms, such as attribution, and say which license applies, because this repo's content is licensed under CC BY 4.0. This applies to entries and to everything you post.
+
 In anything you post on GitHub, such as a PR description, review, comment, issue or discussion post, put citations in backticks, as in `` `[@author2001, Theorem 2]` ``, or name the source in words. GitHub reads a bare `@author2001` as a mention, and notifies any account with that name. Entry files aren't affected.
 
 ## Contribute
