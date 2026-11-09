@@ -1,7 +1,7 @@
 ---
 title: Reciprocal cyclic extraspecial counts over dyadic fields
 kind: theorem
-summary: 'For explicit extraspecial kernels with two distinct dual cyclic constituents, every marked surjection count over a dyadic field depends only on its degree and the target. A closed formula allows repeated constituents and excludes every tame marking of this family from count obstructions.'
+summary: 'For explicit extraspecial kernels with two distinct dual cyclic constituents, surjection counts above a full cyclic marking over a dyadic field depend only on its degree and the target. A closed formula allows repeated constituents; every tame marking has invariant counts.'
 tags: [local-fields, galois-groups, galois-cohomology]
 edges:
   - {to: local-tate-duality, label: uses, note: 'The two cohomology spaces have equal dimension and a perfect finite-field-valued cup pairing.'}
@@ -120,7 +120,7 @@ $$
 $$
 Multiply by $R_{d,r}$, the $Q^{2r}$ cocycles per class, and the $2^{d+2}$ lifts per cocycle to obtain (3). If $r>d$, step 2 makes surjectivity impossible.
 
-*5. Every tame marking.* A finite dyadic tame quotient $D$ has a cyclic normal odd-order inertia image and a cyclic quotient by it. Every Sylow $2$-subgroup of $D$ is therefore cyclic. Thus $a(E)$ is cyclic, and $a|_E$ kills $[E,E]=\langle z\rangle$. Since $V$ has exponent two, $a(E)$ is either trivial or $C_2$. The latter would give a nonzero $C_m$-invariant functional $V\to\mathbb F_2$, impossible because $\lambda-1$ and $\lambda^{-1}-1$ act invertibly. Hence $a(E)=1$ and $a=\bar a p$ for an epimorphism $\bar a:C_m\to D$.
+*5. Every tame marking.* A finite dyadic tame quotient $D$ has a cyclic normal odd-order inertia image and a cyclic quotient by it. Every Sylow $2$-subgroup of $D$ is therefore cyclic. Thus $a(E)$ is cyclic, and $a|_E$ kills $[E,E]=\langle z\rangle$. Since $V$ has exponent two, $a(E)$ is either trivial or $C_2$. In the latter case, $a(E)$ would be a normal subgroup of order two in $D$, hence central. It would give a nonzero $C_m$-invariant functional $V\to\mathbb F_2$, impossible because $\lambda-1$ and $\lambda^{-1}-1$ act invertibly. Hence $a(E)=1$ and $a=\bar a p$ for an epimorphism $\bar a:C_m\to D$.
 
 Every epimorphism $G_k\to C_m$ factors through $\Gamma$: wild inertia is pro-$2$ and $m$ is odd. The left side of (4) is the sum of (3) over all epimorphisms $\epsilon_0:\Gamma\to C_m$ with $\bar a\epsilon_0=q$. Precomposition by $\alpha$ bijects these with those satisfying $\bar a\epsilon_0=q\alpha$. The summands are equal, proving (4), including proper cyclic markings and $D=1$. $\square$
 
@@ -130,6 +130,8 @@ Take $t=3$, $m=7$, $r=1$ and a primitive $\lambda\in\mathbb F_8$. Its Frobenius 
 $$
 2^2\cdot8^2\cdot(8-1)(8-2)=10\,752.
 $$
-Over $U_3$, the tame markings $\tau\mapsto s,\ \sigma\mapsto s^b$ for $b\in\mathbb Z/7$ are cycled by the Frobenius shift; (3) gives equal counts for them. Targets exist for every $t\ge3$: take $\lambda$ primitive and $m=2^t-1$, since $2^j+1<2^t-1$ for $0\le j<t$.
+Over $U_3$, the unramified cubic extension of $\mathbb Q_2$, the tame markings $\tau\mapsto s,\ \sigma\mapsto s^b$ for $b\in\mathbb Z/7$ are cycled by the [Frobenius shift](frobenius-shift-lifting-problem.md); (3) gives equal counts for them. Targets exist for every $t\ge3$: take $\lambda$ primitive and $m=2^t-1$, since $2^j+1<2^t-1$ for $0\le j<t$.
+
+The degree-only assertion in (3) concerns full cyclic markings. For proper and trivial markings, (4) asserts invariance under tame automorphisms for a fixed field; the counts can also depend on its tame quotient.
 
 The distinctness in (1) is essential to step 2: if the two modules coincide, stable images can mix their components, and separate independence tests no longer imply surjectivity. That case includes the cubic action and belongs to the separate [repeated cubic calculation](repeated-cubic-extraspecial-counts-over-dyadic-fields.md). This entry supplies neither a lift of a tame automorphism nor a classification of arbitrary reducible cyclic actions. The [finite-quotient criterion](finite-quotient-criterion-for-frobenius-shift-lifting.md) still requires all finite targets.
