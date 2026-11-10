@@ -14,8 +14,10 @@ edges:
 **Definition (Koch).** Let $n, s \ge 1$ and let $\alpha : \Gamma \to (\mathbb{Z}/p^s)^\times$ be a character. Then $(X, \varphi)$ is a *Demuškin formation over $\Gamma$ with invariants $n, s, \alpha$* if the following hold for every open normal subgroup $\mathcal H \subseteq \ker\alpha$, with $G = \Gamma/\mathcal H$ [@wingberg1982eindeutigkeit, Definition, p. 100] [@jannsenwingberg1982, §1.1, pp. 72–73]:
 
 1. $\tilde X_{\mathcal H}$ is a [Demushkin group](demushkin-group.md) of rank $n|G| + 2$, and the torsion subgroup of its abelianization is cyclic of order $p^s$.
-2. View $H^1(\mathcal H, \mathbb{Z}/p^s)$ inside $H^1(\tilde X_{\mathcal H}, \mathbb{Z}/p^s)$ by inflation along $\varphi$, and let $W$ be its orthogonal complement for the cup product pairing. Then $W/H^1(\mathcal H, \mathbb{Z}/p^s)$ is a free $\mathbb{Z}/p^s[G]$-module of rank $n$, and is the direct sum of two totally isotropic $G$-submodules. (Jannsen and Wingberg state this condition with coefficients $\mathbb{F}_p$ and the module $\mathbb{F}_p[G]^n$.)
+2. View $H^1(\mathcal H, \mathbb{F}_p)$ inside $H^1(\tilde X_{\mathcal H}, \mathbb{F}_p)$ by inflation along $\varphi$, and let $W$ be its orthogonal complement for the cup product pairing into $H^2(\tilde X_{\mathcal H}, \mathbb{F}_p)$, which is one-dimensional by condition 1. Then $W/H^1(\mathcal H, \mathbb{F}_p)$ is a free $\mathbb{F}_p[G]$-module of rank $n$, and is the direct sum of two totally isotropic $G$-submodules.
 3. Every $\rho \in \Gamma$ acts on $H^2(\tilde X_{\mathcal H}, \mathbb{Z}/p^s)$ as multiplication by $\alpha(\rho)$.
+
+Both sources state condition 2 with coefficients $\mathbb{F}_p$; Wingberg's unadorned $H^i$ means $H^i(\cdot, \mathbb{Z}/p\mathbb{Z})$ [@wingberg1982eindeutigkeit, p. 100]. In the proof of his Lemma 3, Wingberg deduces from condition 2, using a further result on symplectic modules, that the corresponding quotient with coefficients $\mathbb{Z}/p^s$ is a free $\mathbb{Z}/p^s[G]$-module of rank $n$ and hyperbolic [@wingberg1982eindeutigkeit, proof of Lemma 3, p. 105]. This entry uses that statement only through his Lemma 3.
 
 **Theorem.**
 
