@@ -1,7 +1,7 @@
 ---
 title: Ramification growth recovers a norm-field tower's base characteristic
 kind: theorem
-summary: 'For a totally ramified p-adic Lie tower, upper ramification index growth on its norm field recovers the base characteristic and absolute ramification index. For a procyclic action, a finite inequality between jumps can certify characteristic zero.'
+summary: 'For a totally ramified p-adic Lie tower, upper ramification index growth on its norm field recovers the base characteristic and absolute ramification index. For an action of $\mathbb Z_p$, a finite inequality between jumps can certify characteristic zero.'
 tags: [local-fields, ramification, reconstruction-algorithms]
 edges:
   - {to: fontaine-wintenberger-field-of-norms, label: uses, note: 'Retains the tower action and its ramification filtration.'}
