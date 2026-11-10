@@ -3,6 +3,8 @@ title: Generators and relations for the absolute Galois group of a p-adic field
 kind: theorem
 summary: 'For odd $p$, Jannsen and Wingberg present $G_K$ for $K/\mathbb{Q}_p$ of degree $n$ by $n + 3$ generators and explicit relations, which depend only on $n$, the residue field and the tame action on $p$-power roots of unity. Diekert treats $p = 2$ when $K(\sqrt{-1})/K$ is unramified.'
 tags: [local-fields, galois-groups]
+edges:
+  - {to: uniqueness-of-demuskin-formations, label: uses, note: "For odd $p$, Jannsen and Wingberg identify $G_K$ and the presented group as Demuškin formations with the same invariants and apply the uniqueness theorem [@jannsenwingberg1982, proof of Theorem 2, p. 75]."}
 ---
 
 **Statement for odd $p$.** Let $p \ne 2$, let $K/\mathbb{Q}_p$ be finite of degree $n$ with residue field of order $q$, let $T$ be the maximal tamely ramified extension of $K$, and let $\mathcal{G} = \mathrm{Gal}(T/K)$. Following Hasse and Iwasawa, $\mathcal{G}$ has generators $\sigma, \tau$ with the single defining relation $\sigma\tau\sigma^{-1} = \tau^q$. The $p$-power roots of unity in $T$ form a group $\mu_T$ of finite order $p^s$ with $s \ge 1$, and there are $g, h \in \mathbb{Z}_p$ with $\sigma(\zeta) = \zeta^g$ and $\tau(\zeta) = \zeta^h$ for $\zeta \in \mu_T$ [@jannsenwingberg1982, p. 71]. Then $G_K$ is isomorphic to the profinite group with generators $\sigma, \tau, x_0, \dots, x_n$ and the following defining conditions [@jannsenwingberg1982, p. 71]:
