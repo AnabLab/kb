@@ -6,7 +6,7 @@ tags: [local-fields, galois-groups, reconstruction-algorithms]
 edges:
   - {to: frobenius-shift-lifting-problem, label: addresses, note: 'Reformulates the question as nonemptiness of explicitly defined finite sets of automorphisms; no obstruction over an unramified 2-adic field is found here.'}
   - {to: local-galois-group-presentations, label: uses, note: 'Only finite generation in every residue characteristic is needed, not an explicit presentation [@jardenshusterman2023, Theorem 2.1, p. 2].'}
-  - {to: maximal-pro-p-galois-groups-of-p-adic-fields, label: uses, note: 'The pro-3 generator ranks distinguish the two quadratic subgroups in the finite obstruction over Q_3.'}
+  - {to: affine-cyclotomic-count-obstruction, label: uses, note: 'Its unequal S3 marked counts over Q3 show that the canonical diagram already fails at n = 6.'}
   - {to: cyclotomic-criterion-for-tame-lifting-modulo-wild-commutators, label: uses, note: 'Its lift modulo wild commutators forces equality of marked counts for targets with abelian Sylow p-subgroups.'}
   - {to: binary-tetrahedral-embedding-counts-over-dyadic-fields, label: analogous-to, note: 'Its order-24 target tests one of the counts in the complete criterion below, at the smallest possible target order for a dyadic obstruction.'}
   - {to: frobenius-shift-lifts-below-upper-ramification-one, label: analogous-to, note: 'A lift below upper ramification one does not rule out an obstruction on the finite diagrams considered here.'}
@@ -75,19 +75,11 @@ For $p=2$ every tame automorphism meets the cyclotomic hypothesis. Consequently 
 
 **A finite obstruction over $\mathbb Q_3$.** For comparison, put $G=G_{\mathbb Q_3}$ and let $\pi$ be its tame quotient. Choose tame generators $\sigma,\tau$ with $\sigma\tau\sigma^{-1}=\tau^3$, and let $\alpha(\sigma)=\sigma\tau$, $\alpha(\tau)=\tau$. Then
 
-$$A_{18}(\alpha)=\varnothing.$$
+$$A_6(\alpha)=\varnothing.$$
 
-This bound is proved here; no minimality is claimed. The two totally ramified quadratic fields
+This bound is proved here; no minimality is claimed. Put $q=\bar\chi:\Gamma\twoheadrightarrow C_2$, the mod-$3$ cyclotomic character, and let $r:S_3\twoheadrightarrow C_2$ be the sign map. The [affine cyclotomic count](affine-cyclotomic-count-obstruction.md) gives
+$$e_r(q\pi)=24,\qquad e_r(q\alpha\pi)=6.$$
 
-$$K_+=\mathbb Q_3(\sqrt3),\qquad K_-=\mathbb Q_3(\sqrt{-3})$$
-
-are tame, and $\alpha$ exchanges their corresponding index-two subgroups of $\Gamma$, by the quadratic-field calculation in the problem entry. Let $H_\pm=G_{K_\pm}\subset G$. As $K_-=\mathbb Q_3(\zeta_3)$ whereas $\zeta_3\notin K_+$, their maximal pro-$3$ quotients have ranks $4$ and $3$, respectively [@jardenshusterman2023, proof of Theorem 2.1, Cases A and B, pp. 2–3]. Characters are dual to the Frattini quotient of a finitely generated pro-$3$ group, whose dimension is its generator rank. Thus
-
-$$\dim_{\mathbb F_3}\mathrm{Hom}_{\mathrm{cont}}(H_-,\mathbb F_3)=4,
-\qquad\dim_{\mathbb F_3}\mathrm{Hom}_{\mathrm{cont}}(H_+,\mathbb F_3)=3.$$
-
-Every such character already factors through $H_\pm/C_{18}(G)$. Indeed, the kernel $N$ of a nonzero character is normal of index $3$ in the index-two normal subgroup $H=H_\pm$. For $s\in G\setminus H$, its core in $G$ is $N\cap sNs^{-1}$, since $N$ is normal in $H$. Its index in $G$ is at most $2\cdot3^2=18$, so it contains $C_{18}(G)$; the zero character also factors. Hence the same unequal dimensions hold for the two finite subgroups $H_\pm/C_{18}(G)$ of $G_{18}$.
-
-Both tame index-two subgroups contain $C_{18}(\Gamma)$. Thus any $b\in A_{18}(\alpha)$ would exchange their preimages $H_\pm/C_{18}(G)$ under $\pi_{18}$, giving an isomorphism between these finite groups. Their unequal dimensions of $\mathbb F_3$-valued character spaces rule this out. $\square$
+Every epimorphism $G\to S_3$ kills $C_6(G)$, since its kernel has index six. Also $q$ kills $C_6(\Gamma)$, since its kernel has index two. If $b\in A_6(\alpha)$, precomposition by $b$ on the induced maps $G_6\twoheadrightarrow S_3$ would biject the two marked solution sets: writing $q=q_6\rho_{\Gamma,6}$ and $\pi_6:G_6\to\Gamma_6$, one has $q_6\pi_6b=q_6\alpha_6\pi_6$. Its inverse is precomposition by $b^{-1}$. The unequal counts contradict this bijection. $\square$
 
 **Scope.** Once $G_n$, $\Gamma_n$, $\pi_n$ and $\alpha_n$ are supplied as finite groups and maps, testing $A_n(\alpha)$ is finite: enumerate automorphisms of $G_n$ and check the displayed equality. This entry does not construct these data for $U_f$, give an effective bound on $n$, or decide its lifting problem. The finite-generation argument also does not apply to arbitrary profinite groups. The finite witness over $\mathbb Q_3$ coexists with the [lift below upper ramification one](frobenius-shift-lifts-below-upper-ramification-one.md); that single quotient is not a test of all the diagrams above.
