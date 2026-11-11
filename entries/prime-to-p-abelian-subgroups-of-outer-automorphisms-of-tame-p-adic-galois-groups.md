@@ -27,7 +27,7 @@ is a unit of order $n$ with the three properties. Here $\sigma_{p'}$ is the prim
 
 - By consequence 1 of the Nishio entry, no nontrivial element of the image of these groups in $\mathrm{Out}(G_K)$ lies in a quasi-geometric subgroup, in particular in any conjugate of $\mathrm{Aut}(K)$.
 - These automorphisms do not settle the case $p = 3$ of [a two-dimensional representation of $G_{\mathbb{Q}_p}$ that is not Aut-intrinsically Hodge–Tate](two-dimensional-representation-of-g-qp-not-aut-intrinsically-hodge-tate.md). For $\gamma$ of finite order, the exponent $b(\gamma)$ of that entry is a root of unity in $\mathbb{Z}_p^\times$, which for $p = 3$ is $\pm 1$.
-- Whether $\mathrm{Out}(G_{\mathbb{Q}_p})$ has elements of order $p$, or nonabelian finite subgroups, is not settled here. The splitting step cannot produce elements of order $p$, because the kernel it splits off is pro-$p$; and the units used here, being central, commute. The case $p = 2$ is not covered, because the construction of Neukirch, Schmidt and Wingberg assumes $p$ odd.
+- Whether $\mathrm{Out}(G_{\mathbb{Q}_p})$ has elements of order $p$ is not settled here. The splitting step cannot produce them, because the kernel it splits off is pro-$p$. The units used here, being central, commute; noncentral units that are unitary for the Jannsen–Wingberg element give [nonabelian finite subgroups](nonabelian-finite-subgroups-of-outer-automorphisms-of-tame-p-adic-galois-groups.md). The case $p = 2$ is not covered, because the construction of Neukirch, Schmidt and Wingberg assumes $p$ odd.
 
 **Proof.**
 
