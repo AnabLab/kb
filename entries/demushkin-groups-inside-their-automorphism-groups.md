@@ -16,7 +16,7 @@ edges:
 
 A positive answer to 1 gives one to 2, by Burnside's criterion [@tsujimura2026freeaut, Introduction, p. 2].
 
-**Attribution.** Tsujimura proves both statements for free pro-$p$ groups of finite rank at least $2$. He then asks, as his Q.2, whether similar results hold for other highly nonabelian profinite groups: "is a nonabelian Demushkin group or a profinite surface group characteristic in its automorphism group?" He reports no partial answers [@tsujimura2026freeaut, Introduction, p. 2]. He regards a centre-free group as a subgroup of its automorphism group throughout [@tsujimura2026freeaut, Introduction, p. 1], so the question presupposes that $D$ is centre-free; the form above makes this explicit. The question for profinite surface groups is not recorded here.
+**Attribution.** Tsujimura proves both statements for free pro-$p$ groups of finite rank at least $2$. He then asks, as his Q.2, whether similar results hold for other highly nonabelian profinite groups: "is a nonabelian Demushkin group or a profinite surface group characteristic in its automorphism group?" He reports no partial answers [@tsujimura2026freeaut, Introduction, p. 2]. He regards a centre-free group as a subgroup of its automorphism group throughout [@tsujimura2026freeaut, Introduction, p. 1], so the question presupposes that $D$ is centre-free; the form above makes this explicit. The question for profinite surface groups is recorded separately, in [profinite surface groups inside their automorphism groups](profinite-surface-groups-inside-their-automorphism-groups.md).
 
 **Context.**
 
