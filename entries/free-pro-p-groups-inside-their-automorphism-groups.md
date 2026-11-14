@@ -21,6 +21,6 @@ $$
 $$
 [@tsujimura2026freeaut, Corollary 3.2 and Remark 3.2.1, p. 9].
 
-**Method and scope.** The proof locates $N$ successively inside $F K_i(F)$, where $K_i(F)=\ker(\operatorname{Aut}(F)\to\operatorname{Aut}(F/\gamma_{i+1}F))$ and $\gamma_iF$ is the closed lower central series [@tsujimura2026freeaut, Definition 1.1, p. 3; Proposition 3.12 and proof of Theorem 3.1, pp. 12–13]. The paper leaves analogues for nonabelian [Demushkin groups](demushkin-group.md), full $p$-adic Galois groups and free profinite groups open [@tsujimura2026freeaut, Introduction, Q.1–Q.2 and following paragraph, p. 2]. This is a cited preprint result, without an independent proof audit here.
+**Method and scope.** The proof locates $N$ successively inside $F K_i(F)$, where $K_i(F)=\ker(\operatorname{Aut}(F)\to\operatorname{Aut}(F/\gamma_{i+1}F))$ and $\gamma_iF$ is the closed lower central series [@tsujimura2026freeaut, Definition 1.1, p. 3; Proposition 3.12 and proof of Theorem 3.1, pp. 12–13]. The paper leaves analogues for nonabelian [Demushkin groups](demushkin-group.md), full $p$-adic Galois groups and [free pro-$\Sigma$ groups](free-pro-sigma-groups-inside-their-automorphism-groups.md) for larger sets $\Sigma$ of primes, free profinite groups included, open [@tsujimura2026freeaut, Introduction, Q.1–Q.2 and following paragraph, p. 2]. This is a cited preprint result, without an independent proof audit here.
 
 For arithmetic examples, see [maximal pro-$p$ Galois groups of $p$-adic fields](maximal-pro-p-galois-groups-of-p-adic-fields.md), Structure, part 1.
