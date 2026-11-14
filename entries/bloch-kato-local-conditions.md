@@ -6,7 +6,7 @@ tags: [local-fields, galois-cohomology, hodge-theory]
 edges:
   - {to: local-tate-duality, label: uses, note: 'The annihilator theorem refines local Tate duality for rational p-adic representations.'}
   - {to: p-adic-monodromy-theorem, label: uses, note: 'Berger’s criterion comparing the geometric and exponential parts uses the semistability of de Rham extensions of semistable representations.'}
-  - {to: kummer-theory, label: uses, note: 'For formal-group Tate modules, the exponential is the classical exponential followed by the Kummer map.'}
+  - {to: kummer-theory, label: uses, note: 'For the multiplicative formal group with rational Tate module Q_p(1), the exponential is the classical exponential followed by the multiplicative Kummer map.'}
 ---
 
 **Conditions.** Let $K/\mathbb Q_p$ be finite and $V$ a continuous finite-dimensional $\mathbb Q_p$-representation of $G_K$. Write $H^i(K,-)$ for continuous cohomology, with every tensor product below over $\mathbb Q_p$. Set
@@ -34,7 +34,7 @@ $$
 0\longrightarrow H^0(K,V)\longrightarrow D_{\mathrm{cris}}(V)^{\varphi=1}
 \longrightarrow t_V\xrightarrow{\exp_{K,V}}H^1_e(K,V)\longrightarrow0.
 $$
-The middle map is reduction modulo $\operatorname{Fil}^0$. Thus the exponential need not inject, nor exhaust $H^1(K,V)$. For a finite-height formal group over $\mathcal O_K$, it agrees with the classical exponential followed by the [Kummer map](kummer-theory.md) on its rational Tate module [@berger2004introduction, §V.2, pp. 35–36].
+The middle map is reduction modulo $\operatorname{Fil}^0$. Thus the exponential need not inject, nor exhaust $H^1(K,V)$. For the multiplicative formal group $\widehat{\mathbb G}_m$ over $\mathcal O_K$, whose rational Tate module is $\mathbb Q_p(1)$, it agrees with the classical exponential followed by the [multiplicative Kummer map](kummer-theory.md) [@berger2004introduction, §V.2, pp. 35–36].
 
 **Finite part and duality (Bloch–Kato).** There is also an exact sequence of $\mathbb Q_p$-vector spaces
 $$
