@@ -1,7 +1,7 @@
 ---
 title: The Bogomolov–Positselski freeness conjecture
 kind: problem
-summary: 'After adjoining all $p$-power roots of elements of a field containing $\mu_p$ (and $\sqrt{-1}$ for $p=2$), is the maximal pro-$p$ Galois group free? Positselski predicts yes. This holds for elementary-type groups and follows from a stronger module Koszulity conjecture.'
+summary: 'After adjoining all $p$-power roots of elements of a field containing $\mu_p$ (and $\sqrt{-1}$ for $p=2$), is the maximal pro-$p$ Galois group free? Positselski predicts yes. It holds for elementary-type groups and over algebraic extensions of global fields, and follows from a Koszulity conjecture.'
 tags: [galois-groups, galois-cohomology, pro-p-groups]
 edges:
   - {to: one-smooth-oriented-pro-p-group, label: uses, note: "the Kummerian condition, the subgroup $K_\theta$ and the kernel criterion"}
@@ -23,7 +23,9 @@ N=K_\theta(G)=\overline{\langle h^{-\theta(g)}ghg^{-1}:g\in G,\ h\in\ker\theta\r
 $$
 The pair is [Kummerian](one-smooth-oriented-pro-p-group.md), so $\ker\theta/N$ is free abelian pro-$p$; for $p=2$ the hypothesis on $K$ gives $\theta(G)\subseteq1+4\mathbb Z_2$ [@feuerpfeil2026, §1.1, pp. 1–2]. The identification $G_L(p)\cong N$ makes the conjecture exactly the assertion that $N$ is free [@quadrelliweigel2022bp, §3.1, p. 7]. If $K$ contains all $p$-power roots of unity, $\theta=1$ and $N=\overline{[G,G]}$ [@quadrelliweigel2022bp, §1, p. 2]. Positselski also states a stronger conjecture asking that a Sylow pro-$p$ subgroup of the full $G_L$ be free [@positselski2005, §1.2–1.3, Conjecture 1, p. 2].
 
-**Known case.** Quadrelli–Weigel prove freeness whenever $(G,\theta)$ is of [elementary type](elementary-type-conjecture.md), with $\theta(G)\subseteq1+4\mathbb Z_2$ for $p=2$. Consequently the elementary type conjecture would establish the assertion for every $K$ as above with $K^\times/K^{\times p}$ finite [@quadrelliweigel2022bp, Theorem 1.2 and preceding paragraph, pp. 2–3; Remark 5.10(a), p. 19].
+**Known cases.** Quadrelli–Weigel prove freeness whenever $(G,\theta)$ is of [elementary type](elementary-type-conjecture.md), with $\theta(G)\subseteq1+4\mathbb Z_2$ for $p=2$. Consequently the elementary type conjecture would establish the assertion for every $K$ as above with $K^\times/K^{\times p}$ finite [@quadrelliweigel2022bp, Theorem 1.2 and preceding paragraph, pp. 2–3; Remark 5.10(a), p. 19].
+
+If $K$ is separable algebraic over a global field of characteristic different from $p$, then $G_L(p)$ is free, and so are the Sylow pro-$p$ subgroups of $G_L$, even without the hypothesis on roots of unity. Positselski states this and sketches a proof through Brauer groups [@positselski2005, Appendix, Proposition A.1, p. 26]. A complete proof is in [freeness over global fields](bogomolov-positselski-freeness-over-global-fields.md). Here $K^\times/K^{\times p}$ may be infinite, as it is for global fields themselves.
 
 **Cohomological criterion.** Write $Q=G/N$. The [norm residue theorem](norm-residue-isomorphism-theorem.md) makes $H^*(G,\mathbb F_p)$ quadratic [@feuerpfeil2026, §1.1, p. 3]. In the Hochschild–Serre spectral sequence
 $$
