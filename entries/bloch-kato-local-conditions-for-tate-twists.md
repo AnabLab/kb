@@ -6,7 +6,7 @@ tags: [local-fields, galois-cohomology, hodge-theory, reconstruction]
 edges:
   - {to: bloch-kato-local-conditions, label: uses, note: 'Specializes the local conditions and their exact-annihilator duality to rational Tate twists.'}
   - {to: local-field-galois-invariants, label: uses, note: 'Transport uses functorial recovery of inertia and the cyclotomic character.'}
-  - {to: kummer-extensions-and-tate-curve-periods, label: analogous-to, note: 'At twist 1, the crystalline Kummer subspace is the annihilator of unramified characters.'}
+  - {to: kummer-extensions-and-tate-curve-periods, label: uses, note: 'Only the closing paragraph: identifies the twist-1 crystalline subspace with unit Kummer classes.'}
 ---
 
 **Data.** Let $K/\mathbb Q_p$ be finite, write $H^i(K,-)$ for continuous Galois cohomology, and put
