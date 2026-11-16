@@ -1,0 +1,50 @@
+---
+title: Finite-order automorphisms of p-adic absolute Galois groups are detected on the Frattini quotient of wild inertia
+kind: theorem
+summary: 'For odd $p$ and finite $K/\mathbb{Q}_p$, a finite-order automorphism of $G_K$ that is trivial on $P/P^{(2)}$, for $P$ wild inertia, is trivial. One of $p$-power order is already trivial if $(\bar\theta - 1)^{p-2} = 0$ on $P/P^{(2)}$.'
+tags: [local-fields, galois-groups, pro-p-groups]
+edges:
+  - {to: free-pro-p-ia-kernels-are-torsion-free, label: uses, note: "The theorem itself, for the free pro-$p$ group $P_K$ of infinite rank, and Step 1 of its proof: $P_K^{\\mathrm{ab}}$ is torsion-free."}
+  - {to: wild-inertia-of-a-p-adic-field, label: uses, note: "Wild inertia is free pro-$p$ and the largest closed normal pro-$p$ subgroup, so automorphisms preserve it."}
+  - {to: tame-group-algebra-units-give-automorphisms-of-p-adic-galois-groups, label: uses, note: "only part 1: $P_K/P_K^{(2)}$ has a direct summand that is free of rank one over $\\mathbb{F}_p[[\\mathrm{Gal}(K^{\\mathrm{tr}}/K)]]$, so this group acts faithfully on it"}
+  - {to: finite-order-local-galois-automorphisms-detected-modulo-wild-commutators, label: uses, note: "Only the fact, explained in its proof of part 1, that a nonabelian free pro-$p$ group has trivial centre. Part 2 here replaces its hypothesis on $G_K/[P_K, P_K]$ by one on the subquotient $P_K/P_K^{(2)}$, but only for the identity, not for inner automorphisms."}
+---
+
+**Setting.** Let $p$ be odd, $K/\mathbb{Q}_p$ finite, $G = G_K$, $P = P_K$ its wild inertia group and $\Gamma = G/P = \mathrm{Gal}(K^{\mathrm{tr}}/K)$. By [wild inertia](wild-inertia-of-a-p-adic-field.md), $P$ is a free pro-$p$ group that is not finitely generated, and it is the largest closed normal pro-$p$ subgroup of $G$, so every automorphism $\theta$ of $G$ maps $P$ onto itself. Put $N = P^{\mathrm{ab}} = P/[P, P]$, written additively, a compact $\mathbb{Z}_p$-module, and $\bar V = P/P^{(2)}$, where $P^{(2)} = P^p[P, P]$ is the Frattini subgroup, so that $\bar V = N/pN$. Write $\theta_N$ and $\bar\theta$ for the continuous automorphisms of $N$ and $\bar V$ induced by $\theta$; so $\bar\theta$ is the reduction of $\theta_N$ modulo $p$.
+
+Conjugation in $G$ makes $\bar V$ a compact module over $\Lambda = \mathbb{F}_p[[\Gamma]]$, since $P$ acts trivially on its abelian quotient. By part 1 of [units of the tame group algebra](tame-group-algebra-units-give-automorphisms-of-p-adic-galois-groups.md), $\bar V$ has a direct summand $\Lambda\bar x_1$ that is free of rank one over $\Lambda$.
+
+**Theorem.** This is proved here. Let $\theta \in \mathrm{Aut}(G_K)$ have finite order.
+
+1. If the order of $\theta$ is a power of $p$ and $(\bar\theta - 1)^{p-2} = 0$ on $\bar V$, then $\theta = 1$.
+2. If $\bar\theta = 1$, then $\theta = 1$. So the kernel of $\mathrm{Aut}(G_K) \to \mathrm{Aut}(P_K/P_K^{(2)})$ is torsion-free.
+
+For $p \ge 5$, part 1 applies whenever $(\bar\theta - 1)^2 = 0$, for instance when $\bar\theta - 1$ maps $\bar V$ into a subgroup on which $\bar\theta$ is the identity. [Surface generators modulo the Frattini subgroup](p-power-order-automorphisms-fix-surface-generators-modulo-the-frattini-subgroup-of-wild-inertia.md) applies it with $(\bar\theta - 1)^{p-2} = 0$, deduced from a bound on one block of $\bar\theta$. For $p = 3$, part 1 only says that $\bar\theta = 1$ forces $\theta = 1$.
+
+**Lemma.** This is proved here. Let $N$ be a torsion-free abelian pro-$p$ group and $A$ a continuous automorphism of $N$ with $A^{p^b} = 1$ for some $b \ge 0$ and $(A - 1)^{p-2}N \subseteq pN$. Then $A = 1$.
+
+The exponent $p - 2$ cannot be replaced by $p - 1$: multiplication by $\zeta_p$ on $\mathbb{Z}_p[\zeta_p]$ has order $p$, and $(\zeta_p - 1)^{p-1}\mathbb{Z}_p[\zeta_p] = p\,\mathbb{Z}_p[\zeta_p]$, by the computation of $\pi^{p-1}$ in the proof.
+
+*Proof.* First, $(A - 1)^jN \subseteq (A - 1)^{j - (p-2)}pN \subseteq pN$ for every $j \ge p - 2$. Suppose $A \ne 1$, let $b \ge 1$ be least with $A^{p^b} = 1$, and put $B = A^{p^{b-1}}$, so that $B \ne 1$ and $B^p = 1$. Since the binomial coefficients $\binom{p^{b-1}}{j}$ with $0 < j < p^{b-1}$ are divisible by $p$, $B - 1 = (A - 1)^{p^{b-1}} + pY$ with $Y$ an integral polynomial in $A$. Expanding $(B - 1)^{p-2}$, every term is either $(A - 1)^{p^{b-1}(p-2)}$ or divisible by $p$, so $(B - 1)^{p-2}N \subseteq pN$, as $p^{b-1}(p-2) \ge p - 2$.
+
+Let $\Phi(x) = 1 + x + \dots + x^{p-1}$ and $N' = \ker\Phi(B)$, a closed subgroup of $N$ stable under $B$. As $\Phi(B)(B - 1) = B^p - 1 = 0$, $N'$ contains $(B - 1)N$, which is nonzero; so $N' \ne 0$. If $pn \in N'$ with $n \in N$, then $p\,\Phi(B)n = 0$, so $\Phi(B)n = 0$ as $N$ is torsion-free; hence $N' \cap pN = pN'$.
+
+Let $R = \mathbb{Z}_p[x]/(\Phi)$ and let $\pi$ be the class of $x - 1$. Then $N'$ is an $R$-module, with $x$ acting as $B$, so $\pi$ acts as $B - 1$. In $\mathbb{Z}[x]$, $\Phi(x + 1) = ((x+1)^p - 1)/x = x^{p-1} + p\,g(x)$, where $g(x) = \sum_{j=1}^{p-1}\frac1p\binom{p}{j}x^{j-1}$ has integer coefficients and $g(0) = 1$. So $\pi^{p-1} = -p\,g(\pi)$ in $R$. The ring $R$ is a free $\mathbb{Z}_p$-module of rank $p - 1$, hence $p$-adically complete, and $\pi^{(p-1)k} \in p^kR$, so $\pi$ is topologically nilpotent and $g(\pi) = 1 + \pi h(\pi)$ is a unit. Hence $p = \pi^{p-1}v$ with $v = -g(\pi)^{-1} \in R^\times$, and $pN' = \pi^{p-1}N'$.
+
+On $N'$, $\pi$ is injective: if $\pi n = 0$, then $pn = v\pi^{p-1}n = 0$, so $n = 0$. Suppose $\pi^{p-2}N' \subseteq pN' = \pi^{p-1}N'$. For $n \in N'$ write $\pi^{p-2}n = \pi^{p-1}n'$ with $n' \in N'$; injectivity of $\pi^{p-2}$ gives $n = \pi n'$. So $N' = \pi N'$, hence $N' = \pi^{(p-1)k}N' = p^kN' \subseteq p^kN$ for every $k$. In an abelian pro-$p$ group, $\bigcap_kp^kN = 0$, because each finite quotient of $N$ is a finite $p$-group and so is killed by some $p^k$. Thus $N' = 0$, a contradiction. So there is $n \in N'$ with $(B - 1)^{p-2}n = \pi^{p-2}n \notin pN'$, hence $\notin pN$, as $N' \cap pN = pN'$. This contradicts $(B - 1)^{p-2}N \subseteq pN$. $\square$
+
+**Step: from $P^{\mathrm{ab}}$ to $G$.** Let $\eta \in \mathrm{Aut}(G)$ have finite order with $\eta_N = 1$. Then $\eta = 1$.
+
+*Proof.* The restriction $\eta|_P$ is a finite-order automorphism of the free pro-$p$ group $P$ acting trivially on $P^{\mathrm{ab}}$, so $\eta|_P = 1$ by [torsion-free IA kernels](free-pro-p-ia-kernels-are-torsion-free.md), which allows arbitrary rank. Let $g \in G$ and put $c = g^{-1}\eta(g)$. For $y \in P$, also $gyg^{-1} \in P$, so $\eta(g)y\eta(g)^{-1} = \eta(gyg^{-1}) = gyg^{-1}$, that is, $cyc^{-1} = y$. So conjugation by $c$ is trivial on $P$, hence on $\bar V$. It acts on $\bar V$ through the image $\bar c$ of $c$ in $\Gamma$, and $\bar c\bar x_1 = \bar x_1$ in the free module $\Lambda\bar x_1$ gives $\bar c = 1$ in $\Lambda$. Distinct elements of $\Gamma$ have distinct images in $\Lambda$, as they differ in some finite quotient $\Gamma/U$, whose elements form a basis of $\mathbb{F}_p[\Gamma/U]$. So $c \in P$, and $c$ is central in $P$. A nonabelian free pro-$p$ group has trivial centre ([detection modulo wild commutators](finite-order-local-galois-automorphisms-detected-modulo-wild-commutators.md), proof of part 1), and $P$ is not abelian, being free of infinite rank. So $c = 1$ and $\eta(g) = g$. $\square$
+
+**Proof of part 1.** Let $\theta$ have order $p^b$. Then $\theta_N^{p^b} = 1$. By Step 1 of the proof in [torsion-free IA kernels](free-pro-p-ia-kernels-are-torsion-free.md), the lower central factors of a free pro-$p$ group are torsion-free; for the first factor this says that $N = P^{\mathrm{ab}}$ is torsion-free. The reduction of $(\theta_N - 1)^{p-2}$ modulo $p$ is $(\bar\theta - 1)^{p-2} = 0$, so $(\theta_N - 1)^{p-2}N \subseteq pN$. The Lemma gives $\theta_N = 1$, and the Step gives $\theta = 1$. $\square$
+
+**Proof of part 2.** Let $\theta$ have order $p^bm$ with $p \nmid m$, and put $\eta = \theta^{p^b}$, of order $m$, with $\bar\eta = \bar\theta^{p^b} = 1$. Then $Y = \eta_N - 1$ maps $N$ into $pN$, and
+$$0 = \eta_N^m - 1 = \sum_{j=1}^m\binom{m}{j}Y^j = mY(1 + YZ),\qquad Z = \frac1m\sum_{j=2}^m\binom{m}{j}Y^{j-2},$$
+where $1/m \in \mathbb{Z}_p$. As $(YZ)^kN \subseteq p^kN$, and every open subgroup of $N$ contains $p^kN$ for large $k$, the series $\sum_k(-YZ)^k$ converges to a continuous inverse of $1 + YZ$. So $Y = 0$, that is, $\eta_N = 1$, and the Step gives $\eta = 1$. Hence $m = 1$, $\theta$ has $p$-power order, and part 1 applies, since $\bar\theta - 1 = 0$. $\square$
+
+**Remarks.**
+
+- *Comparison.* [Detection modulo wild commutators](finite-order-local-galois-automorphisms-detected-modulo-wild-commutators.md) shows that a finite-order automorphism of $G_K$ that is inner on $G_K/[P_K, P_K]$ is trivial. Part 2 asks less of the wild part, only triviality on the Frattini quotient $P_K/P_K^{(2)}$ of $P_K^{\mathrm{ab}}$, and nothing of the tame part, but it concerns $\theta$ itself rather than $\theta$ up to inner automorphisms. The remark at the end of [torsion-free IA kernels](free-pro-p-ia-kernels-are-torsion-free.md) that its theorem fails modulo the Frattini subgroup concerns $p = 2$. For odd $p$, part 2 shows that for automorphisms of $G_K$ triviality modulo the Frattini subgroup of $P_K$ suffices: the Lemma handles the $p$-power part of $\theta$, and the argument in the proof of part 2 the part of order prime to $p$.
+- *Why part 1 matters.* To show that an automorphism of $p$-power order is trivial, it is enough to know that $\bar\theta$ is unipotent of index at most $p - 2$. For $p \ge 5$ it is enough that $\bar\theta$ is the identity on some $\bar\theta$-stable subgroup and on the quotient by it, for instance on the line of $\bar V$ on which $\Gamma$ acts through the cyclotomic character modulo $p$ and on the quotient by that line.
+- *Not covered.* The case $p = 2$. There the presentation behind part 1 of [units of the tame group algebra](tame-group-algebra-units-give-automorphisms-of-p-adic-galois-groups.md) is not available, and the exponent $p - 2$ of the Lemma is $0$, so part 1 says nothing.
