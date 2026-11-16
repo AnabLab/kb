@@ -9,8 +9,8 @@ edges:
   - {to: aut-intrinsic-hodge-tate-representations, label: uses, note: 'The definition and the Lubin–Tate character; Hoshi’s dimension-one theorem gives the lower bound on dimension in the final remark.'}
   - {to: non-galois-lubin-tate-representations-are-not-aut-intrinsically-hodge-tate, label: uses, note: 'Its proof of part 1: Hodge–Tate-ness is preserved by restriction to, and descends from, a finite Galois extension.'}
   - {to: local-field-galois-invariants, label: uses, note: 'Inertia, the unramified Frobenius and the cyclotomic character are preserved by automorphisms.'}
-  - {to: local-class-field-theory, label: uses, note: 'Reciprocity identifies units with the image of inertia and is compatible with conjugation.'}
-  - {to: multiplicative-group-of-a-p-adic-field, label: uses, note: 'For the unramified cubic K/Q_3, logarithm identifies 1 + 3 O_K with 3 O_K.'}
+  - {to: local-class-field-theory, label: uses, note: 'Reciprocity identifies units with the image of inertia.'}
+  - {to: multiplicative-group-of-a-p-adic-field, label: uses, note: 'The unit decomposition identifies principal units with the pro-3 Sylow subgroup of the unit group; for the unramified cubic K/Q_3, the absence of 3-power roots of unity gives U isomorphic to Z_3^3.'}
   - {to: p-adic-cyclotomic-tower, label: uses, note: 'The cyclotomic extension of Q_3 is totally ramified and its principal-unit character has infinite image.'}
   - {to: local-galois-group-presentations, label: uses, note: 'The presentation of G_Q_3 and the corrected lifting theorem (7.5.15), which prescribes agreement only modulo the Frattini subgroup of wild inertia.'}
 ---
@@ -50,7 +50,9 @@ The central-unit lifting calculation in [norm-one units](automorphisms-of-the-ga
 $$\theta(\rho)\in\rho V^2\ (\rho\in\Gamma),\qquad \theta(x_0)\in x_0V^2,\qquad \overline{\theta(x_1)}=\varepsilon\bar x_1\text{ in }V/V^2.\tag{5}$$
 The source gives only agreement modulo $V^2$ [@neukirchschmidtwingberg2008, (7.5.15), p. 421, and the calculation on pp. 422–423].
 
-**3. Computing the action on principal units.** The image of $V$ in $G_K^{\mathrm{ab}}$ is exactly $\operatorname{rec}_K(U)$. Indeed inertia is common to $K$ and $\mathbb Q_3$, its quotient by $V$ has order prime to $3$, and its unit image is $\mathcal O_K^\times$ with pro-$3$ Sylow subgroup $U$. Put $M=U/U^3$, written additively. The logarithm identifies $U$ with $3\mathcal O_K$, so $\dim_{\mathbb F_3}M=3$. Conjugation by $\Gamma$ acts on $M$ through $C_3$, with $\sigma$ acting as $\varphi$ and $\tau$ trivially.
+**3. Computing the action on principal units.** First, logarithm is a $\operatorname{Gal}(K/\mathbb Q_3)$-equivariant topological group isomorphism $U\xrightarrow{\sim}3\mathcal O_K$. Here is a proof of the analytic fact used in this step and Step 4. Normalize $v_3(3)=1$. For $n\ge2$, both $v_3(n)$ and $v_3(n!)$ are at most $(n-1)/2$. Thus, for $x\in3\mathcal O_K$, the terms of $\log(1+x)=\sum_{n\ge1}(-1)^{n+1}x^n/n$ and $\exp(x)=\sum_{n\ge0}x^n/n!$ have valuations tending uniformly to infinity. They define continuous maps into $3\mathcal O_K$ and $U$, respectively. Convergent substitution in the formal power-series identities shows that these maps are inverse and that $\exp(x+y)=\exp(x)\exp(y)$. Their rational coefficients give Galois equivariance. In particular, $\log(U^3)=3\log U$ and $\log U=3\mathcal O_K$ is open in $K$.
+
+The image of $V$ in $G_K^{\mathrm{ab}}$ is exactly $\operatorname{rec}_K(U)$. Indeed inertia is common to $K$ and $\mathbb Q_3$, its quotient by $V$ has order prime to $3$, and its unit image is $\mathcal O_K^\times$ with pro-$3$ Sylow subgroup $U$. Put $M=U/U^3$, written additively. The logarithm isomorphism gives $\dim_{\mathbb F_3}M=3$. Conjugation by $\Gamma$ acts on $M$ through $C_3$, with $\sigma$ acting as $\varphi$ and $\tau$ trivially.
 
 Let $v_i\in M$ be the images of $x_i$. Abelianizing the Jannsen–Wingberg relation modulo $3$ gives $\varphi v_0=0$: the power and commutator terms vanish, and the coefficient of $v_0$ in $\langle x_0,\tau\rangle$ is
 $$\frac{\bar h+\bar h^2}{2}=0\quad(\bar h=-1\in\mathbb F_3).$$
