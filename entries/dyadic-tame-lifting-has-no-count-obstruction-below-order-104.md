@@ -8,6 +8,7 @@ edges:
   - {to: dyadic-tame-lifting-has-no-count-obstruction-below-order-48, label: uses, note: 'Step 1 supplies the wild-abelian and direct-product reductions.'}
   - {to: cubic-actions-on-small-2-groups-have-central-frattini-subgroups, label: uses, note: 'A nontrivial cubic action on a normal Sylow subgroup of order 32 forces its Frattini subgroup to be central.'}
   - {to: dyadic-central-frattini-counts-at-arbitrary-exponent, label: uses, note: 'Handles every tame marking once the order-32 Sylow subgroup has central Frattini subgroup.'}
+  - {to: symmetric-tame-markings-give-no-dyadic-count-obstruction, label: uses, note: 'Its proof supplies the tame automorphism formulas and identity on the unramified quotient used in Step 2.'}
   - {to: symmetric-tame-markings-give-no-dyadic-count-obstruction, label: motivated-by, note: 'Its conjugacy argument extends here to cubic inertia inverted by an arbitrary cyclic unramified 2-group quotient.'}
   - {to: frobenius-shift-lifting-problem, label: addresses, note: 'Raises the minimum possible target order of an unequal marked-count witness to 104; no full lift is constructed.'}
 ---
