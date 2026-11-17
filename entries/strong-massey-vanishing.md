@@ -26,6 +26,8 @@ For every prime $p$ and base field $F$ of characteristic different from $p$, Mer
 
 **Positive virtual-dimension theorem.** For a field of virtual cohomological dimension at most one, Pál–Quick prove strong vanishing for every prime and length, including inputs in arbitrary cohomological degrees [@palquick2025, Theorem 1.10]. See [formality of Galois cochains in virtual dimension one](galois-cochain-formality-in-virtual-dimension-one.md).
 
+**Positive Demushkin and $p$-adic theorem.** If cup product with every nonzero class maps $H^1(G,\mathbb F_p)$ onto $H^2(G,\mathbb F_p)$, then $G$ has strong vanishing at every length. This covers every Demushkin group, which is Pál–Szabó's theorem [@palszabo2022arxiv, Theorem 3.5, p. 7], and, by local duality, $G_K$ for every finite $K/\mathbb Q_p$ at every prime. See [strong vanishing for Demushkin groups and $p$-adic fields](strong-massey-vanishing-for-demushkin-groups-and-p-adic-fields.md).
+
 **Positive elementary-type theorem.** At $p=2$, every elementary-type group and every open subgroup has strong vanishing at all lengths, without a restriction on its orientation. See the [theorem and its Pythagorean field case](elementary-type-strong-massey-vanishing.md) [@quadrelli2024pythagorean, Theorem 1.3, p. 2].
 
 **Positive number-field theorem (Maire–Mináč–Ramakrishna–Tân).** Let $K$ be a number field, $p$ an odd prime and $\zeta_p\notin K$, where $\zeta_p$ is a primitive $p$-th root of unity. For every $n\ge3$, both
