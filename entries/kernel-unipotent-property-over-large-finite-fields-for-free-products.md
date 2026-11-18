@@ -8,6 +8,8 @@ edges:
   - {to: kernel-unipotent-property-for-free-products-of-demushkin-and-free-groups, label: uses, note: "its notation and Steps 1, 2, 4 and 5 (ii)–(iv), applied over $\\mathbb F_q$ and extended to factors $\\mathbb Z_p^d$"}
   - {to: isotropic-chains-detect-the-quadratic-algebra-of-a-nondegenerate-form, label: uses, note: "part 1 over $\\mathbb F_p$, for runs in a Demushkin factor, in Step 5"}
   - {to: demushkin-group, label: uses}
+  - {to: cyclotomic-semidirect-products-preserve-the-kernel-unipotent-property, label: uses, note: "only for the remark that a single factor $\\mathbb Z_p^d$ already has the property over $\\mathbb F_p$ for every $n$"}
+  - {to: maximal-pro-p-galois-groups-of-p-adic-fields, label: uses, note: "only in Corollary 2, for $G_L(p)$ being a Demushkin group of rank $[L:\\mathbb Q_p]+2$"}
 ---
 
 **Setting.** Let $p$ be a prime and $q$ a power of $p$, and write $\mathbb F=\mathbb F_q$. For a pro-$p$ group $G$ with $p$-Zassenhaus filtration $G_{(n)}$, as in [the conjecture](kernel-unipotent-conjecture.md), say that $G$ has the *kernel $n$-unipotent property over $\mathbb F_q$* if
