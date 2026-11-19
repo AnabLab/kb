@@ -9,6 +9,7 @@ edges:
   - {to: kernel-unipotent-property-and-massey-vanishing-for-odd-rigid-fields, label: generalizes, note: "Corollary 1 contains its part 1, through the same structure theorem for $G_F(p)$. Its part 2, on Massey products, is not covered."}
   - {to: p-rigid-fields, label: uses, note: "only in the corollaries: the structure of $G_F(p)$ of an odd $p$-rigid field, and its exterior cohomology"}
   - {to: demushkin-group, label: uses, note: "only in the corollaries"}
+  - {to: p-zassenhaus-filtration, label: uses, note: "the three facts of Step 0, which are items 1 and 2 there, and the vanishing of $G_{(n)}$ under maps to $U_n(\\mathbb F_p)$"}
   - {to: elementary-type-conjecture, label: motivated-by, note: "The theorem treats the cyclotomic semidirect product, one of the two operations building groups of elementary type; free products are not treated. Its building blocks and operations give maximal pro-$p$ Galois groups [@quadrelli2024, p. 13], which supplies the fields of Corollary 3."}
 ---
 

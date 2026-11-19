@@ -8,6 +8,7 @@ edges:
   - {to: isotropic-chains-detect-the-quadratic-algebra-of-a-nondegenerate-form, label: uses, note: "with $\\omega$ the cup product pairing on $H^1(G,\\mathbb F_p)$"}
   - {to: strong-massey-vanishing-for-demushkin-groups-and-p-adic-fields, label: uses, note: "part 1, to realize each sequence of classes with zero adjacent cup products as the superdiagonal of a unipotent representation"}
   - {to: demushkin-group, label: uses, note: "the one-relator presentation and the nondegenerate cup product"}
+  - {to: p-zassenhaus-filtration, label: uses, note: "Jennings' theorem, surjectivity of filtrations under quotient maps, and the vanishing of $G_{(m+1)}$ under maps to $U_{m+1}(\\mathbb F_p)$, in Steps 2 and 3"}
   - {to: maximal-pro-p-galois-groups-of-p-adic-fields, label: uses, note: "for the corollary: $G_K(p)$ is a Demushkin group of rank $[K:\\mathbb Q_p]+2$ when $\\zeta_p\\in K$"}
 ---
 
