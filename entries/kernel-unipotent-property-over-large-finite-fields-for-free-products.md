@@ -9,6 +9,7 @@ edges:
   - {to: isotropic-chains-detect-the-quadratic-algebra-of-a-nondegenerate-form, label: uses, note: "part 1 over $\\mathbb F_p$, for runs in a Demushkin factor, in Step 5"}
   - {to: demushkin-group, label: uses}
   - {to: cyclotomic-semidirect-products-preserve-the-kernel-unipotent-property, label: uses, note: "only for the remark that a single factor $\\mathbb Z_p^d$ already has the property over $\\mathbb F_p$ for every $n$"}
+  - {to: p-zassenhaus-filtration, label: uses, note: "Jennings' theorem in Step 2; item 3 there is the inclusion proved in the Setting over $\\mathbb F_q$"}
   - {to: maximal-pro-p-galois-groups-of-p-adic-fields, label: uses, note: "only in Corollary 2, for $G_L(p)$ being a Demushkin group of rank $[L:\\mathbb Q_p]+2$"}
 ---
 

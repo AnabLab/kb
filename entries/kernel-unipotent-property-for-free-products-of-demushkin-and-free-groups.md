@@ -10,6 +10,7 @@ edges:
   - {to: cyclotomic-semidirect-products-preserve-the-kernel-unipotent-property, label: uses, note: "only in Corollaries 1 and 2"}
   - {to: demushkin-group, label: uses}
   - {to: maximal-pro-p-galois-groups-of-p-adic-fields, label: uses, note: "only in Corollary 2: $G_L(p)$ is a Demushkin group of rank $[L:\\mathbb Q_p]+2$ when $\\zeta_p\\in L$"}
+  - {to: p-zassenhaus-filtration, label: uses, note: "Jennings' theorem, surjectivity of filtrations under quotient maps, and the vanishing of $G_{(k+1)}$ under maps to $U_{k+1}(\\mathbb F_p)$, in Steps 2 and 3"}
   - {to: elementary-type-conjecture, label: motivated-by, note: "The theorem treats free pro-$p$ products, the operation that the cyclotomic semidirect product entry leaves out, for products of the building blocks; it does not treat free products of groups that are themselves semidirect products."}
 ---
 
