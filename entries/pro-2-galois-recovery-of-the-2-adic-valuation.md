@@ -4,6 +4,8 @@ kind: theorem
 summary: 'If $G_K(2) \cong G_{\mathbb{Q}_2}(2)$, then $K$ has characteristic $0$ and a $2$-henselian valuation with residue field $\mathbb{F}_2$, least positive value $v(2)$ and $[vK:2vK]=2$ (Koenigsmann–Strommen). Their application proves the pro-$2$ birational section theorem over $\mathbb{Q}_2$.'
 tags: [local-fields, galois-groups, pro-p-groups, valuations, section-conjecture]
 edges:
+  - {to: pro-p-galois-recovery-of-p-adic-valuations, label: addresses, note: "Proves the case with comparison field Q2."}
+  - {to: norm-reciprocity-for-p-demushkin-fields, label: uses, note: "The norm-subgroup correspondence is an input to the valuation construction."}
   - {to: galois-characterization-of-p-adically-closed-fields, label: analogous-to}
   - {to: birational-sections-over-local-fields, label: analogous-to, note: 'The application uses maximal pro-$2$ groups over $\mathbb{Q}_2$.'}
 ---
