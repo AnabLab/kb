@@ -1,11 +1,10 @@
 ---
 title: Pro-p Galois recovery of p-adic valuations
 kind: problem
-summary: Koenigsmann–Strommen conjecture that a field with the maximal pro-p Galois group of a p-adic field containing a primitive pth root of unity has a p-henselian valuation with matching finite residue field and initial ramification, allowing another p-adic field with the same group. Known for Q2.
+summary: If K and a p-adic field F both contain a primitive pth root of unity and have isomorphic maximal pro-p Galois groups, Koenigsmann–Strommen predict a p-henselian valuation on K matching residue and initial ramification data of some p-adic F' with the same group. Known for Q2.
 tags: [local-fields, galois-groups, pro-p-groups, valuations, reconstruction]
 edges:
   - {to: maximal-pro-p-galois-groups-of-p-adic-fields, label: uses, note: "The comparison field is allowed to vary within its maximal pro-p Galois isomorphism class."}
-  - {to: norm-reciprocity-for-p-demushkin-fields, label: uses, note: "A known input to the valuation construction, rather than a solution of the conjecture."}
   - {to: elementary-type-conjecture, label: analogous-to, note: "Its Demushkin realization prediction asks which groups occur; this conjecture asks for valuations on fields with a specified local group."}
 ---
 
