@@ -1,23 +1,23 @@
 ---
 title: Ordinary p-central truncation does not suffice for local Galois lifting
 kind: theorem
-summary: 'For odd p and K = Q_p(mu_{p^2}), an involution of G_K/P^(3) over the tame quotient has no lift to G_K even modulo P^(2), for the ordinary p-central series of wild inertia. The lifting theorem instead uses the p^s-central series.'
+summary: 'For odd p and K = Q_p(mu_{p^2}), an involution of G_K/P^(3) over the tame quotient cannot lift even modulo P^(2) for the ordinary p-central series. This contradicts NSW (7.5.15) as printed; Nishio uses the p^s-central series.'
 tags: [local-fields, galois-groups, pro-p-groups, embedding-problems]
 edges:
   - {to: local-galois-group-presentations, label: uses, note: 'The even-degree Jannsen–Wingberg presentation, with trivial tame action on the p-power roots of unity and the constant lift of that action.'}
   - {to: p-adic-cyclotomic-tower, label: uses, note: 'Its finite-layer ramification formula gives degree p(p-1) and exactly p^2 roots of p-power order in the tame closure of Q_p(mu_{p^2}).'}
-  - {to: finite-subgroups-of-p-adic-outer-automorphism-groups, label: uses, note: 'Only its account of the correct lifting theorem: the filtration is the p^s-central series [@nishio2026finite, Proposition 2.6, p. 11].'}
+  - {to: wingberg-lifting-for-the-p-s-central-series-of-wild-inertia, label: analogous-to, note: 'The lifting statement uses the p^s-central series; this example shows why ordinary p-central truncation cannot replace it when s = 2.'}
   - {to: finite-order-local-galois-automorphisms-detected-on-the-frattini-quotient-of-wild-inertia, label: uses, note: 'Only part 2, in the corollary: a finite-order automorphism trivial on wild Frattini is the identity.'}
-  - {to: tame-group-algebra-units-give-automorphisms-of-p-adic-galois-groups, label: refutes, note: 'Only the general lifting assertion in its proof of part 2 with the ordinary p-central series at arbitrary s; this does not refute the surface-unit conclusion.'}
-  - {to: automorphisms-of-p-adic-galois-groups-mixing-complementary-and-surface-generators, label: refutes, note: 'Only its general A lifting step using the ordinary p-central series when s exceeds one; this does not refute the stated mixing conclusions.'}
-  - {to: central-scalars-in-finite-outer-conjugacy-on-wild-frattini, label: addresses, note: 'An obstruction to using the ordinary third wild quotient to test central scalar candidates; its unit and mixing inputs invoke the lifting assertion refuted here.'}
+  - {to: central-scalars-in-finite-outer-conjugacy-on-wild-frattini, label: addresses, note: 'The corollary forces every constant scalar to be one for K = Q_p(mu_{p^2}); nonconstant central units remain untreated.'}
 ---
 
 **Setting and source distinction.** Let $p$ be odd, $K=\mathbb Q_p(\mu_{p^2})$, $G=G_K$, and $P$ its wild inertia. Put
 $$P^{(1)}=P,\qquad P^{(i+1)}=(P^{(i)})^p[P^{(i)},P],$$
-with closed generated subgroups. This is the ordinary $p$-central series. The lifting theorem uses instead $P^{p,1,s}=P$ and
+with closed generated subgroups. This is the ordinary $p$-central series, the series denoted $V_K^i$ by Neukirch, Schmidt and Wingberg [@neukirchschmidtwingberg2008, (3.8.1), p. 220; p. 421]. Their (7.5.15), as printed, asserts that every automorphism of $G/P^{(3)}$ over $G/P$ agrees modulo $P^{(2)}$ with an automorphism of $G$ [@neukirchschmidtwingberg2008, (7.5.15), p. 421]. The theorem below is a counterexample to that statement for this $K$.
+
+Nishio's Proposition 2.6 uses the $p^s$-central series, defined by $P^{p,1,s}=P$ and
 $$P^{p,i+1,s}=(P^{p,i,s})^{p^s}[P^{p,i,s},P],$$
-where $p^s=|\mu_{p^\infty}(K^{\mathrm{tr}})|$: an automorphism over the tame quotient at level $P^{p,3,s}$ is realized by an automorphism of $G$ at level $P^{p,2,s}$ [@nishio2026finite, §0, p. 4; Proposition 2.6, p. 11]. Here $s=2$. Indeed, cyclotomic layers over $\mathbb Q_p$ are totally ramified of degree $p^{m-1}(p-1)$, so adjoining $\mu_{p^3}$ to $K$ is wild of degree $p$ [@fesenkovostokov2002, Chapter IV, (1.3), pp. 113–114].
+where $p^s=|\mu_{p^\infty}(K^{\mathrm{tr}})|$ [@nishio2026finite, Definition 2.2 (ii) and Lemma 2.3 (ii), p. 9]. An automorphism over the tame quotient at level $P^{p,3,s}$ is realized by an automorphism of $G$ at level $P^{p,2,s}$ [@nishio2026finite, §0, p. 4; Proposition 2.6, p. 11]; see [the lifting theorem for this series](wingberg-lifting-for-the-p-s-central-series-of-wild-inertia.md). Here $s=2$. Indeed, cyclotomic layers over $\mathbb Q_p$ are totally ramified of degree $p^{m-1}(p-1)$, so adjoining $\mu_{p^3}$ to $K$ is wild of degree $p$ [@fesenkovostokov2002, Chapter IV, (1.3), pp. 113–114].
 
 **Theorem (proved here).** There is an involution $\jmath$ of $G/P^{(3)}$ inducing the identity on $G/P$ such that no automorphism of $G$ agrees with $\jmath$ on $G/P^{(2)}$.
 
@@ -58,4 +58,4 @@ $$e_t\mapsto e_t+v,\quad e_0\mapsto ce_0,\quad
 e_i\mapsto\lambda e_i+\ell_i e_0\ (i\ge1),$$
 where $v$ is in the span of $e_0,\ldots,e_d$. Lift it to $\psi:F\to F$ as above. Put $m=a(\psi(r))\bmod p$. Equation (3) gives $(\bigwedge^2\psi)R=mR$. Comparing the $e_t\wedge e_0$ coefficient gives $m=c$, and comparing $e_1\wedge e_2$ gives $m=\lambda^2$. Abelianizing $\psi(r)$ as before gives $m=\lambda$. Thus $\lambda^2=\lambda$, so $\lambda=c=1$. On $V$, $B=\alpha-1$ now has image in $L$ and kills $L$, so $B^2=0$. If the order is $r$ prime to $p$, $(1+B)^r=1+rB$ forces $B=0$. The [finite-order detection theorem](finite-order-local-galois-automorphisms-detected-on-the-frattini-quotient-of-wild-inertia.md), part 2, then gives $\alpha=1$. $\square$
 
-**Scope.** This refutes the ordinary-$p$ general lifting step in the [surface-unit proof](tame-group-algebra-units-give-automorphisms-of-p-adic-galois-groups.md) and in the [mixing proof](automorphisms-of-p-adic-galois-groups-mixing-complementary-and-surface-generators.md) when $s>1$. Those conclusions may admit proofs with the correct filtration; the counterexample does not decide them. When $s=1$ the two filtrations coincide. The quotient involution has $c=1$ and $z=-1$, while the corollary excludes any actual tame-trivial automorphism with $z=-1$ for this $K$, even allowing shears into $L$ and changes to the tame lifts. Arbitrary central units $z\in Z(\mathbb F_p[[G/P]])^\times$ remain untreated, and no answer to the rival-copy problem is asserted.
+**Scope.** The counterexample refutes the ordinary-$p$ lifting assertion of NSW (7.5.15) as printed. The [surface-unit proof](tame-group-algebra-units-give-automorphisms-of-p-adic-galois-groups.md) and the [mixing proof](automorphisms-of-p-adic-galois-groups-mixing-complementary-and-surface-generators.md) use the [lifting theorem for the $p^s$-central series](wingberg-lifting-for-the-p-s-central-series-of-wild-inertia.md), constructing their quotient automorphisms at that finer level. When $s=1$ the two filtrations coincide. The quotient involution has $c=1$ and $z=-1$, while the corollary excludes any actual tame-trivial automorphism with $z=-1$ for this $K$, even allowing shears into $L$ and changes to the tame lifts. Arbitrary central units $z\in Z(\mathbb F_p[[G/P]])^\times$ remain untreated, and no answer to the rival-copy problem is asserted.
