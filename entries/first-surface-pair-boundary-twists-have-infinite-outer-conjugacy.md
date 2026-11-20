@@ -1,21 +1,21 @@
 ---
-title: Nonzero p-adic boundary twists have infinitely many outer conjugates
+title: Nonzero p-adic boundary twists of the first surface pair have infinite outer conjugacy
 kind: theorem
-summary: 'For odd p and [K:Q_p] at least three, every nonzero p-adic power of a surface-pair boundary twist has infinitely many conjugates in Out(G_K). A single automorphism lifted from an unramified pro-p group-algebra unit separates all its integer conjugates.'
+summary: 'For odd p and d = [K:Q_p] at least three, twists along (x_2,x_3) for odd d and (x_3,x_4) for even d form a closed Z_p in Out(G_K), every nonidentity element having infinitely many outer conjugates. These are the pairs of the tame-group-algebra theorem.'
 tags: [local-fields, galois-groups, pro-p-groups]
 edges:
   - {to: boundary-twists-exclude-finite-outer-conjugacy-of-wild-scalars, label: uses, note: 'The exact surface-pair twist, its degree-two Johnson map, and the lower central input: torsion-free factors, completed free Lie spaces and saturation of inner Johnson maps.'}
   - {to: tame-group-algebra-units-give-automorphisms-of-p-adic-galois-groups, label: uses, note: 'Part 2 supplies the conjugating automorphism for the unit 1 + (gamma - 1)^2. Parts 1 and 3 give the free surface and complementary summands of wild Frattini and the trivial centre of the tame quotient.'}
-  - {to: tame-trivial-automorphisms-with-finite-outer-conjugacy-act-trivially-on-wild-frattini, label: addresses, note: 'Answers the boundary-twist question in its Inner or not remark; the general infinite-order innerness question remains open.'}
+  - {to: tame-trivial-automorphisms-with-finite-outer-conjugacy-act-trivially-on-wild-frattini, label: addresses, note: 'Answers the boundary-twist question in its Inner or not remark for the first surface pair; the general infinite-order innerness question remains open.'}
 ---
 
-**Setting.** Let $p$ be odd, $K/\mathbb Q_p$ finite of degree $d\ge3$, $G=G_K$, $P$ its wild inertia, $\Gamma=G/P$ and $\Lambda=\mathbb F_p[[\Gamma]]$. Use the presentation and involution $*$ of [the tame-group-algebra theorem](tame-group-algebra-units-give-automorphisms-of-p-adic-galois-groups.md). Choose its surface pair $(a,b)=(x_2,x_3)$ for odd $d$ and $(x_3,x_4)$ for even $d$, and put $w=[a,b]$. Each of $a,b$ occurs in the wild relator only in this commutator, and $x_1$ is a distinct complementary generator. This form of the presentation is also stated in [@kondo2025, Theorem 1.1, p. 8].
+**Setting.** Let $p$ be odd, $K/\mathbb Q_p$ finite of degree $d\ge3$, $G=G_K$, $P$ its wild inertia, $\Gamma=G/P$ and $\Lambda=\mathbb F_p[[\Gamma]]$. Use the presentation and involution $*$ of [the tame-group-algebra theorem](tame-group-algebra-units-give-automorphisms-of-p-adic-galois-groups.md). Fix the first surface pair, namely its pair $(a,b)=(x_2,x_3)$ for odd $d$ and $(x_3,x_4)$ for even $d$, and put $w=[a,b]$. Each of $a,b$ occurs in the wild relator only in this commutator, and $x_1$ is a distinct complementary generator. This form of the presentation is also stated in [@kondo2025, Theorem 1.1, p. 8].
 
 For $t\in\mathbb Z_p$, define $T_t$ by fixing the tame generators and every $x_i$ outside this pair and setting
 $$T_t(a)=w^taw^{-t},\qquad T_t(b)=w^tbw^{-t}.$$
 It fixes $w$, hence preserves the relator, and $T_{-t}$ is its inverse. Also $T_tT_{t'}=T_{t+t'}$. Thus these are exact automorphisms, inducing the identity on both $\Gamma$ and $V=P/\Phi(P)$.
 
-**Theorem (proved here).** There is an automorphism $\beta$ of $G$, independent of $t$, such that for every $0\ne t\in\mathbb Z_p$ the classes
+**Theorem (proved here).** For the fixed first surface pair, there is an automorphism $\beta$ of $G$, independent of $t$, such that for every $0\ne t\in\mathbb Z_p$ the classes
 $$[\beta^jT_t\beta^{-j}]\in\operatorname{Out}(G),\qquad j=0,1,2,\ldots,$$
 are pairwise distinct. Consequently $t\mapsto[T_t]$ embeds $\mathbb Z_p$ as a closed subgroup of $\operatorname{Out}(G)$, and every nonidentity element of this subgroup has infinitely many outer conjugates.
 
@@ -67,4 +67,4 @@ Since $p$ is odd and $\bar m\ne0$, this is a contradiction.
 
 Thus no positive power of $[\beta]$ centralizes $[T_t]$ for $t\ne0$. Equality of two of the displayed conjugates would give exactly such a power, proving their distinctness. It also follows that $[T_t]\ne1$ for $t\ne0$. The homomorphism $t\mapsto[T_t]$ is continuous, since its values on the finite generating set are continuous in $t$. Its injective image is closed, by compactness of $\mathbb Z_p$ and the Hausdorff profinite topology on $\operatorname{Out}(G)$. $\square$
 
-**Scope.** This excludes the entire boundary-twist subgroup as a source of noninner automorphisms with finite outer conjugacy. It does not show that every tame-trivial automorphism with finite outer conjugacy is inner, the remaining question in [research issue 535](https://github.com/AnabLab/kb/issues/535). No novelty is claimed. The proof applies already with one surface pair, including $d=3$ and $p=3$. It uses both the coefficient $-1$ of the tensor pattern and the coefficient $2$ in the final calculation; the latter does not extend to $p=2$. Degree at most two is not covered.
+**Scope.** This excludes every nonidentity element of the subgroup $\{[T_t]:t\in\mathbb Z_p\}$ for the first surface pair, $(x_2,x_3)$ for odd $d$ and $(x_3,x_4)$ for even $d$, as a source of noninner automorphisms with finite outer conjugacy. Twists along the other surface pairs, when $d\ge5$, are not covered by this theorem: the conjugating automorphism supplied by part 2 of the tame-group-algebra theorem acts on this fixed pair. Whether every tame-trivial automorphism with finite outer conjugacy is inner remains a question in [research issue 535](https://github.com/AnabLab/kb/issues/535). No novelty is claimed. The proof applies already with one surface pair, including $d=3$ and $p=3$. It uses both the coefficient $-1$ of the tensor pattern and the coefficient $2$ in the final calculation; the latter does not extend to $p=2$. Degree at most two is not covered.
