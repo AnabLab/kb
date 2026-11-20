@@ -19,6 +19,8 @@ A positive answer to 1 gives one to 2, by Burnside's criterion [@tsujimura2026fr
 
 **Status.** Open as far as the sources opened here show.
 
+For odd $p$ and $[K:\mathbb Q_p]\ge3$, [the odd-prime finite-conjugacy theorem](odd-prime-tame-twists-and-finite-outer-conjugacy.md) excludes a distinct closed normal copy $N\cong G_K$ whose intersection with $G_K$ is open. A distinct copy in this range would therefore have to meet $G_K$ with infinite index. The theorem does not settle that case.
+
 **Context.**
 
 - The answers are yes for [free pro-$p$ groups](free-pro-p-groups-inside-their-automorphism-groups.md) of finite rank at least $2$.
