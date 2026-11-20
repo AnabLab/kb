@@ -1,7 +1,7 @@
 ---
 title: Tame twists and finite outer conjugacy for every odd residue characteristic
 kind: theorem
-summary: 'For odd p and [K:Q_p] at least three, finite outer conjugacy forces a tame twist to be a power of p. A finite-order automorphism is the identity. Finite normal outer subgroups have order prime to p, and a distinct normal copy of G_K cannot meet it openly.'
+summary: 'For odd p and [K:Q_p] at least three, finite outer conjugacy forces a tame twist into the closure of the powers of p. A finite-order automorphism with finite outer conjugacy is the identity. Finite normal outer subgroups have order prime to p, and a distinct normal copy of G_K cannot meet it openly.'
 tags: [local-fields, galois-groups, pro-p-groups]
 edges:
   - {to: tame-twists-of-automorphisms-with-finitely-many-outer-conjugates, label: generalizes, note: 'Extends the tame-twist restriction from p at least five to every odd p.'}
