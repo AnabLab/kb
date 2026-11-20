@@ -21,6 +21,8 @@ A positive answer to 1 gives one to 2, by Burnside's criterion [@tsujimura2026fr
 
 For odd $p$ and $[K:\mathbb Q_p]\ge3$, [the odd-prime finite-conjugacy theorem](odd-prime-tame-twists-and-finite-outer-conjugacy.md) excludes a distinct closed normal copy $N\cong G_K$ whose intersection with $G_K$ is open. A distinct copy in this range would therefore have to meet $G_K$ with infinite index. The theorem does not settle that case.
 
+In the same range, [finite outer conjugacy is inner on the tame quotient](frobenius-shifts-with-finitely-many-outer-conjugates-are-inner-on-the-tame-quotient.md) for every residue degree. Its corollary excludes every nonidentity finite-order outer class with finitely many conjugates, so every finite normal subgroup of $\mathrm{Out}(G_K)$ is trivial. Infinite-order classes with finitely many conjugates remain undecided.
+
 **Context.**
 
 - The answers are yes for [free pro-$p$ groups](free-pro-p-groups-inside-their-automorphism-groups.md) of finite rank at least $2$.
