@@ -1,7 +1,7 @@
 ---
 title: Nonconstant central involutions on wild Frattini lift to local Galois automorphisms
 kind: theorem
-summary: 'For odd p and a p-adic field K of degree at least three, an actual tame-trivial involution of G_K acts on wild Frattini by a nonconstant central unit. This action commutes with every induced automorphism; finite outer conjugacy of the lift remains undecided.'
+summary: 'For odd p and a p-adic field K of degree at least three, an actual tame-trivial involution of G_K acts on wild Frattini by a nonconstant central unit. This action commutes with every induced automorphism; the boundary-twist theorem shows that the lift has infinite outer conjugacy.'
 tags: [local-fields, galois-groups, pro-p-groups]
 edges:
   - {to: central-scalars-in-finite-outer-conjugacy-on-wild-frattini, label: addresses, note: 'Constructs actual prime-to-p torsion with a nonconstant central scalar, without establishing finite outer conjugacy.'}
@@ -23,7 +23,7 @@ $$z_m=2\varepsilon_m-1.$$
 $$\alpha_m(v)=z_mv\qquad(v\in V).$$
 The unit $z_m$ is central and nonconstant, $z_m^*=z_m$, $z_m^2=1$ and $\omega(z_m)=1$. In particular $\alpha_m$ fixes $L$ pointwise and acts on $V/L$ by $z_m$. Moreover its action on $V$ commutes with the action induced by every automorphism of $G$. Thus all conjugates of $\alpha_m$ have exactly the same action on $V$.
 
-No assertion is made that $\alpha_m$ has finitely many conjugates in $\operatorname{Out}(G)$.
+The [boundary-twist theorem](boundary-twists-exclude-finite-outer-conjugacy-of-wild-scalars.md) shows that every such $\alpha_m$ has infinitely many conjugates in $\operatorname{Out}(G)$.
 
 **Lifting lemma (proved here).** Put $p^s=|\mu_{p^\infty}(K^{\mathrm{tr}})|$ and $\Lambda_s=(\mathbb Z/p^s)[[\Gamma]]$, with cyclotomic character $\omega_s$ and involution $\rho^*=\omega_s(\rho)\rho^{-1}$. Suppose
 $$a\in Z(\Lambda_s)^\times,\qquad a^*a=1,\qquad\omega_s(a)=1.\tag{1}$$
@@ -77,7 +77,7 @@ One inclusion follows by taking $n=q-1$; the other follows because $\Gamma/I\con
 $$B(\lambda v)=\beta_\Gamma(\lambda)B(v).$$
 It follows that $B(z_mv)=z_mB(v)$, as claimed. $\square$
 
-**Scope and checks.** This provides actual candidates of order prime to $p$ for [the finite-outer-conjugacy question](central-scalars-in-finite-outer-conjugacy-on-wild-frattini.md), including for wildly ramified $K$. It also shows that unitarity, cyclotomic evaluation one, and finite order do not force a central scalar to be one. Finite outer conjugacy remains an additional condition on the lift, invisible in the conjugation action on $V$ established here.
+**Scope and checks.** This tests the proposed nonconstant torsion units in [the finite-outer-conjugacy question](central-scalars-in-finite-outer-conjugacy-on-wild-frattini.md), including for wildly ramified $K$. It shows that unitarity, cyclotomic evaluation one, and finite order do not force a central scalar to be one. Finite outer conjugacy is an additional condition on the lift, excluded by the boundary-twist theorem although invisible in the conjugation action on $V$ established here.
 
 For $K=\mathbb Q_p(\mu_{p^2})$, this does not conflict with [the constant-scalar obstruction](ordinary-p-central-truncation-does-not-suffice-for-local-galois-lifting.md): $z_m$ is nonconstant. The construction uses the $p^s$-central series throughout, including the $p^s$-power factor of the relator. At $p=2$ the unit $2\varepsilon_m-1$ reduces to $1$, and the power-map argument above is unavailable. No assertion at that prime is made.
 
