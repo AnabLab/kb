@@ -1,7 +1,7 @@
 ---
 title: Finite torsion can hide multiplicative reduction
 kind: theorem
-summary: 'For a Tate curve with parameter of valuation d, inertia on n-torsion has order n/gcd(n,d). Arbitrarily deep finite torsion can therefore hide multiplicative reduction; even the full finite Galois module leaves the Neron component group unbounded.'
+summary: 'For a Tate curve with parameter of valuation d and n prime to p, inertia on n-torsion has order n/gcd(n,d). Arbitrarily deep finite torsion can therefore hide multiplicative reduction; even the full finite Galois module leaves the Neron component group unbounded.'
 tags: [elliptic-curves, local-fields, ramification, reconstruction-algorithms]
 edges:
   - {to: neron-ogg-shafarevich-criterion, label: uses, note: 'Good reduction makes every prime-to-p torsion module unramified, as used in the comparison below.'}
