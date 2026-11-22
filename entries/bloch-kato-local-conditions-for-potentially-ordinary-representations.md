@@ -1,13 +1,14 @@
 ---
 title: Bloch–Kato local conditions under potentially ordinary Galois transport
 kind: theorem
-summary: 'Galois isomorphisms preserve the exponential and geometric local conditions for de Rham representations with potential single-weight filtrations. They preserve the finite condition for crystalline coefficients, abelian-variety Tate modules, or coefficients missing weight 0 or weight 1.'
+summary: 'Every Galois isomorphism of p-adic fields preserves all three Bloch–Kato local conditions for de Rham representations with potential single-weight filtrations, including noncrystalline coefficients with weights 0 and 1. The result includes lattices and matched finite extensions.'
 tags: [local-fields, galois-cohomology, hodge-theory, abelian-varieties]
 edges:
   - {to: bloch-kato-local-conditions-for-tate-twists, label: generalizes, note: 'All rational Tate twists are crystalline representations with a single-weight filtration.'}
   - {to: bloch-kato-local-conditions, label: uses, note: 'Uses the extension criteria, the Frobenius formula for the finite condition modulo the exponential condition, and exact-annihilator duality.'}
   - {to: de-rham-criterion-for-single-weight-filtrations, label: uses, note: 'Part 3 transports de Rham-ness for representations with a potential single-weight filtration; adjoining the trivial quotient of an extension preserves that hypothesis.'}
   - {to: canonical-weight-filtrations-and-potentially-ordinary-transport, label: uses, note: 'Part 3 transports crystallinity for every representation with a potential single-weight filtration.'}
+  - {to: crystalline-period-dimensions-from-adjacent-weight-quotients, label: uses, note: 'Part 3 transports the finite condition without assuming crystalline coefficients, geometric realization, or a missing weight.'}
   - {to: local-field-galois-invariants, label: uses, note: 'Pullback preserves the cyclotomic character, so it identifies the dual Tate twists used in local duality.'}
   - {to: kummer-extensions-and-tate-curve-periods, label: uses, note: 'Only the examples: a split Tate curve has a noncrystalline Tate module with weights 1 and 0.'}
 ---
@@ -20,11 +21,7 @@ Write $H^1_e,H^1_f,H^1_g$ for the exponential, finite and geometric [Bloch–Kat
 
 1. Pullback satisfies
    $$\alpha^*H^1_*(K,V)=H^1_*(L,V')\qquad(*=e,g).$$
-2. The same equality holds for $*=f$ in each of the following cases:
-   - $V$ is crystalline;
-   - $V=V_pA=T_pA\otimes_{\mathbb Z_p}\mathbb Q_p$ for an abelian variety $A/K$ satisfying the filtration hypothesis, without requiring an abelian variety realizing $V'$;
-   - $0$ is absent from the Hodge–Tate weights of $V$, in which case $H^1_f=H^1_e$ on both sides;
-   - $1$ is absent from those weights, in which case $H^1_f=H^1_g$ on both sides.
+2. The same equality holds for $*=f$ for every $V$ in the setting. If weight $0$ is absent, $H^1_f=H^1_e$ on both sides; if weight $1$ is absent, $H^1_f=H^1_g$ on both sides. For an abelian-variety Tate module $V=V_pA=T_pA\otimes_{\mathbb Z_p}\mathbb Q_p$, all three conditions coincide, as do the three conditions for $V'$, without requiring an abelian variety realizing $V'$.
 3. For a $G_K$-stable lattice $T\subset V$, the same assertions hold with $T$ and $\alpha^*T$ as coefficients, using the integral conditions defined as the inverse images of the rational conditions. Parts 1–3 also hold after restriction to every pair of finite extensions matched by $\alpha$.
 
 There is no restriction on $p$ or on ramification.
@@ -47,7 +44,7 @@ $$
 
 The [cyclotomic invariant](local-field-galois-invariants.md) identifies $\alpha^*W$ with $(V')^\vee(1)$. Pullback commutes with the evaluation cup product and induces an isomorphism on $H^2(-,\mathbb Q_p(1))$. Consequently a class in $H^1(K,V)$ pairs to zero with every class in $H^1_g(K,W)$ exactly when its pullback pairs to zero with every class in $H^1_g(L,\alpha^*W)$. Exact-annihilator duality proves the assertion for $H^1_e$. Only vanishing of cup products is used; no normalization of a local invariant map is needed.
 
-*Finite condition.* If $V$ is crystalline, so is $V'$ by part 3 of [potentially ordinary crystalline transport](canonical-weight-filtrations-and-potentially-ordinary-transport.md). That theorem also applies to every $E_c$, by its filtration constructed above. The crystalline extension criterion therefore gives the same chain of equivalences for $H^1_f$.
+*Finite condition.* Part 3 of [crystalline period dimensions from adjacent weight quotients](crystalline-period-dimensions-from-adjacent-weight-quotients.md) proves the assertion for every $V$ in the setting. It recovers the monodromy rank from crystalline quotients of adjacent canonical weight pieces, thereby transporting crystalline period dimensions after semistable extension. A class is finite exactly when adjoining its trivial quotient increases the crystalline period dimension by one; averaging a period splitting over a finite Galois extension descends that test to the original field.
 
 If $V=V_pA$, the source gives $H^1_e(K,V)=H^1_f(K,V)=H^1_g(K,V)$. Part 1 identifies the exponential and geometric conditions over $L$ with that same subspace under pullback. The inclusions $H^1_e\subseteq H^1_f\subseteq H^1_g$ force the finite condition over $L$ to equal it too. This proves part 2 even when $V'$ is not known to be geometric.
 
@@ -71,4 +68,4 @@ and similarly for $B$. Both are the finite conditions identified above. A [split
 
 **Twisted Tate curves.** Let $E/K$ be a split Tate curve. Finite-condition transport holds for $V_pE(r)$ for every integer $r$. Its weights are $r+1,r$. For $r=0$ use the abelian-variety case; for $r=1$ weight $0$ is absent; for $r=-1$ weight $1$ is absent; every other $r$ omits both. These are noncrystalline examples: $V_pE$ is noncrystalline by the Kummer-extension entry, and crystallinity is preserved by Tate twists and their inverses, as recorded in fact (e) of the ordinary crystalline transport entry.
 
-**Scope.** The finite-condition conclusion is not established here for a noncrystalline coefficient with both weights $0$ and $1$, unless it is an abelian-variety Tate module. The result transports cohomology subspaces, not exponential maps or period modules. It is a deduction from the linked transport theorems and the checked period and Bloch–Kato inputs; no novelty beyond the knowledgebase is claimed.
+**Scope.** The result transports cohomology subspaces, not exponential maps or period modules. Representations without a potential single-weight filtration remain outside it. It is a deduction from the linked transport theorems and the checked period and Bloch–Kato inputs; no novelty beyond the knowledgebase is claimed.
