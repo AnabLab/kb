@@ -6,6 +6,7 @@ tags: [abelian-varieties, number-fields, local-fields, ramification]
 edges:
   - {to: finite-torsion-recovers-semistable-inertia, label: uses, note: 'Uses the finite inertia obstruction and its local degree divisibility in the local-global formula.'}
   - {to: minimal-galois-semistabilizing-degree, label: analogous-to, note: 'That entry minimizes over Galois extensions of a local field; the global formula here allows arbitrary finite extensions.'}
+  - {to: finite-monodromy-groups-of-abelian-varieties, label: uses, note: 'The sharpness proof applies the converse direction, in its local form Théorème 3.10, to a group of order 2^{r(2g,2)} [@philip2024monodromy, Example 3.12, p. 29; proof of Theorem 4.3, pp. 30–31].'}
 ---
 
 **Setting.** Let $A/K$ have dimension $g\ge1$, with $K$ a number field. For each finite place $v$, let $\Phi_{A,v}=I_{K_v}/J_{A,v}$ be its [finite monodromy group](finite-torsion-recovers-semistable-inertia.md). Define
