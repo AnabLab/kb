@@ -8,7 +8,7 @@ edges:
   - {to: weil-pairing-and-cyclotomic-character, label: uses, note: 'Uses bilinearity, alternation and nondegeneracy of the Weil pairing, and its primitivity on a basis at level two; isogeny compatibility is cited separately.'}
   - {to: finite-torsion-recovers-semistable-inertia, label: uses, note: 'Its recalled Grothendieck criterion, J and finite monodromy group are used for the 2-isogenous curve; its part 1 gives sufficiency at every level n at least 5 prime to p.'}
   - {to: four-torsion-does-not-determine-semistable-reduction, label: uses, note: 'Parts 1 and 2 supply the level-two pair used in part 3.'}
-  - {to: symplectic-four-torsion-does-not-determine-semistability, label: analogous-to, note: 'The level-four analogue, where an odd-degree isogeny corrects the pairing sign; at level three the original isomorphism already preserves the pairings.'}
+  - {to: symplectic-four-torsion-does-not-determine-semistability, label: uses, note: 'Supplies the level-four case of the consequence, where an odd-degree isogeny corrects the pairing sign; at level three the original isomorphism already preserves the pairings.'}
 ---
 
 **Setting.** Put $K=\mathbb Q_{31}$ and $\pi=31$. As in [the three-torsion example](three-torsion-does-not-determine-semistable-reduction.md), let
