@@ -1,10 +1,11 @@
 ---
 title: Crystalline unipotent fundamental groups detect good reduction
 kind: theorem
-summary: For a proper hyperbolic curve over a p-adic field with semistable reduction and a base point extending through the smooth locus, good reduction is equivalent to crystallinity of its p-adic unipotent fundamental group (Andreatta–Iovita–Kim).
+summary: For a proper hyperbolic curve with semistable reduction over a p-adic field and a base point through the smooth locus, crystallinity of its p-adic unipotent fundamental group modulo the fourth lower central term already detects good reduction.
 tags: [curves, local-fields, fundamental-groups, hodge-theory]
 edges:
   - {to: hyperbolic-curve, label: uses}
+  - {to: rigid-fundamental-group-good-reduction, label: analogous-to, note: 'The fourth lower central quotient also suffices in equal characteristic.'}
   - {to: oda-good-reduction-criterion, label: analogous-to, note: 'The Oda–Tamagawa criterion tests the outer pro-$\ell$ action of inertia for $\ell \ne p$; here a crystalline condition replaces unramifiedness at $p$.'}
   - {to: hodge-tate-geometricity-criterion, label: analogous-to, note: "Both recover a geometric property using p-adic Hodge conditions on Galois representations; here the property is good reduction, there geometricity of a field homomorphism."}
 ---
@@ -22,6 +23,10 @@ The isomorphism is $G_K$-equivariant and extends to the canonical comparison ove
 There is a concrete formulation using finite-dimensional representations. If $E_{n,b}^{\mathrm{et}}$ are the fibres of the universal pointed unipotent local systems constructed in the source, then
 $$\mathcal{O}(U^{\mathrm{et}})=\varinjlim_n (E_{n,b}^{\mathrm{et}})^\vee.$$
 The criterion is equivalent to every $E_{n,b}^{\mathrm{et}}$ being crystalline as a $G_K$-representation [@andreattaiovitakim2015, Theorem 1.7 (1), p. 3; Theorem 1.9, p. 5]. It concerns this unipotent algebraic group and these representations, rather than assigning crystallinity directly to a profinite pro-$p$ group.
+
+**Finite truncation.** Set $U=U^{\mathrm{et}}$, $U_1=U$ and $U_{r+1}=[U_r,U]$. Under the same hypotheses,
+$$C\text{ has good reduction}\quad\Longleftrightarrow\quad U/U_4\text{ is crystalline}.$$
+Lazda explicitly records this refinement of Andreatta–Iovita–Kim [@lazda2017good, Introduction, pp. 758–759], with the lower-central numbering specified before Theorem 10.8 [@lazda2017good, p. 797]. The quotient retains commutators of lengths at most three. Crystallinity uses the induced comparison with $U^{\mathrm{dR}}/U^{\mathrm{dR}}_4$. The subscript $4$ counts lower central terms; the index $n$ in $E_{n,b}^{\mathrm{et}}$ counts universal unipotent objects.
 
 **Why higher unipotent data enter.** Crystallinity of $E_{2,b}^{\mathrm{et}}$ already forces the Tate module of the Jacobian to be crystalline, hence the Jacobian to have good reduction by the [abelian-variety criterion](crystalline-tate-module-good-reduction.md). Good reduction of the Jacobian alone does not detect good reduction of the curve [@andreattaiovitakim2015, §1, p. 2 and the paragraph following Theorem 1.9, p. 5]. The proof identifies semistable monodromy on the universal objects with residues of logarithmic connections, then compares with complex topological monodromy to apply Oda's degeneration criterion [@andreattaiovitakim2015, §6.2, Lemma 6.2 and Proposition 6.3, pp. 30–32].
 

@@ -18,6 +18,6 @@ classifies unipotent overconvergent isocrystals, with fibre functor at $x$. Its 
 
 **Theorem (Lazda).**
 $$\mathcal X/R\text{ is smooth}\quad\Longleftrightarrow\quad U\text{ is non-singular}.$$
-This is [@lazda2017good, Theorem 7.5, p. 787]. The introduction also states that $U/U_4$ suffices [@lazda2017good, Introduction, p. 759], with numbering $U_1=U$ and $U_{n+1}=[U_n,U]$ [@lazda2017good, paragraph preceding Theorem 10.8, p. 797].
+This is [@lazda2017good, Theorem 7.5, p. 787]. The finite-quotient refinement is [@lazda2017good, Introduction, p. 759; Theorem 10.8, p. 797]: $U/U_4$ suffices, with numbering $U_1=U$ and $U_{n+1}=[U_n,U]$ specified immediately before that theorem.
 
 **Mechanism.** Semistable reduction supplies a logarithmic extension; non-singularity means its residue monodromy vanishes [@lazda2017good, Proposition 8.4 and Theorem 9.1, pp. 788–789]. The proof deforms the logarithmic special fibre to mixed characteristic and applies the [crystalline criterion](crystalline-fundamental-group-good-reduction.md) [@lazda2017good, §10, pp. 794–797].
