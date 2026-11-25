@@ -7,6 +7,7 @@ edges:
   - {to: crystalline-lattices-and-p-divisible-groups, label: uses, note: 'Identifies the resulting integral Tate modules with lattices in crystalline representations of weights 0,1.'}
   - {to: torsion-crystalline-quotients-detect-crystallinity, label: analogous-to, note: 'Raynaud tests actual finite flat models; Liu treats bounded-weight lattice quotients in every weight range.'}
   - {to: finite-flat-models-of-tate-curve-torsion, label: analogous-to, note: 'That entry computes exactly which individual torsion levels have models for a Tate curve.'}
+  - {to: raynaud-full-faithfulness-for-finite-flat-group-schemes, label: analogous-to, note: 'Individual finite flat models are uniquely recovered when e < p-1; that bound is sharp, while the tower criterion here has no ramification restriction.'}
 ---
 
 **Raynaud's theorem.** Let $R$ be a discrete valuation ring of mixed characteristic $(0,p)$ with fraction field $K$. A $p$-divisible group $H/K$ extends to a $p$-divisible group over $R$ if every $H[p^n]$ extends to a finite flat group scheme over $R$. The extension is unique up to the unique isomorphism inducing the given generic-fibre identification. The finite flat models in the hypothesis need not form a compatible system [@raynaud1974schemas, Proposition 2.3.1 and proof, pp. 261–263].
