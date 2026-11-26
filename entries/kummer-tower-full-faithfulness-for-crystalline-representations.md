@@ -5,6 +5,7 @@ summary: 'Restriction to the tower of p-power roots of a uniformizer is fully fa
 tags: [local-fields, hodge-theory, galois-representations, reconstruction]
 edges:
   - {to: breuil-crystalline-restriction-conjecture, label: resolves, note: 'The rational theorem answers the full-faithfulness question for every finite extension of Q_p.'}
+  - {to: prismatic-f-crystals-classify-crystalline-lattices, label: uses, note: 'Bhatt–Scholze reprove integral full faithfulness using this equivalence [@bhattscholze2023prismatic, Theorem 7.9, pp. 31–32; Corollary 7.10 and proof, p. 33].'}
   - {to: crystalline-lattices-and-p-divisible-groups, label: uses, note: 'Its equivalence identifies integral Tate modules and morphisms in the corollary.'}
   - {to: kummer-extensions-and-tate-curve-periods, label: uses, note: 'The uniformizer Kummer extension supplies the semistable counterexample.'}
   - {to: fontaine-wintenberger-field-of-norms, label: analogous-to, note: 'The field-of-norms equivalence describes the tower subgroup; full faithfulness here concerns restriction from the original local Galois group.'}
