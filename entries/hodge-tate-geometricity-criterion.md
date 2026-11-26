@@ -13,9 +13,11 @@ edges:
 - $\varphi$ is of *HT-type* if $p_1 = p_2$ and $\widehat{\bar k}_2$, with $G_{k_1}$ acting through $\varphi$, is isomorphic to $\widehat{\bar k}_1$ as a topological $G_{k_1}$-module.
 - $\varphi$ is of *CHT-type* if it is of HT-type and $\chi_{k_1} = \chi_{k_2} \circ \varphi$ for the cyclotomic characters.
 
+It is of *01-qLT-type* if $p_1=p_2$ and, for every pair of open subgroups $H_i\le G_{k_i}$ with $\varphi(H_1)\subseteq H_2$, pullback takes each [quasi-Lubin–Tate character](lubin-tate-criterion-for-semi-absolute-anabelian-geometry.md) $H_2\to E^\times$ to a Hodge–Tate representation with weights in $\{0,1\}$. The test uses coefficient fields $E$ all of whose $\mathbb Q_{p_1}$-conjugates lie in both fixed fields [@mochizuki2012, Definition 3.1(iii)–(iv), p. 36].
+
 **Statements.**
 
-- An open homomorphism $\varphi$ is geometric if and only if it is of CHT-type [@mochizuki2012, Theorem 3.5].
+- An open homomorphism $\varphi$ is geometric if and only if it is of CHT-type, equivalently of 01-qLT-type [@mochizuki2012, Theorem 3.5(i), p. 38].
 - An isomorphism $\varphi$ is geometric if and only if it is of HT-type [@mochizuki2012, Theorem 3.5].
 - An isomorphism $\varphi$ is geometric if and only if it preserves the positively indexed [ramification filtration](ramification-filtration.md) [@mochizuki2012, Corollary 3.7].
 
