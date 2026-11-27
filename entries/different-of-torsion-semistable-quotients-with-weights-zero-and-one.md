@@ -4,7 +4,7 @@ kind: theorem
 summary: 'For odd p, a p^n-torsion quotient of semistable lattices with Hodge–Tate weights 0 and 1 has different exponent below 1+e(n+1/(p-1))-p^(-s(d-s)), with d the dimension and s the multiplicity of Frobenius slope -1. So the Caruso–Liu different conjecture holds for r=1 when d <= 3.'
 tags: [local-fields, ramification, hodge-theory, galois-representations]
 edges:
-  - {to: caruso-liu-ramification-conjecture, label: addresses, note: 'Proves part (2) for r = 1 when V is crystalline or s(d-s) <= n, in particular for every V of dimension at most 3. Part (2) for r = 1 stays open when V is not crystalline and s(d-s) > n >= 2.'}
+  - {to: caruso-liu-ramification-conjecture, label: addresses, note: 'Proves part (2) for r = 1 when V is crystalline or s(d-s) <= n, in particular for every V of dimension at most 3. The Kato monodromy bound proves part (2) for r = 1 in every dimension.'}
   - {to: fontaine-ramification-bound-for-finite-flat-torsion, label: uses, note: 'Its upper cutoff for torsion of crystalline lattices with weights 0 and 1 is applied to the two crystalline pieces, and its different bound gives the crystalline case.'}
   - {to: weakly-admissible-filtered-modules, label: uses, note: 'The exact Colmez–Fontaine equivalence turns the slope -1 part of the filtered module into a crystalline subrepresentation with crystalline quotient.'}
   - {to: ramification-filtration, label: uses, note: 'Stated in Fontaine numbering, G^{(mu)} = G^{mu-1} in Serre numbering.'}
@@ -78,5 +78,5 @@ since $\tilde\psi_{F/K}(c)>0$. So $v_K(\mathfrak D_{F/K})<u-(u-c)p^{-m}$. The ri
 **Remarks.**
 
 - *What is new.* Hattori's different bound for $r=1$ is $v_K(\mathfrak D_{F/K})<C$ [@hattori2009ramification, Corollaries 1.2 and 1.3(1), pp. 2–3]. Part 2 improves it by $p^{-m}$, using that above $c$ the Galois action is unipotent with respect to $T_1\subseteq T$ and has exponent $p$.
-- *Where it stops.* The argument only bounds $|G^{(\mu)}|$ for $\mu>c$ by counting homomorphisms, so it needs $m\le n$ for the conjecture. For a non-crystalline $V$ with $s(d-s)>n\ge2$, part (2) of the conjecture for $r=1$ is not settled here.
+- *Where it stops.* The argument only bounds $|G^{(\mu)}|$ for $\mu>c$ by counting homomorphisms, so it needs $m\le n$ for the conjecture. For a non-crystalline $V$ with $s(d-s)>n\ge2$, part (2) of the conjecture for $r=1$ is not settled by this argument. The [Kato monodromy bound](kato-monodromy-bound-for-weight-one-semistable-torsion.md) settles it in every dimension: above $c$ the action factors through a Kummer character of a uniformizer of order at most $p$, so $v_K(\mathfrak D_{F/K})<C-1/p$.
 - *Prime $2$.* Input (a) needs $1<p-1$, so the theorem says nothing for $p=2$.
