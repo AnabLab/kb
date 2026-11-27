@@ -1,0 +1,122 @@
+---
+title: 'In degree two, tame-trivial automorphisms with finite outer conjugacy act trivially on abelianized wild inertia'
+kind: theorem
+summary: 'For odd p and [K:Q_p]=2, a tame-trivial automorphism of G_K with finitely many outer conjugates acts trivially on P_K^ab, not just on wild Frattini. With degree at least 3, every finite-conjugacy outer class for K of degree at least 2 has a representative trivial on the tame quotient and on P_K^ab.'
+tags: [local-fields, galois-groups, pro-p-groups]
+edges:
+  - {to: p-adic-galois-groups-in-their-automorphism-groups, label: addresses, note: 'For odd $p$ and $[K:\mathbb Q_p]=2$, the representatives of finite-conjugacy outer classes that are trivial on the tame quotient are also trivial on $P_K^{\mathrm{ab}}$. Whether such a class can be nontrivial, and the rival-copy problem, are not decided.'}
+  - {to: tame-trivial-automorphisms-with-finite-outer-conjugacy-act-trivially-on-abelianized-wild-inertia, label: analogous-to, note: 'The same conclusion for $[K:\mathbb Q_p]\ge3$, where boundary twists and mixing automorphisms of a surface pair do the work that the transvections, the complementary twist and the scaling units do here.'}
+  - {to: tame-trivial-automorphisms-with-finite-outer-conjugacy-act-trivially-on-abelianized-wild-inertia, label: uses, note: 'Lemma (b), the leading term and identity (0) of Step 0, and the argument of Step 7 (Kummer functionals and the abelianized relation), none of which uses a surface pair; they are written out here for degree two. Its Corollary, for degree at least $3$ in the Corollary.'}
+  - {to: tame-trivial-automorphisms-with-finite-outer-conjugacy-act-trivially-on-wild-frattini-in-degree-two, label: uses, note: 'Its Theorem (triviality on wild Frattini), in Step 0. Its Setting (the rules for $J_1$ and the complementary twist $T$), Step 1 of its proof ($J_1(T)=p^sj$ with $j(\xi_2)=[\xi_1,\xi_2]$, and the saturation argument) and the evaluation of $\bar\jmath$ on $\Lambda\bar x_2$ from its Step 2, in Steps 2 and 3.'}
+  - {to: finite-normal-subgroups-of-p-adic-outer-automorphism-groups-have-order-prime-to-p-in-degree-two, label: uses, note: 'The transvections $T_k$ of its Setting, in Step 1.'}
+  - {to: finite-outer-conjugacy-is-inner-on-the-tame-quotient-in-degree-two, label: uses, note: 'Its Lemma (automorphisms $\theta_\lambda$ scaling $\bar x_1$ by $\lambda$ and $\bar x_2$ by $(\lambda^*)^{-1}$ when $\omega(\lambda)=1$), in Step 4; Corollary (a), in the Corollary.'}
+  - {to: boundary-twists-exclude-finite-outer-conjugacy-of-wild-scalars, label: uses, note: 'Its lower central input for the free pro-$p$ group $P_K$: torsion-free lower central factors, their reductions modulo $p$ as completed free Lie spaces, functorially, and injectivity modulo $p$ of the bracket map from degree one.'}
+  - {to: p-power-order-automorphisms-fix-surface-generators-modulo-the-frattini-subgroup-of-wild-inertia, label: uses, note: 'Lemma 2, and Step 0 of its proof (the element $\gamma=\sigma^{\pi_p}$ and the $\omega$-eigenspace of wild Frattini), in Steps 4 and 5. Neither uses its hypotheses on $p$ or on the degree.'}
+  - {to: tame-group-algebra-units-give-automorphisms-of-p-adic-galois-groups, label: uses, note: 'Its Setting (the presentation for even degree, $\omega_s$, $u_s$), part 1, the trivial centre of $\Gamma$ from part 3, Lemma (b) and the Computation, in Step 5 and the Lemma.'}
+  - {to: wild-inertia-of-a-p-adic-field, label: uses, note: 'Wild inertia is free pro-$p$ and characteristic, so its abelianization is torsion-free.'}
+---
+
+**Setting.** Let $p$ be odd and $[K:\mathbb Q_p]=2$. Use the Setting and notation of [the degree-two Frattini theorem](tame-trivial-automorphisms-with-finite-outer-conjugacy-act-trivially-on-wild-frattini-in-degree-two.md), called the Frattini entry below. So $G=G_K=F/(\varrho)$ with $F=P\rtimes\mathcal G$, wild inertia $P_K$ is the image of $P$, $\Gamma=G/P_K$ is identified with $\mathcal G$, $\Lambda=\mathbb F_p[[\Gamma]]$, $\omega:\Lambda\to\mathbb F_p$ is the action on $\mu_p$, $\lambda\mapsto\lambda^*$ is the continuous $\mathbb F_p$-linear anti-automorphism with $\rho^*=\omega(\rho)\rho^{-1}$, and
+$$\varrho=R_0\,x_1^{p^s}\,[x_1,x_2],\qquad R_0=(x_0^\sigma)^{-1}(x_0,\tau)^\kappa .$$
+Let $(P_K)_j$ be the closed lower central series, $H=P_K/(P_K)_2=P_K^{\mathrm{ab}}$ and $\mathcal L_2=(P_K)_2/(P_K)_3$, written additively. Write $\xi_i\in H$ and $\bar x_i\in V=H/pH$ for the classes of $x_i$, and $\Lambda_{\mathbb Z}=\mathbb Z_p[[\Gamma]]$. Then
+$$V=L\oplus\Lambda\bar x_1\oplus\Lambda\bar x_2,\qquad L=\mathbb F_p\bar x_0,\qquad\lambda\bar x_0=\omega(\lambda)\bar x_0,$$
+with $\Lambda\bar x_1,\Lambda\bar x_2$ free of rank one (part 1 of [units of the tame group algebra](tame-group-algebra-units-give-automorphisms-of-p-adic-galois-groups.md)). As $P_K$ is free pro-$p$ ([wild inertia](wild-inertia-of-a-p-adic-field.md)), $H$ is a torsion-free compact $\mathbb Z_p$-module, and it is topologically generated as a $\Lambda_{\mathbb Z}$-module by $\xi_0,\xi_1,\xi_2$, as $P_K$ is the closed normal subgroup generated by $x_0,x_1,x_2$.
+
+*Lower central input.* From [the boundary-twist theorem](boundary-twists-exclude-finite-outer-conjugacy-of-wild-scalars.md), as recalled in the Setting of the Frattini entry: $\mathcal L_2$ is torsion-free; $\mathcal L_2/p$ is the completed free Lie space $\mathcal L_2(V)$, viewed inside the completed tensor square with $[v,v']=v\otimes v'-v'\otimes v$; a continuous linear surjection $\pi:V\to W$ onto a finite-dimensional space induces $\mathcal L_2(\pi):\mathcal L_2(V)\to W\otimes W$ with $[v,v']\mapsto\pi v\otimes\pi v'-\pi v'\otimes\pi v$; and $v\mapsto[v,\cdot\,]$ is injective from $V$ to $\mathrm{Hom}(V,\mathcal L_2(V))$. As $(P_K)_2$ is the closed subgroup generated by commutators, $\mathcal L_2$ is topologically generated by the brackets $[x,y]$ with $x,y\in H$.
+
+*Tame-trivial automorphisms.* An automorphism $\theta$ of $G$ is tame-trivial if it induces the identity on $\Gamma$. It preserves the characteristic subgroup $P_K$, so it acts on $H$, $V$ and $\mathcal L_2$, by $\theta_H$, $\bar\theta$ and $\theta_2$, with $\theta_2[x,y]=[\theta_Hx,\theta_Hy]$. As $\theta(\rho)\in\rho P_K$ for $\rho\in\mathcal G$ and $P_K$ acts trivially on these quotients, $\theta_H$ is $\Lambda_{\mathbb Z}$-linear and $\bar\theta$, its reduction, is $\Lambda$-linear. For $\theta$ trivial on $H$, the degree-one Johnson map $J_1(\theta):H\to\mathcal L_2$, $x(P_K)_2\mapsto\theta(x)x^{-1}(P_K)_3$, obeys the rules recalled in the Setting of the Frattini entry: it is additive in $\theta$, $J_1(\beta\theta\beta^{-1})=\beta_2J_1(\theta)\beta_H^{-1}$, and $J_1(c_g)=[g(P_K)_2,\cdot\,]$ for conjugation $c_g$ by $g\in P_K$.
+
+*Three automorphisms.* All are tame-trivial.
+
+- The *transvection* $T_1$ of the Setting of [finite normal subgroups in degree two](finite-normal-subgroups-of-p-adic-outer-automorphism-groups-have-order-prime-to-p-in-degree-two.md) fixes $\mathcal G$, $x_0$, $x_1$ and maps $x_2\mapsto x_2x_1$. So $(T_1)_H=1+N$ with $N$ continuous and $\Lambda_{\mathbb Z}$-linear, $N\xi_2=\xi_1$ and $N\xi_0=N\xi_1=0$. Then $N^2$ kills the generators $\xi_i$, so $N^2=0$.
+- The *complementary twist* $T$ of the Setting of the Frattini entry fixes $\mathcal G$ and $x_0$ and conjugates $x_1,x_2$ by $x_1^{p^s}[x_1,x_2]$. By Step 1 of the proof there, $T$ acts trivially on $H$ and $J_1(T)=p^sj$ for a continuous $\Gamma$-equivariant homomorphism $j:H\to\mathcal L_2$ with $j(\xi_0)=j(\xi_1)=0$ and $j(\xi_2)=[\xi_1,\xi_2]$. Its reduction $\bar\jmath:V\to\mathcal L_2(V)$ kills $L+\Lambda\bar x_1$.
+- For $\lambda$ in $\Lambda^\times_1=\{\lambda\in\Lambda^\times:\omega(\lambda)=1\}$, the Lemma of [the degree-two tame-quotient theorem](finite-outer-conjugacy-is-inner-on-the-tame-quotient-in-degree-two.md) gives an automorphism $\theta_\lambda$ with $\theta_\lambda(\rho)\in\rho P_K^{(2)}$ for $\rho\in\mathcal G$, whose action $B_\lambda$ on $V$ is $\Lambda$-linear, fixes $\bar x_0$, and maps $\mu\bar x_1\mapsto\mu\lambda\bar x_1$ and $\mu\bar x_2\mapsto\mu(\lambda^*)^{-1}\bar x_2$.
+
+**Theorem (proved here).** Let $p$ be odd and $[K:\mathbb Q_p]=2$. Let $\alpha\in\mathrm{Aut}(G_K)$ be tame-trivial, with finitely many conjugates in $\mathrm{Out}(G_K)$. Then $\alpha$ acts trivially on $H=P_K^{\mathrm{ab}}$, that is, $\alpha(x)x^{-1}\in[P_K,P_K]$ for every $x\in P_K$.
+
+**Corollary (proved here).** Let $p$ be odd, $[K:\mathbb Q_p]\ge2$, and let $x\in\mathrm{Out}(G_K)$ have finitely many conjugates. Then $x$ has a representative that induces the identity on $\Gamma$ and on $P_K^{\mathrm{ab}}$. Any two representatives inducing the identity on $\Gamma$ differ by $c_g$ with $g\in P_K$.
+
+**Lemma (proved here).** Let $\alpha$ be as in the Theorem and $\beta\in\mathrm{Aut}(G)$ tame-trivial. Then $\beta^n\alpha\beta^{-n}=c_g\alpha$ for some $n\ge1$ and $g\in P_K$. Hence $\beta_H^n$ commutes with $\alpha_H$.
+
+*Proof.* This is Lemma (b) of [the abelianized wild inertia theorem](tame-trivial-automorphisms-with-finite-outer-conjugacy-act-trivially-on-abelianized-wild-inertia.md), whose proof uses only the trivial centre of $\Gamma$. The classes of $\beta^i\alpha\beta^{-i}$, $i\ge0$, are conjugates of the class of $\alpha$, so two agree, say for $i<i'$. Conjugating by $\beta^{-i}$ gives $\beta^n\alpha\beta^{-n}=c_g\alpha$ with $n=i'-i$ and $g\in G$. Then $c_g=\beta^n\alpha\beta^{-n}\alpha^{-1}$ is tame-trivial, so the image of $g$ in $\Gamma$ is central, hence trivial (part 3 of the units entry), and $g\in P_K$. As $c_g$ acts trivially on $H=P_K^{\mathrm{ab}}$, $\beta_H^n\alpha_H\beta_H^{-n}=\alpha_H$. $\square$
+
+**Proof of the Theorem.**
+
+*Step 0: the leading term.* By the Theorem of the Frattini entry, $\alpha$ acts trivially on $V$, so $(\alpha_H-1)H\subseteq pH$. Suppose $\alpha_H\ne1$. As in Step 0 of the abelianized wild inertia theorem: since $\bigcap_kp^kH=0$, there is a largest $m\ge1$ with $(\alpha_H-1)H\subseteq p^mH$, and as multiplication by $p^m$ is a homeomorphism of the torsion-free compact group $H$ onto $p^mH$,
+$$\alpha_H=1+p^mE$$
+for a continuous $\Lambda_{\mathbb Z}$-linear $E:H\to H$ whose reduction $\bar E:V\to V$ is $\Lambda$-linear and nonzero. We show $\bar E=0$, a contradiction.
+
+On generators, $\alpha_2[x,y]-[x,y]=p^m([Ex,y]+[x,Ey])+p^{2m}[Ex,Ey]$. As these generate $\mathcal L_2$ topologically and $\mathcal L_2$ is torsion-free, $\alpha_2=1+p^mE_2$ with $E_2$ continuous, and, as $m\ge1$, its reduction $\bar E^{(2)}$ on $\mathcal L_2(V)$ satisfies $\bar E^{(2)}[v,v']=[\bar Ev,v']+[v,\bar Ev']$. With $\alpha_H^{-1}=1-p^mE\alpha_H^{-1}$, every continuous homomorphism $D:H\to\mathcal L_2$ satisfies identity (0) of that Step 0:
+$$\alpha_2D\alpha_H^{-1}-D=p^m(E_2D-DE)+p^{2m}Y_D,\qquad Y_D=DE^2\alpha_H^{-1}-E_2DE\alpha_H^{-1}.\tag{0}$$
+
+If $\beta$ is tame-trivial, the Lemma gives $n\ge1$ with $\beta_H^n(1+p^mE)\beta_H^{-n}=1+p^mE$, so $\beta_H^nE\beta_H^{-n}=E$ as $H$ is torsion-free. Reducing modulo $p$,
+$$\bar\beta^{\,n}\,\bar E=\bar E\,\bar\beta^{\,n}.\tag{C}$$
+
+For $j=1,2$ write $\bar E\bar x_j=f_j\bar x_0+\mu_{j1}\bar x_1+\mu_{j2}\bar x_2$ with $f_j\in\mathbb F_p$ and $\mu_{ji}\in\Lambda$. By $\Lambda$-linearity, $\bar E(\lambda\bar x_j)=\omega(\lambda)f_j\bar x_0+\lambda\mu_{j1}\bar x_1+\lambda\mu_{j2}\bar x_2$.
+
+*Step 1: the transvection.* By the Lemma for $\beta=T_1$, some $(1+N)^n=1+nN$ with $n\ge1$ commutes with $1+p^mE$, so $(1+nN)E(1-nN)=E$, as $(1+nN)^{-1}=1-nN$ and $H$ is torsion-free. Expanding, $n(NE-EN)=n^2NEN$, so $NE-EN=nNEN$. Modulo $p$, with $\bar N$ the $\Lambda$-linear map killing $L+\Lambda\bar x_1$ and sending $\bar x_2\mapsto\bar x_1$:
+
+- at $\bar x_1$: $\bar N\bar E\bar x_1=\mu_{12}\bar x_1$, while $\bar E\bar N\bar x_1=0$ and $\bar N\bar E\bar N\bar x_1=0$. So $\mu_{12}=0$.
+- at $\bar x_2$: $\bar N\bar E\bar x_2-\bar E\bar x_1=\mu_{22}\bar x_1-f_1\bar x_0-\mu_{11}\bar x_1$, while $n\bar N\bar E\bar x_1=n\bar N(f_1\bar x_0+\mu_{11}\bar x_1)=0$. So $f_1=0$ and $\mu_{22}=\mu_{11}$.
+
+Put $a=\mu_{11}$ and $b=\mu_{21}$. Then
+$$\bar E\bar x_1=a\bar x_1,\qquad\bar E\bar x_2=f_2\bar x_0+b\bar x_1+a\bar x_2.\tag{1}$$
+
+*Step 2: the Johnson identity of $T$.* By the Lemma for $\beta=T$, $T^n\alpha T^{-n}\alpha^{-1}=c_g$ with $n\ge1$ and $g\in P_K$, so $\alpha T^n\alpha^{-1}T^{-n}=c_{g^{-1}}$. Both $T^n$ and its conjugate by $\alpha$ act trivially on $H$, and the rules for $J_1$ give $np^s(\alpha_2j\alpha_H^{-1}-j)=[\bar g_1,\cdot\,]$ with $\bar g_1=g^{-1}(P_K)_2\in H$. By (0) for $D=j$,
+$$np^{s+m}\big(E_2j-jE+p^mY_j\big)=[\bar g_1,\cdot\,].$$
+Write $np^{s+m}=p^ku$ with $u\in\mathbb Z_p^\times$. Then $[\bar g_1,H]\subseteq p^k\mathcal L_2$, and the saturation argument of Step 1 of the Frattini entry (torsion-freeness and injectivity of the bracket map modulo $p$) gives $\bar g_1=p^kg'$ with $g'\in H$. As $\mathrm{Hom}(H,\mathcal L_2)$ is torsion-free, $E_2j-jE+p^mY_j=[u^{-1}g',\cdot\,]$. Reducing modulo $p$, with $h\in V$ the reduction of $u^{-1}g'$,
+$$\bar E^{(2)}\bar\jmath-\bar\jmath\bar E=[h,\cdot\,]\quad\text{on }V.\tag{2}$$
+
+For an open normal subgroup $U$ of $\Gamma$ with $\tau\notin U$, put $\Gamma_U=\Gamma/U$, write $\lambda\mapsto\bar\lambda$ for $\Lambda\to\mathbb F_p[\Gamma_U]$, and let $W_U$ have basis $X_0$ and $te_1,te_2$ for $t\in\Gamma_U$. Let $\pi_U:V\to W_U$ map $c\bar x_0+\lambda_1\bar x_1+\lambda_2\bar x_2\mapsto cX_0+\bar\lambda_1e_1+\bar\lambda_2e_2$, a continuous linear surjection. These $U$ are cofinal, as $\tau\ne1$, so $v\in V$ is $0$ if $\pi_U(v)=0$ for all of them.
+
+Evaluate (2) at $v=\bar x_1$ and $v=\tau\bar x_1$. By (1), $v$ and $\bar Ev$ lie in $\Lambda\bar x_1$, which $\bar\jmath$ kills, so $[h,v]=0$. Applying $\mathcal L_2(\pi_U)$, $\pi_U(h)$ commutes in $W_U\otimes W_U$ with $e_1$ and with $\bar\tau e_1$, which are distinct basis vectors. If $w\otimes e_1=e_1\otimes w$, the coefficient of $f\otimes e_1$ for a basis vector $f\ne e_1$ shows that the $f$-coordinate of $w$ is $0$. So $\pi_U(h)\in\mathbb F_pe_1\cap\mathbb F_p\bar\tau e_1=0$ for every such $U$, and $h=0$. Thus
+$$\bar E^{(2)}\bar\jmath=\bar\jmath\bar E.\tag{3}$$
+
+*Step 3: coefficient comparison.* Evaluate (3) at $\bar x_2$. As $\bar\jmath(\bar x_2)=[\bar x_1,\bar x_2]$ and $\bar\jmath$ kills $L+\Lambda\bar x_1$, (1) gives
+$$[a\bar x_1,\bar x_2]+[\bar x_1,f_2\bar x_0+b\bar x_1+a\bar x_2]=\bar\jmath(a\bar x_2).$$
+As in Step 2 of the proof in the Frattini entry, $\mathcal L_2(\pi_U)\bar\jmath(\lambda\bar x_2)=\sum_t\lambda_t[te_1,te_2]$ for $\bar\lambda=\sum_{t\in\Gamma_U}\lambda_tt$: both sides are continuous and linear in $\lambda$ and agree at each $\rho\in\Gamma$, since $\bar\jmath(\rho\bar x_2)=[\rho\bar x_1,\rho\bar x_2]$ by equivariance. With $\bar a=\sum_ta_tt$ and $\bar b=\sum_tb_tt$, applying $\mathcal L_2(\pi_U)$ gives, in $W_U\otimes W_U$,
+$$\sum_ta_t[te_1,e_2]+\sum_ta_t[e_1,te_2]+\sum_tb_t[e_1,te_1]+f_2[e_1,X_0]=\sum_ta_t[te_1,te_2].$$
+Compare coefficients of basis tensors:
+
+- $te_1\otimes e_2$ with $t\ne1$: it occurs only in $[te_1,e_2]$ on the left, and nowhere on the right, as $[t'e_1,t'e_2]$ gives $t'e_1\otimes t'e_2$. So $a_t=0$.
+- $e_1\otimes e_2$: it occurs with coefficient $a_1$ in each of the first two sums and with $a_1$ on the right. So $2a_1=a_1$, and $a_1=0$.
+- $e_1\otimes te_1$ with $t\ne1$: it occurs only in $b_t[e_1,te_1]$. So $b_t=0$.
+- $e_1\otimes X_0$: it occurs only in $f_2[e_1,X_0]$. So $f_2=0$.
+
+Hence $\bar a=0$ for cofinally many $U$, so $a=0$. Also $\bar b=b_1\cdot1$, and $b_1$ does not depend on $U$, as the image of $b_1\cdot1$ under $\mathbb F_p[\Gamma_{U'}]\to\mathbb F_p[\Gamma_U]$ is $b_1\cdot1$. So $b=\beta_0\cdot1$ with $\beta_0\in\mathbb F_p$, and
+$$\bar E\bar x_1=0,\qquad\bar E\bar x_2=\beta_0\bar x_1.\tag{4}$$
+
+*Step 4: a scaling unit.* Let $\gamma=\sigma^{\pi_p}$ as in Step 0 of the proof of [surface generators modulo the Frattini subgroup](p-power-order-automorphisms-fix-surface-generators-modulo-the-frattini-subgroup-of-wild-inertia.md). It generates a closed subgroup isomorphic to $\mathbb Z_p$, and $\omega(\gamma)=1$. Put $X=\gamma-1$, choose $c\in\mathbb F_p\setminus\{0,1\}$, which exists as $p\ge3$, and put $\lambda=1+cX$.
+
+- $\lambda\in\Lambda^\times_1$. In each $\mathbb F_p[\Gamma/U]$ the image of $\gamma$ has order $p^k$ for some $k$, so the image of $X$ satisfies $\bar X^{p^k}=\bar\gamma^{p^k}-1=0$, and $1+c\bar X$ is a unit. These inverses are compatible, so $\lambda$ is a unit of $\Lambda=\varprojlim\mathbb F_p[\Gamma/U]$. Also $\omega(\lambda)=1+c(\omega(\gamma)-1)=1$.
+- $(\lambda^n)^*\lambda^n\ne1$ for every $n\ge1$. As $\gamma^*=\omega(\gamma)\gamma^{-1}=\gamma^{-1}$, $\lambda^*=1+c(\gamma^{-1}-1)$. The elements $\gamma^{\pm1},\lambda,\lambda^*$ lie in the closure $R$ of the span of the abelian group generated by $\gamma$, a commutative closed subring. In $R$, $\gamma\lambda^*=1+(1-c)X$, so
+$$\gamma\lambda^*\lambda=(1+(1-c)X)(1+cX)=1+X+c(1-c)X^2=\gamma+c(1-c)X^2,$$
+and $\lambda^*\lambda=1+Y$ with $Y=c(1-c)\gamma^{-1}X^2$. Write $n=p^kn'$ with $p\nmid n'$. As $*$ is an anti-automorphism and $R$ is commutative of characteristic $p$, $(\lambda^n)^*\lambda^n=(1+Y)^n=(1+Y^{p^k})^{n'}=1+Y^{p^k}w$ with $w=\sum_{i=1}^{n'}\binom{n'}{i}Y^{p^k(i-1)}\in R$. In each finite quotient the image of $Y$ is nilpotent, as that of $X$ is and they lie in a commutative ring, so the image of $w$ is $n'$ plus a nilpotent element, a unit; hence $w$ is a unit. If $Y^{p^k}w=0$, then $Y^{p^k}=0$, and as $Y^{p^k}=(c(1-c))^{p^k}\gamma^{-p^k}X^{2p^k}$ with $c(1-c)\ne0$, $X^{2p^k}=0$. Then $2p^k$ applications of Lemma 2 of the surface-generator entry (left multiplication by $\gamma-1$ is injective on $\Lambda$) give $1=0$, which is absurd. So $(\lambda^n)^*\lambda^n\ne1$.
+
+Apply (C) to $\beta=\theta_\lambda$, whose reduction is $B_\lambda$. For some $n\ge1$, $B_\lambda^n$ commutes with $\bar E$. By induction $B_\lambda^n$ maps $\mu\bar x_1\mapsto\mu\lambda^n\bar x_1$ and $\mu\bar x_2\mapsto\mu\nu\bar x_2$ with $\nu=((\lambda^*)^{-1})^n=((\lambda^n)^*)^{-1}$. By (4),
+$$\bar EB_\lambda^n\bar x_2=\bar E(\nu\bar x_2)=\beta_0\nu\bar x_1,\qquad B_\lambda^n\bar E\bar x_2=B_\lambda^n(\beta_0\bar x_1)=\beta_0\lambda^n\bar x_1 .$$
+As $\Lambda\bar x_1$ is free, $\beta_0(\lambda^n-\nu)=0$ in $\Lambda$. Here $\lambda^n-\nu=\nu\big((\lambda^n)^*\lambda^n-1\big)$ is nonzero, as $\nu$ is a unit. As $\beta_0\in\mathbb F_p$, $\beta_0=0$. So $\bar E$ vanishes on $\Lambda\bar x_1\oplus\Lambda\bar x_2$.
+
+*Step 5: the cyclotomic line.* By Step 0 of the proof of the surface-generator entry, $L$ is the set of $v\in V$ with $\rho v=\omega(\rho)v$ for all $\rho\in\Gamma$. As $\bar E$ is $\Lambda$-linear, $\bar E\bar x_0$ lies in this set, so $\bar E\bar x_0=e\bar x_0$ with $e\in\mathbb F_p$. We show $e=0$, following Step 7 of the abelianized wild inertia theorem, whose argument concerns only the factors $R_0$ and $x_1^{p^s}$ of the relator and the fact that the remaining factor lies in $[P,P]$.
+
+*Two functionals.* Let $\omega_s:\mathcal G\to(\mathbb Z/p^s)^\times$ be the action on $\mu_{p^s}$, extended to $\Lambda_{\mathbb Z}\to\mathbb Z/p^s$ and to $\Lambda_s=(\mathbb Z/p^s)[[\mathcal G]]\to\mathbb Z/p^s$; here $s\ge1$ (Setting of the units entry). For $k\in\{0,1\}$, let $\mathcal G$ act on $\mathbb Z/p^s$ through $\omega_s$. The universal property of $F$ gives a homomorphism $\Theta_k:F\to(\mathbb Z/p^s)\rtimes\mathcal G$ that is the identity on $\mathcal G$ and maps $x_k\mapsto(1,1)$ and the other two $x_i\mapsto(0,1)$. On $P$ it is a $\mathcal G$-equivariant homomorphism to $\mathbb Z/p^s$, so it factors through $N_s=P/P^{p^s}[P,P]$, with $\Theta_k(\lambda\tilde x)=\omega_s(\lambda)\Theta_k(\tilde x)$ for $\lambda\in\Lambda_s$. It kills $x_1^{p^s}$ and $[x_1,x_2]$. The Computation of the units entry, with $r=s$, $N=P^{p^s}[P,P]$, $A=Q=N_s$, $X=1$ and $a=\tilde x_0$, together with $(1,\tau)=\tau^{\pi}=1$, shows that $R_0$ maps to $u_s\tilde x_0$ in $N_s$. By Lemma (b) there, $\omega_s(u_s)=0$, so $\Theta_k(R_0)=0$. Hence $\Theta_k(\varrho)=0$, $\Theta_k$ factors through $G$, and its restriction to $P_K$ kills $[P_K,P_K]$. This gives continuous homomorphisms
+$$\Psi_k:H\to\mathbb Z/p^s,\qquad\Psi_k(\xi_i)=\delta_{ik},\qquad\Psi_k(\lambda y)=\omega_s(\lambda)\Psi_k(y)\quad(\lambda\in\Lambda_{\mathbb Z}).$$
+
+*The relation in $H$.* By the argument of Step 7 of the abelianized wild inertia theorem, which concerns $R_0$ alone, $R_0$ lies in the closed subgroup of $P$ generated by the $\mathcal G$-conjugates of $x_0$, so its class in $H$ is $\vartheta\xi_0$ for some $\vartheta\in\Lambda_{\mathbb Z}$. As $[x_1,x_2]$ maps to $0$ in $H$ and $\varrho$ maps to $0$,
+$$\vartheta\xi_0+p^s\xi_1=0\quad\text{in }H.\tag{5}$$
+Applying $\Psi_0$ gives $\omega_s(\vartheta)=0$ in $\mathbb Z/p^s$.
+
+*Conclusion of Step 5.* As $\bar E\bar x_0=e\bar x_0$ and $\bar E\bar x_1=0$ by (4), $E\xi_0=e\xi_0+py_0$ and $E\xi_1=py_1$ for some $y_0,y_1\in H$, reading $e$ as an integer. Applying the $\Lambda_{\mathbb Z}$-linear map $E$ to (5) and using (5) again,
+$$0=\vartheta(e\xi_0+py_0)+p^{s+1}y_1=-ep^s\xi_1+p\vartheta y_0+p^{s+1}y_1.$$
+As $H$ is torsion-free, $\vartheta y_0=ep^{s-1}\xi_1-p^sy_1$. Applying $\Psi_1$, the left side gives $\omega_s(\vartheta)\Psi_1(y_0)=0$ and the right side gives $ep^{s-1}$ in $\mathbb Z/p^s$. So $p\mid e$, and $e=0$ in $\mathbb F_p$.
+
+*Conclusion.* By Steps 4 and 5, $\bar E$ vanishes on $L$, $\Lambda\bar x_1$ and $\Lambda\bar x_2$, so $\bar E=0$, contradicting Step 0. Hence $\alpha_H=1$. $\square$
+
+**Proof of the Corollary.** For $[K:\mathbb Q_p]\ge3$ this is the Corollary of the abelianized wild inertia theorem. Let $[K:\mathbb Q_p]=2$. By Corollary (a) of the degree-two tame-quotient theorem, $x$ has a representative $\alpha$ inducing the identity on $\Gamma$, and two such representatives differ by $c_g$ with $g\in P_K$. The class of $\alpha$ is $x$, which has finitely many conjugates, so the Theorem shows that $\alpha$ acts trivially on $P_K^{\mathrm{ab}}$. $\square$
+
+**Remarks.**
+
+- *Method.* This answers [research issue 631](https://github.com/AnabLab/kb/issues/631) along the route proposed there. In degree at least $3$, boundary twists and mixing automorphisms of a surface pair reduce the leading term $\bar E$ to the complementary part. Degree $2$ has no surface pair, and three automorphisms take their place. The transvection $x_2\mapsto x_2x_1$ preserves the relator exactly, as in degree at least $3$. The complementary twist $T$, whose Johnson identity in the Frattini entry showed that the diagonal entry of the action is group-like, here shows that the diagonal entry of $\bar E$ is primitive, hence $0$. The scaling units of the tame-quotient entry remove the remaining scalar entry $\bar x_2\mapsto\beta_0\bar x_1$, which satisfies the identities coming from both $T_1$ and $T$. A unipotent unit $1+c(\gamma-1)$ is used because its powers never satisfy $\nu^*\nu=1$, while the power $n$ in (C) is not under control. The cyclotomic coefficient is removed by the abelianized relator exactly as in degree at least $3$.
+- *What remains.* Let $\alpha$ be tame-trivial with finitely many outer conjugates, in degree $2$. By the Theorem, $\rho\mapsto\alpha(\tilde\rho)\tilde\rho^{-1}[P_K,P_K]$ is a $1$-cocycle $\Gamma\to P_K^{\mathrm{ab}}$, changed by coboundaries under conjugation by $P_K$. Whether its class vanishes, whether $J_1(\alpha)$ has the form $[h,\cdot\,]$, and whether $\alpha$ is inner, are not decided here. In degree at least $3$ the first of these is settled when $\mu_p\not\subset K$ by [the wild-commutator theorem](finite-outer-conjugacy-is-inner-modulo-wild-commutators.md), whose proof was not checked for degree $2$. Also not covered: $K=\mathbb Q_p$, where there is no second complementary generator, and $p=2$.
+- *Scope.* Odd $p$ and every quadratic $K/\mathbb Q_p$, ramified or unramified, with every $s$, including $K=\mathbb Q_3(\mu_3)$.
+- *Sources.* Everything is proved here from the linked entries on main, whose sources were not reopened. No novelty is claimed beyond the knowledgebase.
