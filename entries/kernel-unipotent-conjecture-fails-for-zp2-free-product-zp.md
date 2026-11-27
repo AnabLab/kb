@@ -1,0 +1,97 @@
+---
+title: A maximal pro-p Galois group without the kernel-unipotent property
+kind: theorem
+summary: 'For every prime $p$, $G=\mathbb Z_p^2*\mathbb Z_p$, the maximal pro-$p$ Galois group of some field containing $\zeta_p$, has $G_{(n)}\ne\bigcap_\rho\ker\rho$ over $\rho:G\to U_n(\mathbb F_p)$ for all $n\ge(p+1)(p^2-p+3)+4$, and for $n\ge18$ if $p=2$. So the Mináč–Tân conjecture is false.'
+tags: [pro-p-groups, galois-groups, galois-cohomology]
+edges:
+  - {to: kernel-unipotent-conjecture, label: resolves, note: "Negatively: a field containing a primitive $p$th root of unity whose $G_K(p)$ lacks the kernel $n$-unipotent property for all large $n$, at every prime $p$."}
+  - {to: right-angled-artin-pro-p-galois-groups, label: uses, note: "only to realize $\\mathbb Z_p^2*\\mathbb Z_p$ as $G_K(p)$"}
+  - {to: isotropic-chains-detect-the-quadratic-algebra-of-a-nondegenerate-form, label: analogous-to, note: "Both rest on the fact that, over $\\mathbb F_p$, sequences in $\\mathbb F_p^2$ with zero adjacent determinants lie on the $p+1$ rational lines."}
+---
+
+**Setting.** Fix a prime $p$ and let
+$$G=\langle x,y,z\mid [x,y]=1\rangle_{\text{pro-}p},$$
+the free pro-$p$ product of $\mathbb Z_p^2=\langle x,y\rangle$ and $\mathbb Z_p=\langle z\rangle$. Use the $p$-Zassenhaus filtration $G_{(n)}$ of [the conjecture](kernel-unipotent-conjecture.md), and write $[u,v]=u^{-1}v^{-1}uv$. A pro-$p$ group $H$ has the *kernel $n$-unipotent property* if $H_{(n)}=\bigcap_\rho\ker\rho$ over all continuous $\rho:H\to U_n(\mathbb F_p)$ [@minactan2015kernel, Definition 1.2, p. 2]. Put
+$$N=(p+1)(p^2-p+3),\qquad n_0=N+3\ \text{if }p=2,\qquad n_0=N+4\ \text{if }p\text{ is odd}.$$
+So $n_0=18$ for $p=2$ and $n_0=40$ for $p=3$.
+
+**Theorem.** This is proved here. For every $n\ge n_0$ there is $g\in G_{(n-1)}$ with $g\notin G_{(n)}$ and $\rho(g)=1$ for every continuous $\rho:G\to U_n(\mathbb F_p)$. So $G$ does not have the kernel $n$-unipotent property.
+
+**Corollary 1.** The [kernel-unipotent conjecture](kernel-unipotent-conjecture.md) [@minactan2015kernel, Conjecture 1.3, p. 3] is false at every prime $p$. Indeed $G$ is the right-angled Artin pro-$p$ group of the graph with vertices $x,y,z$ and one edge $\{x,y\}$. That graph has no induced square or four-vertex path, so there is a field $K$ containing a primitive $p$th root of unity with $G_K(p)\cong G$ [@snopcezalesskii2022, Theorem 1.2, (i) and (v), pp. 3–4]; see [Galois realizability of right-angled Artin groups](right-angled-artin-pro-p-galois-groups.md). By the theorem, $G_K(p)$ fails the kernel $n$-unipotent property for every $n\ge n_0$.
+
+Both factors have the property for every $n$: $\mathbb Z_p$ is free [@minactan2015kernel, Theorem 2.6(a), p. 7], and $\mathbb Z_p^2$ is a Demushkin group of rank $2$, of type 1 in the list on p. 13 [@minactan2015kernel, Proposition 5.4, p. 14]. So the property does not pass to free pro-$p$ products.
+
+**Corollary 2 (retracts).** This is proved here.
+
+- (i) Let $G'$ be a pro-$p$ group with continuous homomorphisms $\sigma:G\to G'$ and $\tau:G'\to G$ such that $\tau\sigma=\mathrm{id}_G$. Then $G'$ fails the kernel $n$-unipotent property for every $n\ge n_0$.
+- (ii) This applies to $G'=(H_1\times H_2)*H_3$ whenever $H_1,H_2,H_3$ are pro-$p$ groups, each with a continuous surjection onto $\mathbb Z_p$. Examples are $\mathbb Z_p^2*F$, with $H_1=H_2=\mathbb Z_p$, and $(\mathbb Z_p\times F)*\mathbb Z_p$, for every nontrivial free pro-$p$ group $F$ of finite rank. Both are right-angled Artin pro-$p$ groups: the first of a graph with one edge and some isolated vertices, the second of a star with an isolated vertex added. Neither graph has an induced square or four-vertex path, so both groups are $G_K(p)$ for fields $K$ containing a primitive $p$th root of unity [@snopcezalesskii2022, Theorem 1.2, (i) and (v), pp. 3–4].
+
+*Proof.* (i) Take $g$ as in the theorem. Continuous homomorphisms map each term of the $p$-Zassenhaus filtration into the corresponding term. So $\sigma(g)\in G'_{(n-1)}$, and $\sigma(g)\notin G'_{(n)}$, since otherwise $g=\tau\sigma(g)\in G_{(n)}$. For every continuous $\rho:G'\to U_n(\mathbb F_p)$, the composite $\rho\sigma$ is a continuous homomorphism $G\to U_n(\mathbb F_p)$, so $\rho(\sigma(g))=1$.
+
+(ii) Write $G=(\langle x\rangle\times\langle y\rangle)*\langle z\rangle$, with each factor $\cong\mathbb Z_p$. Identify the targets of the surjections with $\langle x\rangle$, $\langle y\rangle$ and $\langle z\rangle$, giving $\pi_1:H_1\to\langle x\rangle$, $\pi_2:H_2\to\langle y\rangle$ and $\pi_3:H_3\to\langle z\rangle$. By surjectivity there are $t_1\in H_1$, $t_2\in H_2$ and $t_3\in H_3$ with $\pi_1(t_1)=x$, $\pi_2(t_2)=y$ and $\pi_3(t_3)=z$. As $\mathbb Z_p$ is free pro-$p$ on one generator, there are continuous $s_1:\langle x\rangle\to H_1$, $s_2:\langle y\rangle\to H_2$ and $s_3:\langle z\rangle\to H_3$ sending $x,y,z$ to $t_1,t_2,t_3$. Then $\pi_is_i$ fixes the generator, so $\pi_is_i=\mathrm{id}$. By functoriality of direct products and of free pro-$p$ products, $\sigma=(s_1\times s_2)*s_3$ and $\tau=(\pi_1\times\pi_2)*\pi_3$ are continuous and $\tau\sigma=(\pi_1s_1\times\pi_2s_2)*\pi_3s_3=\mathrm{id}_G$. For the examples, a nontrivial free pro-$p$ group of finite rank surjects onto $\mathbb Z_p$ by sending one basis element to a generator and the others to $1$. $\square$
+
+**Proof of the theorem.** Throughout, $k$ is a finite field of characteristic $p$, $m\ge2$, matrices are $(m+1)\times(m+1)$ over $k$, $\mathfrak n$ is the set of strictly upper triangular ones, and $\mathfrak n^r$ is the set of matrices supported on entries $(i,j)$ with $j-i\ge r$. Then $\mathfrak n^r\mathfrak n^s\subseteq\mathfrak n^{r+s}$, $\mathfrak n^{m+1}=0$ and $\mathfrak n^m=kE_{1,m+1}$. Write $U=1+\mathfrak n=U_{m+1}(k)$, a finite $p$-group.
+
+*Step 1: matrix identities.* Let $r,s\ge1$, $P\in\mathfrak n^r$ and $Q\in\mathfrak n^s$. Then $(1+P)^{-1}=\sum_{i\ge0}(-P)^i\in1+\mathfrak n^r$. From $(1+P)(1+Q)=(1+Q)(1+P)+(PQ-QP)$,
+$$[1+P,1+Q]=1+(1+P)^{-1}(1+Q)^{-1}(PQ-QP)\in 1+\mathfrak n^{r+s},$$
+and $[1+P,1+Q]-1\equiv PQ-QP$ modulo $\mathfrak n^{r+s+1}$. Since $P$ commutes with itself and $p=0$ in $k$, $(1+P)^p=1+P^p\in1+\mathfrak n^{pr}$. Each $1+\mathfrak n^r$ is a subgroup. By induction on $r$, using the recursive definition of the filtration, $U_{(r)}\subseteq1+\mathfrak n^r$: $U_{(\lceil r/p\rceil)}^p$ lies in $1+\mathfrak n^{p\lceil r/p\rceil}\subseteq1+\mathfrak n^r$, and $[U_{(i)},U_{(j)}]\subseteq1+\mathfrak n^{i+j}$. A continuous homomorphism maps the filtration of its source into that of its target, so every continuous $\rho:G\to U$ kills $G_{(m+1)}$.
+
+*Step 2: representations.* A continuous $\rho:G\to U$ is the same as a triple $1+A,1+B,1+C\in U$, the images of $x,y,z$, with $AB=BA$. Its superdiagonal vectors are
+$$u_j=(\alpha_j,\beta_j,\gamma_j)=(A_{j,j+1},B_{j,j+1},C_{j,j+1})\in k^3,\qquad \pi_j=(\alpha_j,\beta_j),\qquad 1\le j\le m.$$
+Comparing the entries $(j,j+2)$ of $AB$ and $BA$ gives $\alpha_j\beta_{j+1}=\beta_j\alpha_{j+1}$: consecutive vectors $\pi_j,\pi_{j+1}$ are linearly dependent.
+
+Conversely, given $1\le p_1<p_2\le m$ and $v_0,v_1,v_2\in k^2$, let $J_0=[1,p_1-1]$, $J_1=[p_1+1,p_2-1]$ and $J_2=[p_2+1,m]$, some possibly empty, and let $S_l=\sum_{j\in J_l}E_{j,j+1}$. The index sets $\{j,j+1:j\in J_l\}$ are disjoint, so $S_lS_{l'}=0$ for $l\ne l'$. With $v_l=(s_l,t_l)$, the matrices $A=\sum_ls_lS_l$ and $B=\sum_lt_lS_l$ commute, and with $C=E_{p_1,p_1+1}+E_{p_2,p_2+1}$ they define a *decoupled* representation, with $\pi_j=v_l$ for $j\in J_l$, $\pi_{p_1}=\pi_{p_2}=0$ and $\gamma_j=1$ exactly for $j\in\{p_1,p_2\}$.
+
+*Step 3: evaluation.* Let $R=\mathbb F_p\langle X,Y,Z\rangle$ be the free algebra. For a word $W=W_1\cdots W_m$ and vectors $u_j$ put $\langle W,u\rangle=\prod_ju_j(W_j)$, where $u_j(X)=\alpha_j$, $u_j(Y)=\beta_j$, $u_j(Z)=\gamma_j$, and extend linearly to homogeneous $h\in R$ of degree $m$. The $(1,m+1)$ entry of a product of $m$ strictly upper triangular matrices is the product of their entries in places $(1,2),\ldots,(m,m+1)$. So $h(A,B,C)=\langle h,u\rangle E_{1,m+1}$.
+
+For $\mu=(a,b)$ with $a,b\ge0$ and $|\mu|=a+b$, define $w_\mu\in G$ and $\ell_\mu\in R$ by $w_{0,0}=z$, $w_{0,b}=[y,w_{0,b-1}]$, $w_{a,b}=[x,w_{a-1,b}]$ for $a\ge1$, and $\ell_\mu=\mathrm{ad}_X^a\mathrm{ad}_Y^b(Z)$, where $\mathrm{ad}_X(L)=XL-LX$. Then $w_\mu\in G_{(|\mu|+1)}$, since commutators of elements of $G_{(i)}$ and $G_{(j)}$ lie in $G_{(i+j)}$. By Step 1 and induction, $\rho(w_\mu)-1\equiv\ell_\mu(A,B,C)$ modulo $\mathfrak n^{|\mu|+2}$: if $Q=\rho(w)-1\equiv L(A,B,C)$ modulo $\mathfrak n^{r+1}$ with $L$ homogeneous of degree $r$, then $\rho([x,w])-1\equiv AQ-QA\equiv AL-LA$ modulo $\mathfrak n^{r+2}$, and similarly for $y$.
+
+Now let $|\mu|+|\nu|=m-2$, and let $P=\rho(w_\mu)-1$, $Q=\rho(w_\nu)-1$, $L=\ell_\mu(A,B,C)$, $L'=\ell_\nu(A,B,C)$. As $\mathfrak n^{m+1}=0$, Step 1 gives $\rho([w_\mu,w_\nu])=1+PQ-QP=1+LL'-L'L$ exactly. If $p=2$ and $2|\mu|=m-2$, then $w_\mu^2\in G_{(m)}$, as $G_{(\lceil m/2\rceil)}^2\subseteq G_{(m)}$, and $\rho(w_\mu^2)=1+P^2=1+L^2$. Finally $(1+P_1)(1+P_2)=1+P_1+P_2$ for $P_1,P_2\in\mathfrak n^m$. Hence, for a product $g$ of such factors $[w_\mu,w_\nu]^e$ and, if $p=2$, $w_\mu^2$, we have $g\in G_{(m)}$ and
+$$\rho(g)=1+\langle h,u\rangle E_{1,m+1},\qquad h=\sum e\,[\ell_\mu,\ell_\nu]+\sum\ell_\mu^2\in R_m,\tag{1}$$
+for every finite field $k$ of characteristic $p$ and every $\rho:G\to U_{m+1}(k)$.
+
+*Step 4: segment polynomials.* Every word in such an $h$ contains exactly two letters $Z$. Let $a_l=(X_l,Y_l)$, for $l=0,1,2$, be pairs of commuting variables, and for $d=(d',d'')$ write $d^\mu=d'^{\,a}d''^{\,b}$. For a word $W=W_0ZW_1ZW_2$ with $W_0,W_1,W_2$ words in $X,Y$, let $\kappa(W)=\prod_lX_l^{\#_X(W_l)}Y_l^{\#_Y(W_l)}\in\mathbb F_p[a_0,a_1,a_2]$, and define $\kappa_1$ on words $W_0ZW_1$ in the same way, with values in $\mathbb F_p[a_0,a_1]$.
+
+Since $\kappa_1(XL)=X_0\kappa_1(L)$ and $\kappa_1(LX)=X_1\kappa_1(L)$, and likewise for $Y$, induction gives $\kappa_1(\ell_\mu)=(a_0-a_1)^\mu$. For $L,L'$ in the span of words with one $Z$, $\kappa(LL')=\kappa_1(L)(a_0,a_1)\,\kappa_1(L')(a_1,a_2)$, because the middle segment of a product of words is the right segment of the first followed by the left segment of the second. Hence
+$$\kappa([\ell_\mu,\ell_\nu])=(a_0-a_1)^\mu(a_1-a_2)^\nu-(a_0-a_1)^\nu(a_1-a_2)^\mu,\qquad\kappa(\ell_\mu^2)=(a_0-a_1)^\mu(a_1-a_2)^\mu.\tag{2}$$
+
+For $p_1<p_2$ let $h_{p_1,p_2}$ be the sum of the terms of $h$ whose letters $Z$ sit at positions $p_1,p_2$. Then $\kappa(h_{p_1,p_2})$ is the component of $\kappa(h)$ of multidegree $(p_1-1,\,p_2-p_1-1,\,m-p_2)$ in $(a_0,a_1,a_2)$; call it $\kappa_{p_1,p_2}(h)$. With $\pi_j(X)=\alpha_j$ and $\pi_j(Y)=\beta_j$,
+$$\langle h,u\rangle=\sum_{p_1<p_2}\gamma_{p_1}\gamma_{p_2}\sum_Wh_W\prod_{j\ne p_1,p_2}\pi_j(W_j),$$
+where the inner sum runs over the words with $Z$ at $p_1,p_2$.
+
+- (a) If, for each $l$, $\pi_j=\lambda_jv_l$ for all $j\in J_l$, with $\lambda_j\in k$ and $v_l\in k^2$, then the inner sum equals $\bigl(\prod_{j\ne p_1,p_2}\lambda_j\bigr)\,\kappa_{p_1,p_2}(h)(v_0,v_1,v_2)$, since a word contributes $\prod\lambda_j$ times $\kappa(W)$ evaluated at $a_l=v_l$.
+- (b) If $k=\mathbb F_p$ and consecutive $\pi_j$ are dependent, as for every representation by Step 2, then for each pair $p_1<p_2$: either some $\pi_j=0$ with $j\notin\{p_1,p_2\}$, and the inner sum is $0$ because each of its words has the letter $X$ or $Y$ at $j$; or every $\pi_j$ with $j\in J_l$ is nonzero, so consecutive ones span the same line, all of them lie on one line $\mathbb F_pv_l$ with $v_l\in\mathbb F_p^2$, and (a) applies.
+
+*Step 5: a polynomial vanishing on the rational configurations.* Let $\delta(v,d)=v'd''-v''d'$ for $v,d$ in a $2$-dimensional space, and let $r$ run over fixed representatives of the $p+1$ lines of $\mathbb F_p^2$. In $\mathbb F_p[d_1,d_2]$, with $d_i=(d_i',d_i'')$, let $\Psi$ be the product of the $N$ linear forms
+
+- $\delta(r,d_1)$, $\delta(r,d_2)$ and $\delta(r,d_1+d_2)$, for each $r$;
+- $\delta(r,d_1)+c\,\delta(r',d_2)$, for each ordered pair $r\ne r'$ and each $c\in\mathbb F_p^\times$.
+
+*Claim: for all $v_0,v_1,v_2\in\mathbb F_p^2$, some factor $\ell$ of $\Psi$ vanishes at $(v_0,0)$, $(-v_1,v_1)$ and $(0,-v_2)$.* Write a linear form as $\ell(d_1,d_2)=\lambda_1(d_1)+\lambda_2(d_2)$. The conditions are $\lambda_1(v_0)=0$, $\lambda_1(v_1)=\lambda_2(v_1)$ and $\lambda_2(v_2)=0$: three linear conditions on the $4$-dimensional space of pairs $(\lambda_1,\lambda_2)$, so a nonzero solution exists. Each nonzero linear form on $\mathbb F_p^2$ is $c\,\delta(r,\cdot)$ for a unique $r$ and some $c\ne0$, as forms with the same kernel are proportional. If $\lambda_2=0$ or $\lambda_1=0$, $\ell$ is a multiple of some $\delta(r,d_1)$ or $\delta(r,d_2)$. Otherwise $\lambda_1=c\,\delta(r,\cdot)$ and $\lambda_2=c'\delta(r',\cdot)$. If $r\ne r'$, $\ell$ is a multiple of $\delta(r,d_1)+(c'/c)\,\delta(r',d_2)$. If $r=r'$ and $\delta(r,v_1)\ne0$, then $\lambda_1(v_1)=\lambda_2(v_1)$ forces $c=c'$, and $\ell$ is a multiple of $\delta(r,d_1+d_2)$. If $r=r'$ and $\delta(r,v_1)=0$, then $(\lambda_1,0)$ is also a solution, and $\delta(r,d_1)$ works.
+
+*Symmetry.* Let $\sigma$ swap $d_1$ and $d_2$. It exchanges the forms $\delta(r,d_1)$ and $\delta(r,d_2)$, fixes $\delta(r,d_1+d_2)$, and sends $\delta(r,d_1)+c\,\delta(r',d_2)$ to $c\,(\delta(r',d_1)+c^{-1}\delta(r,d_2))$. So $\Psi\circ\sigma=\epsilon\Psi$, where $\epsilon$ is the product of $\prod_{c\in\mathbb F_p^\times}c=-1$ over the $p(p+1)$ ordered pairs, so $\epsilon=1$.
+
+For $D\ge N$ put $\Phi_D=\Psi\,(d_1'+d_2')^{D-N}$ if $p=2$, and for $D\ge N+1$ put $\Phi_D=\Psi\,(d_1'-d_2')(d_1'+d_2')^{D-N-1}$ if $p$ is odd. Then $\Phi_D$ is nonzero and homogeneous of degree $D$, symmetric under $\sigma$ if $p=2$ and antisymmetric if $p$ is odd.
+
+*Step 6: the element.* Let $n\ge n_0$, $m=n-1$ and $D=m-2$, so $\Phi_D$ is defined. Write $\Phi_D=\sum c_{\mu\nu}\,d_1^\mu d_2^\nu$, with $|\mu|+|\nu|=D$.
+
+- If $p$ is odd, let $g=\prod_{\mu,\nu}[w_\mu,w_\nu]^{e_{\mu\nu}}$, in any fixed order, with $2e_{\mu\nu}\equiv c_{\mu\nu}$ modulo $p$.
+- If $p=2$, then $c_{\mu\nu}=c_{\nu\mu}$. Fix a total order on the $\mu$, and let $g$ be the product of the $[w_\mu,w_\nu]$ with $\mu<\nu$ and $c_{\mu\nu}=1$, and of the $w_\mu^2$ with $c_{\mu\mu}=1$.
+
+By Step 3, $g\in G_{(m)}=G_{(n-1)}$, and (1) holds. By (2), $\kappa(h)=\tfrac12(\Phi_D-\Phi_D\circ\sigma)=\Phi_D$ for odd $p$, and $\kappa(h)=\Phi_D$ for $p=2$, evaluated at $d_1=a_0-a_1$ and $d_2=a_1-a_2$.
+
+*$\rho(g)=1$ over $\mathbb F_p$.* Let $v_0,v_1,v_2\in\mathbb F_p^2$, and let $s_0,s_1,s_2$ be indeterminates. Grouping by multidegree,
+$$\sum_{p_1<p_2}\kappa_{p_1,p_2}(h)(v_0,v_1,v_2)\,s_0^{p_1-1}s_1^{p_2-p_1-1}s_2^{m-p_2}=\kappa(h)(s_0v_0,s_1v_1,s_2v_2)=\Phi_D(s_0v_0-s_1v_1,\,s_1v_1-s_2v_2).$$
+The factor $\ell$ of the claim divides $\Phi_D$ and satisfies $\ell(s_0v_0-s_1v_1,s_1v_1-s_2v_2)=s_0\ell(v_0,0)+s_1\ell(-v_1,v_1)+s_2\ell(0,-v_2)=0$. Comparing coefficients, every $\kappa_{p_1,p_2}(h)$ vanishes on $(\mathbb F_p^2)^3$. Now let $\rho:G\to U_n(\mathbb F_p)$ be continuous. By Step 4(b), every inner sum in $\langle h,u\rangle$ is $0$, so $\langle h,u\rangle=0$, and $\rho(g)=1$ by (1).
+
+*$g\notin G_{(n)}$.* The linear map $(a_0,a_1,a_2)\mapsto(a_0-a_1,a_1-a_2)$ is onto, so substituting it into the nonzero $\Phi_D$ gives a nonzero polynomial, and some $\kappa_{p_1,p_2}(h)$ is nonzero. Its degree in each variable is at most $D$. Take $k=\mathbb F_q$ with $q>D$. A nonzero polynomial of degree less than $q$ in each variable does not vanish on all of $k^6$, by induction on the number of variables, since a nonzero one-variable polynomial of degree less than $q$ has fewer than $q$ roots. So $\kappa_{p_1,p_2}(h)(v_0,v_1,v_2)\ne0$ for some $v_l\in k^2$. In the decoupled representation of Step 2 for $p_1,p_2,v_0,v_1,v_2$, only the pair $(p_1,p_2)$ has $\gamma_{p_1}\gamma_{p_2}\ne0$, and (a) applies with all $\lambda_j=1$. So $\langle h,u\rangle=\kappa_{p_1,p_2}(h)(v_0,v_1,v_2)\ne0$ and $\rho(g)\ne1$ by (1). By Step 1, $g\notin G_{(m+1)}=G_{(n)}$. $\square$
+
+**Remarks.**
+
+- *The mechanism.* For commuting $A,B$ over $\mathbb F_p$, the superdiagonal vectors $\pi_j$ lie, run by run, on the $p+1$ rational lines of $\mathbb F_p^2$, so the representations see the leading term of $g$ only at the finitely many configurations of Step 5. Over larger finite fields this obstruction disappears, and the proof detects $g$ with $U_n(\mathbb F_q)$. So this argument says nothing against the analogue of the conjecture that allows every $U_n(\mathbb F_q)$, $q$ a power of $p$.
+- *Range.* The bound $n_0$ is not claimed to be optimal. For this $G$ the equality holds for every $n\le2p+2$, by [polynomial factor algebras double the detection range](polynomial-factors-double-the-unipotent-detection-range.md), which covers free products of free and free abelian groups; for $n=3$ it holds for every field containing $\zeta_p$, as recorded in [the conjecture](kernel-unipotent-conjecture.md). The cases $2p+3\le n<n_0$ are not settled.
+- *Invisible ideals.* In the notation of [unipotent detection in free products](unipotent-detection-in-free-pro-p-products.md), with $\mathbb F=\mathbb F_p$ and $m=n-1$, the initial form $\mathrm{in}_m(g)$ is nonzero, by Jennings' theorem as quoted there, and is killed by every corner functional, so it lies in $L_m(G)\cap\mathrm{Inv}_m(G,\mathbb F_p)=L_m(G)\cap J_m$ by part 1 of that theorem. This answers, for $\mathbb Z_p^2*\mathbb Z_p$ over $\mathbb F_p$, the question left open in its remark "What remains open".
+- *Elementary type.* With the trivial orientation, $G$ is built from oriented copies of $\mathbb Z_p$ by a direct product with $\mathbb Z_p$ (a cyclotomic semidirect product with trivial action) and a free product, so it is of elementary type in the sense of [Efrat's elementary type conjecture](elementary-type-conjecture.md).
+- *Computer check.* Matrix computations of $\rho(g)$ from the commutators themselves, not from (1), agree with the theorem. For $p=2$ and $n=18$, $\rho(g)=1$ for all $8704$ decoupled representations over $\mathbb F_2$ and for random representations with $\rho(y)$ drawn from the centralizer of $\rho(x)$; for $p=3$ and $n=40$, samples of both kinds gave $\rho(g)=1$. Some decoupled representations over $\mathbb F_4$, $\mathbb F_{16}$ and $\mathbb F_9$ gave $\rho(g)\ne1$, with $\rho(g)-1$ supported at the corner. This is not part of the proof.
+
+**Status.** No statement of this theorem, and no counterexample to the conjecture for Galois groups, was found in the sources opened for [the conjecture](kernel-unipotent-conjecture.md) or in a literature search through November 2026, which was not exhaustive. A 2025 preprint still presents the conjecture as open [@hamzamaireminactan2025, §4, p. 20].

@@ -17,7 +17,7 @@ G_{(n)}=\bigcap_{\rho:G\to U_n(\mathbb F_p)}\ker\rho,
 $$
 where $G_{(n)}$ is the $p$-Zassenhaus filtration and the homomorphisms are continuous, as in [the kernel-unipotent conjecture](kernel-unipotent-conjecture.md). In particular this holds for $D*F$, with $D$ any rank-two Demushkin group and $F$ any finite-rank free pro-$p$ group, and for $\mathbb Z_p^2*\mathbb Z_p$. At $p=2$ the range includes $n=4$.
 
-The result does not decide any of these free products in all degrees. Without rank-two factors the [existing free-product theorem](kernel-unipotent-property-for-free-products-of-demushkin-and-free-groups.md) gives every $n$.
+The result does not decide any of these free products in all degrees. For $\mathbb Z_p^2*\mathbb Z_p$ the property fails for all large $n$: see [a maximal pro-$p$ Galois group without the kernel-unipotent property](kernel-unipotent-conjecture-fails-for-zp2-free-product-zp.md). Without rank-two factors the [existing free-product theorem](kernel-unipotent-property-for-free-products-of-demushkin-and-free-groups.md) gives every $n$.
 
 **Proof.** Trivial factors may be omitted; if none remain the assertion is immediate. Put $k=\mathbb F_p$. Choose minimal generators of each factor, let $V_i$ have the corresponding basis, put $U_i=V_i^*=H^1(G_i,k)$, and let $T(V_i)$ be the tensor algebra. For a Demushkin factor choose $H^2(G_i,k)\cong k$, write $\omega_i$ for its cup pairing and $\xi_i\in V_i^{\otimes2}$ for its tensor. For a free factor put $\omega_i=0$ and $\xi_i=0$. A chain in $U_i$ is a sequence $a_1,\ldots,a_l$ with $\omega_i(a_j,a_{j+1})=0$. Write $C_{i,l}$ for the span of its tensors and $R_{i,l}$ for the degree-$l$ part of the ideal $(\xi_i)$.
 
