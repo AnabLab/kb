@@ -1,7 +1,7 @@
 ---
 title: Last lower break of the uniformizer radical splitting field
 kind: theorem
-summary: 'For N = K(π^(1/p^s), ζ_(p^s)) with π a uniformizer of a p-adic field K, the last lower break max_g min_x v_N(gx-x) is e(N/K)(e/(p-1)+1/p^s) minus the different exponent of N over K(π^(1/p^s)). It equals the displacement of π^(1/p^s) iff K(ζ_(p^s))/K is unramified.'
+summary: 'For N = K(π^(1/p^s), ζ_(p^s)) with π a uniformizer of a p-adic field K, the last lower break of N/K in Čoupek’s numbering is e(N/K)(e/(p-1)+1/p^s) minus the different exponent of N over K(π^(1/p^s)). It equals the displacement v_N((ζ_p-1)π^(1/p^s)) iff K(ζ_(p^s))/K is unramified.'
 tags: [local-fields, ramification]
 edges:
   - {to: ramification-of-uniformizer-radical-splitting-fields, label: uses, note: 'Supplies the last upper break, 1+es+e/(p-1) in this numbering.'}
