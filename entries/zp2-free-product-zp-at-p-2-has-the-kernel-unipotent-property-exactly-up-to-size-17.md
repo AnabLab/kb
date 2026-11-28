@@ -1,0 +1,103 @@
+---
+title: Z_2^2 * Z_2 has the kernel n-unipotent property exactly for n at most 17
+kind: theorem
+summary: 'An exact finite rank calculation shows that $U_{m+1}(\mathbb F_2)$ detects every Zassenhaus degree $m\le16$ of $G=\mathbb Z_2^2*\mathbb Z_2$. So over $\mathbb F_2$, $G$ has the kernel $n$-unipotent property exactly for $n\le17$, and the counterexample bound $n\ge18$ is sharp.'
+tags: [pro-p-groups, galois-groups, galois-cohomology]
+edges:
+  - {to: zp2-free-product-zp-has-the-kernel-unipotent-property-up-to-size-2p-plus-4, label: uses, note: "its Notation, the representations $\\rho_{S,v}$ and (E), Lemma 1, the proof of Lemma 2, the proof of Lemma 3, and the space $\\mathcal V_m$ of its computer-check remark"}
+  - {to: kernel-unipotent-conjecture-fails-for-zp2-free-product-zp, label: uses, note: "Step 1 for larger fields, $\\kappa_1(\\ell_\\mu)$ from Step 4, the theorem for the failure at $n\\ge18$, and Corollary 1 for the field"}
+  - {to: unipotent-detection-in-free-pro-p-products, label: uses, note: "formula (1) and Lemma 1: detection of every degree $m\\le n-1$ gives the kernel $n$-unipotent property"}
+  - {to: small-induced-subgraphs-decide-the-kernel-unipotent-property, label: uses, note: "Jennings' theorem as quoted in its Setting"}
+  - {to: kernel-unipotent-conjecture, label: addresses, note: "For the field $K$ with $G_K(2)\\cong\\mathbb Z_2^2*\\mathbb Z_2$, the equality holds exactly for $n\\le17$."}
+---
+
+**Setting.** Let $p=2$ and $G=\langle x,y,z\mid[x,y]=1\rangle_{\text{pro-}2}=\mathbb Z_2^2*\mathbb Z_2$, with its $2$-Zassenhaus filtration $G_{(n)}$. Use the Notation of [the low-degree theorem](zp2-free-product-zp-has-the-kernel-unipotent-property-up-to-size-2p-plus-4.md) at $p=2$:
+
+- the algebra $\bar R=\mathbb F_2\langle X,Y,Z\rangle/(XY-YX)$, its component $\bar R_m^{(k)}$ of degree $m$ with $k$ letters $Z$, and the map $\bar\mu:\bar R\to A(G)$;
+- the map $\kappa$, injective on $\bar R^{(k)}$, with values in $\mathbb F_2[a_0,\ldots,a_k]$ for pairs of commuting variables $a_l=(X_l,Y_l)$, and its multihomogeneous components $\kappa_\delta$;
+- the multidegree $\delta(S)$ of a $k$-element set $S\subseteq\{1,\ldots,m\}$, and the representations $\rho_{S,v}:G\to U_{m+1}(\mathbb F_2)$ with the evaluation formula (E).
+
+As there, $G$ *detects degree $m$* over $\mathbb F_2$ if every $g\in G_{(m)}\setminus G_{(m+1)}$ has $\rho(g)\ne1$ for some continuous $\rho:G\to U_{m+1}(\mathbb F_2)$. Let $\mathcal V_m\subseteq\bar R_m$ be the space of its computer-check remark: $\mathcal V_1$ is spanned by $X,Y,Z$, and for $m\ge2$, $\mathcal V_m$ is spanned by the brackets $[P,Q]=PQ-QP$ with $P\in\mathcal V_i$, $Q\in\mathcal V_{m-i}$ and $0<i<m$, together with the squares $P^2$ with $P\in\mathcal V_{m/2}$ if $m$ is even. Put $\mathcal V_m^{(k)}=\mathcal V_m\cap\bar R^{(k)}$.
+
+*Run reduction.* For $f\in\mathbb F_2[a_0,\ldots,a_k]$, let $\mathrm{red}(f)$ be obtained by replacing, in every monomial, each factor $X_l^aY_l^b$ with $a,b\ge1$ by $X_lY_l^{a+b-1}$. It preserves multidegrees, and in each monomial of $\mathrm{red}(f)$ the factor in the pair $a_l$ is $1$, $X_l^j$, $Y_l^j$ or $X_lY_l^{j-1}$.
+
+**Theorem.** This is proved here; the proof includes a finite computer calculation, specified completely below. For every $m\le16$ and every $k$, $\mathrm{red}\circ\kappa$ is injective on $\mathcal V_m^{(k)}$. Consequently:
+
+1. $G$ detects every degree $m\le16$ over $\mathbb F_2$, by representations of the form $\rho_{S,v}$.
+2. $G$ has the kernel $n$-unipotent property over $\mathbb F_2$, and over every finite field of characteristic $2$, for every $n\le17$.
+3. Over $\mathbb F_2$, $G$ fails the property for every $n\ge18$, by [the counterexample](kernel-unipotent-conjecture-fails-for-zp2-free-product-zp.md). So $17$ is the largest such $n$, and $G$ detects degree $m$ over $\mathbb F_2$ exactly when $m\le16$.
+
+**Corollary.** Let $K$ be the field of Corollary 1 of [the counterexample](kernel-unipotent-conjecture-fails-for-zp2-free-product-zp.md) for $p=2$, which has $G_K(2)\cong G$. Then $G_K(2)$ satisfies the equality of the [kernel-unipotent conjecture](kernel-unipotent-conjecture.md) exactly for $n\le17$. This settles the cases $9\le n\le17$ that [the low-degree theorem](zp2-free-product-zp-has-the-kernel-unipotent-property-up-to-size-2p-plus-4.md) left open.
+
+**Lemma A (tests and run reduction).** Let $f\in\mathbb F_2[a_0,\ldots,a_k]$ be multihomogeneous. Then $f(v_0,\ldots,v_k)=0$ for all $v_0,\ldots,v_k\in\mathbb F_2^2$ if and only if $\mathrm{red}(f)=0$.
+
+*Proof.* Let $\mathcal F_d$ be the space of binary forms of degree $d$, with $\mathcal F_d=0$ for $d<0$, and $\Lambda=X^2Y-XY^2$. At $p=2$, the proof of Lemma 3 of the low-degree theorem shows two things. The forms in $\mathcal F_d$ vanishing on $\mathbb F_2^2$ make up $\mathcal K_d=\Lambda\mathcal F_{d-3}$. And the forms of multidegree $\delta$ vanishing on $(\mathbb F_2^2)^{k+1}$ make up $\mathcal K_\delta=\sum_l\mathcal K_{\delta_l}\otimes\bigotimes_{l'\ne l}\mathcal F_{\delta_{l'}}$; the forms in $\mathcal K_\delta$ vanish there because each summand has a factor vanishing on $\mathbb F_2^2$.
+
+Let $\mathcal C_d\subseteq\mathcal F_d$ be spanned by $X^d,Y^d,XY^{d-1}$ if $d\ge2$, by $X,Y$ if $d=1$ and by $1$ if $d=0$. For $d\ge2$ the values of $X^d,Y^d,XY^{d-1}$ at $(1,0),(0,1),(1,1)$ are $(1,0,1)$, $(0,1,1)$ and $(0,0,1)$, which are linearly independent, and the cases $d\le1$ are similar. So evaluation is injective on $\mathcal C_d$, and $\mathcal C_d\cap\mathcal K_d=0$. As $\dim\mathcal C_d+\dim\mathcal K_d=d+1$, $\mathcal F_d=\mathcal C_d\oplus\mathcal K_d$. For $a\ge2$ and $b\ge1$, $X^aY^b-X^{a-1}Y^{b+1}=X^{a-2}Y^{b-1}\Lambda$, so by induction on $a$, $X^aY^b-XY^{a+b-1}\in\mathcal K_{a+b}$ for all $a,b\ge1$. Hence, on a single pair, $\mathrm{red}$ is the projection of $\mathcal F_d$ onto $\mathcal C_d$ along $\mathcal K_d$. On multidegree $\delta$ it is the tensor product of these projections. Expanding $\bigotimes_l(\mathcal C_{\delta_l}\oplus\mathcal K_{\delta_l})$ gives $\bigotimes_l\mathcal C_{\delta_l}\oplus\mathcal K_\delta$, and $\mathrm{red}$ is the projection onto the first summand along $\mathcal K_\delta$. So $\mathrm{red}(f)=0$ exactly when $f\in\mathcal K_\delta$, that is, when $f$ vanishes on $(\mathbb F_2^2)^{k+1}$. $\square$
+
+**Lemma B (structure of $\mathcal V$).** Let $\ell_{a,b}=\mathrm{ad}_X^a\mathrm{ad}_Y^b(Z)\in\bar R^{(1)}_{a+b+1}$, the image in $\bar R$ of the element $\ell_\mu$, $\mu=(a,b)$, of Step 3 of [the counterexample](kernel-unipotent-conjecture-fails-for-zp2-free-product-zp.md), where $\mathrm{ad}_P(Q)=[P,Q]$.
+
+- (a) $\mathcal V_m=\bigoplus_k\mathcal V_m^{(k)}$. Moreover $\mathcal V_m^{(0)}=\mathbb F_2X^m+\mathbb F_2Y^m$ if $m$ is a power of $2$, including $m=1$, and $\mathcal V_m^{(0)}=0$ otherwise.
+- (b) Write $\mathcal V^{(k)}=\bigoplus_m\mathcal V_m^{(k)}$. Then $\mathcal V^{(1)}$ is spanned by the $\ell_{a,b}$. For $k\ge2$, choose bases of $\mathcal V^{(k-1)}$ and $\mathcal V^{(k/2)}$ consisting of homogeneous elements. Then $\mathcal V^{(k)}$ is spanned by the brackets $[\ell_{a,b},Q]$ with $a,b\ge0$ and $Q$ in the basis of $\mathcal V^{(k-1)}$, together with the squares $P^2$ of the elements $P$ of the basis of $\mathcal V^{(k/2)}$ if $k$ is even.
+
+*Proof.* Call a subspace of $\bar R$ *closed* if it contains $[P,Q]$ and $P^2$ for all its elements $P,Q$. In characteristic $2$, $(P+Q)^2=P^2+Q^2+[P,Q]$. So $\mathcal V=\bigoplus_m\mathcal V_m$ is closed, and by induction on $m$ it lies in every closed subspace containing $X,Y,Z$; it is the smallest such subspace. Let $\mathcal N$ be the smallest closed subspace containing all $\ell_{a,b}$, and let $\mathcal L_0$ be spanned by the $X^{2^e}$ and $Y^{2^e}$, $e\ge0$.
+
+*$\mathcal N$ is graded.* Let $\mathcal N'=\bigoplus_k(\mathcal N\cap\bar R^{(k)})$. It contains the $\ell_{a,b}$, and it is closed: brackets and products of elements with $i$ and $j$ letters $Z$ have $i+j$ letters $Z$, and the square of a sum $\sum_kP_k$ is $\sum_kP_k^2+\sum_{k<k'}[P_k,P_{k'}]$. So $\mathcal N=\mathcal N'$. The same argument shows that $\mathcal N$ is graded by degree and by the numbers of letters $X$ and $Y$.
+
+*$\mathcal V=\mathcal L_0\oplus\mathcal N$.* Each $\ell_{a,b}$ is an iterated bracket of $X,Y,Z$, so $\mathcal N\subseteq\mathcal V$, and $X^{2^e}\in\mathcal V$ by repeated squaring, so $\mathcal L_0\subseteq\mathcal V$. Conversely, $\mathrm{ad}_X$ and $\mathrm{ad}_Y$ are derivations of $\bar R$, and they commute because $\mathrm{ad}_X\mathrm{ad}_Y-\mathrm{ad}_Y\mathrm{ad}_X=\mathrm{ad}_{[X,Y]}=0$. So $\mathrm{ad}_X\ell_{a,b}=\ell_{a+1,b}$ and $\mathrm{ad}_Y\ell_{a,b}=\ell_{a,b+1}$. If a derivation $D$ maps every $\ell_{a,b}$ into $\mathcal N$, then the set of $P\in\mathcal N$ with $D(P)\in\mathcal N$ is a closed subspace containing the $\ell_{a,b}$, because $D[P,Q]=[DP,Q]+[P,DQ]$ and $D(P^2)=(DP)P+P(DP)=[DP,P]$ in characteristic $2$. So $D(\mathcal N)\subseteq\mathcal N$. In characteristic $2$, $\mathrm{ad}_X^2(Q)=X^2Q-2XQX+QX^2=\mathrm{ad}_{X^2}(Q)$, so $\mathrm{ad}_{X^{2^e}}=\mathrm{ad}_X^{2^e}$, and likewise for $Y$. Hence $[\mathcal L_0,\mathcal N]\subseteq\mathcal N$. Also $[\mathcal L_0,\mathcal L_0]=0$, as $\bar R^{(0)}=\mathbb F_2[X,Y]$ is commutative, and the square of an element of $\mathcal L_0$ lies in $\mathcal L_0$. With $(L+P)^2=L^2+P^2+[L,P]$, this makes $\mathcal L_0+\mathcal N$ closed. It contains $X$, $Y$ and $Z=\ell_{0,0}$, so $\mathcal V\subseteq\mathcal L_0+\mathcal N$. Thus $\mathcal V=\mathcal L_0+\mathcal N$, with $\mathcal L_0\subseteq\bar R^{(0)}$ and $\mathcal N\subseteq\bigoplus_{k\ge1}\bar R^{(k)}$ graded. This gives (a), and $\mathcal V^{(k)}=\mathcal N\cap\bar R^{(k)}$ for $k\ge1$.
+
+*(b).* Write $\mathcal N^{(k)}=\mathcal V^{(k)}$ for $k\ge1$. Define $\mathcal N_\circ^{(1)}$ as the span of the $\ell_{a,b}$, and for $k\ge2$ let $\mathcal N_\circ^{(k)}$ be spanned by the brackets $[A,B]$ with $A\in\mathcal N_\circ^{(i)}$, $B\in\mathcal N_\circ^{(k-i)}$ and $0<i<k$, and by the squares $P^2$ with $P\in\mathcal N_\circ^{(k/2)}$. As for $\mathcal V$, $\bigoplus_k\mathcal N_\circ^{(k)}$ is closed and contains the $\ell_{a,b}$, and it lies in $\mathcal N$, so $\mathcal N_\circ^{(k)}=\mathcal N^{(k)}$. Let $\mathcal S^{(k)}$ be the span of the $[\ell_{a,b},Q]$ with $Q\in\mathcal N^{(k-1)}$.
+
+We show $[A,B]\in\mathcal S^{(i+j)}$ for $A\in\mathcal N^{(i)}$ and $B\in\mathcal N^{(j)}$, by induction on $i$. For $i=1$ this is the definition. For $i\ge2$, it suffices to take $A=[A_1,A_2]$ with $A_1\in\mathcal N^{(i_1)}$, $A_2\in\mathcal N^{(i_2)}$ and $i_1+i_2=i$, or $A=P^2$ with $P\in\mathcal N^{(i/2)}$. In the first case the Jacobi identity gives $[[A_1,A_2],B]=[A_1,[A_2,B]]+[A_2,[A_1,B]]$ in characteristic $2$, and both terms are brackets whose first argument has fewer than $i$ letters $Z$. In the second case, $[P^2,B]=P^2B-BP^2=[P,[P,B]]$ in characteristic $2$, and $P$ has $i/2<i$ letters $Z$. Induction applies in both cases.
+
+So $\mathcal N^{(k)}=\mathcal S^{(k)}+\mathrm{span}\{P^2:P\in\mathcal N^{(k/2)}\}$. For a basis $(P_r)$ of $\mathcal N^{(k/2)}$ and $c_r\in\mathbb F_2$, $(\sum_rc_rP_r)^2=\sum_rc_rP_r^2+\sum_{r<s}c_rc_s[P_r,P_s]$, and $[P_r,P_s]\in\mathcal S^{(k)}$. By bilinearity, $\mathcal S^{(k)}$ is spanned by the $[\ell_{a,b},Q]$ with $Q$ in a basis of $\mathcal N^{(k-1)}$. This proves (b). $\square$
+
+**Lemma C (difference coordinates).** Let $k\ge1$, and let $d_1,\ldots,d_k$ be pairs of variables $d_l=(d_l',d_l'')$. For $P\in\mathcal V^{(k)}$ there is a unique $\Phi_P\in\mathbb F_2[d_1,\ldots,d_k]$ with $\kappa(P)=\Phi_P(a_0+a_1,\ldots,a_{k-1}+a_k)$, and $P\mapsto\Phi_P$ is linear and injective. Moreover $\Phi_{\ell_{a,b}}=d_1'^{\,a}d_1''^{\,b}$, and $\Phi_{PQ}(d_1,\ldots,d_{i+j})=\Phi_P(d_1,\ldots,d_i)\,\Phi_Q(d_{i+1},\ldots,d_{i+j})$ for $P\in\mathcal V^{(i)}$ and $Q\in\mathcal V^{(j)}$.
+
+*Proof.* In characteristic $2$, $a_{l-1}+a_l=a_{l-1}-a_l$. By Lemma 1 of the low-degree theorem, the spaces $\mathcal W_m$ contain $X,Y,Z$ and are closed under brackets and squares, so $\mathcal V_m\subseteq\mathcal W_m$, as its computer-check remark notes. By (W1), $\kappa(P)$ then lies in the ring $\mathcal T_k$ generated by the coordinates of the differences $a_{l-1}-a_l$, which gives existence. The coordinates of $a_0,d_1,\ldots,d_k$, with $d_l=a_{l-1}-a_l$, are a linear change of coordinates from those of $a_0,\ldots,a_k$. So $\Phi_P$ is unique, and injectivity follows from the injectivity of $\kappa$ on $\bar R^{(k)}$. By Step 4 of the counterexample, $\kappa(\ell_{a,b})=(X_0-X_1)^a(Y_0-Y_1)^b$; this uses only that $\kappa(XL)=X_0\kappa(L)$ and $\kappa(LX)=X_1\kappa(L)$, and likewise for $Y$, so it holds in $\bar R$. The product formula is (K) of the low-degree theorem written in the differences. $\square$
+
+So the elements of $\mathcal V^{(k)}$ can be handled as polynomials in $k$ pairs of variables. In the monomial basis a monomial is a sequence of exponent pairs $(\mu_1,\ldots,\mu_k)$, and the product of monomials is concatenation of sequences.
+
+**The calculation.** For $k=1,2,\ldots$ and all $m\le16$, with all coefficients in $\mathbb F_2$:
+
+1. *A basis of $\mathcal V_m^{(k)}$.* For $k=1$, take the monomials $d_1'^{\,a}d_1''^{\,b}$ with $a+b=m-1$. For $k\ge2$, compute $\Phi$ of each element of the spanning set of Lemma B(b), using Lemma C and the bases already computed. Then extract a basis by Gaussian elimination in the monomial basis, separately for each pair (number of letters $X$, number of letters $Y$), which every operation here preserves.
+2. *The test matrix.* For each basis element $P$, compute $\mathrm{red}(\Phi_P(a_0+a_1,\ldots,a_{k-1}+a_k))$. Expand each factor $(X_{l-1}+X_l)^a$ as the sum of $X_{l-1}^iX_l^{a-i}$ over the $i$ whose binary digits are at most those of $a$, which is Lucas' theorem modulo $2$, and similarly for $Y$; multiply out and apply $\mathrm{red}$. Record the coefficients in the basis of reduced monomials.
+3. *Rank.* Compute the rank over $\mathbb F_2$ of the resulting matrix, with one row for each basis element, by Gaussian elimination.
+
+*Result.* For every $1\le k\le m\le16$, the rank in step 3 equals the number of basis elements in step 1. On $\mathcal V_m^{(0)}$, $\kappa(cX^m+c'Y^m)=cX_0^m+c'Y_0^m$, which $\mathrm{red}$ fixes. With Lemma C, this proves that $\mathrm{red}\circ\kappa$ is injective on every $\mathcal V_m^{(k)}$ with $m\le16$.
+
+The dimensions of $\mathcal V_m$ found in step 1 are
+$$3,\ 5,\ 5,\ 15,\ 24,\ 55,\ 120,\ 285,\ 640,\ 1524,\ 3600,\ 8665,\ 20880,\ 50820,\ 124024,\ 304575$$
+for $m=1,\ldots,16$; for $m\le10$ they agree with the computer-check remark of the low-degree theorem. The following table gives $\dim\mathcal V_m^{(k)}$ for the blocks with $k\ge3$ and $m-k\ge5$, the only ones not also covered by hand (see the remarks). In each, the test matrix has full row rank.
+
+| $m$ \ $k$ | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 8 | 84 | | | | | | | | |
+| 9 | 153 | 198 | | | | | | | |
+| 10 | 264 | 434 | 400 | | | | | | |
+| 11 | 429 | 858 | 1001 | 728 | | | | | |
+| 12 | 666 | 1619 | 2288 | 2070 | 1224 | | | | |
+| 13 | 1001 | 2860 | 4862 | 5304 | 3876 | 1938 | | | |
+| 14 | 1456 | 4876 | 9724 | 12618 | 11074 | 6798 | 2926 | | |
+| 15 | 2061 | 7956 | 18475 | 27990 | 29070 | 21318 | 11214 | 4250 | |
+| 16 | 2856 | 12620 | 33592 | 58828 | 71060 | 61334 | 38456 | 17732 | 5980 |
+
+The number of columns in step 2, for given $k$ and $m$, is at most $\sum_\delta\prod_lc(\delta_l)$ over the multidegrees $\delta$ with $\sum_l\delta_l=m-k$, where $c(0)=1$, $c(1)=2$ and $c(j)=3$ for $j\ge2$. The largest matrix, for $k=7$ and $m=16$, has $71060$ rows and at most $896184$ columns.
+
+**Proof of the theorem.** Let $m\le16$ and $g\in G_{(m)}\setminus G_{(m+1)}$. The proof of Lemma 2 of the low-degree theorem uses only that the spaces $\mathcal W_k$ contain $X,Y,Z$ in degree $1$ and that brackets and $p$th powers of their elements stay in them. The spaces $\mathcal V_k$ have these properties by definition, so the same proof gives $\mathrm{in}_m(g)=\bar\mu(P)$ with $P\in\mathcal V_m$. By Jennings' theorem, as quoted in the Setting of [induced subgraphs decide the property](small-induced-subgraphs-decide-the-kernel-unipotent-property.md), $\mathrm{in}_m(g)\ne0$, so $P\ne0$. By Lemma B(a), some component $P^{(k)}$ is a nonzero element of $\mathcal V_m^{(k)}$. By the calculation, $\mathrm{red}(\kappa(P^{(k)}))\ne0$. As $\mathrm{red}$ preserves multidegrees, $\mathrm{red}(\kappa_\delta(P^{(k)}))\ne0$ for some $\delta$. Write $\delta=\delta(S)$ with $|S|=k$. By Lemma A, $\kappa_{\delta(S)}(P^{(k)})(v)\ne0$ for some $v\in(\mathbb F_2^2)^{k+1}$. For $\rho=\rho_{S,v}$, (E) gives $\kappa_\rho(\mathrm{in}_m(g))\ne0$. By formula (1) of [the invisible-ideal theorem](unipotent-detection-in-free-pro-p-products.md), $\rho(g)=1+\kappa_\rho(\mathrm{in}_m(g))E_{1,m+1}\ne1$. This proves part 1.
+
+Part 1 and Lemma 1 of the invisible-ideal theorem give the property over $\mathbb F_2$ for $n\le17$. Over a finite field $\mathbb F\supseteq\mathbb F_2$, it follows because $U_n(\mathbb F_2)\subseteq U_n(\mathbb F)$ and every continuous homomorphism to $U_n(\mathbb F)$ kills $G_{(n)}$, by Step 1 of [the counterexample](kernel-unipotent-conjecture-fails-for-zp2-free-product-zp.md). This proves part 2. The theorem of the counterexample at $p=2$ gives, for every $n\ge18$, some $g\in G_{(n-1)}\setminus G_{(n)}$ with $\rho(g)=1$ for every continuous $\rho:G\to U_n(\mathbb F_2)$. This proves part 3. $\square$
+
+The corollary follows from the theorem and Corollary 1 of the counterexample.
+
+**Remarks.**
+
+- *Overlap with hand proofs.* Some blocks are also covered by arguments in the low-degree theorem, which apply because $\mathcal V_m\subseteq\mathcal W_m$ by its Lemma 1. The cases $k=0$ and $k=1$ of its Lemma 4 use only (W0) and (W1), and so hold in every degree. Its proposition covers $k=2$ for $m\le N(2)+1=16$. The case $k\ge3$ of its Lemma 4 uses $m\le2p+3$ only through $m-k\le2p$, so it covers $k\ge3$ with $m-k\le4$. The calculation also covers all of these blocks, and agrees.
+- *Checks on the calculation.* These are consistency checks and are not used in the proof.
+  - For $k=2$ and $m=17$ the same calculation finds rank $407$ on a block of dimension $408$. This matches the counterexample, whose undetected element of degree $17$ has two letters $z$. It also matches the divisibility argument cited in the proof of the proposition of the low-degree theorem, which holds in every degree: it shows that $\Psi$, of degree $15$, divides $\Phi_P$ for every $P$ in the kernel, so the kernel is at most one-dimensional.
+  - For $k=3$ and $m=15$, the computer-check remark of the low-degree theorem found, up to scalars, exactly one nonzero $\Phi$ of degree $12$ in three pairs satisfying its condition (Z) for all $v$, and found that it is not $\kappa$ of any combination of brackets $[[\ell_\alpha,\ell_\beta],\ell_\gamma]$. By Lemma B(b), these brackets span $\mathcal V^{(3)}$, so this agrees with the full rank found here.
+  - The dimensions found in step 1 agree for all $k$ and $m\le16$ with $\sum_fW(k/f,(m-k)/f)$, summed over the powers $f$ of $2$ dividing both $k$ and $m-k$, where $W(k,D)=\frac1k\sum_{e\mid\gcd(k,D)}\mu(e)\binom{D/e+2k/e-1}{2k/e-1}$ and $\mu$ is the Möbius function. This is Witt's dimension formula for the free Lie algebra on generators of the degrees of the $\ell_{a,b}$, completed by squares.
+- *How it was run.* Steps 1 and 2 were run in JavaScript. Step 3 used plain Gaussian elimination over $\mathbb F_2$, in C for the blocks with $m\in\{15,16\}$ and $4\le k\le m-5$, and in JavaScript for the others. The whole calculation took about ten minutes on one machine.
+- *What remains open.* Over $\mathbb F_2$ the property of $G$ is now decided for every $n$. Over $\mathbb F_q$ with $q>2$ a power of $2$, it holds for $n\le17$ by part 2, fails for large $n$ by [no fixed finite field detects every Zassenhaus degree](no-fixed-finite-field-detects-every-zassenhaus-degree-of-zp2-free-product-zp.md), and is not decided in between. For odd $p$, the cases $2p+5\le n\le N(p)+3$ remain open. The analogous calculation there would need $p$th powers in place of squares, and is not attempted here.
+
+**Status.** The theorem and the corollary are proved here. The proof includes a finite exact computation over $\mathbb F_2$, specified completely by Lemmas B and C and steps 1–3, which was carried out by computer as described in the remarks. No statement of these results was found in the sources opened for [the conjecture](kernel-unipotent-conjecture.md), and no separate literature search was made.
